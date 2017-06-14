@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MsP-WJ-O2A">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Scenery View Controller-->
+        <scene sceneID="bG2-SI-xEz">
+            <objects>
+                <viewController id="eoQ-PO-WWb" customClass="FTSceneryViewController" customModule="Fotile" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5PD-fm-5mO"/>
+                        <viewControllerLayoutGuide type="bottom" id="99Q-BM-gFx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8IA-NI-qGv">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这是啊按时大吗" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JK5-fR-oWJ">
+                                <rect key="frame" x="736" y="94" width="21" height="186"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="186" id="HFB-TO-b78"/>
+                                    <constraint firstAttribute="width" constant="21" id="Mg8-dH-tKh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="JK5-fR-oWJ" secondAttribute="trailing" constant="11" id="fxS-Q4-3of"/>
+                            <constraint firstItem="JK5-fR-oWJ" firstAttribute="top" secondItem="5PD-fm-5mO" secondAttribute="bottom" constant="30" id="vLj-oC-YIk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fRk-hr-sgy"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="768" height="1024"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ekV-Q2-Nbv" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1678" y="963"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="b4r-R4-3jw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MsP-WJ-O2A" customClass="FTNavigationController" customModule="Fotile" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="WT8-Kh-4ac"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="768" height="1024"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1ES-AC-Gcl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eoQ-PO-WWb" kind="relationship" relationship="rootViewController" id="QsW-Jf-bs9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dMp-kE-kMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="639" y="761"/>
+        </scene>
+    </scenes>
+</document>

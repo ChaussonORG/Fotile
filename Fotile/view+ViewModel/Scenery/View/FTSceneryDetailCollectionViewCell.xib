@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="FTSceneryDetailCollectionViewCell" customModule="Fotile" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="170" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="170" height="80"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天堂花园" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ecf-qw-1yP">
+                        <rect key="frame" x="0.0" y="18" width="170" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小区名称" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHM-cD-nx8">
+                        <rect key="frame" x="0.0" y="49" width="170" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xl7-sq-yno">
+                        <rect key="frame" x="160" y="35" width="10" height="10"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="1Y4-BA-c3e"/>
+                            <constraint firstAttribute="height" constant="10" id="p3V-si-kdE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Ecf-qw-1yP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="18" id="6tD-cb-6qO"/>
+                <constraint firstAttribute="trailing" secondItem="Ecf-qw-1yP" secondAttribute="trailing" id="Jcp-V5-SUU"/>
+                <constraint firstItem="Ecf-qw-1yP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jxF-fv-tbI"/>
+                <constraint firstItem="Xl7-sq-yno" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="35" id="mnm-Az-CZs"/>
+                <constraint firstAttribute="trailing" secondItem="Xl7-sq-yno" secondAttribute="trailing" id="mno-Bl-isq"/>
+                <constraint firstItem="fHM-cD-nx8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="o2Y-zv-umR"/>
+                <constraint firstItem="fHM-cD-nx8" firstAttribute="top" secondItem="Ecf-qw-1yP" secondAttribute="bottom" constant="10" id="vE2-CY-hEg"/>
+                <constraint firstAttribute="trailing" secondItem="fHM-cD-nx8" secondAttribute="trailing" id="yLY-Wn-zOt"/>
+            </constraints>
+            <size key="customSize" width="232" height="112"/>
+            <point key="canvasLocation" x="116" y="83"/>
+        </collectionViewCell>
+    </objects>
+</document>

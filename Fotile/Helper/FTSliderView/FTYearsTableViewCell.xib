@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellid" rowHeight="165" id="KGk-i7-Jjw" customClass="FTYearsTableViewCell" customModule="Fotile" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="44" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="44" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hp0-dZ-BPQ">
+                        <rect key="frame" x="0.0" y="0.0" width="1" height="101.5"/>
+                        <color key="backgroundColor" red="0.90588235859999999" green="0.90588235859999999" blue="0.90588235859999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="srP-za-tot"/>
+                        </constraints>
+                    </view>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ptm-0t-x3l">
+                        <rect key="frame" x="0.0" y="10" width="3" height="71.5"/>
+                        <color key="backgroundColor" red="1" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="3" id="mIz-5f-rLU"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDb-Sz-7yY">
+                        <rect key="frame" x="2" y="0.0" width="42" height="100"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Ptm-0t-x3l" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="B1b-Ls-hXP"/>
+                    <constraint firstItem="Ptm-0t-x3l" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Bmg-l9-ehj"/>
+                    <constraint firstItem="GDb-Sz-7yY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="CuM-7h-yNv"/>
+                    <constraint firstAttribute="trailing" secondItem="GDb-Sz-7yY" secondAttribute="trailing" id="DJR-Vt-Ht4"/>
+                    <constraint firstAttribute="bottom" secondItem="hp0-dZ-BPQ" secondAttribute="bottom" constant="-2" id="MHC-aG-rvZ"/>
+                    <constraint firstAttribute="bottom" secondItem="Ptm-0t-x3l" secondAttribute="bottom" constant="18" id="V6i-XX-rBY"/>
+                    <constraint firstItem="hp0-dZ-BPQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="giW-8M-mKV"/>
+                    <constraint firstItem="GDb-Sz-7yY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jBi-HJ-cxn"/>
+                    <constraint firstAttribute="bottom" secondItem="GDb-Sz-7yY" secondAttribute="bottom" id="o9C-7T-jB8"/>
+                    <constraint firstItem="hp0-dZ-BPQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="y1v-SI-xuG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="redView" destination="Ptm-0t-x3l" id="Ah9-Zx-BVf"/>
+                <outlet property="title" destination="GDb-Sz-7yY" id="uf8-fs-fE1"/>
+            </connections>
+            <point key="canvasLocation" x="-114" y="151"/>
+        </tableViewCell>
+    </objects>
+</document>
