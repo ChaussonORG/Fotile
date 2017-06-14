@@ -23,11 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }else{
             logOut()
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            FTImageManager.shareInstance().downloadAllImages({ (completeCount, totalCount) in
-                print("一共\(totalCount)张图片, 已经下载\(completeCount)张图片")
-            }, updateTime: nil)
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+//            FTImageManager.shareInstance().downloadAllImages({ (completeCount, totalCount) in
+//                print("一共\(totalCount)张图片, 已经下载\(completeCount)张图片")
+//            }, updateTime: nil)
+//        }
         return true
     }
     func logOut() {
