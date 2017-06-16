@@ -15,6 +15,10 @@ class FTLoginViewModel: NSObject {
             if model != nil {
                 if model?.code == 200{
                     UserDefaults.UserData.token.store(value: model?.data.token)
+                    guard let data = model?.data else{
+                        return
+                    }
+                    FTUserManager.userManager.saveUserWithInfo(model: data)
                 }
                 finish((model?.code)!)
             }

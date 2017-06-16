@@ -49,18 +49,20 @@ class FTSceneryCollectionCell: UICollectionViewCell {
             make.bottom.equalTo(area)
         }
     }
-
+    func loadModel(model:FTRealKitchen) {
+        areaNum.text = model.kitchenArea
+        costNum.text = model.kitchenCost
+        imageV.image = model.thumbnailImage.picture
+    }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     lazy var imageV:UIImageView = {
         let image:UIImageView = UIImageView()
-        image.image = #imageLiteral(resourceName: "home4")
         return image
     }()
     lazy var areaNum:UILabel = {
         let label:UILabel = UILabel()
-        label.text = "5平米"
         label.textColor = FTStyleConfiguration.a4c4c4c
         label.font = FTStyleConfiguration.font18bold
         return label
@@ -75,7 +77,6 @@ class FTSceneryCollectionCell: UICollectionViewCell {
 
     lazy var costNum:UILabel = {
         let label:UILabel = UILabel()
-        label.text = "1万"
         label.textColor = FTStyleConfiguration.a4c4c4c
         label.font = FTStyleConfiguration.font18bold
         return label

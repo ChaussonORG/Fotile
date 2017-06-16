@@ -298,25 +298,28 @@ class HeaderReusableView: UICollectionReusableView {
 extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:FTSceneryCollectionCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! FTSceneryCollectionCell
-        //cell.loadModel(model: viewModel.cellViewModels[indexPath.row])
+        let array:[FTRealKitchen] = FTRealKitchenService.fetchRealKitchens(withCity: FTUserManager.userManager.getModel().userInfo.city)[indexPath.section].list as! [FTRealKitchen]
+        cell.loadModel(model: array[indexPath.row])
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        let array:[FTRealKitchen] = FTRealKitchenService.fetchRealKitchens(withCity: FTUserManager.userManager.getModel().userInfo.city)[section].list as! [FTRealKitchen]
+        return array.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        let vc = FTSceneryDetailViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 5
+        return FTRealKitchenService.fetchRealKitchens(withCity: FTUserManager.userManager.getModel().userInfo.city).count
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let model:FTRealKitchenList = FTRealKitchenService.fetchRealKitchens(withCity: FTUserManager.userManager.getModel().userInfo.city)[indexPath.section]
         switch kind{
         case UICollectionElementKindSectionHeader:
             let header:HeaderReusableView=collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as! HeaderReusableView
-            header.headerLb!.text = "天堂花园  ·"
-            header.headerLb1.text = "长宁区"
+            header.headerLb!.text = "\(model.city)  ·"
+            header.headerLb1.text = model.name
             return header
         default:
             return HeaderReusableView()

@@ -15,6 +15,10 @@
 @property (nonatomic ,strong) UIImage *picture;
 @property (nonatomic ,assign) int size;
 
+/*排序使用*/
+@property (nonatomic ,assign) int sort;
+
+
 + (FTImage *)test;
 
 

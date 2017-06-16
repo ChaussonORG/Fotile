@@ -15,6 +15,5 @@
 // 根据id获取定制厨房详情
 + (FTCustomKTDetail *)fetchCustomDetailWithId:(NSString *)identifer;
 // Obj获取定制厨房详情
-
 + (FTCustomKTDetail *)fetchCustomDetail:(FTCustomKitchen *)custom;
 @end

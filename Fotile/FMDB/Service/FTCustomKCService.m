@@ -89,6 +89,8 @@
         product.identifier = [productRs stringForColumn:@"product_id"];
         NSString *productDetailSql = [NSString stringWithFormat:@"select * from t_product where id= '%@'",product.identifier];
         FMResultSet *productDetail = [db executeQuery:productDetailSql];
+        NSString *groupId = [productRs stringForColumn:@"image_group_id"];
+        product.groupImage = [manager fetchGroupImageWithId:groupId];
         while ([productDetail next]) {
             product.identifier =  [productDetail stringForColumn:@"id"];
             product.createTime =  [productDetail stringForColumn:@"create_time"];
@@ -97,7 +99,7 @@
             product.modelNumber =  [productDetail stringForColumn:@"model_no"];
             product.slogan =  [productDetail stringForColumn:@"slogan"];
             product.catalogType =  [productDetail intForColumn:@"catalog_id"];
-            product.groupImage = [manager fetchGroupImageWithId:[productDetail stringForColumn:@"image_group_id"]];
+          
 
         }
         [products addObject:product];
