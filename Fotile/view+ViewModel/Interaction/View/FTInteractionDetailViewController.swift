@@ -7,15 +7,27 @@
 //
 
 import UIKit
+
+enum kitType {
+    case Day1
+    case Day2
+    case Day3
+    case Ninght1
+    case Ninght2
+    case Ninght3
+}
+
 class FTInteractionDetailViewController: UIViewController {
 
     let viewModel:FTInteractionDetailViewModel = FTInteractionDetailViewModel()
     var model:FTCustomKTDetail = FTCustomKTDetail()
 
     @IBOutlet var popBtn: UIButton!
-    
+    var type:kitType = .Day2
+    var typeIndex = 1
     @IBOutlet var pushBtn: UIButton!
     @IBOutlet var dayNightBtn: UIButton!
+    
     var rect:CGRect = CGRect()
     let spac = (UIScreen.main.bounds.size.height - UIScreen.main.bounds.size.width) / 2
     override func viewDidLoad() {
@@ -221,6 +233,7 @@ class FTInteractionDetailViewController: UIViewController {
         scroll.contentSize = CGSize(width: UIScreen.main.bounds.size.height * 3, height: UIScreen.main.bounds.size.width)
         scroll.isPagingEnabled = true
         scroll.bounces = false
+        scroll.delegate = self
         scroll.contentOffset = CGPoint(x: scroll.contentSize.width / 3, y: 0)
         scroll.showsHorizontalScrollIndicator = false
         return scroll
@@ -297,17 +310,38 @@ class FTInteractionDetailViewController: UIViewController {
         if dayNightBtn.isSelected {
             day1.isHidden = true
             day2.isHidden = true
-            day2.isHidden = true
+            day3.isHidden = true
             night3.isHidden = false
             night1.isHidden = false
             night2.isHidden = false
+            if self.scrollView.contentOffset.x == 0 {
+                type = .Ninght1
+            }
+            if self.scrollView.contentOffset.x == UIScreen.height {
+                type = .Ninght2
+            }
+            if self.scrollView.contentOffset.x == UIScreen.height * 2 {
+                type = .Ninght3
+            }
+            collectionView.reloadData()
         }else{
             day1.isHidden = false
             day2.isHidden = false
-            day2.isHidden = false
+            day3.isHidden = false
             night3.isHidden = true
             night1.isHidden = true
             night2.isHidden = true
+            if self.scrollView.contentOffset.x == 0 {
+                type = .Day1
+            }
+            if self.scrollView.contentOffset.x == UIScreen.height {
+                type = .Day2
+            }
+            if self.scrollView.contentOffset.x == UIScreen.height * 2 {
+                type = .Day3
+            }
+            collectionView.reloadData()
+
         }
     }
     override func didReceiveMemoryWarning() {
@@ -328,7 +362,34 @@ class FTInteractionDetailViewController: UIViewController {
                 viewModel.cellViewModels.append(model)
             }
         }
+        typeIndex = Int(index)
         collectionView.reloadData()
+    }
+    func chooseProduct(imageView:FTBaseLayerView,image:UIImage) {
+        switch typeIndex {
+        case 1:
+            imageView.imageView1.image = image
+        case 2:
+            imageView.imageView2.image = image
+        case 3:
+            imageView.imageView3.image = image
+        case 4:
+            imageView.imageView4.image = image
+        case 5:
+            imageView.imageView5.image = image
+        case 6:
+            imageView.imageView6.image = image
+        case 7:
+            imageView.imageView7.image = image
+        case 8:
+            imageView.imageView8.image = image
+        case 9:
+            imageView.imageView9.image = image
+        case 10:
+            imageView.imageView10.image = image
+        default:
+            break
+        }
     }
     /*
     // MARK: - Navigation
@@ -341,26 +402,64 @@ class FTInteractionDetailViewController: UIViewController {
     */
 
 }
-extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollectionViewDataSource, FTHorOptionsViewDeleage{
+extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollectionViewDataSource, FTHorOptionsViewDeleage,UIScrollViewDelegate{
     func clickBtnAction(index: Int32) {
       chooseType(index: index)
     }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if self.scrollView.contentOffset.x == 0 {
-            
-        }
 
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView == self.scrollView {
+            if self.scrollView.contentOffset.x == 0 {
+                if !dayNightBtn.isSelected {
+                    type = .Day1
+                }else{
+                    type = .Ninght1
+                }
+                collectionView.reloadData()
+            }
+            if self.scrollView.contentOffset.x == UIScreen.height {
+                if !dayNightBtn.isSelected {
+                    type = .Day2
+                }else{
+                    type = .Ninght2
+                }
+                collectionView.reloadData()
+            }
+            if self.scrollView.contentOffset.x == UIScreen.height * 2 {
+                if !dayNightBtn.isSelected {
+                    type = .Day3
+                }else{
+                    type = .Ninght3
+                }
+                collectionView.reloadData()
+            }
+        }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:FTInteractionDetailCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! FTInteractionDetailCollectionViewCell
-        cell.loadModel(model: viewModel.cellViewModels[indexPath.row])
+        cell.loadModel(model: viewModel.cellViewModels[indexPath.row], type: type)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.cellViewModels.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        switch type {
+        case .Day1:
+            chooseProduct(imageView: day1, image: viewModel.cellViewModels[indexPath.row].groupImage.day1.picture)
+        case .Day2:
+            chooseProduct(imageView: day2, image: viewModel.cellViewModels[indexPath.row].groupImage.day2.picture)
+        case .Day3:
+            chooseProduct(imageView: day3, image: viewModel.cellViewModels[indexPath.row].groupImage.day3.picture)
+        case .Ninght1:
+            chooseProduct(imageView: night1, image: viewModel.cellViewModels[indexPath.row].groupImage.night1.picture)
+        case .Ninght2:
+            chooseProduct(imageView: night2, image: viewModel.cellViewModels[indexPath.row].groupImage.night2.picture)
+        case .Ninght3:
+            chooseProduct(imageView: night3, image: viewModel.cellViewModels[indexPath.row].groupImage.night3.picture)
+        default:
+            break
+        }
     }
 
 }

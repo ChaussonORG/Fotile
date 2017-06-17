@@ -99,7 +99,7 @@
             product.modelNumber =  [productDetail stringForColumn:@"model_no"];
             product.slogan =  [productDetail stringForColumn:@"slogan"];
             product.catalogType =  [productDetail intForColumn:@"catalog_id"];
-          
+            product.thumnailImage = [manager fetchImageWithId:[productDetail stringForColumn:@"logo_file_id"]];
 
         }
         [products addObject:product];

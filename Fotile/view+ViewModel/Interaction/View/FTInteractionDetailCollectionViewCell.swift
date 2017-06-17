@@ -30,10 +30,25 @@ class FTInteractionDetailCollectionViewCell: UICollectionViewCell {
             make.bottom.equalTo(0)
         }
     }
-    func loadModel(model:FTProduct)  {
-        if let day2 = model.groupImage.day2{
-            imageV.image = day2.picture
+    func loadModel(model:FTProduct,type:kitType)  {
+        var day:FTImage = FTImage()
+        switch type {
+        case .Day1:
+            day = model.groupImage.day1
+        case .Day2:
+            day = model.groupImage.day2
+        case .Day3:
+            day = model.groupImage.day3
+        case .Ninght1:
+            day = model.groupImage.night1
+        case .Ninght2:
+            day = model.groupImage.night2
+        case .Ninght3:
+            day = model.groupImage.night3
+        default:
+            break
         }
+        imageV.image = day.picture
         label.text = model.name
     }
     required init?(coder aDecoder: NSCoder) {

@@ -8,7 +8,7 @@
 
 #import "FTObject.h"
 #import "FTGroupImage.h"
-
+#import "FTImage.h"
 @interface FTProduct : FTObject
 @property (nonatomic ,copy) NSString *name;
 
@@ -17,5 +17,6 @@
 
 @property (nonatomic ,assign) int catalogType;
 @property (nonatomic ,strong) FTGroupImage *groupImage;
+@property (nonatomic ,strong) FTImage *thumnailImage;
 
 @end

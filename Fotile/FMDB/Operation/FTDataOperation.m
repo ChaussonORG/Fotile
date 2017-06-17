@@ -15,12 +15,15 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         instance = [[FTDataOperation alloc]init];
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *docDir = [paths objectAtIndex:0];
-        NSString *path = [docDir stringByAppendingPathComponent:DB_FILE_NAME];
-        instance.dataBase = [FMDatabase databaseWithPath:path];
+     
+        instance.dataBase = [FMDatabase databaseWithPath:[self dbPath]];
         
     });
     return instance;
+}
++ (NSString *)dbPath{
+    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *path = [cachesPath stringByAppendingPathComponent:DB_FILE_NAME];
+    return path;
 }
 @end

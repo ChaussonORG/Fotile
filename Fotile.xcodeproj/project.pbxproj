@@ -66,10 +66,6 @@
 		68215D141EAEF15F00A32759 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68215D0C1EAEF15F00A32759 /* UIImageView+Extension.swift */; };
 		68215D151EAEF15F00A32759 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68215D0D1EAEF15F00A32759 /* UIScreen+Extension.swift */; };
 		68215D161EAEF15F00A32759 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68215D0E1EAEF15F00A32759 /* UITextField+Extension.swift */; };
-		684F97781EF0D83B002B6E29 /* FTDataOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 684F97681EF0D83B002B6E29 /* FTDataOperation.m */; };
-		684F97791EF0D83B002B6E29 /* ftdb.db in Resources */ = {isa = PBXBuildFile; fileRef = 684F97691EF0D83B002B6E29 /* ftdb.db */; };
-		684F977A1EF0D83B002B6E29 /* FTImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 684F976B1EF0D83B002B6E29 /* FTImageDownloader.m */; };
-		684F977B1EF0D83B002B6E29 /* FTImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 684F976D1EF0D83B002B6E29 /* FTImageManager.m */; };
 		686161EE1ED1493C006355BD /* FTProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686161ED1ED1493C006355BD /* FTProductDetailViewController.swift */; };
 		686161F01ED16C68006355BD /* FTDetailCollectionViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686161EF1ED16C68006355BD /* FTDetailCollectionViewCell1.swift */; };
 		686161F21ED17965006355BD /* FTdetailCollectionViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686161F11ED17965006355BD /* FTdetailCollectionViewCell2.swift */; };
@@ -81,14 +77,27 @@
 		686A0BFA1EE0079E0008F97C /* FTHonorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686A0BF91EE0079E0008F97C /* FTHonorCollectionViewCell.swift */; };
 		686A0BFC1EE00BED0008F97C /* FTServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686A0BFB1EE00BED0008F97C /* FTServiceViewController.swift */; };
 		686A0BFE1EE149650008F97C /* FTPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686A0BFD1EE149650008F97C /* FTPolicyViewController.swift */; };
-		686C27691EF220B500DAA708 /* FTCustomKCService.m in Sources */ = {isa = PBXBuildFile; fileRef = 686C275E1EF220B500DAA708 /* FTCustomKCService.m */; };
-		686C276A1EF220B500DAA708 /* FTRealKitchenService.m in Sources */ = {isa = PBXBuildFile; fileRef = 686C27601EF220B500DAA708 /* FTRealKitchenService.m */; };
 		686CFEBB1EC97B94003AD4DA /* FTSceneryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686CFEBA1EC97B94003AD4DA /* FTSceneryCollectionCell.swift */; };
 		686CFEBD1EC9A3F9003AD4DA /* FTSceneryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686CFEBC1EC9A3F9003AD4DA /* FTSceneryDetailViewController.swift */; };
 		686CFEC01EC9A9DC003AD4DA /* FTSceneryDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686CFEBE1EC9A9DC003AD4DA /* FTSceneryDetailCollectionViewCell.swift */; };
 		686CFEC11EC9A9DC003AD4DA /* FTSceneryDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 686CFEBF1EC9A9DC003AD4DA /* FTSceneryDetailCollectionViewCell.xib */; };
 		68822D931ED5295C00E6F958 /* FTScreeningCostAndAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68822D921ED5295C00E6F958 /* FTScreeningCostAndAreaView.swift */; };
 		68822D961ED5305300E6F958 /* FTBaseLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68822D951ED5305300E6F958 /* FTBaseLayerView.swift */; };
+		689728EC1EF578A1005F40D6 /* FTCustomKitchen.m in Sources */ = {isa = PBXBuildFile; fileRef = 689728CB1EF578A1005F40D6 /* FTCustomKitchen.m */; };
+		689728ED1EF578A1005F40D6 /* FTCustomKTDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 689728CD1EF578A1005F40D6 /* FTCustomKTDetail.m */; };
+		689728EE1EF578A1005F40D6 /* FTGroupImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 689728CF1EF578A1005F40D6 /* FTGroupImage.m */; };
+		689728EF1EF578A1005F40D6 /* FTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 689728D11EF578A1005F40D6 /* FTImage.m */; };
+		689728F01EF578A1005F40D6 /* FTMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = 689728D41EF578A1005F40D6 /* FTMaterial.m */; };
+		689728F11EF578A1005F40D6 /* FTObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 689728D61EF578A1005F40D6 /* FTObject.m */; };
+		689728F21EF578A1005F40D6 /* FTProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 689728D91EF578A1005F40D6 /* FTProduct.m */; };
+		689728F31EF578A1005F40D6 /* FTRealKitchen.m in Sources */ = {isa = PBXBuildFile; fileRef = 689728DC1EF578A1005F40D6 /* FTRealKitchen.m */; };
+		689728F41EF578A1005F40D6 /* FTRealKitchenList.m in Sources */ = {isa = PBXBuildFile; fileRef = 689728DE1EF578A1005F40D6 /* FTRealKitchenList.m */; };
+		689728F51EF578A1005F40D6 /* FTDataOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 689728E11EF578A1005F40D6 /* FTDataOperation.m */; };
+		689728F61EF578A1005F40D6 /* ftdb.db in Resources */ = {isa = PBXBuildFile; fileRef = 689728E21EF578A1005F40D6 /* ftdb.db */; };
+		689728F71EF578A1005F40D6 /* FTImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 689728E41EF578A1005F40D6 /* FTImageDownloader.m */; };
+		689728F81EF578A1005F40D6 /* FTImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 689728E61EF578A1005F40D6 /* FTImageManager.m */; };
+		689728F91EF578A1005F40D6 /* FTCustomKCService.m in Sources */ = {isa = PBXBuildFile; fileRef = 689728E91EF578A1005F40D6 /* FTCustomKCService.m */; };
+		689728FA1EF578A1005F40D6 /* FTRealKitchenService.m in Sources */ = {isa = PBXBuildFile; fileRef = 689728EB1EF578A1005F40D6 /* FTRealKitchenService.m */; };
 		689EC0A81EC45D3200E9730C /* UINavigationController+WXSTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 689EC0881EC45D3200E9730C /* UINavigationController+WXSTransition.m */; };
 		689EC0A91EC45D3200E9730C /* UIViewController+WXSTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 689EC08A1EC45D3200E9730C /* UIViewController+WXSTransition.m */; };
 		689EC0AA1EC45D3200E9730C /* UIViewController+WXSTransitionProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 689EC08C1EC45D3200E9730C /* UIViewController+WXSTransitionProperty.m */; };
@@ -133,15 +142,6 @@
 		68E717781EC3155700F236EE /* FTHorOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E717771EC3155700F236EE /* FTHorOptionsView.swift */; };
 		68E7177B1EC319F100F236EE /* FTSchemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E717791EC319F100F236EE /* FTSchemeViewController.swift */; };
 		68E7177E1EC31AF900F236EE /* FTInteractionDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E7177D1EC31AF900F236EE /* FTInteractionDetailCollectionViewCell.swift */; };
-		68EBA4301EF2987100158248 /* FTCustomKitchen.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EBA41C1EF2987100158248 /* FTCustomKitchen.m */; };
-		68EBA4311EF2987100158248 /* FTCustomKTDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EBA41E1EF2987100158248 /* FTCustomKTDetail.m */; };
-		68EBA4321EF2987100158248 /* FTGroupImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EBA4201EF2987100158248 /* FTGroupImage.m */; };
-		68EBA4331EF2987100158248 /* FTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EBA4221EF2987100158248 /* FTImage.m */; };
-		68EBA4341EF2987100158248 /* FTMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EBA4251EF2987100158248 /* FTMaterial.m */; };
-		68EBA4351EF2987100158248 /* FTObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EBA4271EF2987100158248 /* FTObject.m */; };
-		68EBA4361EF2987100158248 /* FTProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EBA42A1EF2987100158248 /* FTProduct.m */; };
-		68EBA4371EF2987100158248 /* FTRealKitchen.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EBA42D1EF2987100158248 /* FTRealKitchen.m */; };
-		68EBA4381EF2987100158248 /* FTRealKitchenList.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EBA42F1EF2987100158248 /* FTRealKitchenList.m */; };
 		68FC2C101EC945E40048D80E /* FTInteractionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FC2C0F1EC945E40048D80E /* FTInteractionDetailViewModel.swift */; };
 		68FDF29B1EEE34DF00AC0466 /* FTUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FDF29A1EEE34DF00AC0466 /* FTUserManager.swift */; };
 		68FDF29E1EEE354300AC0466 /* UserDefaultSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FDF29D1EEE354300AC0466 /* UserDefaultSettable.swift */; };
@@ -233,13 +233,6 @@
 		68215D0C1EAEF15F00A32759 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		68215D0D1EAEF15F00A32759 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 		68215D0E1EAEF15F00A32759 /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
-		684F97671EF0D83B002B6E29 /* FTDataOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDataOperation.h; sourceTree = "<group>"; };
-		684F97681EF0D83B002B6E29 /* FTDataOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDataOperation.m; sourceTree = "<group>"; };
-		684F97691EF0D83B002B6E29 /* ftdb.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = ftdb.db; sourceTree = "<group>"; };
-		684F976A1EF0D83B002B6E29 /* FTImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTImageDownloader.h; sourceTree = "<group>"; };
-		684F976B1EF0D83B002B6E29 /* FTImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTImageDownloader.m; sourceTree = "<group>"; };
-		684F976C1EF0D83B002B6E29 /* FTImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTImageManager.h; sourceTree = "<group>"; };
-		684F976D1EF0D83B002B6E29 /* FTImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTImageManager.m; sourceTree = "<group>"; };
 		686161ED1ED1493C006355BD /* FTProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductDetailViewController.swift; sourceTree = "<group>"; };
 		686161EF1ED16C68006355BD /* FTDetailCollectionViewCell1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTDetailCollectionViewCell1.swift; sourceTree = "<group>"; };
 		686161F11ED17965006355BD /* FTdetailCollectionViewCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTdetailCollectionViewCell2.swift; sourceTree = "<group>"; };
@@ -251,16 +244,41 @@
 		686A0BF91EE0079E0008F97C /* FTHonorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTHonorCollectionViewCell.swift; sourceTree = "<group>"; };
 		686A0BFB1EE00BED0008F97C /* FTServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTServiceViewController.swift; sourceTree = "<group>"; };
 		686A0BFD1EE149650008F97C /* FTPolicyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTPolicyViewController.swift; sourceTree = "<group>"; };
-		686C275D1EF220B500DAA708 /* FTCustomKCService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTCustomKCService.h; sourceTree = "<group>"; };
-		686C275E1EF220B500DAA708 /* FTCustomKCService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTCustomKCService.m; sourceTree = "<group>"; };
-		686C275F1EF220B500DAA708 /* FTRealKitchenService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTRealKitchenService.h; sourceTree = "<group>"; };
-		686C27601EF220B500DAA708 /* FTRealKitchenService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTRealKitchenService.m; sourceTree = "<group>"; };
 		686CFEBA1EC97B94003AD4DA /* FTSceneryCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTSceneryCollectionCell.swift; sourceTree = "<group>"; };
 		686CFEBC1EC9A3F9003AD4DA /* FTSceneryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTSceneryDetailViewController.swift; sourceTree = "<group>"; };
 		686CFEBE1EC9A9DC003AD4DA /* FTSceneryDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTSceneryDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		686CFEBF1EC9A9DC003AD4DA /* FTSceneryDetailCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTSceneryDetailCollectionViewCell.xib; sourceTree = "<group>"; };
 		68822D921ED5295C00E6F958 /* FTScreeningCostAndAreaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTScreeningCostAndAreaView.swift; sourceTree = "<group>"; };
 		68822D951ED5305300E6F958 /* FTBaseLayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTBaseLayerView.swift; sourceTree = "<group>"; };
+		689728CA1EF578A1005F40D6 /* FTCustomKitchen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTCustomKitchen.h; sourceTree = "<group>"; };
+		689728CB1EF578A1005F40D6 /* FTCustomKitchen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTCustomKitchen.m; sourceTree = "<group>"; };
+		689728CC1EF578A1005F40D6 /* FTCustomKTDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTCustomKTDetail.h; sourceTree = "<group>"; };
+		689728CD1EF578A1005F40D6 /* FTCustomKTDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTCustomKTDetail.m; sourceTree = "<group>"; };
+		689728CE1EF578A1005F40D6 /* FTGroupImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTGroupImage.h; sourceTree = "<group>"; };
+		689728CF1EF578A1005F40D6 /* FTGroupImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTGroupImage.m; sourceTree = "<group>"; };
+		689728D01EF578A1005F40D6 /* FTImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTImage.h; sourceTree = "<group>"; };
+		689728D11EF578A1005F40D6 /* FTImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTImage.m; sourceTree = "<group>"; };
+		689728D31EF578A1005F40D6 /* FTMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTMaterial.h; sourceTree = "<group>"; };
+		689728D41EF578A1005F40D6 /* FTMaterial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTMaterial.m; sourceTree = "<group>"; };
+		689728D51EF578A1005F40D6 /* FTObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTObject.h; sourceTree = "<group>"; };
+		689728D61EF578A1005F40D6 /* FTObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTObject.m; sourceTree = "<group>"; };
+		689728D81EF578A1005F40D6 /* FTProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTProduct.h; sourceTree = "<group>"; };
+		689728D91EF578A1005F40D6 /* FTProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTProduct.m; sourceTree = "<group>"; };
+		689728DB1EF578A1005F40D6 /* FTRealKitchen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTRealKitchen.h; sourceTree = "<group>"; };
+		689728DC1EF578A1005F40D6 /* FTRealKitchen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTRealKitchen.m; sourceTree = "<group>"; };
+		689728DD1EF578A1005F40D6 /* FTRealKitchenList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTRealKitchenList.h; sourceTree = "<group>"; };
+		689728DE1EF578A1005F40D6 /* FTRealKitchenList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTRealKitchenList.m; sourceTree = "<group>"; };
+		689728E01EF578A1005F40D6 /* FTDataOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDataOperation.h; sourceTree = "<group>"; };
+		689728E11EF578A1005F40D6 /* FTDataOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDataOperation.m; sourceTree = "<group>"; };
+		689728E21EF578A1005F40D6 /* ftdb.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = ftdb.db; sourceTree = "<group>"; };
+		689728E31EF578A1005F40D6 /* FTImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTImageDownloader.h; sourceTree = "<group>"; };
+		689728E41EF578A1005F40D6 /* FTImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTImageDownloader.m; sourceTree = "<group>"; };
+		689728E51EF578A1005F40D6 /* FTImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTImageManager.h; sourceTree = "<group>"; };
+		689728E61EF578A1005F40D6 /* FTImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTImageManager.m; sourceTree = "<group>"; };
+		689728E81EF578A1005F40D6 /* FTCustomKCService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTCustomKCService.h; sourceTree = "<group>"; };
+		689728E91EF578A1005F40D6 /* FTCustomKCService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTCustomKCService.m; sourceTree = "<group>"; };
+		689728EA1EF578A1005F40D6 /* FTRealKitchenService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTRealKitchenService.h; sourceTree = "<group>"; };
+		689728EB1EF578A1005F40D6 /* FTRealKitchenService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTRealKitchenService.m; sourceTree = "<group>"; };
 		689EC0871EC45D3200E9730C /* UINavigationController+WXSTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+WXSTransition.h"; sourceTree = "<group>"; };
 		689EC0881EC45D3200E9730C /* UINavigationController+WXSTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+WXSTransition.m"; sourceTree = "<group>"; };
 		689EC0891EC45D3200E9730C /* UIViewController+WXSTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WXSTransition.h"; sourceTree = "<group>"; };
@@ -322,24 +340,6 @@
 		68E717771EC3155700F236EE /* FTHorOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTHorOptionsView.swift; sourceTree = "<group>"; };
 		68E717791EC319F100F236EE /* FTSchemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTSchemeViewController.swift; sourceTree = "<group>"; };
 		68E7177D1EC31AF900F236EE /* FTInteractionDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTInteractionDetailCollectionViewCell.swift; sourceTree = "<group>"; };
-		68EBA41B1EF2987100158248 /* FTCustomKitchen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTCustomKitchen.h; sourceTree = "<group>"; };
-		68EBA41C1EF2987100158248 /* FTCustomKitchen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTCustomKitchen.m; sourceTree = "<group>"; };
-		68EBA41D1EF2987100158248 /* FTCustomKTDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTCustomKTDetail.h; sourceTree = "<group>"; };
-		68EBA41E1EF2987100158248 /* FTCustomKTDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTCustomKTDetail.m; sourceTree = "<group>"; };
-		68EBA41F1EF2987100158248 /* FTGroupImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTGroupImage.h; sourceTree = "<group>"; };
-		68EBA4201EF2987100158248 /* FTGroupImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTGroupImage.m; sourceTree = "<group>"; };
-		68EBA4211EF2987100158248 /* FTImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTImage.h; sourceTree = "<group>"; };
-		68EBA4221EF2987100158248 /* FTImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTImage.m; sourceTree = "<group>"; };
-		68EBA4241EF2987100158248 /* FTMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTMaterial.h; sourceTree = "<group>"; };
-		68EBA4251EF2987100158248 /* FTMaterial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTMaterial.m; sourceTree = "<group>"; };
-		68EBA4261EF2987100158248 /* FTObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTObject.h; sourceTree = "<group>"; };
-		68EBA4271EF2987100158248 /* FTObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTObject.m; sourceTree = "<group>"; };
-		68EBA4291EF2987100158248 /* FTProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTProduct.h; sourceTree = "<group>"; };
-		68EBA42A1EF2987100158248 /* FTProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTProduct.m; sourceTree = "<group>"; };
-		68EBA42C1EF2987100158248 /* FTRealKitchen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTRealKitchen.h; sourceTree = "<group>"; };
-		68EBA42D1EF2987100158248 /* FTRealKitchen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTRealKitchen.m; sourceTree = "<group>"; };
-		68EBA42E1EF2987100158248 /* FTRealKitchenList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTRealKitchenList.h; sourceTree = "<group>"; };
-		68EBA42F1EF2987100158248 /* FTRealKitchenList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTRealKitchenList.m; sourceTree = "<group>"; };
 		68FC2C0F1EC945E40048D80E /* FTInteractionDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTInteractionDetailViewModel.swift; sourceTree = "<group>"; };
 		68FDF29A1EEE34DF00AC0466 /* FTUserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTUserManager.swift; sourceTree = "<group>"; };
 		68FDF29D1EEE354300AC0466 /* UserDefaultSettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultSettable.swift; sourceTree = "<group>"; };
@@ -748,54 +748,94 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		684F97661EF0D83B002B6E29 /* Operation */ = {
-			isa = PBXGroup;
-			children = (
-				684F97671EF0D83B002B6E29 /* FTDataOperation.h */,
-				684F97681EF0D83B002B6E29 /* FTDataOperation.m */,
-				684F97691EF0D83B002B6E29 /* ftdb.db */,
-				684F976A1EF0D83B002B6E29 /* FTImageDownloader.h */,
-				684F976B1EF0D83B002B6E29 /* FTImageDownloader.m */,
-				684F976C1EF0D83B002B6E29 /* FTImageManager.h */,
-				684F976D1EF0D83B002B6E29 /* FTImageManager.m */,
-			);
-			path = Operation;
-			sourceTree = "<group>";
-		};
-		686C27471EF220B500DAA708 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				68EBA41A1EF2987100158248 /* FTCustomKitchen */,
-				68EBA41F1EF2987100158248 /* FTGroupImage.h */,
-				68EBA4201EF2987100158248 /* FTGroupImage.m */,
-				68EBA4211EF2987100158248 /* FTImage.h */,
-				68EBA4221EF2987100158248 /* FTImage.m */,
-				68EBA4231EF2987100158248 /* FTMaterial */,
-				68EBA4261EF2987100158248 /* FTObject.h */,
-				68EBA4271EF2987100158248 /* FTObject.m */,
-				68EBA4281EF2987100158248 /* FTProduct */,
-				68EBA42B1EF2987100158248 /* FTRealKitchen */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		686C275C1EF220B500DAA708 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				686C275D1EF220B500DAA708 /* FTCustomKCService.h */,
-				686C275E1EF220B500DAA708 /* FTCustomKCService.m */,
-				686C275F1EF220B500DAA708 /* FTRealKitchenService.h */,
-				686C27601EF220B500DAA708 /* FTRealKitchenService.m */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		68822D941ED52FD600E6F958 /* FTLayerView */ = {
 			isa = PBXGroup;
 			children = (
 				68822D951ED5305300E6F958 /* FTBaseLayerView.swift */,
 			);
 			path = FTLayerView;
+			sourceTree = "<group>";
+		};
+		689728C81EF578A1005F40D6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				689728C91EF578A1005F40D6 /* FTCustomKitchen */,
+				689728CE1EF578A1005F40D6 /* FTGroupImage.h */,
+				689728CF1EF578A1005F40D6 /* FTGroupImage.m */,
+				689728D01EF578A1005F40D6 /* FTImage.h */,
+				689728D11EF578A1005F40D6 /* FTImage.m */,
+				689728D21EF578A1005F40D6 /* FTMaterial */,
+				689728D51EF578A1005F40D6 /* FTObject.h */,
+				689728D61EF578A1005F40D6 /* FTObject.m */,
+				689728D71EF578A1005F40D6 /* FTProduct */,
+				689728DA1EF578A1005F40D6 /* FTRealKitchen */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		689728C91EF578A1005F40D6 /* FTCustomKitchen */ = {
+			isa = PBXGroup;
+			children = (
+				689728CA1EF578A1005F40D6 /* FTCustomKitchen.h */,
+				689728CB1EF578A1005F40D6 /* FTCustomKitchen.m */,
+				689728CC1EF578A1005F40D6 /* FTCustomKTDetail.h */,
+				689728CD1EF578A1005F40D6 /* FTCustomKTDetail.m */,
+			);
+			path = FTCustomKitchen;
+			sourceTree = "<group>";
+		};
+		689728D21EF578A1005F40D6 /* FTMaterial */ = {
+			isa = PBXGroup;
+			children = (
+				689728D31EF578A1005F40D6 /* FTMaterial.h */,
+				689728D41EF578A1005F40D6 /* FTMaterial.m */,
+			);
+			path = FTMaterial;
+			sourceTree = "<group>";
+		};
+		689728D71EF578A1005F40D6 /* FTProduct */ = {
+			isa = PBXGroup;
+			children = (
+				689728D81EF578A1005F40D6 /* FTProduct.h */,
+				689728D91EF578A1005F40D6 /* FTProduct.m */,
+			);
+			path = FTProduct;
+			sourceTree = "<group>";
+		};
+		689728DA1EF578A1005F40D6 /* FTRealKitchen */ = {
+			isa = PBXGroup;
+			children = (
+				689728DB1EF578A1005F40D6 /* FTRealKitchen.h */,
+				689728DC1EF578A1005F40D6 /* FTRealKitchen.m */,
+				689728DD1EF578A1005F40D6 /* FTRealKitchenList.h */,
+				689728DE1EF578A1005F40D6 /* FTRealKitchenList.m */,
+			);
+			path = FTRealKitchen;
+			sourceTree = "<group>";
+		};
+		689728DF1EF578A1005F40D6 /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				689728E01EF578A1005F40D6 /* FTDataOperation.h */,
+				689728E11EF578A1005F40D6 /* FTDataOperation.m */,
+				689728E21EF578A1005F40D6 /* ftdb.db */,
+				689728E31EF578A1005F40D6 /* FTImageDownloader.h */,
+				689728E41EF578A1005F40D6 /* FTImageDownloader.m */,
+				689728E51EF578A1005F40D6 /* FTImageManager.h */,
+				689728E61EF578A1005F40D6 /* FTImageManager.m */,
+			);
+			path = Operation;
+			sourceTree = "<group>";
+		};
+		689728E71EF578A1005F40D6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				689728E81EF578A1005F40D6 /* FTCustomKCService.h */,
+				689728E91EF578A1005F40D6 /* FTCustomKCService.m */,
+				689728EA1EF578A1005F40D6 /* FTRealKitchenService.h */,
+				689728EB1EF578A1005F40D6 /* FTRealKitchenService.m */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		689EC0861EC45D3200E9730C /* WXSTransition */ = {
@@ -877,9 +917,9 @@
 		68CBBA2F1EE7E80F0078F39A /* FMDB */ = {
 			isa = PBXGroup;
 			children = (
-				686C27471EF220B500DAA708 /* Model */,
-				686C275C1EF220B500DAA708 /* Service */,
-				684F97661EF0D83B002B6E29 /* Operation */,
+				689728C81EF578A1005F40D6 /* Model */,
+				689728DF1EF578A1005F40D6 /* Operation */,
+				689728E71EF578A1005F40D6 /* Service */,
 			);
 			name = FMDB;
 			path = Fotile/FMDB;
@@ -904,46 +944,6 @@
 				68C9DF3D1EE2884B00DACB58 /* FTYearsTableViewCell.xib */,
 			);
 			path = FTSliderView;
-			sourceTree = "<group>";
-		};
-		68EBA41A1EF2987100158248 /* FTCustomKitchen */ = {
-			isa = PBXGroup;
-			children = (
-				68EBA41B1EF2987100158248 /* FTCustomKitchen.h */,
-				68EBA41C1EF2987100158248 /* FTCustomKitchen.m */,
-				68EBA41D1EF2987100158248 /* FTCustomKTDetail.h */,
-				68EBA41E1EF2987100158248 /* FTCustomKTDetail.m */,
-			);
-			path = FTCustomKitchen;
-			sourceTree = "<group>";
-		};
-		68EBA4231EF2987100158248 /* FTMaterial */ = {
-			isa = PBXGroup;
-			children = (
-				68EBA4241EF2987100158248 /* FTMaterial.h */,
-				68EBA4251EF2987100158248 /* FTMaterial.m */,
-			);
-			path = FTMaterial;
-			sourceTree = "<group>";
-		};
-		68EBA4281EF2987100158248 /* FTProduct */ = {
-			isa = PBXGroup;
-			children = (
-				68EBA4291EF2987100158248 /* FTProduct.h */,
-				68EBA42A1EF2987100158248 /* FTProduct.m */,
-			);
-			path = FTProduct;
-			sourceTree = "<group>";
-		};
-		68EBA42B1EF2987100158248 /* FTRealKitchen */ = {
-			isa = PBXGroup;
-			children = (
-				68EBA42C1EF2987100158248 /* FTRealKitchen.h */,
-				68EBA42D1EF2987100158248 /* FTRealKitchen.m */,
-				68EBA42E1EF2987100158248 /* FTRealKitchenList.h */,
-				68EBA42F1EF2987100158248 /* FTRealKitchenList.m */,
-			);
-			path = FTRealKitchen;
 			sourceTree = "<group>";
 		};
 		68FDF2991EEE34DF00AC0466 /* CommenModel */ = {
@@ -1089,7 +1089,7 @@
 				68E7175D1EC1C1D100F236EE /* FTProductTableViewCell.xib in Resources */,
 				68D5CD0D1EAF1E5200294EC5 /* Interaction.storyboard in Resources */,
 				68D5CD141EAF224F00294EC5 /* More.storyboard in Resources */,
-				684F97791EF0D83B002B6E29 /* ftdb.db in Resources */,
+				689728F61EF578A1005F40D6 /* ftdb.db in Resources */,
 				68215BFC1EAEE5CE00A32759 /* Assets.xcassets in Resources */,
 				68215BFA1EAEE5CE00A32759 /* Main.storyboard in Resources */,
 				68D5CD121EAF1E9100294EC5 /* Product.storyboard in Resources */,
@@ -1171,6 +1171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68215CEE1EAEF10200A32759 /* ReusableView.swift in Sources */,
+				689728EF1EF578A1005F40D6 /* FTImage.m in Sources */,
 				68215CF71EAEF10200A32759 /* UIControlExtensions.swift in Sources */,
 				686CFEC01EC9A9DC003AD4DA /* FTSceneryDetailCollectionViewCell.swift in Sources */,
 				68215CFF1EAEF10200A32759 /* Each.swift in Sources */,
@@ -1185,43 +1186,39 @@
 				68215D031EAEF10200A32759 /* Purchase.swift in Sources */,
 				68E717651EC2B36F00F236EE /* FTProductTableView.swift in Sources */,
 				68215CE71EAEF10200A32759 /* Localizable.swift in Sources */,
-				68EBA4351EF2987100158248 /* FTObject.m in Sources */,
 				680A29D71ED41993001F98F0 /* FTScreeningTableViewCell.swift in Sources */,
 				68215CE61EAEF10200A32759 /* IntExtensions.swift in Sources */,
 				689EC0AB1EC45D3200E9730C /* WXSPercentDrivenInteractiveTransition.m in Sources */,
+				689728EE1EF578A1005F40D6 /* FTGroupImage.m in Sources */,
 				686A0BFE1EE149650008F97C /* FTPolicyViewController.swift in Sources */,
 				68C9DF3E1EE2884B00DACB58 /* FTYearsTableViewCell.swift in Sources */,
 				68215CE21EAEF10200A32759 /* DictionaryConvertible.swift in Sources */,
 				68215D021EAEF10200A32759 /* Permission.swift in Sources */,
 				686A0BF61EDFE6140008F97C /* FTPentalCollectionViewCell.swift in Sources */,
-				684F977B1EF0D83B002B6E29 /* FTImageManager.m in Sources */,
 				68215CF11EAEF10200A32759 /* SwiftyTableView.swift in Sources */,
-				68EBA4301EF2987100158248 /* FTCustomKitchen.m in Sources */,
+				689728FA1EF578A1005F40D6 /* FTRealKitchenService.m in Sources */,
 				686A0BF81EE0072F0008F97C /* FTHonorViewController.swift in Sources */,
 				68215CEC1EAEF10200A32759 /* KeyboardObserver.swift in Sources */,
 				686161F01ED16C68006355BD /* FTDetailCollectionViewCell1.swift in Sources */,
 				68C9DF391EE2875900DACB58 /* FTYearsOptionsTableView.swift in Sources */,
 				68215D141EAEF15F00A32759 /* UIImageView+Extension.swift in Sources */,
-				68EBA4321EF2987100158248 /* FTGroupImage.m in Sources */,
-				68EBA4341EF2987100158248 /* FTMaterial.m in Sources */,
 				68C9DFA41EE2A90C00DACB58 /* FTLoginViewModel.swift in Sources */,
 				68215CE51EAEF10200A32759 /* ErrorConvertible.swift in Sources */,
 				68FDF29B1EEE34DF00AC0466 /* FTUserManager.swift in Sources */,
-				686C27691EF220B500DAA708 /* FTCustomKCService.m in Sources */,
 				68E717601EC1C1EE00F236EE /* FTHorProductTableViewCell.swift in Sources */,
 				689EC0AD1EC45D3200E9730C /* WXSTransitionManager+BrickAnimation.m in Sources */,
 				689EC0B11EC45D3200E9730C /* WXSTransitionManager+PageAnimation.m in Sources */,
 				686161F21ED17965006355BD /* FTdetailCollectionViewCell2.swift in Sources */,
+				689728F11EF578A1005F40D6 /* FTObject.m in Sources */,
 				68215C3A1EAEED9100A32759 /* FTSceneryViewController.swift in Sources */,
 				68215CF61EAEF10200A32759 /* UIColorExtensions.swift in Sources */,
+				689728ED1EF578A1005F40D6 /* FTCustomKTDetail.m in Sources */,
 				68215CEA1EAEF10200A32759 /* StringExtensions.swift in Sources */,
 				680A29D51ED4190F001F98F0 /* FTScreeningTableView.swift in Sources */,
-				68EBA4311EF2987100158248 /* FTCustomKTDetail.m in Sources */,
 				68215CEF1EAEF10200A32759 /* SwiftyGenericTableViewController.swift in Sources */,
 				68215CED1EAEF10200A32759 /* NSLayoutConstraintExtensions.swift in Sources */,
-				684F977A1EF0D83B002B6E29 /* FTImageDownloader.m in Sources */,
-				68EBA4381EF2987100158248 /* FTRealKitchenList.m in Sources */,
 				68215CFE1EAEF10200A32759 /* ConnectionStatus.swift in Sources */,
+				689728F91EF578A1005F40D6 /* FTCustomKCService.m in Sources */,
 				68215CE41EAEF10200A32759 /* DictionaryExtensions.swift in Sources */,
 				689EC0AA1EC45D3200E9730C /* UIViewController+WXSTransitionProperty.m in Sources */,
 				68215CF81EAEF10200A32759 /* UIGestureRecognizerExtensions.swift in Sources */,
@@ -1241,18 +1238,23 @@
 				68215CFC1EAEF10200A32759 /* Bindable.swift in Sources */,
 				68C9DFA21EE2A8B900DACB58 /* FTLoginApi.swift in Sources */,
 				686161F61ED18985006355BD /* FTGraduateViewController.swift in Sources */,
+				689728F31EF578A1005F40D6 /* FTRealKitchen.m in Sources */,
+				689728F81EF578A1005F40D6 /* FTImageManager.m in Sources */,
 				68215CF41EAEF10200A32759 /* UIBarButtonItemExtensions.swift in Sources */,
 				689EC0AE1EC45D3200E9730C /* WXSTransitionManager+CoverAnimation.m in Sources */,
 				68E7177B1EC319F100F236EE /* FTSchemeViewController.swift in Sources */,
+				689728F41EF578A1005F40D6 /* FTRealKitchenList.m in Sources */,
 				68E717631EC2AD0000F236EE /* FTProductViewModel.swift in Sources */,
 				68215CE01EAEF10200A32759 /* FTStyleConfiguration.swift in Sources */,
 				68215D161EAEF15F00A32759 /* UITextField+Extension.swift in Sources */,
+				689728F71EF578A1005F40D6 /* FTImageDownloader.m in Sources */,
 				68D5CD291EAF261F00294EC5 /* FTTabbarView.swift in Sources */,
 				689EC0B01EC45D3200E9730C /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
 				68E717781EC3155700F236EE /* FTHorOptionsView.swift in Sources */,
 				689EC0A81EC45D3200E9730C /* UINavigationController+WXSTransition.m in Sources */,
 				68215CF91EAEF10200A32759 /* UITableViewExtensions.swift in Sources */,
 				689EC0AC1EC45D3200E9730C /* WXSTransitionManager+BoomAnimation.m in Sources */,
+				689728EC1EF578A1005F40D6 /* FTCustomKitchen.m in Sources */,
 				680A29D91ED42173001F98F0 /* FTScreeningViewModel.swift in Sources */,
 				689EC0B41EC45D3200E9730C /* WXSTransitionManager+TypeTool.m in Sources */,
 				68215D101EAEF15F00A32759 /* Label+Extension.swift in Sources */,
@@ -1261,27 +1263,25 @@
 				68E717721EC2E73900F236EE /* FTOptionsView.swift in Sources */,
 				68215C341EAEED7300A32759 /* FTInteractionViewController.swift in Sources */,
 				68215CE11EAEF10200A32759 /* ArrayExtensions.swift in Sources */,
+				689728F51EF578A1005F40D6 /* FTDataOperation.m in Sources */,
 				689EC0B31EC45D3200E9730C /* WXSTransitionManager+SystermAnimation.m in Sources */,
 				686A0BFA1EE0079E0008F97C /* FTHonorCollectionViewCell.swift in Sources */,
-				68EBA4371EF2987100158248 /* FTRealKitchen.m in Sources */,
 				686A0BF31EDFC1BB0008F97C /* FTPentalViewController.swift in Sources */,
-				68EBA4331EF2987100158248 /* FTImage.m in Sources */,
-				686C276A1EF220B500DAA708 /* FTRealKitchenService.m in Sources */,
 				68FC2C101EC945E40048D80E /* FTInteractionDetailViewModel.swift in Sources */,
 				68215CE81EAEF10200A32759 /* NotificationCenter.swift in Sources */,
-				68EBA4361EF2987100158248 /* FTProduct.m in Sources */,
 				68C9DF831EE2A83600DACB58 /* APIInfo.swift in Sources */,
 				689EC0B61EC45D3200E9730C /* WXSTransitionManager.m in Sources */,
 				68215BF51EAEE5CE00A32759 /* AppDelegate.swift in Sources */,
 				68D5CD311EB85E4700294EC5 /* FTInteractionTableViewCell.swift in Sources */,
 				68E717751EC311C900F236EE /* FTInteractionDetailViewController.swift in Sources */,
+				689728F21EF578A1005F40D6 /* FTProduct.m in Sources */,
 				68215D151EAEF15F00A32759 /* UIScreen+Extension.swift in Sources */,
 				68215CF31EAEF10200A32759 /* UIAlertControllerExtensions.swift in Sources */,
 				68215D121EAEF15F00A32759 /* UIBarButtonItem+Extension.swift in Sources */,
 				68215CF01EAEF10200A32759 /* SwiftySearchBar.swift in Sources */,
+				689728F01EF578A1005F40D6 /* FTMaterial.m in Sources */,
 				68215CF21EAEF10200A32759 /* SwiftyTextField.swift in Sources */,
 				68215CFA1EAEF10200A32759 /* UIViewControllerExtensions.swift in Sources */,
-				684F97781EF0D83B002B6E29 /* FTDataOperation.m in Sources */,
 				689EC0A91EC45D3200E9730C /* UIViewController+WXSTransition.m in Sources */,
 				686161F41ED1814E006355BD /* FTDetailCollectionViewCell3.swift in Sources */,
 				686CFEBB1EC97B94003AD4DA /* FTSceneryCollectionCell.swift in Sources */,

@@ -21,6 +21,7 @@ class FTBaseLayerView: UIView {
         addSubview(imageView7)
         addSubview(imageView8)
         addSubview(imageView9)
+        addSubview(imageView10)
         backImageView.snp.makeConstraints { (make) in
             make.left.top.bottom.right.equalTo(0)
         }
@@ -51,6 +52,9 @@ class FTBaseLayerView: UIView {
         imageView9.snp.makeConstraints { (make) in
             make.left.top.bottom.right.equalTo(0)
         }
+        imageView10.snp.makeConstraints { (make) in
+            make.left.top.bottom.right.equalTo(10)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -58,6 +62,7 @@ class FTBaseLayerView: UIView {
     }
     lazy var backImageView:UIImageView = {
         let imageV:UIImageView = UIImageView()
+        imageV.backgroundColor = UIColor.white
         return imageV
     }()
     lazy var imageView1:UIImageView = {

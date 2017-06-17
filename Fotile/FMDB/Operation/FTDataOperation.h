@@ -12,5 +12,5 @@
 @interface FTDataOperation : NSObject
 @property (strong ,nonatomic) FMDatabase *dataBase;
 + (FTDataOperation *)shareInstance;
-
++ (NSString *)dbPath;
 @end
