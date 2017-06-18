@@ -15,8 +15,10 @@ typedef void(^FTImageDownloaderProgressBlock)(NSInteger completeCount, NSInteger
 
 + (FTImageManager *)shareInstance;
 /*根据最新更新时间下载数据库中所有图片到本地*/
-- (void)downloadAllImages:(FTImageDownloaderProgressBlock)progress updateTime:(NSDate *)date;
+- (void)downloadAllImages:(FTImageDownloaderProgressBlock)progress;
 
+- (BOOL)checkImageIsExisted:(NSString *)url
+                   fileName:(NSString *)name;
 - (FTImage *)fetchImageWithId:(NSString *)identifier;
 - (FTGroupImage *)fetchGroupImageWithId:(NSString *)identifier;
 @end

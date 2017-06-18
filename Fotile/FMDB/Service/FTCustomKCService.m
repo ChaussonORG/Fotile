@@ -9,6 +9,7 @@
 #import "FTCustomKCService.h"
 #import "FTDataOperation.h"
 #import "FTImageManager.h"
+#import "FTProductService.h"
 #import "FTProduct.h"
 @implementation FTCustomKCService
 + (NSArray<FTCustomKitchen *> *)fetchCustomKitchenList{
@@ -85,23 +86,10 @@
     NSString *productSql = [NSString stringWithFormat:@"select * from t_virtual_kitchen_product where kitchen_id= '%@'",custom.identifier];
     FMResultSet *productRs = [db executeQuery:productSql];
     while ([productRs next]) {
-        FTProduct *product = [[FTProduct alloc]init];
-        product.identifier = [productRs stringForColumn:@"product_id"];
-        NSString *productDetailSql = [NSString stringWithFormat:@"select * from t_product where id= '%@'",product.identifier];
-        FMResultSet *productDetail = [db executeQuery:productDetailSql];
+        FTProduct *product = [FTProductService fetchProductWithId:[productRs stringForColumn:@"product_id"]];     
         NSString *groupId = [productRs stringForColumn:@"image_group_id"];
         product.groupImage = [manager fetchGroupImageWithId:groupId];
-        while ([productDetail next]) {
-            product.identifier =  [productDetail stringForColumn:@"id"];
-            product.createTime =  [productDetail stringForColumn:@"create_time"];
-            product.updateTime =  [productDetail stringForColumn:@"update_time"];
-            product.name =  [productDetail stringForColumn:@"name"];
-            product.modelNumber =  [productDetail stringForColumn:@"model_no"];
-            product.slogan =  [productDetail stringForColumn:@"slogan"];
-            product.catalogType =  [productDetail intForColumn:@"catalog_id"];
-            product.thumnailImage = [manager fetchImageWithId:[productDetail stringForColumn:@"logo_file_id"]];
 
-        }
         [products addObject:product];
     }
     

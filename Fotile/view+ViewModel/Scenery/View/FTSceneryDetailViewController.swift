@@ -10,16 +10,52 @@ import UIKit
 import HYBLoopScrollView
 class FTSceneryDetailViewController: UIViewController {
 
-    var inforArray = ["天堂花园","7平米","5万"]
-    var inforArray1 = ["小区名称","厨房面积","厨电成本"]
+    var inforArray = Array<String>()
+    var inforArray1 = Array<String>()
 
+    var model:FTRealKitchen = FTRealKitchen()
+    let viewModel:FTProductViewModel = FTProductViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = .bottom
         view.backgroundColor = UIColor.white
+        viewModel.getSceneryData(id: model.identifier)
+        againLoadui()
         loadUI()
         layout()
+        banner()
         // Do any additional setup after loading the view.
+    }
+    func banner() {
+        var arr = [UIImage()]
+        for fimage in model.images{
+            arr.append(fimage.picture)
+        }
+        scrollView.imageUrls = arr
+    }
+    func againLoadui() {
+        if model.estateName.length != 0 {
+            inforArray.append(model.estateName)
+            inforArray1.append("小区名称")
+        }
+        if model.houseArea.length != 0 {
+            inforArray.append(model.houseArea)
+            inforArray1.append("房屋面积(m²)")
+        }
+        if model.kitchenArea.length != 0 {
+            inforArray.append(model.kitchenArea)
+            inforArray1.append("厨房面积(m²)")
+        }
+        /*
+        if model.estateName.length != 0 {
+            inforArray.append(model.estateName)
+            inforArray1.append("小区名称")
+        }
+    */
+        if model.kitchenCost.length != 0 {
+            inforArray.append(model.kitchenCost)
+            inforArray1.append("厨电成本(万)")
+        }
     }
     func loadUI() {
         view.addSubview(tableView)
@@ -119,13 +155,15 @@ class FTSceneryDetailViewController: UIViewController {
     
     }
     lazy var scrollView:HYBLoopScrollView = {
-        let scorllView:HYBLoopScrollView = HYBLoopScrollView(frame: CGRect.zero, imageUrls: ["home1", "home2", "home3","home4", "home5", "home6"], timeInterval: 2, didSelect: {[weak self] (didIndex) in
+        let scorllView:HYBLoopScrollView = HYBLoopScrollView(frame: CGRect.zero, imageUrls: nil, timeInterval: 2, didSelect: {[weak self] (didIndex) in
             
             }, didScroll: nil)
         return scorllView
     }()
     lazy var tableView:FTProductTableView = {
         let table:FTProductTableView = FTProductTableView(frame: .zero, style: .plain)
+        table.dele = self
+        table.setViewModel(viewModel: self.viewModel)
         return table
     }()
     lazy var dismisBtn:UIButton = {
@@ -155,7 +193,7 @@ class FTSceneryDetailViewController: UIViewController {
     */
 
 }
-extension FTSceneryDetailViewController:UICollectionViewDelegate, UICollectionViewDataSource{
+extension FTSceneryDetailViewController:UICollectionViewDelegate, UICollectionViewDataSource,FTProductTableViewDeleage{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:FTSceneryDetailCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! FTSceneryDetailCollectionViewCell
         if indexPath.row == inforArray1.count - 1 {
@@ -169,5 +207,9 @@ extension FTSceneryDetailViewController:UICollectionViewDelegate, UICollectionVi
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        
+    }
+    func moreAction() {
+        let vc = FTProductDetailViewController.news()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

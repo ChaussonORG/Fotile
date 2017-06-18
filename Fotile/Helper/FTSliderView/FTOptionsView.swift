@@ -91,6 +91,19 @@ class FTOptionsView: UIView {
         deleage?.clickBtnAction(index: sender.tag)
 
     }
+    func setDidIndex(index:Int)  {
+        for view in subviews {
+            view.removeFromSuperview()
+        }
+        for i in 0..<viewModel.cellViewModles.count {
+            let model = viewModel.cellViewModles[i]
+            if i == index {
+                model.isSele = true
+            }else{
+                model.isSele = false
+            }
+        }
+    }
     /*
      // Only override draw() if you perform custom drawing.
      // An empty implementation adversely affects performance during animation.

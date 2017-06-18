@@ -10,19 +10,32 @@ import UIKit
 
 class FTProductViewModel: NSObject {
     var cellViewModels = Array<FTProductCellViewModel>()
-    func getData()  {
-        for i in 0..<10{
-            let model = FTProductCellViewModel()
-            model.imageUrl = "product\(i + 1)"
-            if i > 2 {
-                model.imageUrl = "product1"
+    func getSceneryData(id:String)  {
+       let models =  FTProductService.fetchProducts(withRealKitchenId: id)
+        guard let array = models else {
+            return
+        }
+        for  product in array {
+            let cellViewModel:FTProductCellViewModel = FTProductCellViewModel()
+            cellViewModel.imageUrl = product.thumnailImage.picture
+            cellViewModel.name = product.name
+            cellViewModel.modelNumber = product.modelNumber
+            cellViewModel.slogan = product.slogan
+            cellViewModel.parameters = product.parameters
+            for parm in product.parms {
+                cellViewModel.params.append(parm)
             }
-            cellViewModels.append(model)
+            cellViewModels.append(cellViewModel)
         }
     }
 }
 
 class FTProductCellViewModel: NSObject {
     var isOpen:Bool = false
-    var imageUrl:String = ""
+    var imageUrl:UIImage = UIImage()
+    var name:String = ""
+    var modelNumber:String = ""
+    var slogan:String = ""
+    var parameters:String = ""
+    var params:Array<FTProductParm> = [FTProductParm]()
 }

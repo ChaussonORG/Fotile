@@ -49,20 +49,31 @@
     if (!isGoodConnection) {
         [db open];
     }
-    FMResultSet *material = [db executeQuery:sql];
+    FMResultSet *r = [db executeQuery:sql];
     
-    while ([material next]) {
+    while ([r next]) {
         FTRealKitchen *real = [[FTRealKitchen alloc]init];
-        real.identifier =  [material stringForColumn:@"id"];
-        real.createTime =  [material stringForColumn:@"create_time"];
-        real.updateTime =  [material stringForColumn:@"update_time"];
-        real.estateName =  [material stringForColumn:@"estate_name"];
-        real.houseType =  [material stringForColumn:@"house_type"];
-        real.houseArea =  [material stringForColumn:@"house_area"];
-        real.kitchenArea =  [material stringForColumn:@"kitchen_area"];
-        real.cityName =  [material stringForColumn:@"city"];
-        real.kitchenCost =  [material stringForColumn:@"kitchen_cost"];
-        real.thumbnailImage =  [manager fetchImageWithId:[material stringForColumn:@"thumbnail_file_id"]];
+        real.identifier =  [r stringForColumn:@"id"];
+        real.createTime =  [r stringForColumn:@"create_time"];
+        real.updateTime =  [r stringForColumn:@"update_time"];
+        real.estateName =  [r stringForColumn:@"estate_name"];
+        real.houseType =  [r stringForColumn:@"house_type"];
+        real.houseArea =  [r stringForColumn:@"house_area"];
+        real.kitchenArea =  [r stringForColumn:@"kitchen_area"];
+        real.cityName =  [r stringForColumn:@"city"];
+        int kitchenCost = [r intForColumn:@"kitchen_cost"];
+        int kitchenFotileCost = [r intForColumn:@"kitchen_fotile_cost"];
+        if (kitchenCost > 1000) {
+            real.kitchenCost = [self convertCostWithInt:kitchenCost];
+        }else{
+            real.kitchenCost =  [r stringForColumn:@"kitchen_cost"];
+        }
+        if (kitchenFotileCost > 1000) {
+            real.fotileCost = [self convertCostWithInt:kitchenFotileCost];
+        }else{
+            real.fotileCost =  [r stringForColumn:@"kitchen_fotile_cost"];
+        }
+        real.thumbnailImage =  [manager fetchImageWithId:[r stringForColumn:@"thumbnail_file_id"]];
         [list addObject:real];
         NSMutableArray <FTImage *>*images = [NSMutableArray array];
         NSString *imagesSql = [NSString stringWithFormat:@"select * from t_real_kitchen_image where kitchen_id= '%@'",real.identifier];
@@ -86,5 +97,15 @@
         [db close];
     }
     return [list copy];
+}
++ (NSString *)convertCostWithInt:(int)n{
+    int unitPlace = n / 1 % 10;
+    int tenPlace = n / 10 % 10;
+    int hundredPlace = n / 100 % 10;
+    int thousandPlace = n / 1000 % 10;
+    if (unitPlace+tenPlace+hundredPlace >= 500) {
+        thousandPlace+=1;
+    }
+    return [NSString stringWithFormat:@"%d.%d",n/10000,thousandPlace];
 }
 @end

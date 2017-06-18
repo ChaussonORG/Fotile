@@ -27,7 +27,7 @@
     return instance;
 }
 
-- (void)downloadAllImages:(FTImageDownloaderProgressBlock)progress updateTime:(NSDate *)date{
+- (void)downloadAllImages:(FTImageDownloaderProgressBlock)progress{
     NSString *sql = [NSString stringWithFormat:@"SELECT * FROM t_image_file"];
     FMDatabase  *db = [self openDB];
     FMResultSet *rs = [db executeQuery:sql];
@@ -47,18 +47,31 @@
 - (void)startDownload{
     if (_images.count > 0) {
         FTImage *image = _images.firstObject;
-        FTImageDownloader *load = [[FTImageDownloader alloc]initWithUrl:image.url fileName:image.identifier];
-        [load startWithSuccessBlock:^(__kindof FTImageDownloader *request) {
+        BOOL isExist =[self checkImageIsExisted:image.url fileName:image.identifier];
+        if (isExist) {
             [self->_images removeObject:image];
             if (self->_progress) {
                 NSInteger total = self->_totalDownloadImages;
                 self->_progress(total-self->_images.count,total);
-
+                
             }
             [self startDownload];
-        } failureBlock:^(__kindof CHBaseRequest *request) {
-            
-        }];
+
+        }else{
+            FTImageDownloader *load = [[FTImageDownloader alloc]initWithUrl:image.url fileName:image.identifier];
+            [load startWithSuccessBlock:^(__kindof FTImageDownloader *request) {
+                [self->_images removeObject:image];
+                if (self->_progress) {
+                    NSInteger total = self->_totalDownloadImages;
+                    self->_progress(total-self->_images.count,total);
+                    
+                }
+                [self startDownload];
+            } failureBlock:^(__kindof CHBaseRequest *request) {
+                
+            }];
+        }
+  
     }
 }
 - (FTImage *)fetchImageWithId:(NSString *)identifier{
@@ -101,7 +114,17 @@
     [self closeDB];
     return groupImage;
 }
+- (BOOL)checkImageIsExisted:(NSString *)url
+                   fileName:(NSString *)name{
+    // 要检查的文件目录
+    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *suffix = [url pathExtension];
+    
+    NSString *path = [cachesPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@",name,suffix]];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
 
+    return [fileManager fileExistsAtPath:path];
+}
 #pragma mark 打开数据库
 - (FMDatabase *)openDB{
     FMDatabase  *db = [FTDataOperation shareInstance].dataBase;

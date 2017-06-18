@@ -34,7 +34,7 @@ class FTInteractionDetailViewController: UIViewController {
         super.viewDidLoad()
         animationUI()
         self.loadUI()
-        self.layout()
+        self.layoutView()
         // Do any additional setup after loading the view.
     }
     func loadUI()  {
@@ -108,89 +108,89 @@ class FTInteractionDetailViewController: UIViewController {
         let imageView:FTBaseLayerView = FTBaseLayerView()
         return imageView
     }()
-    func layout() {
-        scrollView.snp.makeConstraints { (make) in
+    func layoutView() {
+        scrollView.snp.remakeConstraints { (make) in
             make.left.equalTo(-spac)
             make.width.equalTo(UIScreen.main.bounds.size.height)
             make.bottom.equalTo(sliderView.snp.top).offset(0)
             make.top.equalTo(0)
         }
-        day1.snp.makeConstraints { (make) in
+        day1.snp.remakeConstraints { (make) in
             make.left.equalTo(0)
             make.top.equalTo(0)
             make.width.equalTo(scrollView)
             make.height.equalTo(UIScreen.main.bounds.size.height - 254)
         }
-        day2.snp.makeConstraints { (make) in
+        day2.snp.remakeConstraints { (make) in
             make.left.equalTo(day1.snp.right).offset(0)
             make.width.equalTo(scrollView)
             make.top.equalTo(0)
             make.height.equalTo(UIScreen.main.bounds.size.height - 254)
         }
-        day3.snp.makeConstraints { (make) in
+        day3.snp.remakeConstraints { (make) in
             make.left.equalTo(day2.snp.right).offset(0)
             make.width.equalTo(scrollView)
             make.top.equalTo(0)
             make.height.equalTo(UIScreen.main.bounds.size.height - 254)
         }
-        night1.snp.makeConstraints { (make) in
+        night1.snp.remakeConstraints { (make) in
             make.left.equalTo(0)
             make.top.equalTo(0)
             make.width.equalTo(scrollView)
             make.height.equalTo(UIScreen.main.bounds.size.height - 254)
         }
-        night2.snp.makeConstraints { (make) in
+        night2.snp.remakeConstraints { (make) in
             make.left.equalTo(night1.snp.right).offset(0)
             make.width.equalTo(scrollView)
             make.top.equalTo(0)
             make.height.equalTo(UIScreen.main.bounds.size.height - 254)
         }
-        night3.snp.makeConstraints { (make) in
+        night3.snp.remakeConstraints { (make) in
             make.left.equalTo(night2.snp.right).offset(0)
             make.width.equalTo(scrollView)
             make.top.equalTo(0)
             make.height.equalTo(UIScreen.main.bounds.size.height - 254)
         }
-        dayNightBtn.snp.makeConstraints { (make) in
+        dayNightBtn.snp.remakeConstraints { (make) in
             make.right.equalTo(view).offset(0)
             make.bottom.equalTo(day2)
             make.width.height.equalTo(70)
         }
-        pushBtn.snp.makeConstraints { (make) in
+        pushBtn.snp.remakeConstraints { (make) in
             make.left.equalTo(UIScreen.main.bounds.size.width / 2 - 25)
             make.bottom.equalTo(0)
             make.height.equalTo(25)
             make.width.equalTo(50)
         }
-        sliderView.snp.makeConstraints { (make) in
+        sliderView.snp.remakeConstraints { (make) in
             make.left.right.equalTo(0)
             make.bottom.equalTo(collectionView.snp.top).offset(0)
             make.height.equalTo(44)
         }
-        collectionView.snp.makeConstraints { (make) in
+        collectionView.snp.remakeConstraints { (make) in
             make.left.right.equalTo(0)
             make.bottom.equalTo(-45)
             make.height.equalTo(165)
         }
-        switchView.snp.makeConstraints { (make) in
+        switchView.snp.remakeConstraints { (make) in
             make.left.equalTo(view).offset(25)
             make.bottom.equalTo(day2).offset(-15)
             make.height.equalTo(40)
             make.width.equalTo(120)
         }
-        productBtn.snp.makeConstraints { (make) in
+        productBtn.snp.remakeConstraints { (make) in
             make.left.equalTo(5)
             make.top.equalTo(5)
             make.height.equalTo(30)
             make.width.equalTo(55)
         }
-        materialBtn.snp.makeConstraints { (make) in
+        materialBtn.snp.remakeConstraints { (make) in
             make.left.equalTo(productBtn.snp.right).offset(0)
             make.top.equalTo(5)
             make.height.equalTo(30)
             make.width.equalTo(55)
         }
-        popBtn.snp.makeConstraints { (make) in
+        popBtn.snp.remakeConstraints { (make) in
             make.left.equalTo(view).offset(0)
             make.top.equalTo(0)
             make.height.equalTo(85)
@@ -198,7 +198,7 @@ class FTInteractionDetailViewController: UIViewController {
         }
         
         //测试
-        ninghtView.snp.makeConstraints { (make) in
+        ninghtView.snp.remakeConstraints { (make) in
             make.left.equalTo(0)
             make.top.equalTo(0)
             make.width.equalTo(scrollView.contentSize.width)
@@ -208,21 +208,25 @@ class FTInteractionDetailViewController: UIViewController {
         
     }
     lazy var collectionView:UICollectionView = {
-        let  layout = UICollectionViewFlowLayout()
-        layout.minimumInteritemSpacing = 25
-        layout.minimumLineSpacing = 25
-        layout.sectionInset = UIEdgeInsetsMake(0, 25, 0, 25)
-        layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 115, height: 165)
-        let collectionView:UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        let collectionView:UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: self.layout)
         collectionView.backgroundColor = UIColor.white
-        collectionView.collectionViewLayout = layout
+        collectionView.collectionViewLayout = self.layout
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(FTInteractionDetailCollectionViewCell.self, forCellWithReuseIdentifier: "cellId")
         return collectionView
     }()
+    lazy var layout:UICollectionViewFlowLayout = {
+       let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 25
+        layout.sectionInset = UIEdgeInsetsMake(0, 25, 0, 25)
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 115, height: 165)
+        layout.minimumInteritemSpacing = 25
+        return layout
+    }()
+    
     lazy var sliderView:FTHorOptionsView = {
         let view:FTHorOptionsView = FTHorOptionsView(frame: .zero)
         view.deleage = self
@@ -344,6 +348,7 @@ class FTInteractionDetailViewController: UIViewController {
 
         }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -351,10 +356,12 @@ class FTInteractionDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       // (UIApplication.shared.delegate as! AppDelegate).ftView?.isHidden = false
-
+        (UIApplication.shared.delegate as! AppDelegate).isAllow = true
     }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        (UIApplication.shared.delegate as! AppDelegate).isAllow = false
+    }
     func chooseType(index:Int32)  {
         viewModel.cellViewModels.removeAll()
         for model in model.products {
@@ -391,6 +398,106 @@ class FTInteractionDetailViewController: UIViewController {
             break
         }
     }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+      //  if size.width > size.height {
+       //     layoutHor()
+      //  }else{
+      //      layoutVer()
+      //  }
+    }
+    
+    func layoutHor() {
+        layout.scrollDirection = .vertical
+        scrollView.contentSize = CGSize(width: (UIScreen.height - 254) * 3, height: UIScreen.main.bounds.size.width)
+        scrollView.contentOffset = CGPoint(x: UIScreen.width, y: 0)
+        scrollView.snp.remakeConstraints { (make) in
+            make.top.equalTo(0)
+            make.left.equalTo(0)
+            make.height.equalTo(UIScreen.width)
+            make.width.equalTo(UIScreen.height - 254)
+        }
+        day1.snp.remakeConstraints { (make) in
+            make.left.equalTo(0)
+            make.top.equalTo(0)
+            make.height.equalTo(UIScreen.width)
+            make.width.equalTo(scrollView)
+        }
+        sliderView.snp.remakeConstraints { (make) in
+            make.top.bottom.equalTo(0)
+            make.width.equalTo(44)
+            make.right.equalTo(collectionView.snp.left).offset(0)
+        }
+        collectionView.snp.remakeConstraints { (make) in
+            make.top.bottom.equalTo(0)
+            make.right.equalTo(-45)
+            make.width.equalTo(165)
+        }
+        switchView.snp.remakeConstraints { (make) in
+            make.right.equalTo(view).offset(-300)
+            make.top.equalTo(20)
+            make.height.equalTo(120)
+            make.width.equalTo(40)
+        }
+        productBtn.snp.remakeConstraints { (make) in
+            make.left.equalTo(5)
+            make.top.equalTo(5)
+            make.height.equalTo(55)
+            make.width.equalTo(30)
+        }
+        materialBtn.snp.remakeConstraints { (make) in
+            make.left.equalTo(productBtn.snp.right).offset(0)
+            make.top.equalTo(5)
+            make.height.equalTo(55)
+            make.width.equalTo(30)
+        }
+        popBtn.snp.remakeConstraints { (make) in
+            make.left.equalTo(view).offset(0)
+            make.top.equalTo(0)
+            make.height.equalTo(85)
+            make.width.equalTo(60)
+        }
+        
+    }
+    func layoutVer(){
+        layout.scrollDirection = .horizontal
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.size.width * 3, height: UIScreen.main.bounds.size.height)
+        scrollView.contentOffset = CGPoint(x: scrollView.contentSize.width / 3, y: 0)
+        scrollView.snp.remakeConstraints { (make) in
+            make.left.equalTo(-spac)
+            make.width.equalTo(UIScreen.main.bounds.size.width)
+            make.height.equalTo(UIScreen.width - 254)
+            make.top.equalTo(0)
+        }
+        sliderView.snp.remakeConstraints { (make) in
+            make.left.right.equalTo(0)
+            make.bottom.equalTo(collectionView.snp.top).offset(0)
+            make.height.equalTo(44)
+        }
+        collectionView.snp.remakeConstraints { (make) in
+            make.left.right.equalTo(0)
+            make.bottom.equalTo(-45)
+            make.height.equalTo(165)
+        }
+        switchView.snp.remakeConstraints { (make) in
+            make.left.equalTo(view).offset(25)
+            make.bottom.equalTo(day2).offset(-15)
+            make.height.equalTo(40)
+            make.width.equalTo(120)
+        }
+        productBtn.snp.remakeConstraints { (make) in
+            make.left.equalTo(5)
+            make.top.equalTo(5)
+            make.height.equalTo(30)
+            make.width.equalTo(55)
+        }
+        materialBtn.snp.remakeConstraints { (make) in
+            make.left.equalTo(productBtn.snp.right).offset(0)
+            make.top.equalTo(5)
+            make.height.equalTo(30)
+            make.width.equalTo(55)
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -417,7 +524,7 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
                 }
                 collectionView.reloadData()
             }
-            if self.scrollView.contentOffset.x == UIScreen.height {
+            if self.scrollView.contentOffset.x == scrollView.contentSize.width / 3 {
                 if !dayNightBtn.isSelected {
                     type = .Day2
                 }else{
@@ -425,7 +532,7 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
                 }
                 collectionView.reloadData()
             }
-            if self.scrollView.contentOffset.x == UIScreen.height * 2 {
+            if self.scrollView.contentOffset.x ==  scrollView.contentSize.width / 3 * 2 {
                 if !dayNightBtn.isSelected {
                     type = .Day3
                 }else{

@@ -26,8 +26,6 @@ class FTInteractionViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-       // print(UIViewController.currentViewController())
         (UIApplication.shared.delegate as! AppDelegate).ftView?.isHidden = false
     }
 }

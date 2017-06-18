@@ -12,17 +12,19 @@ protocol FTProductTableViewDeleage {
     func moreAction()
 }
 class FTProductTableView: UITableView {
-    let viewModel = FTProductViewModel()
+    var viewModel = FTProductViewModel()
     var dele:FTProductTableViewDeleage?
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
         loadUI()
     }
+    func setViewModel(viewModel:FTProductViewModel) {
+        self.viewModel = viewModel
+    }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     func loadUI() {
-        viewModel.getData()
         delegate = self
         dataSource = self
         separatorStyle = .none
@@ -59,5 +61,10 @@ extension FTProductTableView:UITableViewDelegate,UITableViewDataSource, FTProduc
     }
     func moreAction() {
         dele?.moreAction()
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cellViewModel:FTProductCellViewModel = viewModel.cellViewModels[indexPath.row]
+        cellViewModel.isOpen = !cellViewModel.isOpen
+        tableView.reloadData()
     }
 }

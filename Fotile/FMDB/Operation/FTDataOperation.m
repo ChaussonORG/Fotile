@@ -7,6 +7,7 @@
 //
 
 #import "FTDataOperation.h"
+#import "FTFileDownloader.h"
 #define DB_FILE_NAME @"ftdb.db"
 
 @implementation FTDataOperation
@@ -20,6 +21,22 @@
         
     });
     return instance;
+}
+
+- (void)downDataBaseWithUrl:(NSString *)url
+                 completion:(FTDownloadDatabase )result{
+    
+    FTFileDownloader *f = [[FTFileDownloader alloc]initWithUrl:url savedPath:[FTDataOperation dbPath]];
+    [f startWithSuccessBlock:^(__kindof CHBaseRequest *request) {
+        if (result) {
+            self.dataBase = [FMDatabase databaseWithPath:[FTDataOperation dbPath]];
+            result(YES);
+        }
+    } failureBlock:^(__kindof CHBaseRequest *request) {
+        if (result) {
+            result(NO);
+        }
+    }];
 }
 + (NSString *)dbPath{
     NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];

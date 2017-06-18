@@ -307,7 +307,9 @@ extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewData
         return array.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let array:[FTRealKitchen] = FTRealKitchenService.fetchRealKitchens(withCity: FTUserManager.userManager.getModel().userInfo.city)[indexPath.section].list as! [FTRealKitchen]
        let vc = FTSceneryDetailViewController()
+        vc.model = array[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -318,8 +320,8 @@ extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewData
         switch kind{
         case UICollectionElementKindSectionHeader:
             let header:HeaderReusableView=collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as! HeaderReusableView
-            header.headerLb!.text = "\(model.city)  ·"
-            header.headerLb1.text = model.name
+            header.headerLb!.text = model.name + "   ·"
+            header.headerLb1.text = model.city
             return header
         default:
             return HeaderReusableView()

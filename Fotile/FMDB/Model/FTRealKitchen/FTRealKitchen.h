@@ -14,7 +14,9 @@
 @property (nonatomic ,copy) NSString *houseType; //房型
 @property (nonatomic ,copy) NSString *houseArea; //房型面积
 @property (nonatomic ,copy) NSString *kitchenArea; //厨房面积
-@property (nonatomic ,copy) NSString *kitchenCost; //厨电价格
+@property (nonatomic ,copy) NSString *kitchenCost; //厨房装修成本
+@property (nonatomic ,copy) NSString *fotileCost; //方太厨电价格
+
 @property (nonatomic ,strong) FTImage *thumbnailImage; //缩略图
 @property (nonatomic ,strong) NSArray <FTImage *>*images;
 

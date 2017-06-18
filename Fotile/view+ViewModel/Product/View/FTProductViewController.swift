@@ -14,8 +14,12 @@ class FTProductViewController: UIViewController {
     @IBOutlet var headViewImage: UIImageView!
     @IBOutlet var search: UITextField!
     @IBOutlet var line: UIView!
+    let viewModel:FTProductViewModel = FTProductViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        //测试数据
+        viewModel.getSceneryData(id: "297ebe0e5c9bc366015ca02915490035")
+        
         self.edgesForExtendedLayout = .bottom
         //view.addSubview(sliderView)
         view.addSubview(sliderView1)
@@ -80,6 +84,7 @@ class FTProductViewController: UIViewController {
     lazy var tableView:FTProductTableView = {
         let table:FTProductTableView = FTProductTableView(frame: .zero, style: .plain)
         table.dele = self
+        table.setViewModel(viewModel: self.viewModel)
         return table
     }()
     lazy var tableHead:UIView = {
@@ -94,7 +99,7 @@ class FTProductViewController: UIViewController {
     lazy var tableHeadLabel:UILabel = {
         let label:UILabel = UILabel()
         label.textColor = FTStyleConfiguration.black
-        label.text = "油烟机\n油烟机\n"
+        label.text = "油烟机"
         return label
     }()
     override func didReceiveMemoryWarning() {
@@ -119,7 +124,8 @@ class FTProductViewController: UIViewController {
 }
 extension FTProductViewController:FTOptionsViewDeleage, FTProductTableViewDeleage{
     func clickBtnAction(index: Int) {
-        print(index)
+        let vm = FTSliderViewModel()
+        tableHeadLabel.text = vm.array[index]
     }
     func moreAction() {
         let vc = FTProductDetailViewController.news()

@@ -10,7 +10,10 @@
 #import <FMDB/FMDB.h>
 
 @interface FTDataOperation : NSObject
+typedef void(^FTDownloadDatabase)(BOOL isSusscess);
 @property (strong ,nonatomic) FMDatabase *dataBase;
-+ (FTDataOperation *)shareInstance;
 + (NSString *)dbPath;
++ (FTDataOperation *)shareInstance;
+- (void)downDataBaseWithUrl:(NSString *)url
+                 completion:(FTDownloadDatabase )result;
 @end

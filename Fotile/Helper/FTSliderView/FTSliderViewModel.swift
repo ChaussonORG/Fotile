@@ -12,6 +12,7 @@ class FTSliderViewModel: NSObject {
     var spacInt = 20
     var cellViewModles = Array<FTSliderCellViewModel>()
     var yearsModels = Array<FTSliderCellViewModel>()
+
     var array = ["油烟机","灶具","消毒柜","蒸微一体机","蒸箱","烤箱","微波炉","水槽洗碗机", "热水器"]
     var years = ["2017","2016","2015","2014","2013","2012","2011","2010","2009","2008"]
     override init() {

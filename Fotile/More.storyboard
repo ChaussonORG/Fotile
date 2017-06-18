@@ -233,7 +233,14 @@
                             <constraint firstItem="cjV-GU-qtb" firstAttribute="leading" secondItem="hdM-Vt-hMz" secondAttribute="leading" constant="50" id="waI-3C-swa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="t8H-K8-RCu"/>
+                    <navigationItem key="navigationItem" id="t8H-K8-RCu">
+                        <barButtonItem key="rightBarButtonItem" image="set" id="scf-xt-P9S">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="setAction:" destination="ktP-Im-JNt" id="IHj-5j-rh9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="768" height="1024"/>
                 </viewController>
@@ -1445,5 +1452,6 @@
         <image name="more2" width="164" height="210"/>
         <image name="more3" width="164" height="210"/>
         <image name="more4" width="164" height="210"/>
+        <image name="set" width="16" height="16"/>
     </resources>
 </document>

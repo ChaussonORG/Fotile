@@ -19,7 +19,7 @@ class FTScreeningViewModel: NSObject {
 
     
     var costArray = ["1万以下","1万-2万","2万-4万","4万以上"]
-    var areaArray = ["20平米以下","20-50平米","50平米以上"]
+    var areaArray = ["5-7平米","8-10平米","10平米以上"]
 
     
     var cellViewModels = Array<FTScreeningCellViewModel>()
