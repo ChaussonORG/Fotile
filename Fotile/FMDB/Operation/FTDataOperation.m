@@ -16,7 +16,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         instance = [[FTDataOperation alloc]init];
-     
+        
         instance.dataBase = [FMDatabase databaseWithPath:[self dbPath]];
         
     });
@@ -42,5 +42,7 @@
     NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     NSString *path = [cachesPath stringByAppendingPathComponent:DB_FILE_NAME];
     return path;
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"ftdb" ofType:@"db"];
+//    return  path;
 }
 @end

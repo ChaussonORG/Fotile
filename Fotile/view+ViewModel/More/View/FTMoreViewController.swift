@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CHProgressHUD
 class FTMoreViewController: UIViewController {
     var isShow:Bool = false
     let viewModel:FTMoreViewModel = FTMoreViewModel()
@@ -34,19 +35,28 @@ class FTMoreViewController: UIViewController {
         }
     }
     func show() {
-        if haveUpdata {
-            dowloadBtn.setTitle("开始更新", for: .normal)
-            dowloadBtn.setTitleColor(FTStyleConfiguration.red, for: .normal)
-            dowloadBtn.isEnabled = true
-        }else{
-            dowloadBtn.setTitle("检查更新", for: .normal)
-            dowloadBtn.setTitleColor(FTStyleConfiguration.red, for: .normal)
-            dowloadBtn.isEnabled = true
-        }
+    
         blackView.isHidden = false
         isShow = !isShow
         UIView.animate(withDuration: 0) {
             self.whiteView.frame = CGRect(x: 0, y: 64, width: UIScreen.width, height: 230)
+        }
+        if haveUpdata {
+            dowloadBtn.setTitle("开始更新", for: .normal)
+            dowloadBtn.setTitleColor(FTStyleConfiguration.red, for: .normal)
+            dowloadBtn.isEnabled = true
+            return
+        }
+        viewModel.fetchData(time: "0") { (data) in
+            self.haveUpdata = data.haveUpdate
+            self.dbUrl = data.dbUrl
+            if data.haveUpdate {
+                self.dowloadBtn.setTitle("开始更新", for: .normal)
+            }else{
+                self.dowloadBtn.setTitle("暂无更新", for: .normal)
+                self.dowloadBtn.setTitleColor(FTStyleConfiguration.lightGray, for: .normal)
+                self.dowloadBtn.isEnabled = false
+            }
         }
     }
     func hide(){
@@ -102,7 +112,6 @@ class FTMoreViewController: UIViewController {
     
     lazy var dowloadBtn:UIButton = {
         let btn:UIButton = UIButton()
-        btn.setTitle("检查更新", for: .normal)
         btn.contentHorizontalAlignment = .right
         btn.setTitleColor(FTStyleConfiguration.red, for: .normal)
         btn.titleLabel?.font = FTStyleConfiguration.font16
@@ -125,24 +134,18 @@ class FTMoreViewController: UIViewController {
         if haveUpdata {
             FTDataOperation.shareInstance().downDataBase(withUrl: dbUrl, completion: { (bool) in
                 if bool{
+                    //CHProgressHUD.show(true)
                     FTImageManager.shareInstance().downloadAllImages({ (number, all) in
-                        print("下载\(number)张,全部\(all)张")
+                        CHProgressHUD.showPlainText("一共\(all)张照片,已经下载\(number)张照片")
+                        if number == all{
+                            CHProgressHUD.showPlainText("下载完成")
+                        }
                     })
                 }
             })
             return
         }
-        viewModel.fetchData(time: "0") { (data) in
-            self.haveUpdata = data.haveUpdate
-            self.dbUrl = data.dbUrl
-            if data.haveUpdate {
-                self.dowloadBtn.setTitle("开始更新", for: .normal)
-            }else{
-                self.dowloadBtn.setTitle("暂无更新", for: .normal)
-                self.dowloadBtn.setTitleColor(FTStyleConfiguration.lightGray, for: .normal)
-                self.dowloadBtn.isEnabled = false
-            }
-        }
+     
     }
     func logout()  {
         let vc:UIAlertController = UIAlertController(title: "提示", message: "是否确认退出登录", preferredStyle: .alert)
