@@ -131,7 +131,8 @@ class FTMoreViewController: UIViewController {
     var haveUpdata:Bool = false
     var dbUrl:String = ""
     func checkAction(){
-        if haveUpdata {
+       
+        if haveUpdata && dbUrl.length != 0{
             FTDataOperation.shareInstance().downDataBase(withUrl: dbUrl, completion: { (bool) in
                 if bool{
                     //CHProgressHUD.show(true)
@@ -144,10 +145,19 @@ class FTMoreViewController: UIViewController {
                 }
             })
             return
+        }else{
+            //测试
+            FTImageManager.shareInstance().downloadAllImages({ (number, all) in
+                CHProgressHUD.showPlainText("一共\(all)张照片,已经下载\(number)张照片")
+                if number == all{
+                    CHProgressHUD.showPlainText("下载完成")
+                }
+            })
         }
      
     }
     func logout()  {
+        hide()
         let vc:UIAlertController = UIAlertController(title: "提示", message: "是否确认退出登录", preferredStyle: .alert)
         let acton1:UIAlertAction = UIAlertAction(title: "取消", style: .cancel) { (alerttion) in
             

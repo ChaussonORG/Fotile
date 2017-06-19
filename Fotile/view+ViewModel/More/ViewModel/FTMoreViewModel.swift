@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CHProgressHUD
 class FTMoreViewModel: NSObject {
     func fetchData(time:String, finish:@escaping (FTCheckUploadModelData)->Void){
         let api = FTCheckUploadApi<FTCheckUploadModel>(timeStr: time)
@@ -16,7 +16,13 @@ class FTMoreViewModel: NSObject {
                 guard let model = m else{
                     return
                 }
+                if model.code == 200{
+                    
+                }else{
+                    CHProgressHUD.showPlainText(model.message)
+                }
                 finish(model.data)
+
             }
         }
     }
