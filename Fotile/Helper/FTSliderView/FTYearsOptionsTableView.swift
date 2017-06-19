@@ -8,8 +8,11 @@
 
 import UIKit
 
+
+
 class FTYearsOptionsTableView: UITableView {
     let viewModel:FTSliderViewModel = FTSliderViewModel()
+    var didseleIndex:((String)->Void)?
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
         loadUI()
@@ -53,6 +56,7 @@ extension FTYearsOptionsTableView:UITableViewDelegate,UITableViewDataSource{
             }
         }
         tableView.reloadData()
+        self.didseleIndex!(viewModel.yearsModels[indexPath.row].title)
         print(viewModel.yearsModels[indexPath.row].isSele)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

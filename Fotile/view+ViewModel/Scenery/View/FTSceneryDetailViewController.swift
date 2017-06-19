@@ -27,7 +27,7 @@ class FTSceneryDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     func banner() {
-        var arr = [UIImage()]
+        var arr = Array<UIImage>()
         for fimage in model.images{
             arr.append(fimage.picture)
         }
@@ -46,14 +46,14 @@ class FTSceneryDetailViewController: UIViewController {
             inforArray.append(model.kitchenArea)
             inforArray1.append("厨房面积(m²)")
         }
-        /*
-        if model.estateName.length != 0 {
-            inforArray.append(model.estateName)
-            inforArray1.append("小区名称")
-        }
-    */
+        
         if model.kitchenCost.length != 0 {
             inforArray.append(model.kitchenCost)
+            inforArray1.append("装修成本(万)")
+        }
+ 
+        if model.fotileCost.length != 0 {
+            inforArray.append(model.fotileCost)
             inforArray1.append("厨电成本(万)")
         }
     }

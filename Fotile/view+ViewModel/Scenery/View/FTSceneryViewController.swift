@@ -9,7 +9,7 @@
 import UIKit
 
 class FTSceneryViewController: UIViewController {
-    
+    var models = Array<FTRealKitchenList>()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -252,7 +252,9 @@ class FTSceneryViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
         (UIApplication.shared.delegate as! AppDelegate).ftView?.isHidden = false
-        collectionView.reloadData()
+        //真正
+        models = FTRealKitchenService.fetchRealKitchens(withCity: FTUserManager.userManager.getModel().userInfo.city)
+
     }
 
     /*
@@ -298,25 +300,25 @@ class HeaderReusableView: UICollectionReusableView {
 extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:FTSceneryCollectionCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! FTSceneryCollectionCell
-        let array:[FTRealKitchen] = FTRealKitchenService.fetchRealKitchens(withCity: FTUserManager.userManager.getModel().userInfo.city)[indexPath.section].list as! [FTRealKitchen]
+        let array:[FTRealKitchen] = models[indexPath.section].list as! [FTRealKitchen]
         cell.loadModel(model: array[indexPath.row])
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let array:[FTRealKitchen] = FTRealKitchenService.fetchRealKitchens(withCity: FTUserManager.userManager.getModel().userInfo.city)[section].list as! [FTRealKitchen]
+        let array:[FTRealKitchen] = models[section].list as! [FTRealKitchen]
         return array.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let array:[FTRealKitchen] = FTRealKitchenService.fetchRealKitchens(withCity: FTUserManager.userManager.getModel().userInfo.city)[indexPath.section].list as! [FTRealKitchen]
+            let array:[FTRealKitchen] = models[indexPath.section].list as! [FTRealKitchen]
        let vc = FTSceneryDetailViewController()
         vc.model = array[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return FTRealKitchenService.fetchRealKitchens(withCity: FTUserManager.userManager.getModel().userInfo.city).count
+        return models.count
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let model:FTRealKitchenList = FTRealKitchenService.fetchRealKitchens(withCity: FTUserManager.userManager.getModel().userInfo.city)[indexPath.section]
+        let model:FTRealKitchenList = models[indexPath.section]
         switch kind{
         case UICollectionElementKindSectionHeader:
             let header:HeaderReusableView=collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as! HeaderReusableView

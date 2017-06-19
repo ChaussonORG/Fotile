@@ -11,6 +11,7 @@ import UIKit
 class FTInteractionViewController: UIViewController {
     var distance:CGFloat = 0
     @IBOutlet var tableView: UITableView!
+    var models = Array<FTCustomKitchen>()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = .bottom
@@ -19,14 +20,14 @@ class FTInteractionViewController: UIViewController {
         tableView.separatorStyle = .none
         view.backgroundColor = UIColor.white
     }
-//    let array = ["home1", "home3", "home4","home5", "home6", "home2","home1", "home3", "home4","home5", "home6", "home2","home1", "home3", "home4","home5", "home6", "home2"]
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        models = FTCustomKCService.fetchCustomKitchenList()
         (UIApplication.shared.delegate as! AppDelegate).ftView?.isHidden = false
     }
 }
@@ -34,11 +35,11 @@ extension FTInteractionViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:FTInteractionTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! FTInteractionTableViewCell
         
-        cell.loadModel(model: FTCustomKCService.fetchCustomKitchenList()[indexPath.row])
+        cell.loadModel(model: models[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FTCustomKCService.fetchCustomKitchenList().count
+        return models.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 292
@@ -48,7 +49,7 @@ extension FTInteractionViewController:UITableViewDelegate,UITableViewDataSource{
         let rectTable = tableView.rectForRow(at: indexPath)
         let rect = tableView.convert(rectTable, to: tableView.superview)
         vc.rect = rect
-        let model = FTCustomKCService.fetchCustomKitchenList()[indexPath.row]
+        let model = models[indexPath.row]
         vc.model = FTCustomKCService.fetchCustomDetail(model)
         navigationController?.pushViewController(vc, animated: false)
         

@@ -9,7 +9,6 @@
 import UIKit
 
 class FTPentalViewController: UIViewController {
-
     @IBOutlet var btn1: UIButton!
     @IBOutlet var btn2: UIButton!
     @IBOutlet var btn3: UIButton!

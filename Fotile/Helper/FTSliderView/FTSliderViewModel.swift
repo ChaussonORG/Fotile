@@ -14,7 +14,8 @@ class FTSliderViewModel: NSObject {
     var yearsModels = Array<FTSliderCellViewModel>()
 
     var array = ["油烟机","灶具","消毒柜","蒸微一体机","蒸箱","烤箱","微波炉","水槽洗碗机", "热水器"]
-    var years = ["2017","2016","2015","2014","2013","2012","2011","2010","2009","2008"]
+    var years = ["2016","2015","2014","2013","2012","2011","2010","2009","2008","2007","2006","2005"]
+    
     override init() {
         super.init()
         getData()

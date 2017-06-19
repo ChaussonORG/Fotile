@@ -551,22 +551,12 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
         return viewModel.cellViewModels.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch type {
-        case .Day1:
-            chooseProduct(imageView: day1, image: viewModel.cellViewModels[indexPath.row].groupImage.day1.picture)
-        case .Day2:
-            chooseProduct(imageView: day2, image: viewModel.cellViewModels[indexPath.row].groupImage.day2.picture)
-        case .Day3:
-            chooseProduct(imageView: day3, image: viewModel.cellViewModels[indexPath.row].groupImage.day3.picture)
-        case .Ninght1:
-            chooseProduct(imageView: night1, image: viewModel.cellViewModels[indexPath.row].groupImage.night1.picture)
-        case .Ninght2:
-            chooseProduct(imageView: night2, image: viewModel.cellViewModels[indexPath.row].groupImage.night2.picture)
-        case .Ninght3:
-            chooseProduct(imageView: night3, image: viewModel.cellViewModels[indexPath.row].groupImage.night3.picture)
-        default:
-            break
-        }
+        chooseProduct(imageView: day1, image: viewModel.cellViewModels[indexPath.row].groupImage.day1.picture)
+        chooseProduct(imageView: day2, image: viewModel.cellViewModels[indexPath.row].groupImage.day2.picture)
+        chooseProduct(imageView: day3, image: viewModel.cellViewModels[indexPath.row].groupImage.day3.picture)
+        chooseProduct(imageView: night1, image: viewModel.cellViewModels[indexPath.row].groupImage.night1.picture)
+        chooseProduct(imageView: night2, image: viewModel.cellViewModels[indexPath.row].groupImage.night2.picture)
+        chooseProduct(imageView: night3, image: viewModel.cellViewModels[indexPath.row].groupImage.night3.picture)
     }
 
 }

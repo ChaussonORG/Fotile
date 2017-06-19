@@ -19,15 +19,15 @@ class FTPentalCollectionViewCell: UICollectionViewCell {
     }
     func loadui() {
         addSubview(imageV)
-        addSubview(label)
+      //  addSubview(label)
         imageV.snp.makeConstraints { (make) in
             make.left.right.top.equalTo(0)
             make.bottom.equalTo(-40)
         }
-        label.snp.makeConstraints { (make) in
-            make.left.bottom.right.equalTo(0)
-            make.top.equalTo(imageV.snp.bottom).offset(0)
-        }
+//        label.snp.makeConstraints { (make) in
+//            make.left.bottom.right.equalTo(0)
+//            make.top.equalTo(imageV.snp.bottom).offset(0)
+//        }
     }
     lazy var imageV:UIImageView = {
         let imageV:UIImageView = UIImageView()

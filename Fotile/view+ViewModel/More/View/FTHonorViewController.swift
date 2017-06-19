@@ -9,6 +9,7 @@
 import UIKit
 
 class FTHonorViewController: UIViewController {
+    let viewModel:FTHonorViewModel = FTHonorViewModel()
 
     @IBOutlet var btn1: UIButton!
     @IBOutlet var btn2: UIButton!
@@ -24,6 +25,7 @@ class FTHonorViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
     func loadui(){
+        viewModel.get(year: "2016")
         let labe:UILabel = UILabel()
         labe.text = "企业荣誉"
         labe.font = UIFont.boldSystemFont(ofSize: 17)
@@ -50,6 +52,10 @@ class FTHonorViewController: UIViewController {
             make.top.equalTo(44)
             make.left.equalTo(collectionView2.snp.right).offset(0)
             make.bottom.equalTo(0)
+        }
+        optionsTableView.didseleIndex = { year in
+            self.viewModel.get(year: year)
+            self.collectionView1.reloadData()
         }
     }
     @IBAction func action1(_ sender: Any) {
@@ -122,6 +128,7 @@ extension FTHonorViewController:UICollectionViewDelegate,UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == collectionView1 {
             let cell:FTHonorCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId1", for: indexPath) as! FTHonorCollectionViewCell
+            cell.loadModel(image: viewModel.honors[indexPath.row])
             return cell
         }
         let cell:FTHonorCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId2", for: indexPath) as! FTHonorCollectionViewCell
@@ -129,11 +136,10 @@ extension FTHonorViewController:UICollectionViewDelegate,UICollectionViewDataSou
         
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return viewModel.honors.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
     }
-    
-    
+
 }

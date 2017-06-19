@@ -41,7 +41,7 @@ class FTMoreViewController: UIViewController {
         UIView.animate(withDuration: 0) {
             self.whiteView.frame = CGRect(x: 0, y: 64, width: UIScreen.width, height: 230)
         }
-        if haveUpdata {
+        if haveUpdata && dbUrl.length != 0{
             dowloadBtn.setTitle("开始更新", for: .normal)
             dowloadBtn.setTitleColor(FTStyleConfiguration.red, for: .normal)
             dowloadBtn.isEnabled = true
@@ -131,7 +131,6 @@ class FTMoreViewController: UIViewController {
     var haveUpdata:Bool = false
     var dbUrl:String = ""
     func checkAction(){
-       
         if haveUpdata && dbUrl.length != 0{
             FTDataOperation.shareInstance().downDataBase(withUrl: dbUrl, completion: { (bool) in
                 if bool{

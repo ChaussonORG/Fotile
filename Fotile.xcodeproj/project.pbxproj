@@ -109,6 +109,7 @@
 		688F4FD91EF67B9A0092F197 /* FTCustomKCService.m in Sources */ = {isa = PBXBuildFile; fileRef = 688F4FC51EF67B9A0092F197 /* FTCustomKCService.m */; };
 		688F4FDA1EF67B9A0092F197 /* FTProductService.m in Sources */ = {isa = PBXBuildFile; fileRef = 688F4FC71EF67B9A0092F197 /* FTProductService.m */; };
 		688F4FDB1EF67B9A0092F197 /* FTRealKitchenService.m in Sources */ = {isa = PBXBuildFile; fileRef = 688F4FC91EF67B9A0092F197 /* FTRealKitchenService.m */; };
+		689DD0331EF7A8C200C1095E /* FTHonorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689DD0321EF7A8C200C1095E /* FTHonorViewModel.swift */; };
 		689EC0A81EC45D3200E9730C /* UINavigationController+WXSTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 689EC0881EC45D3200E9730C /* UINavigationController+WXSTransition.m */; };
 		689EC0A91EC45D3200E9730C /* UIViewController+WXSTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 689EC08A1EC45D3200E9730C /* UIViewController+WXSTransition.m */; };
 		689EC0AA1EC45D3200E9730C /* UIViewController+WXSTransitionProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 689EC08C1EC45D3200E9730C /* UIViewController+WXSTransitionProperty.m */; };
@@ -298,6 +299,7 @@
 		688F4FC71EF67B9A0092F197 /* FTProductService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTProductService.m; sourceTree = "<group>"; };
 		688F4FC81EF67B9A0092F197 /* FTRealKitchenService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTRealKitchenService.h; sourceTree = "<group>"; };
 		688F4FC91EF67B9A0092F197 /* FTRealKitchenService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTRealKitchenService.m; sourceTree = "<group>"; };
+		689DD0321EF7A8C200C1095E /* FTHonorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTHonorViewModel.swift; sourceTree = "<group>"; };
 		689EC0871EC45D3200E9730C /* UINavigationController+WXSTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+WXSTransition.h"; sourceTree = "<group>"; };
 		689EC0881EC45D3200E9730C /* UINavigationController+WXSTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+WXSTransition.m"; sourceTree = "<group>"; };
 		689EC0891EC45D3200E9730C /* UIViewController+WXSTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WXSTransition.h"; sourceTree = "<group>"; };
@@ -575,6 +577,7 @@
 			isa = PBXGroup;
 			children = (
 				6812D9661EF67413000FC765 /* FTMoreViewModel.swift */,
+				689DD0321EF7A8C200C1095E /* FTHonorViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1335,6 +1338,7 @@
 				688F4FD21EF67B9A0092F197 /* FTRealKitchen.m in Sources */,
 				689EC0B21EC45D3200E9730C /* WXSTransitionManager+SpreadAnimation.m in Sources */,
 				68215D011EAEF10200A32759 /* JSONDecodable.swift in Sources */,
+				689DD0331EF7A8C200C1095E /* FTHonorViewModel.swift in Sources */,
 				68215CF51EAEF10200A32759 /* UICollectionViewExtensions.swift in Sources */,
 				68C9DF441EE2A55400DACB58 /* FTLoginViewController.swift in Sources */,
 				689EC0B71EC45D3200E9730C /* WXSTransitionProperty.m in Sources */,

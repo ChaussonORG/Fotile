@@ -26,4 +26,5 @@ class FTMoreViewModel: NSObject {
             }
         }
     }
+    
 }
