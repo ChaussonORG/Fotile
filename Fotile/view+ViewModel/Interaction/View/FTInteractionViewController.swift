@@ -28,6 +28,7 @@ class FTInteractionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         models = FTCustomKCService.fetchCustomKitchenList()
+        tableView.reloadData()
         (UIApplication.shared.delegate as! AppDelegate).ftView?.isHidden = false
     }
 }

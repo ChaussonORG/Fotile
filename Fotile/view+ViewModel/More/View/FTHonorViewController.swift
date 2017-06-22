@@ -26,6 +26,7 @@ class FTHonorViewController: UIViewController {
     }
     func loadui(){
         viewModel.get(year: "2016")
+        viewModel.getMedal(year: "2016")
         let labe:UILabel = UILabel()
         labe.text = "企业荣誉"
         labe.font = UIFont.boldSystemFont(ofSize: 17)
@@ -55,7 +56,9 @@ class FTHonorViewController: UIViewController {
         }
         optionsTableView.didseleIndex = { year in
             self.viewModel.get(year: year)
+            self.viewModel.getMedal(year: year)
             self.collectionView1.reloadData()
+            self.collectionView2.reloadData()
         }
     }
     @IBAction func action1(_ sender: Any) {
@@ -132,11 +135,15 @@ extension FTHonorViewController:UICollectionViewDelegate,UICollectionViewDataSou
             return cell
         }
         let cell:FTHonorCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId2", for: indexPath) as! FTHonorCollectionViewCell
+        cell.loadModel(image: viewModel.medals[indexPath.row])
         return cell
         
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.honors.count
+        if collectionView == collectionView1 {
+            return viewModel.honors.count
+        }
+        return viewModel.medals.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         

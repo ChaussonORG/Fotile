@@ -17,6 +17,10 @@ class FTMoreViewController: UIViewController {
         loadui()
         // Do any additional setup after loading the view.
     }
+    lazy var downLoad:FTDownloadView = {
+        let view = FTDownloadView.share()
+        return view
+    }()
     func loadui(){
         whiteView.addSubview(dowloadLabel)
         whiteView.addSubview(dowloadBtn)
@@ -47,11 +51,12 @@ class FTMoreViewController: UIViewController {
             dowloadBtn.isEnabled = true
             return
         }
-        viewModel.fetchData(time: "0") { (data) in
+        viewModel.fetchData(time: FTUserManager.userManager.getTime()) { (data) in
             self.haveUpdata = data.haveUpdate
             self.dbUrl = data.dbUrl
             if data.haveUpdate {
                 self.dowloadBtn.setTitle("开始更新", for: .normal)
+                self.dowloadBtn.isEnabled = true
             }else{
                 self.dowloadBtn.setTitle("暂无更新", for: .normal)
                 self.dowloadBtn.setTitleColor(FTStyleConfiguration.lightGray, for: .normal)
@@ -132,28 +137,32 @@ class FTMoreViewController: UIViewController {
     var dbUrl:String = ""
     func checkAction(){
         if haveUpdata && dbUrl.length != 0{
-            FTDataOperation.shareInstance().downDataBase(withUrl: dbUrl, completion: { (bool) in
+            FTDataOperation.shareInstance().downDataBase(withUrl: dbUrl, completion: { [weak self](bool) in
                 if bool{
-                    //CHProgressHUD.show(true)
+                    guard let weakSelf = self else{
+                        return
+                    }
+                    weakSelf.hide()
+                    weakSelf.downLoad.show()
                     FTImageManager.shareInstance().downloadAllImages({ (number, all) in
-                        CHProgressHUD.showPlainText("一共\(all)张照片,已经下载\(number)张照片")
+                        weakSelf.downLoad.number.text = String(number * 100 / all)
                         if number == all{
-                            CHProgressHUD.showPlainText("下载完成")
+                            FTUserManager.userManager.saveTime(time: weakSelf.getTime())
+                            weakSelf.haveUpdata = false
+                            weakSelf.dowloadBtn.isEnabled = false
+                            weakSelf.downLoad.hide()
                         }
                     })
                 }
             })
             return
-        }else{
-            //测试
-            FTImageManager.shareInstance().downloadAllImages({ (number, all) in
-                CHProgressHUD.showPlainText("一共\(all)张照片,已经下载\(number)张照片")
-                if number == all{
-                    CHProgressHUD.showPlainText("下载完成")
-                }
-            })
         }
-     
+    }
+    func getTime() -> String{
+        let date = Date()
+        let timeInterval:TimeInterval = date.timeIntervalSince1970 * 1000
+        let timeStamp = Int(timeInterval)
+        return "\(timeStamp)"
     }
     func logout()  {
         hide()

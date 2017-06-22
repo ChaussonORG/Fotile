@@ -60,7 +60,7 @@ extension UserDefaults {
         case outlet
         case type
         case tusernameype
-
+        case timeString
     }
 }
 

@@ -254,6 +254,7 @@ class FTSceneryViewController: UIViewController {
         (UIApplication.shared.delegate as! AppDelegate).ftView?.isHidden = false
         //真正
         models = FTRealKitchenService.fetchRealKitchens(withCity: FTUserManager.userManager.getModel().userInfo.city)
+        collectionView.reloadData()
 
     }
 

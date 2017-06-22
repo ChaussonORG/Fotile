@@ -9,6 +9,7 @@
 #import "FTRealKitchenService.h"
 #import "FTDataOperation.h"
 #import "FTImageManager.h"
+#import "FTProductService.h"
 @implementation FTRealKitchenService
 + (NSArray<FTRealKitchen *> *)fetchRealKitchens{
     return [self fetchRealKitchensWithSQL:@"select * from t_real_kitchen"];
@@ -38,6 +39,25 @@
     }];
 
     return [list copy];
+}
++ (NSArray<FTRealKitchen *> *)fetchRealKitchensWithCityName:(NSString *)name
+                                              productNumber:(NSString *)number
+                                                kitchenArea:(NSString *)area
+                                                 fotileCost:(NSString *)cost{
+    NSString *sql = [NSString stringWithFormat:@"select * from t_real_kitchen where city = '%@' and kitchen_fotile_cost like '%%%@%%' and  kitchen_area like '%%%@%%' ",name,cost,area];
+    NSArray <FTRealKitchen *>*kitchens = [self fetchRealKitchensWithSQL:sql];
+    NSArray <FTProduct *>*products = [FTProductService fetchProductWithModelNumber:number];
+    NSMutableArray <FTRealKitchen *>*reals = [NSMutableArray array];
+    for (FTRealKitchen *k in kitchens) {
+        for (FTProduct *p in products) {
+            if ([p.modelNumber containsString:number]) {
+                [reals addObject:k];
+                continue;
+            }
+        }
+    }
+
+    return [reals copy];
 }
 + (NSArray <FTRealKitchen *> *)fetchRealKitchensWithSQL:(NSString *)sql{
     FMDatabase *db = [[FTDataOperation shareInstance] dataBase];

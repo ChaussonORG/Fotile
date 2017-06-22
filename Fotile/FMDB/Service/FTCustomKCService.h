@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "FTCustomKitchen.h"
 #import "FTCustomKTDetail.h"
-
 @interface FTCustomKCService : NSObject
 // 获取定制厨房列表
 + (NSArray<FTCustomKitchen *> *)fetchCustomKitchenList;

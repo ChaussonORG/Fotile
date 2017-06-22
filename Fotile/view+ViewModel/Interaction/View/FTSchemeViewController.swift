@@ -10,6 +10,9 @@ import UIKit
 import HYBLoopScrollView
 class FTSchemeViewController: UIViewController {
 
+    var array:Array<UIImage> = Array<UIImage>()
+    var productModels:Array<FTProduct> = Array<FTProduct>()
+    let viewModel:FTProductViewModel = FTProductViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -18,6 +21,9 @@ class FTSchemeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     func loadUI() {
+        for product in productModels {
+            viewModel.cellViewModels.append(viewModel.getCellVieModel(product: product))
+        }
         view.addSubview(tableView)
         view.addSubview(dismisBtn)
         tableView.tableHeaderView = tableHead
@@ -25,7 +31,7 @@ class FTSchemeViewController: UIViewController {
         tableHead.addSubview(tableLine1)
         tableHead.addSubview(tableLine2)
         tableHead.addSubview(tableHeadLabel)
-
+     
     }
     lazy var tableHead:UIView = {
         let view:UIView = UIView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 676))
@@ -90,13 +96,14 @@ class FTSchemeViewController: UIViewController {
      
     }
     lazy var scrollView:HYBLoopScrollView = {
-        let scorllView:HYBLoopScrollView = HYBLoopScrollView(frame: CGRect.zero, imageUrls: ["timg-1", "timg-2", "timg","timg-1", "timg-2", "timg"], timeInterval: 2, didSelect: {[weak self] (didIndex) in
+        let scorllView:HYBLoopScrollView = HYBLoopScrollView(frame: CGRect.zero, imageUrls: self.array, timeInterval: 2, didSelect: {[weak self] (didIndex) in
             
             }, didScroll: nil)
         return scorllView
     }()
     lazy var tableView:FTProductTableView = {
         let table:FTProductTableView = FTProductTableView(frame: .zero, style: .plain)
+        table.setViewModel(viewModel: self.viewModel)
         return table
     }()
     lazy var dismisBtn:UIButton = {

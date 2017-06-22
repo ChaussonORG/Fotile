@@ -25,5 +25,6 @@ struct FTUserInfor: HandyJSON {
     var outlet:String = ""
     var type:String = ""
     var tusernameype:String = ""
+    var timeString:String = "0"
 
 }

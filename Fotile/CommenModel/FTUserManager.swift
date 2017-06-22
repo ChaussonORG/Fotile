@@ -66,7 +66,16 @@ class FTUserManager: NSObject {
         }
         return currentUser
     }
-    
+    func saveTime(time:String) {
+        UserDefaults.UserData.timeString.store(value: time)
+    }
+    func getTime() -> String{
+        var timestr = "0"
+        if let time = UserDefaults.UserData.timeString.storedValue {
+            timestr = time
+        }
+        return timestr
+    }
     class func coverIconVague(icon:String) -> String{
         let str = (icon as NSString).substring(to: icon.length - 10)
         return str

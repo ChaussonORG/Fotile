@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CHProgressHUD
 enum kitType {
     case Day1
     case Day2
@@ -21,10 +21,12 @@ class FTInteractionDetailViewController: UIViewController {
 
     let viewModel:FTInteractionDetailViewModel = FTInteractionDetailViewModel()
     var model:FTCustomKTDetail = FTCustomKTDetail()
+    var productModels:Array<FTProduct> = Array<FTProduct>()
 
     @IBOutlet var popBtn: UIButton!
     var type:kitType = .Day2
     var typeIndex = 1
+    var isSame:Bool = false
     @IBOutlet var pushBtn: UIButton!
     @IBOutlet var dayNightBtn: UIButton!
     
@@ -296,9 +298,17 @@ class FTInteractionDetailViewController: UIViewController {
     }
 
     @IBAction func pushAction(_ sender: Any) {
+        CHProgressHUD.show(true)
         let vc = FTSchemeViewController()
-        self.present(vc, animated: true) { 
-            
+        vc.productModels = self.productModels
+        vc.array.append(self.graphics(bgView: day1))
+        vc.array.append(self.graphics(bgView: day2))
+        vc.array.append(self.graphics(bgView: day3))
+        vc.array.append(self.graphics(bgView: night1))
+        vc.array.append(self.graphics(bgView: night2))
+        vc.array.append(self.graphics(bgView: night3))
+        self.present(vc, animated: true) {
+            CHProgressHUD.hide(true)
         }
     }
     
@@ -399,12 +409,11 @@ class FTInteractionDetailViewController: UIViewController {
         }
     }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        
-      //  if size.width > size.height {
-       //     layoutHor()
-      //  }else{
-      //      layoutVer()
-      //  }
+        if size.width > size.height {
+            layoutHor()
+        }else{
+            layoutVer()
+        }
     }
     
     func layoutHor() {
@@ -498,6 +507,14 @@ class FTInteractionDetailViewController: UIViewController {
             make.width.equalTo(55)
         }
     }
+    //截图
+    func graphics(bgView:UIView) ->UIImage{
+        UIGraphicsBeginImageContextWithOptions(bgView.frame.size, false, UIScreen.main.scale)
+        bgView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
     /*
     // MARK: - Navigation
 
@@ -512,6 +529,7 @@ class FTInteractionDetailViewController: UIViewController {
 extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollectionViewDataSource, FTHorOptionsViewDeleage,UIScrollViewDelegate{
     func clickBtnAction(index: Int32) {
       chooseType(index: index)
+        
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -557,6 +575,20 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
         chooseProduct(imageView: night1, image: viewModel.cellViewModels[indexPath.row].groupImage.night1.picture)
         chooseProduct(imageView: night2, image: viewModel.cellViewModels[indexPath.row].groupImage.night2.picture)
         chooseProduct(imageView: night3, image: viewModel.cellViewModels[indexPath.row].groupImage.night3.picture)
+        if productModels.count != 0 {
+            for model in productModels{
+                if model.catalogType == viewModel.cellViewModels[indexPath.row].catalogType{
+                    //isSame = true
+                    _ = productModels.remove(model)
+                }
+            }
+          //  if isSame {
+                productModels.append(viewModel.cellViewModels[indexPath.row])
+          //  }
+        }else{
+            productModels.append(viewModel.cellViewModels[indexPath.row])
+        }
+        
     }
 
 }

@@ -7,8 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FTProduct.h"
+#import "FTProductCategory.h"
+
 @interface FTProductService : NSObject
-+ (NSArray <FTProduct *>*)fetchProductsWithRealKitchenId:(NSString *)identifier;
 + (FTProduct *)fetchProductWithId:(NSString *)identifier;
++ (NSArray <FTProduct *>*)fetchProductsWithRealKitchenId:(NSString *)identifier;
++ (NSArray <FTProduct *>*)fetchProductWithModelNumber:(NSString *)number;
+
++ (NSArray <FTProductCategory *>*)fetchAllProductCategory;
+
+
 @end
