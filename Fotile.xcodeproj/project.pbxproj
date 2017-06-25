@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060989401EFF8A590086880D /* FTProductHL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0609893F1EFF8A590086880D /* FTProductHL.m */; };
+		060989431EFF8F930086880D /* FTProductSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 060989421EFF8F930086880D /* FTProductSeries.m */; };
 		680A29D51ED4190F001F98F0 /* FTScreeningTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A29D41ED4190F001F98F0 /* FTScreeningTableView.swift */; };
 		680A29D71ED41993001F98F0 /* FTScreeningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A29D61ED41993001F98F0 /* FTScreeningTableViewCell.swift */; };
 		680A29D91ED42173001F98F0 /* FTScreeningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A29D81ED42173001F98F0 /* FTScreeningViewModel.swift */; };
@@ -175,6 +177,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0609893E1EFF8A590086880D /* FTProductHL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTProductHL.h; sourceTree = "<group>"; };
+		0609893F1EFF8A590086880D /* FTProductHL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTProductHL.m; sourceTree = "<group>"; };
+		060989411EFF8F930086880D /* FTProductSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTProductSeries.h; sourceTree = "<group>"; };
+		060989421EFF8F930086880D /* FTProductSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTProductSeries.m; sourceTree = "<group>"; };
 		34024F0BA36B5529AFFC6FFA /* Pods_Fotile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fotile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		680A29D41ED4190F001F98F0 /* FTScreeningTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTScreeningTableView.swift; sourceTree = "<group>"; };
 		680A29D61ED41993001F98F0 /* FTScreeningTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTScreeningTableViewCell.swift; sourceTree = "<group>"; };
@@ -844,6 +850,10 @@
 				68948B8B1EFBB4F50056B840 /* FTProductCategory.m */,
 				68948B8C1EFBB4F50056B840 /* FTProductParm.h */,
 				68948B8D1EFBB4F50056B840 /* FTProductParm.m */,
+				0609893E1EFF8A590086880D /* FTProductHL.h */,
+				0609893F1EFF8A590086880D /* FTProductHL.m */,
+				060989411EFF8F930086880D /* FTProductSeries.h */,
+				060989421EFF8F930086880D /* FTProductSeries.m */,
 			);
 			path = FTProduct;
 			sourceTree = "<group>";
@@ -1320,6 +1330,7 @@
 				68215CEB1EAEF10200A32759 /* BasicAnimation.swift in Sources */,
 				68E717721EC2E73900F236EE /* FTOptionsView.swift in Sources */,
 				68215C341EAEED7300A32759 /* FTInteractionViewController.swift in Sources */,
+				060989431EFF8F930086880D /* FTProductSeries.m in Sources */,
 				68215CE11EAEF10200A32759 /* ArrayExtensions.swift in Sources */,
 				689EC0B31EC45D3200E9730C /* WXSTransitionManager+SystermAnimation.m in Sources */,
 				68948BAA1EFBB4F50056B840 /* FTProduct.m in Sources */,
@@ -1347,6 +1358,7 @@
 				68215CFB1EAEF10200A32759 /* UIViewExtensions.swift in Sources */,
 				68948BAC1EFBB4F50056B840 /* FTProductParm.m in Sources */,
 				689EC0B21EC45D3200E9730C /* WXSTransitionManager+SpreadAnimation.m in Sources */,
+				060989401EFF8A590086880D /* FTProductHL.m in Sources */,
 				68215D011EAEF10200A32759 /* JSONDecodable.swift in Sources */,
 				689DD0331EF7A8C200C1095E /* FTHonorViewModel.swift in Sources */,
 				68215CF51EAEF10200A32759 /* UICollectionViewExtensions.swift in Sources */,

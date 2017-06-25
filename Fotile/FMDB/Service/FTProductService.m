@@ -114,4 +114,136 @@
     return [list copy];
  
 }
++ (NSArray <FTProductHL *>*)fetchHeightLightWithId:(NSString *)identifier{
+    NSString *sql = [NSString stringWithFormat:@"select * from t_fotile_product_highlight where product_id = '%@'",identifier];
+    
+    FMDatabase *db = [[FTDataOperation shareInstance] dataBase];
+
+    BOOL isGoodConnection = [db goodConnection];
+    if (!isGoodConnection) {
+        [db open];
+    }
+    NSMutableArray <FTProductHL *>*array = [NSMutableArray array];
+    FMResultSet *r = [db executeQuery:sql];
+    while ([r next]) {
+        FTProductHL *h = [[FTProductHL alloc]init];
+        h.identifier =  [r stringForColumn:@"id"];
+        h.createTime =  [r stringForColumn:@"create_time"];
+        h.updateTime =  [r stringForColumn:@"update_time"];
+        h.desc =  [r stringForColumn:@"h_desc"];
+        h.title =  [r stringForColumn:@"title"];
+        h.image = [[FTImageManager shareInstance] fetchImageWithId:[r stringForColumn:@"image_id"]];
+        [array addObject:h];
+    }
+    if (!isGoodConnection) {
+        [db close];
+    }
+    
+    return [array copy];
+}
++ (FTImage *)fetchInstallImageWithId:(NSString *)identifier{
+    NSString *sql = [NSString stringWithFormat:@"select * from t_fotile_product where id = '%@'",identifier];
+
+    FMDatabase *db = [[FTDataOperation shareInstance] dataBase];
+    
+    BOOL isGoodConnection = [db goodConnection];
+    if (!isGoodConnection) {
+        [db open];
+    }
+    FMResultSet *r = [db executeQuery:sql];
+    NSString *installId ;
+    while ([r next]) {
+        installId =  [r stringForColumn:@"install_img_id"];
+
+    }
+    if (!isGoodConnection) {
+        [db close];
+    }
+    FTImage *image = [[FTImageManager shareInstance] fetchImageWithId:installId];
+
+    return image;
+}
++ (FTProductSeries *)fetchSeriesWithId:(NSString *)identifier{
+    NSString *sql = [NSString stringWithFormat:@"select * from t_fotile_package_product where product_id = '%@'",identifier];
+    FMDatabase *db = [[FTDataOperation shareInstance] dataBase];
+    
+    BOOL isGoodConnection = [db goodConnection];
+    if (!isGoodConnection) {
+        [db open];
+    }
+    FTProductSeries *series = [[FTProductSeries alloc]init];
+    FMResultSet *r = [db executeQuery:sql];
+    while ([r next]) {
+        series.packageId = [r stringForColumn:@"package_id"];
+    }
+    if (series.packageId) {
+        NSString *pSQL = [NSString stringWithFormat:@"select * from t_fotile_package where id = '%@'",series.packageId];
+        FMResultSet *p = [db executeQuery:pSQL];
+        while ([p next]) {
+            series.name = [p stringForColumn:@"pack_name"];
+            series.image = [[FTImageManager shareInstance] fetchImageWithId:[p stringForColumn:@"image_id"]];
+        }
+        NSString *psSQL = [NSString stringWithFormat:@"select * from t_fotile_package_product where package_id = '%@'",series.packageId];
+        FMResultSet *pr = [db executeQuery:psSQL];
+        NSMutableArray <FTProduct *>*products = [NSMutableArray array];
+        while ([pr next]) {
+            FTProduct *product = [self fetchProductWithId:[pr stringForColumn:@"product_id"]];
+            if (product.identifier) {
+                 [products addObject:product];
+            }
+        }
+        series.products = [products copy];
+    }
+    
+    if (!isGoodConnection) {
+        [db close];
+    }
+    return series;
+}
++ (NSArray <FTProduct *>*)fetchOthersProductWithId:(NSString *)identifier{
+    NSString *sql = [NSString stringWithFormat:@"select * from t_fotile_product_other where product_id = '%@'",identifier];
+    NSMutableArray <FTProduct *>*products = [NSMutableArray array];
+
+    FMDatabase *db = [[FTDataOperation shareInstance] dataBase];
+    
+    BOOL isGoodConnection = [db goodConnection];
+    if (!isGoodConnection) {
+        [db open];
+    }
+    FMResultSet *r = [db executeQuery:sql];
+    while ([r next]) {
+        FTProduct *product = [self fetchProductWithId:[r stringForColumn:@"other_product_id"]];
+        if (product) {
+            [products addObject:product];
+        }
+    }
+    if (!isGoodConnection) {
+        [db close];
+    }
+    return [products copy];
+
+}
++ (NSArray <FTProduct *>*)fetchMoreProductWithId:(NSString *)identifier{
+    NSString *sql = [NSString stringWithFormat:@"select * from t_fotile_product_similar where product_id = '%@'",identifier];
+    NSMutableArray <FTProduct *>*products = [NSMutableArray array];
+
+    FMDatabase *db = [[FTDataOperation shareInstance] dataBase];
+    
+    BOOL isGoodConnection = [db goodConnection];
+    if (!isGoodConnection) {
+        [db open];
+    }
+    FMResultSet *r = [db executeQuery:sql];
+    while ([r next]) {
+        FTProduct *product = [self fetchProductWithId:[r stringForColumn:@"similar_product_id"]];
+        if (product) {
+            [products addObject:product];
+        }
+    }
+    if (!isGoodConnection) {
+        [db close];
+    }
+    return [products copy];
+
+}
 @end
