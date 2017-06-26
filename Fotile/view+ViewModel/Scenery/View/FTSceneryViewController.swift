@@ -10,6 +10,9 @@ import UIKit
 
 class FTSceneryViewController: UIViewController {
     var models = Array<FTRealKitchenList>()
+    var productNum:String = ""
+    var area:String = ""
+    var cost:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -334,16 +337,20 @@ extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewData
     }
     func didSeletecedAction(title: String) {
         typeAction()
-//        models = FTRealKitchenService.fetchRealKitchens(withCityName: "", productNumber: title, kitchenArea: "", fotileCost: "")
-//        collectionView.reloadData()
+        productNum = title
+        models = FTRealKitchenService.fetchRealKitchens(withCityName: "", productNumber: productNum, kitchenArea: area, fotileCost: cost)
+        collectionView.reloadData()
     }
     func didSeletecedActionAreaCost(screenView: FTScreeningCostAndAreaView, title: String) {
         if costScreen == screenView{
             costAction()
+            cost = title
         }else{
             areaAction()
+            area = title
         }
-        print(title)
+        models = FTRealKitchenService.fetchRealKitchens(withCityName: "", productNumber: productNum, kitchenArea: area, fotileCost: cost)
+        collectionView.reloadData()
     }
 
 }
