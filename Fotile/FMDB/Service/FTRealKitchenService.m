@@ -15,7 +15,7 @@
     return [self fetchRealKitchensWithSQL:@"select * from t_real_kitchen"];
 }
 + (NSArray <FTRealKitchenList*>*)fetchRealKitchensWithCity:(NSString *)name{
-    NSString *sql = [NSString stringWithFormat:@"select * from t_real_kitchen where city = '%@'",name];
+    NSString *sql = [NSString stringWithFormat:@"select * from t_real_kitchen where city = '%@' and approval_status = 'Approved'",name];
     NSArray<FTRealKitchen *> *realKitchens = [self fetchRealKitchensWithSQL:sql];
     NSMutableArray <FTRealKitchenList *>*list = [NSMutableArray array];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
@@ -123,7 +123,7 @@
     int tenPlace = n / 10 % 10;
     int hundredPlace = n / 100 % 10;
     int thousandPlace = n / 1000 % 10;
-    if (unitPlace+tenPlace+hundredPlace >= 500) {
+    if (unitPlace+tenPlace*10+hundredPlace*100 >= 500) {
         thousandPlace+=1;
     }
     return [NSString stringWithFormat:@"%d.%d",n/10000,thousandPlace];

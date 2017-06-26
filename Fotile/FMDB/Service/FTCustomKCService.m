@@ -15,7 +15,7 @@
 + (NSArray<FTCustomKitchen *> *)fetchCustomKitchenList{
     FMDatabase *db = [[FTDataOperation shareInstance] dataBase];
     [db open];
-    FMResultSet *rs = [db executeQuery:@"select * from t_virtual_kitchen"];
+    FMResultSet *rs = [db executeQuery:@"select * from t_virtual_kitchen where enable_type = 'Enabled'"];
     NSMutableArray <FTCustomKitchen *>*list = [NSMutableArray array];
     while ([rs next]) {
         FTCustomKitchen *customKT = [[FTCustomKitchen alloc]init];

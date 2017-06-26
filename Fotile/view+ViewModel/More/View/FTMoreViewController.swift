@@ -137,13 +137,14 @@ class FTMoreViewController: UIViewController {
     var dbUrl:String = ""
     func checkAction(){
         if haveUpdata && dbUrl.length != 0{
+            downLoad.show()
+
             FTDataOperation.shareInstance().downDataBase(withUrl: dbUrl, completion: { [weak self](bool) in
                 if bool{
                     guard let weakSelf = self else{
                         return
                     }
                     weakSelf.hide()
-                    weakSelf.downLoad.show()
                     FTImageManager.shareInstance().downloadAllImages({ (number, all) in
                         weakSelf.downLoad.number.text = String(number * 100 / all)
                         if number == all{
