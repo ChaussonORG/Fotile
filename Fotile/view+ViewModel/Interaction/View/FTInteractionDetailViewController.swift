@@ -22,7 +22,7 @@ class FTInteractionDetailViewController: UIViewController {
     let viewModel:FTInteractionDetailViewModel = FTInteractionDetailViewModel()
     var model:FTCustomKTDetail = FTCustomKTDetail()
     var productModels:Array<FTProduct> = Array<FTProduct>()
-
+    var isVer:Bool = true
     @IBOutlet var popBtn: UIButton!
     var type:kitType = .Day2
     var typeIndex = 1
@@ -44,6 +44,7 @@ class FTInteractionDetailViewController: UIViewController {
         view.addSubview(collectionView)
         view.addSubview(sliderView)
         view.addSubview(scrollView)
+        view.addSubview(sliderView1)
         scrollView.addSubview(night1)
         scrollView.addSubview(night3)
         scrollView.addSubview(night2)
@@ -64,7 +65,7 @@ class FTInteractionDetailViewController: UIViewController {
         night1.backImageView.image = model.groupImage.night1.picture
         night2.backImageView.image = model.groupImage.night2.picture
         night3.backImageView.image = model.groupImage.night3.picture
-
+        sliderView1.isHidden = true
     }
     func animationUI() {
         if self.rect.origin.y >  UIScreen.main.bounds.size.width - 292{
@@ -169,6 +170,7 @@ class FTInteractionDetailViewController: UIViewController {
             make.bottom.equalTo(collectionView.snp.top).offset(0)
             make.height.equalTo(44)
         }
+  
         collectionView.snp.remakeConstraints { (make) in
             make.left.right.equalTo(0)
             make.bottom.equalTo(-45)
@@ -234,6 +236,12 @@ class FTInteractionDetailViewController: UIViewController {
         view.deleage = self
         return view
     }()
+    lazy var sliderView1:FTInterOptionView = {
+        let view:FTInterOptionView = FTInterOptionView(frame: .zero)
+        view.deleage = self
+        return view
+    }()
+    
     lazy var scrollView:UIScrollView = {
         let scroll:UIScrollView = UIScrollView()
         scroll.contentSize = CGSize(width: UIScreen.main.bounds.size.height * 3, height: UIScreen.main.bounds.size.width)
@@ -261,6 +269,7 @@ class FTInteractionDetailViewController: UIViewController {
         btn.backgroundColor = UIColor.black
         btn.addTarget(self, action: #selector(productAction), for: .touchUpInside)
         btn.isSelected = true
+        btn.titleLabel?.numberOfLines = 0
         return btn
     }()
     lazy var materialBtn:UIButton = {
@@ -272,7 +281,7 @@ class FTInteractionDetailViewController: UIViewController {
         btn.setTitleColor(UIColor.white, for: .selected)
         btn.backgroundColor = UIColor.white
         btn.addTarget(self, action: #selector(materialAction), for: .touchUpInside)
-
+        btn.titleLabel?.numberOfLines = 0
         return btn
     }()
     func productAction() {
@@ -300,6 +309,7 @@ class FTInteractionDetailViewController: UIViewController {
     @IBAction func pushAction(_ sender: Any) {
         CHProgressHUD.show(true)
         let vc = FTSchemeViewController()
+        vc.isVer = self.isVer
         vc.productModels = self.productModels
         vc.array.append(self.graphics(bgView: day1))
         vc.array.append(self.graphics(bgView: day2))
@@ -368,7 +378,10 @@ class FTInteractionDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         (UIApplication.shared.delegate as! AppDelegate).isAllow = true
     }
-
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        (UIApplication.shared.delegate as! AppDelegate).isAllow = false
+    }
     func chooseType(index:Int32)  {
        
         if index == 10{
@@ -423,6 +436,9 @@ class FTInteractionDetailViewController: UIViewController {
     }
     
     func layoutHor() {
+        isVer = false
+        productBtn.setTitle("产\n品", for: .normal)
+        materialBtn.setTitle("材\n质", for: .normal)
         layout.scrollDirection = .vertical
         scrollView.contentSize = CGSize(width: (UIScreen.height - 254) * 3, height: UIScreen.main.bounds.size.width)
         scrollView.contentOffset = CGPoint(x: UIScreen.width, y: 0)
@@ -437,11 +453,6 @@ class FTInteractionDetailViewController: UIViewController {
             make.top.equalTo(0)
             make.height.equalTo(UIScreen.width)
             make.width.equalTo(scrollView)
-        }
-        sliderView.snp.remakeConstraints { (make) in
-            make.top.bottom.equalTo(0)
-            make.width.equalTo(44)
-            make.right.equalTo(collectionView.snp.left).offset(0)
         }
         collectionView.snp.remakeConstraints { (make) in
             make.top.bottom.equalTo(0)
@@ -461,8 +472,8 @@ class FTInteractionDetailViewController: UIViewController {
             make.width.equalTo(30)
         }
         materialBtn.snp.remakeConstraints { (make) in
-            make.left.equalTo(productBtn.snp.right).offset(0)
-            make.top.equalTo(5)
+            make.left.equalTo(5)
+            make.top.equalTo(productBtn.snp.bottom).offset(0)
             make.height.equalTo(55)
             make.width.equalTo(30)
         }
@@ -472,16 +483,41 @@ class FTInteractionDetailViewController: UIViewController {
             make.height.equalTo(85)
             make.width.equalTo(60)
         }
-        
+        dayNightBtn.snp.remakeConstraints { (make) in
+            make.right.equalTo(view).offset(-290)
+            make.top.equalTo(UIScreen.width - 70)
+            make.width.height.equalTo(70)
+        }
+        pushBtn.snp.remakeConstraints { (make) in
+            make.top.equalTo(UIScreen.main.bounds.size.width / 2 - 25)
+            make.right.equalTo(0)
+            make.height.equalTo(50)
+            make.width.equalTo(25)
+        }
+        sliderView1.snp.remakeConstraints { (make) in
+            make.top.bottom.equalTo(0)
+            make.right.equalTo(-209)
+            make.width.equalTo(44)
+        }
+        pushBtn.setImage(#imageLiteral(resourceName: "btn_showPlan_landscape"), for: .normal)
+        sliderView1.isHidden = false
+        sliderView.isHidden = true
     }
     func layoutVer(){
+        isVer = true
+        let height = UIScreen.height > UIScreen.width ? UIScreen.height : UIScreen.width
+        let width = UIScreen.height < UIScreen.width ? UIScreen.height : UIScreen.width
+        productBtn.setTitle("产品", for: .normal)
+        materialBtn.setTitle("材质", for: .normal)
+        sliderView1.isHidden = true
+        sliderView.isHidden = false
         layout.scrollDirection = .horizontal
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.size.width * 3, height: UIScreen.main.bounds.size.height)
+        scrollView.contentSize = CGSize(width: height * 3, height: width)
         scrollView.contentOffset = CGPoint(x: scrollView.contentSize.width / 3, y: 0)
         scrollView.snp.remakeConstraints { (make) in
             make.left.equalTo(-spac)
-            make.width.equalTo(UIScreen.main.bounds.size.width)
-            make.height.equalTo(UIScreen.width - 254)
+            make.width.equalTo(height)
+            make.height.equalTo(height - 254)
             make.top.equalTo(0)
         }
         sliderView.snp.remakeConstraints { (make) in
@@ -512,6 +548,18 @@ class FTInteractionDetailViewController: UIViewController {
             make.height.equalTo(30)
             make.width.equalTo(55)
         }
+        dayNightBtn.snp.remakeConstraints { (make) in
+            make.right.equalTo(view).offset(0)
+            make.bottom.equalTo(day2).offset(0)
+            make.width.height.equalTo(70)
+        }
+        pushBtn.setImage(#imageLiteral(resourceName: "btn_showPlan_portrait"), for: .normal)
+        pushBtn.snp.remakeConstraints { (make) in
+            make.left.equalTo(width / 2 - 25)
+            make.bottom.equalTo(0)
+            make.height.equalTo(25)
+            make.width.equalTo(50)
+        }
     }
     //截图
     func graphics(bgView:UIView) ->UIImage{
@@ -532,11 +580,15 @@ class FTInteractionDetailViewController: UIViewController {
     */
 
 }
-extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollectionViewDataSource, FTHorOptionsViewDeleage,UIScrollViewDelegate{
+extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollectionViewDataSource, FTHorOptionsViewDeleage,UIScrollViewDelegate,FTInterOptionViewDeleage{
     func clickBtnAction(index: Int32) {
-      chooseType(index: index)
-        
+        chooseType(index:index)
     }
+
+    func clickBtnActionOption(index: Int) {
+        chooseType(index:Int32(index + 1))
+    }
+
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView == self.scrollView {
