@@ -213,8 +213,9 @@ extension FTSceneryDetailViewController:UICollectionViewDelegate, UICollectionVi
        
     }
     func moreAction(viewModel:FTProductCellViewModel) {
+        let vm = FTProductDetailVM(cellViewModel:viewModel)
         let vc = FTProductDetailViewController()
-        
+        vc.viewModel = vm
         navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -12,6 +12,7 @@
 		06666BBB1F00F9840072929C /* FTProductTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06666BBA1F00F9840072929C /* FTProductTitleView.swift */; };
 		06666BBD1F0102C20072929C /* FTProductHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06666BBC1F0102C20072929C /* FTProductHeadView.swift */; };
 		06666BBF1F010C6C0072929C /* FTProductParmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06666BBE1F010C6C0072929C /* FTProductParmView.swift */; };
+		06666BC11F012E490072929C /* FTProductBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06666BC01F012E490072929C /* FTProductBannerView.swift */; };
 		680A29D51ED4190F001F98F0 /* FTScreeningTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A29D41ED4190F001F98F0 /* FTScreeningTableView.swift */; };
 		680A29D71ED41993001F98F0 /* FTScreeningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A29D61ED41993001F98F0 /* FTScreeningTableViewCell.swift */; };
 		680A29D91ED42173001F98F0 /* FTScreeningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A29D81ED42173001F98F0 /* FTScreeningViewModel.swift */; };
@@ -190,6 +191,7 @@
 		06666BBA1F00F9840072929C /* FTProductTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductTitleView.swift; sourceTree = "<group>"; };
 		06666BBC1F0102C20072929C /* FTProductHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductHeadView.swift; sourceTree = "<group>"; };
 		06666BBE1F010C6C0072929C /* FTProductParmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductParmView.swift; sourceTree = "<group>"; };
+		06666BC01F012E490072929C /* FTProductBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductBannerView.swift; sourceTree = "<group>"; };
 		34024F0BA36B5529AFFC6FFA /* Pods_Fotile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fotile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		680A29D41ED4190F001F98F0 /* FTScreeningTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTScreeningTableView.swift; sourceTree = "<group>"; };
 		680A29D61ED41993001F98F0 /* FTScreeningTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTScreeningTableViewCell.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 				06666BBA1F00F9840072929C /* FTProductTitleView.swift */,
 				06666BBC1F0102C20072929C /* FTProductHeadView.swift */,
 				06666BBE1F010C6C0072929C /* FTProductParmView.swift */,
+				06666BC01F012E490072929C /* FTProductBannerView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -1263,6 +1266,7 @@
 				686CFEC01EC9A9DC003AD4DA /* FTSceneryDetailCollectionViewCell.swift in Sources */,
 				68215CFF1EAEF10200A32759 /* Each.swift in Sources */,
 				68FDF29E1EEE354300AC0466 /* UserDefaultSettable.swift in Sources */,
+				06666BC11F012E490072929C /* FTProductBannerView.swift in Sources */,
 				68215D111EAEF15F00A32759 /* Timer+Extension.swift in Sources */,
 				68215C381EAEED8700A32759 /* FTProductViewController.swift in Sources */,
 				68215D0F1EAEF15F00A32759 /* CGFloat+Ectension.swift in Sources */,
@@ -1574,8 +1578,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = KuaiCTO.chausson.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b7a4b131-0742-4df4-9a5d-9d24f1097856";
-				PROVISIONING_PROFILE_SPECIFIER = kuaicto;
+				PROVISIONING_PROFILE = "e5c219d5-7cef-48bc-8579-c33cfcdd67ae";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: KuaiCTO.chausson.com";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Fotile/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -1593,8 +1597,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = KuaiCTO.chausson.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b7a4b131-0742-4df4-9a5d-9d24f1097856";
-				PROVISIONING_PROFILE_SPECIFIER = kuaicto;
+				PROVISIONING_PROFILE = "e5c219d5-7cef-48bc-8579-c33cfcdd67ae";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: KuaiCTO.chausson.com";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Fotile/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 2;

@@ -10,37 +10,67 @@ import UIKit
 import HYBLoopScrollView
 struct FTProductDetailVM {
     var headViewModel:FTProductCellViewModel?
-  
+    var installImage:FTImage?
+    var isShowBanner:Bool {
+        get{
+            return banners.count > 0
+        }
+    }
+    var banners:Array<FTProductHL> = Array<FTProductHL>()
+    init(cellViewModel:FTProductCellViewModel) {
+        self.headViewModel = cellViewModel
+    
+        let prdocutHLS = FTProductService.fetchHeightLight(withId: cellViewModel.productId)
+   
+        self.installImage = FTProductService.fetchInstallImage(withId: cellViewModel.productId)
+        guard let p = prdocutHLS else {
+            return
+        }
+        for b in p {
+            banners.append(b)
+        }
+     
+    }
 }
 class FTProductDetailViewController: UIViewController {
     
-    @IBOutlet var parmView: UIView!
-    @IBOutlet var parmHeight: NSLayoutConstraint!
-    var viewModel = FTProductDetailVM()
-    @IBOutlet var headView: UIView!
-    @IBOutlet var titleView: UIView!
+    var viewModel:FTProductDetailVM!
+  
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         loadUI()
         // Do any additional setup after loading the view.
     }
+   
     func loadUI(){
         productImage.image = viewModel.headViewModel?.imageUrl
-        let titleView = FTProductTitleView(frame: CGRect(), title: viewModel.headViewModel?.modelNumber, subTitle: viewModel.headViewModel?.name, desc: viewModel.headViewModel?.slogan)
+        let titleView = FTProductTitleView(frame: CGRect(), title: viewModel.headViewModel?.modelNumber, subTitle: viewModel.headViewModel?.name, desc: viewModel?.headViewModel?.slogan)
         let productParmTitle = FTProductHeadView(title: "产品参数")
+        let installHeadView = FTProductHeadView(title: "安装示意图")
+
+        let headHeight = 140
+        let isHiddenBanner = viewModel.banners
         self.edgesForExtendedLayout = .bottom
         view.addSubview(mainScrollView)
         view.addSubview(backBtn)
-
-        mainScrollView.addSubview(productImage)
+//
+        mainScrollView.addSubview(productImageView)
         mainScrollView.addSubview(titleView)
         mainScrollView.addSubview(productParmTitle)
+        mainScrollView.addSubview(parmView)
+        mainScrollView.addSubview(bannerHead)
+        mainScrollView.addSubview(bannerView)
+        mainScrollView.addSubview(installHeadView)
+        mainScrollView.addSubview(installView)
+        mainScrollView.addSubview(seriesHeadView)
+  
 
         mainScrollView.snp.makeConstraints { (make) in
             make.left.top.bottom.right.equalTo(0)
         }
-        productImage.snp.makeConstraints { (make) in
+        productImageView.snp.makeConstraints { (make) in
             make.top.equalTo(0)
             make.left.equalTo(0)
             make.width.equalTo(self.view)
@@ -52,17 +82,70 @@ class FTProductDetailViewController: UIViewController {
             make.height.width.equalTo(60)
         }
         titleView.snp.makeConstraints { (make) in
-            make.top.equalTo(productImage.snp.bottom).offset(0)
+            make.top.equalTo(productImageView.snp.bottom).offset(0)
             make.left.equalTo(0)
-            make.width.equalTo(productImage)
-            make.height.width.equalTo(120)
+            make.width.equalTo(productImageView)
+            make.height.equalTo(120)
+        }
+        installHeadView.snp.makeConstraints { (make) in
+            make.top.equalTo(bannerView.snp.bottom).offset(0)
+            make.left.equalTo(0)
+            make.width.equalTo(titleView)
+            make.height.equalTo(headHeight)
         }
         productParmTitle.snp.makeConstraints { (make) in
             make.top.equalTo(titleView.snp.bottom).offset(0)
             make.left.equalTo(0)
             make.width.equalTo(titleView)
-            make.height.width.equalTo(140)
+            make.height.equalTo(headHeight)
         }
+        let parmViewH = { Void -> Int in
+            let count = self.viewModel.headViewModel?.params.count
+            
+            return count!/2*45+count!%2*45
+        }()
+        parmView.snp.makeConstraints { (make) in
+            make.top.equalTo(productParmTitle.snp.bottom).offset(0)
+            make.left.equalTo(0)
+            make.width.equalTo(titleView)
+            make.height.equalTo(parmViewH)
+        }
+        bannerHead.snp.makeConstraints { (make) in
+            var h = headHeight
+            if !viewModel.isShowBanner {
+                h = 0
+            }
+            make.top.equalTo(parmView.snp.bottom).offset(0)
+            make.left.equalTo(0)
+            make.width.equalTo(titleView)
+            make.height.equalTo(h)
+        }
+        bannerView.snp.makeConstraints { (make) in
+            var h = 460
+             if !viewModel.isShowBanner {
+                h = 0
+            }
+            make.top.equalTo(bannerHead.snp.bottom).offset(0)
+            make.left.equalTo(0)
+            make.width.equalTo(titleView)
+            make.height.equalTo(h)
+        }
+        installView.snp.makeConstraints { (make) in
+            make.top.equalTo(installHeadView.snp.bottom).offset(0)
+            make.left.equalTo(0)
+            make.width.equalTo(titleView)
+            make.height.equalTo(570)
+        }
+        seriesHeadView.snp.makeConstraints { (make) in
+            make.top.equalTo(installView.snp.bottom).offset(0)
+            make.left.equalTo(0)
+            make.width.equalTo(titleView)
+            make.height.equalTo(headHeight)
+        }
+       
+        let contentHeight = seriesHeadView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height+seriesHeadView.hyb_bottomY
+              
+        mainScrollView.contentSize = CGSize(width: 0, height: 3000)
 //        view1.addSubview(collectionView1)
 //        collectionView1.snp.makeConstraints { (make) in
 //            make.left.equalTo(0)
@@ -97,17 +180,86 @@ class FTProductDetailViewController: UIViewController {
         
       
     }
+    
+    lazy var parmView:FTProductParmView = {
+        let parmView = FTProductParmView(params: self.viewModel.headViewModel?.params)
+     
+        return parmView
+    }()
+    lazy var bannerHead:FTProductHeadView = {
+        let bannerHead = FTProductHeadView(title: "")
+
+        var titles:Array<String> = Array<String>()
+
+        for b in self.viewModel.banners {
+            titles.append(b.title)
+            
+        }
+        if titles.count > 0{
+            bannerHead.setupHeaders(heads: titles)
+
+        }
+        
+        return bannerHead
+        
+    }()
+    lazy var bannerView:FTProductBannerView = {
+        
+        var images:Array<FTImage> = Array<FTImage>()
+        
+        for b in self.viewModel.banners {
+            images.append(b.image)
+            
+        }
+        let frame = CGRect(x: 50, y: 0, width: self.view.frame.size.width-100, height: 460)
+        let bannerView = FTProductBannerView(frame:frame,images: images)
+        bannerView.scrollView.delegate = self;
+        
+        return bannerView
+        
+    }()
+    lazy var installView:UIView = {
+        let imageView = UIImageView(image: self.viewModel?.installImage?.picture)
+
+        let installView = UIView()
+        installView.addSubview(imageView)
+        imageView.snp.makeConstraints { (make) in
+            make.left.right.top.bottom.equalTo(0)
+        }
+        imageView.contentMode = .scaleAspectFit
+        return installView
+        
+    }()
+    
     lazy var backBtn:UIButton = {
         let backBtn = UIButton(type: .custom)
         backBtn.setImage(UIImage(named:"btn_back"), for: .normal)
         backBtn.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         return backBtn
     }()
-    lazy var bannerView:HYBLoopScrollView = {
-        let bannerView:HYBLoopScrollView = HYBLoopScrollView(frame: CGRect.zero, imageUrls: ["home1"], timeInterval: 2, didSelect: {[weak self] (didIndex) in
-            
-            }, didScroll: nil)
-        return bannerView
+    lazy var productImageView:UIView = {
+        let productImageView:UIView = UIView()
+        let backgroundImage:UIImageView = UIImageView()
+        productImageView.addSubview(backgroundImage)
+        productImageView.addSubview(self.productImage)
+        backgroundImage.snp.makeConstraints { (make) in
+            make.top.equalTo(0)
+            make.left.equalTo(0)
+            make.right.equalTo(0)
+            make.bottom.equalTo(0)
+        }
+        self.productImage.snp.makeConstraints { (make) in
+            make.top.equalTo(0)
+            make.left.equalTo(0)
+            make.right.equalTo(0)
+            make.bottom.equalTo(0)
+        }
+        return productImageView
+    }()
+    lazy var seriesHeadView:FTProductHeadView = {
+        let seriesHeadView:FTProductHeadView = FTProductHeadView(title:"智能套系")
+  
+        return seriesHeadView
     }()
     lazy var productImage:UIImageView = {
         let productImage:UIImageView = UIImageView()
@@ -205,6 +357,20 @@ class FTProductDetailViewController: UIViewController {
     }
 
 
+}
+extension FTProductDetailViewController:UIScrollViewDelegate{
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        print("\(scrollView.contentOffset.x)")
+        
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+      
+        var index = Int(scrollView.contentOffset.x/(scrollView.frame.size.width))
+    
+        bannerHead.changeHead(index: index)
+        print("\(scrollView.contentOffset.x)")
+
+    }
 }
 extension FTProductDetailViewController:UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

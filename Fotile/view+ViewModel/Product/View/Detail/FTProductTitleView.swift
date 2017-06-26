@@ -25,8 +25,6 @@ class FTProductTitleView: UIView {
             make.top.equalTo(25)
             make.left.equalTo(50)
             make.height.equalTo(30)
-            make.right.equalTo(subTitleLabel.snp.left).offset(5)
-
         }
         subTitleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.top)
