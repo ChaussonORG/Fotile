@@ -212,8 +212,9 @@ extension FTSceneryDetailViewController:UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        
     }
-    func moreAction() {
+    func moreAction(viewModel:FTProductCellViewModel) {
         let vc = FTProductDetailViewController.news()
+        
         navigationController?.pushViewController(vc, animated: true)
     }
 }

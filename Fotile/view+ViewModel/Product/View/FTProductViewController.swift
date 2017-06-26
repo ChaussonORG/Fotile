@@ -103,13 +103,15 @@ class FTProductViewController: UIViewController {
 }
 extension FTProductViewController:FTOptionsViewDeleage, FTProductTableViewDeleage{
     func clickBtnAction(index: Int) {
+
         if viewModel.products.count > index {
             let indexpath = IndexPath(row: 0, section: index)
             self.tableView.scrollToRow(at: indexpath, at: .top, animated: true)
         }
     }
-    func moreAction() {
+    func moreAction(viewModel:FTProductCellViewModel) {
         let vc = FTProductDetailViewController.news()
+        vc.viewModel.headViewModel = viewModel
         navigationController?.pushViewController(vc, animated: true)
     }
     func getSection(section: Int) {

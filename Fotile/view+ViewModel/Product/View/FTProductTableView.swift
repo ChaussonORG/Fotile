@@ -9,7 +9,8 @@
 import UIKit
 
 protocol FTProductTableViewDeleage {
-    func moreAction()
+    func moreAction(viewModel:FTProductCellViewModel)
+
     func getSection(section:Int)
 }
 class FTProductTableView: UITableView {
@@ -120,8 +121,9 @@ extension FTProductTableView:UITableViewDelegate,UITableViewDataSource, FTProduc
     func reload() {
         self.reloadData()
     }
-    func moreAction() {
-        dele?.moreAction()
+    func moreAction(viewModel:FTProductCellViewModel) {
+        
+        dele?.moreAction(viewModel: viewModel)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isProduct {

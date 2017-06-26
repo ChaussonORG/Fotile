@@ -8,6 +8,10 @@
 
 import UIKit
 import HYBLoopScrollView
+struct FTProductDetailVM {
+    var headViewModel:FTProductCellViewModel?
+  
+}
 class FTProductDetailViewController: UIViewController {
 
     class func news() -> FTProductDetailViewController {
@@ -15,6 +19,7 @@ class FTProductDetailViewController: UIViewController {
         let vc = story.instantiateViewController(withIdentifier: "productDetail")
         return vc as! FTProductDetailViewController
     }
+    var viewModel = FTProductDetailVM()
     @IBOutlet var headView: UIView!
     @IBOutlet var scollView: UIScrollView!
     @IBOutlet var backBtn: UIButton!
@@ -23,16 +28,18 @@ class FTProductDetailViewController: UIViewController {
     @IBOutlet var view3: UIView!
     @IBOutlet var view4: UIView!
     @IBOutlet var view5: UIView!
+    @IBOutlet var titleView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         loadUI()
+        refreshData()
         // Do any additional setup after loading the view.
     }
     func loadUI(){
         self.edgesForExtendedLayout = .bottom
-        headView.addSubview(scrollView1)
+        headView.addSubview(productImage)
         view.addSubview(backBtn)
-        scrollView1.snp.makeConstraints { (make) in
+        productImage.snp.makeConstraints { (make) in
             make.left.top.equalTo(0)
             make.width.equalTo(self.view.frame.size.width)
             make.height.equalTo(450)
@@ -72,6 +79,22 @@ class FTProductDetailViewController: UIViewController {
             make.width.equalTo(self.view.frame.size.width)
             make.height.equalTo(200)
         }
+    }
+    func refreshData() {
+        productImage.image = viewModel.headViewModel?.imageUrl
+        if let t = viewModel.headViewModel?.modelNumber {
+            let title:UILabel = titleView.viewWithTag(1) as! UILabel
+            title.text = "\(t) · "
+        }
+        if let n = viewModel.headViewModel?.name {
+            let subTitle:UILabel = titleView.viewWithTag(2) as! UILabel
+            subTitle.text = n
+        }
+        if let s = viewModel.headViewModel?.slogan {
+            let desc:UILabel = titleView.viewWithTag(3) as! UILabel
+            desc.text = s
+        }
+      
     }
     lazy var collectionView1:UICollectionView = {
         let  layout = UICollectionViewFlowLayout()
@@ -159,14 +182,21 @@ class FTProductDetailViewController: UIViewController {
     }()
 
     @IBAction func backAction(_ sender: Any) {
-        _ = navigationController?.popViewController(animated: true)
+        _ = navigationController?.popToRootViewController(animated: true)
     }
-
-    lazy var scrollView1:HYBLoopScrollView = {
-        let scorllView:HYBLoopScrollView = HYBLoopScrollView(frame: CGRect.zero, imageUrls: ["home1"], timeInterval: 2, didSelect: {[weak self] (didIndex) in
-            
-            }, didScroll: nil)
-        return scorllView
+//
+//    lazy var scrollView1:HYBLoopScrollView = {
+//        let scorllView:HYBLoopScrollView = HYBLoopScrollView(frame: CGRect.zero, imageUrls: ["home1"], timeInterval: 2, didSelect: {[weak self] (didIndex) in
+//            
+//            }, didScroll: nil)
+//        return scorllView
+//    }()
+    lazy var productImage:UIImageView = {
+        let productImage:UIImageView = UIImageView()
+       
+        productImage.backgroundColor = UIColor("#f4f4f4")
+        productImage.contentMode = .scaleAspectFit
+        return productImage
     }()
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

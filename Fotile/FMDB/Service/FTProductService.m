@@ -101,7 +101,7 @@
 }
 + (NSArray <FTProductCategory *>*)fetchAllProductCategory{
     NSMutableArray <FTProductCategory *>*list = [NSMutableArray array];
-    for (int i = 1; i < 9; i++) {
+    for (int i = 1; i < 10; i++) {
         FTProductCategory *c = [[FTProductCategory alloc]init];
         NSString *sql = [NSString stringWithFormat:@"select * from t_product where catalog_id = '%d'",i];
         c.products = [self fetchProductsWithSQL:sql];
