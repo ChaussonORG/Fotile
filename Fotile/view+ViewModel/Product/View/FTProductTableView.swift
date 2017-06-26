@@ -23,6 +23,7 @@ class FTProductTableView: UITableView {
     }
     func setViewModel(viewModel:FTProductViewModel) {
         self.viewModel = viewModel
+        self.reload()
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

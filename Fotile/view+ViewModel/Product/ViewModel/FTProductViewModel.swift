@@ -28,21 +28,22 @@ class FTProductViewModel: NSObject {
             products.append(model)
         }
     }
-//    func searchData(number:String){
-//        let models = FTProductService.fetchProduct(withModelNumber: number)
-//        guard let array = models else {
-//            return
-//        }
-//        for category in array{
-//            let model:FTProductCategory = FTProductCategory()
-//            model.type = Int(category.type)
-//            model.typeName = category.typeName
-//            for product in category.products {
-//                model.products.append(self.getCellVieModel(product: product))
-//            }
-//            products.append(model)
-//        }
-//    }
+    func searchData(number:String){
+        products.removeAll()
+        let models = FTProductService.fetchCategory(withModelNumber: number)
+        guard let array = models else {
+            return
+        }
+        for category in array{
+            let model:FTProductCategory = FTProductCategory()
+            model.type = Int(category.type)
+            model.typeName = category.typeName
+            for product in category.products {
+                model.products.append(self.getCellVieModel(product: product))
+            }
+            products.append(model)
+        }
+    }
     func getSceneryData(id:String)  {
        let models =  FTProductService.fetchProducts(withRealKitchenId: id)
         guard let array = models else {
