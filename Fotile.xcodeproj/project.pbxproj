@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		060989401EFF8A590086880D /* FTProductHL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0609893F1EFF8A590086880D /* FTProductHL.m */; };
 		060989431EFF8F930086880D /* FTProductSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 060989421EFF8F930086880D /* FTProductSeries.m */; };
+		06666BBB1F00F9840072929C /* FTProductTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06666BBA1F00F9840072929C /* FTProductTitleView.swift */; };
+		06666BBD1F0102C20072929C /* FTProductHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06666BBC1F0102C20072929C /* FTProductHeadView.swift */; };
+		06666BBF1F010C6C0072929C /* FTProductParmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06666BBE1F010C6C0072929C /* FTProductParmView.swift */; };
 		680A29D51ED4190F001F98F0 /* FTScreeningTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A29D41ED4190F001F98F0 /* FTScreeningTableView.swift */; };
 		680A29D71ED41993001F98F0 /* FTScreeningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A29D61ED41993001F98F0 /* FTScreeningTableViewCell.swift */; };
 		680A29D91ED42173001F98F0 /* FTScreeningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A29D81ED42173001F98F0 /* FTScreeningViewModel.swift */; };
@@ -183,6 +186,9 @@
 		0609893F1EFF8A590086880D /* FTProductHL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTProductHL.m; sourceTree = "<group>"; };
 		060989411EFF8F930086880D /* FTProductSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTProductSeries.h; sourceTree = "<group>"; };
 		060989421EFF8F930086880D /* FTProductSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTProductSeries.m; sourceTree = "<group>"; };
+		06666BBA1F00F9840072929C /* FTProductTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductTitleView.swift; sourceTree = "<group>"; };
+		06666BBC1F0102C20072929C /* FTProductHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductHeadView.swift; sourceTree = "<group>"; };
+		06666BBE1F010C6C0072929C /* FTProductParmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductParmView.swift; sourceTree = "<group>"; };
 		34024F0BA36B5529AFFC6FFA /* Pods_Fotile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fotile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		680A29D41ED4190F001F98F0 /* FTScreeningTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTScreeningTableView.swift; sourceTree = "<group>"; };
 		680A29D61ED41993001F98F0 /* FTScreeningTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTScreeningTableViewCell.swift; sourceTree = "<group>"; };
@@ -404,6 +410,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06666BB91F00F9700072929C /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				06666BBA1F00F9840072929C /* FTProductTitleView.swift */,
+				06666BBC1F0102C20072929C /* FTProductHeadView.swift */,
+				06666BBE1F010C6C0072929C /* FTProductParmView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		4E6DA9137C0EC422783D749A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -619,6 +635,7 @@
 		68215C2D1EAEED4D00A32759 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				06666BB91F00F9700072929C /* Detail */,
 				68215C371EAEED8700A32759 /* FTProductViewController.swift */,
 				68E717641EC2B36F00F236EE /* FTProductTableView.swift */,
 				68E7175A1EC1C1D100F236EE /* FTProductTableViewCell.swift */,
@@ -1256,6 +1273,7 @@
 				68948BB51EFBB4F50056B840 /* FTProductService.m in Sources */,
 				68215CE71EAEF10200A32759 /* Localizable.swift in Sources */,
 				680A29D71ED41993001F98F0 /* FTScreeningTableViewCell.swift in Sources */,
+				06666BBD1F0102C20072929C /* FTProductHeadView.swift in Sources */,
 				68215CE61EAEF10200A32759 /* IntExtensions.swift in Sources */,
 				689EC0AB1EC45D3200E9730C /* WXSPercentDrivenInteractiveTransition.m in Sources */,
 				686A0BFE1EE149650008F97C /* FTPolicyViewController.swift in Sources */,
@@ -1351,6 +1369,7 @@
 				68D5CD311EB85E4700294EC5 /* FTInteractionTableViewCell.swift in Sources */,
 				68E717751EC311C900F236EE /* FTInteractionDetailViewController.swift in Sources */,
 				68215D151EAEF15F00A32759 /* UIScreen+Extension.swift in Sources */,
+				06666BBB1F00F9840072929C /* FTProductTitleView.swift in Sources */,
 				68215CF31EAEF10200A32759 /* UIAlertControllerExtensions.swift in Sources */,
 				68215D121EAEF15F00A32759 /* UIBarButtonItem+Extension.swift in Sources */,
 				68948BAD1EFBB4F50056B840 /* FTRealKitchen.m in Sources */,
@@ -1364,6 +1383,7 @@
 				68948BA61EFBB4F50056B840 /* FTGroupImage.m in Sources */,
 				6812D9641EF672D1000FC765 /* FTCheckUploadApi.swift in Sources */,
 				68215CFB1EAEF10200A32759 /* UIViewExtensions.swift in Sources */,
+				06666BBF1F010C6C0072929C /* FTProductParmView.swift in Sources */,
 				68948BAC1EFBB4F50056B840 /* FTProductParm.m in Sources */,
 				689EC0B21EC45D3200E9730C /* WXSTransitionManager+SpreadAnimation.m in Sources */,
 				060989401EFF8A590086880D /* FTProductHL.m in Sources */,

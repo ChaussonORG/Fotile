@@ -213,7 +213,7 @@ extension FTSceneryDetailViewController:UICollectionViewDelegate, UICollectionVi
        
     }
     func moreAction(viewModel:FTProductCellViewModel) {
-        let vc = FTProductDetailViewController.news()
+        let vc = FTProductDetailViewController()
         
         navigationController?.pushViewController(vc, animated: true)
     }

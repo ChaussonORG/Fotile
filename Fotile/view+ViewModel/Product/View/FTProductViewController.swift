@@ -110,7 +110,7 @@ extension FTProductViewController:FTOptionsViewDeleage, FTProductTableViewDeleag
         }
     }
     func moreAction(viewModel:FTProductCellViewModel) {
-        let vc = FTProductDetailViewController.news()
+        let vc = FTProductDetailViewController()
         vc.viewModel.headViewModel = viewModel
         navigationController?.pushViewController(vc, animated: true)
     }

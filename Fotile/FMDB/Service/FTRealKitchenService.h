@@ -14,6 +14,8 @@
 + (NSArray<FTRealKitchen *> *)fetchRealKitchens;
 // 根据城市获取实景厨房列表
 + (NSArray <FTRealKitchenList*>*)fetchRealKitchensWithCity:(NSString *)name;
++ (NSArray <FTRealKitchenList*>*)fetchRealKitchensWithCity:(NSString *)city
+                                                estateName:(NSString *)name;
 
 + (NSArray <FTRealKitchenList*>*)fetchRealKitchensWithCityName:(NSString *)name
                                               productNumber:(NSString *)number
