@@ -118,6 +118,7 @@ class FTSceneryViewController: UIViewController {
     lazy var searchText:UITextField = {
         let text:UITextField = UITextField()
         text.returnKeyType = .search
+        text.delegate = self
         text.font = FTStyleConfiguration.font14
         text.placeholder = "搜索"
         return text
@@ -305,8 +306,8 @@ class HeaderReusableView: UICollectionReusableView {
 }
 extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,FTScreeningTableViewDeleage,FTScreeningCostAndAreaViewDeleage,UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        models = FTRealKitchenService.fetchRealKitchens(withCityName: "", productNumber: "", kitchenArea: "", fotileCost: "")
-//        collectionView.reloadData()
+        models = FTRealKitchenService.fetchRealKitchens(withCity: FTUserManager.userManager.getModel().userInfo.city, estateName: searchText.text!)
+        collectionView.reloadData()
         return true
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
