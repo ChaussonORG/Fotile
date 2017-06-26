@@ -373,12 +373,21 @@ class FTInteractionDetailViewController: UIViewController {
         (UIApplication.shared.delegate as! AppDelegate).isAllow = false
     }
     func chooseType(index:Int32)  {
-        viewModel.cellViewModels.removeAll()
-        for model in model.products {
-            if  model.catalogType == index{
-                viewModel.cellViewModels.append(model)
+       
+        if index == 10{
+            model.materials.removeAll()
+            for model in model.materials {
+                viewModel.materialS.append(model)
+            }
+        }else{
+             viewModel.cellViewModels.removeAll()
+            for model in model.products {
+                if  model.catalogType == index{
+                    viewModel.cellViewModels.append(model)
+                }
             }
         }
+
         typeIndex = Int(index)
         collectionView.reloadData()
     }
@@ -562,13 +571,30 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:FTInteractionDetailCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! FTInteractionDetailCollectionViewCell
-        cell.loadModel(model: viewModel.cellViewModels[indexPath.row], type: type)
+        if typeIndex == 10{
+            cell.loadMaterial(model: viewModel.materialS[indexPath.row], type: type)
+        }else{
+            cell.loadModel(model: viewModel.cellViewModels[indexPath.row], type: type)
+        }
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if typeIndex == 10{
+            return viewModel.materialS.count
+        }
         return viewModel.cellViewModels.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let material = viewModel.materialS[indexPath.row]
+        if typeIndex == 10{
+            day1.backImageView.image = material.groupImage.day1.picture
+            day2.backImageView.image = material.groupImage.day2.picture
+            day3.backImageView.image = material.groupImage.day3.picture
+            night1.backImageView.image = material.groupImage.night1.picture
+            night1.backImageView.image = material.groupImage.night2.picture
+            night1.backImageView.image = material.groupImage.night3.picture
+            return
+        }
         chooseProduct(imageView: day1, image: viewModel.cellViewModels[indexPath.row].groupImage.day1.picture)
         chooseProduct(imageView: day2, image: viewModel.cellViewModels[indexPath.row].groupImage.day2.picture)
         chooseProduct(imageView: day3, image: viewModel.cellViewModels[indexPath.row].groupImage.day3.picture)

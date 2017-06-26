@@ -103,6 +103,7 @@ class FTOptionsView: UIView {
                 model.isSele = false
             }
         }
+        loadUI()
     }
     /*
      // Only override draw() if you perform custom drawing.

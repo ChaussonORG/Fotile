@@ -9,8 +9,13 @@
 
 import UIKit
 
+protocol FTScreeningTableViewDeleage {
+    func didSeletecedAction(title:String)
+}
 class FTScreeningTableView: UITableView {
     let viewModel:FTScreeningViewModel = FTScreeningViewModel()
+    var dele:FTScreeningTableViewDeleage?
+    var titleString:String = ""
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
         loadUI()
@@ -104,12 +109,14 @@ extension FTScreeningTableView:UITableViewDelegate, UITableViewDataSource, FTScr
                 let item = model.items[j]
                 if i == section && j == row {
                     item.isSelected = !item.isSelected
+                    self.titleString = item.title
                 }else{
                     item.isSelected = false
 
                 }
             }
         }
+        self.dele?.didSeletecedAction(title: titleString)
         reloadData()
     }
 }
