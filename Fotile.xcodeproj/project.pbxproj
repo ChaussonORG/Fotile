@@ -93,6 +93,8 @@
 		686CFEC11EC9A9DC003AD4DA /* FTSceneryDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 686CFEBF1EC9A9DC003AD4DA /* FTSceneryDetailCollectionViewCell.xib */; };
 		68822D931ED5295C00E6F958 /* FTScreeningCostAndAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68822D921ED5295C00E6F958 /* FTScreeningCostAndAreaView.swift */; };
 		68822D961ED5305300E6F958 /* FTBaseLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68822D951ED5305300E6F958 /* FTBaseLayerView.swift */; };
+		6893CB751EFE96C10027A384 /* FTPentalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6893CB741EFE96C10027A384 /* FTPentalViewModel.swift */; };
+		6893CB771EFE99440027A384 /* FTOptionEightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6893CB761EFE99440027A384 /* FTOptionEightView.swift */; };
 		68948BA41EFBB4F50056B840 /* FTCustomKitchen.m in Sources */ = {isa = PBXBuildFile; fileRef = 68948B7B1EFBB4F50056B840 /* FTCustomKitchen.m */; };
 		68948BA51EFBB4F50056B840 /* FTCustomKTDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 68948B7D1EFBB4F50056B840 /* FTCustomKTDetail.m */; };
 		68948BA61EFBB4F50056B840 /* FTGroupImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 68948B7F1EFBB4F50056B840 /* FTGroupImage.m */; };
@@ -272,6 +274,8 @@
 		686CFEBF1EC9A9DC003AD4DA /* FTSceneryDetailCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTSceneryDetailCollectionViewCell.xib; sourceTree = "<group>"; };
 		68822D921ED5295C00E6F958 /* FTScreeningCostAndAreaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTScreeningCostAndAreaView.swift; sourceTree = "<group>"; };
 		68822D951ED5305300E6F958 /* FTBaseLayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTBaseLayerView.swift; sourceTree = "<group>"; };
+		6893CB741EFE96C10027A384 /* FTPentalViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTPentalViewModel.swift; sourceTree = "<group>"; };
+		6893CB761EFE99440027A384 /* FTOptionEightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTOptionEightView.swift; sourceTree = "<group>"; };
 		68948B7A1EFBB4F50056B840 /* FTCustomKitchen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTCustomKitchen.h; sourceTree = "<group>"; };
 		68948B7B1EFBB4F50056B840 /* FTCustomKitchen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTCustomKitchen.m; sourceTree = "<group>"; };
 		68948B7C1EFBB4F50056B840 /* FTCustomKTDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTCustomKTDetail.h; sourceTree = "<group>"; };
@@ -590,6 +594,7 @@
 			children = (
 				6812D9661EF67413000FC765 /* FTMoreViewModel.swift */,
 				689DD0321EF7A8C200C1095E /* FTHonorViewModel.swift */,
+				6893CB741EFE96C10027A384 /* FTPentalViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1000,6 +1005,7 @@
 				68E7176F1EC2BCDF00F236EE /* FTSliderViewModel.swift */,
 				68E717711EC2E73900F236EE /* FTOptionsView.swift */,
 				68E717771EC3155700F236EE /* FTHorOptionsView.swift */,
+				6893CB761EFE99440027A384 /* FTOptionEightView.swift */,
 				68C9DF381EE2875900DACB58 /* FTYearsOptionsTableView.swift */,
 				68C9DF3C1EE2884B00DACB58 /* FTYearsTableViewCell.swift */,
 				68C9DF3D1EE2884B00DACB58 /* FTYearsTableViewCell.xib */,
@@ -1313,6 +1319,7 @@
 				68E7177B1EC319F100F236EE /* FTSchemeViewController.swift in Sources */,
 				68E717631EC2AD0000F236EE /* FTProductViewModel.swift in Sources */,
 				68215CE01EAEF10200A32759 /* FTStyleConfiguration.swift in Sources */,
+				6893CB771EFE99440027A384 /* FTOptionEightView.swift in Sources */,
 				68215D161EAEF15F00A32759 /* UITextField+Extension.swift in Sources */,
 				68948BB61EFBB4F50056B840 /* FTRealKitchenService.m in Sources */,
 				68D5CD291EAF261F00294EC5 /* FTTabbarView.swift in Sources */,
@@ -1321,6 +1328,7 @@
 				689EC0A81EC45D3200E9730C /* UINavigationController+WXSTransition.m in Sources */,
 				68215CF91EAEF10200A32759 /* UITableViewExtensions.swift in Sources */,
 				689EC0AC1EC45D3200E9730C /* WXSTransitionManager+BoomAnimation.m in Sources */,
+				6893CB751EFE96C10027A384 /* FTPentalViewModel.swift in Sources */,
 				680A29D91ED42173001F98F0 /* FTScreeningViewModel.swift in Sources */,
 				68948BA41EFBB4F50056B840 /* FTCustomKitchen.m in Sources */,
 				689EC0B41EC45D3200E9730C /* WXSTransitionManager+TypeTool.m in Sources */,
