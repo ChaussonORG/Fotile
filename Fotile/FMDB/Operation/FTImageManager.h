@@ -12,10 +12,12 @@
 @interface FTImageManager : NSObject
 
 typedef void(^FTImageDownloaderProgressBlock)(NSInteger completeCount, NSInteger totalCount);
+typedef void(^FTImageDownloaderFailureBlock)();
 
 + (FTImageManager *)shareInstance;
 /*根据最新更新时间下载数据库中所有图片到本地*/
-- (void)downloadAllImages:(FTImageDownloaderProgressBlock)progress;
+- (void)downloadAllImages:(FTImageDownloaderProgressBlock)progress
+             failureBlock:(FTImageDownloaderFailureBlock)failure;
 
 - (BOOL)checkImageIsExisted:(NSString *)url
                    fileName:(NSString *)name;

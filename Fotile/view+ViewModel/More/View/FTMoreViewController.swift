@@ -152,6 +152,8 @@ class FTMoreViewController: UIViewController {
                             weakSelf.dowloadBtn.isEnabled = false
                             weakSelf.downLoad.hide()
                         }
+                    }, failureBlock: {
+                        
                     })
                 }
             })

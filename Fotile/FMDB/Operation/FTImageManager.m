@@ -14,6 +14,7 @@
 @implementation FTImageManager{
     NSMutableArray <FTImage *>* _images;
     FTImageDownloaderProgressBlock _progress;
+    FTImageDownloaderFailureBlock _failure;
     NSInteger _totalDownloadImages;
 }
 
@@ -27,7 +28,8 @@
     return instance;
 }
 
-- (void)downloadAllImages:(FTImageDownloaderProgressBlock)progress{
+- (void)downloadAllImages:(FTImageDownloaderProgressBlock)progress
+             failureBlock:(FTImageDownloaderFailureBlock)failure{
     NSString *sql = [NSString stringWithFormat:@"SELECT * FROM t_image_file"];
     FMDatabase  *db = [self openDB];
     FMResultSet *rs = [db executeQuery:sql];
@@ -41,6 +43,7 @@
     [self closeDB];
     _totalDownloadImages = _images.count;
     _progress = progress;
+    _failure = failure;
     [self startDownload];
  
 }
@@ -68,7 +71,9 @@
                 }
                 [self startDownload];
             } failureBlock:^(__kindof CHBaseRequest *request) {
-                
+                if (self->_failure) {
+                    self->_failure();
+                }
             }];
         }
   
