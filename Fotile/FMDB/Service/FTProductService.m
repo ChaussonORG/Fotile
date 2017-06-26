@@ -114,6 +114,21 @@
     return [list copy];
  
 }
++ (NSArray <FTProductCategory *>*)fetchCategoryWithModelNumber:(NSString *)number{
+    NSMutableArray <FTProductCategory *>*list = [NSMutableArray array];
+    for (int i = 1; i < 10; i++) {
+        FTProductCategory *c = [[FTProductCategory alloc]init];
+        NSString *sql = [NSString stringWithFormat:@"select * from t_product where catalog_id = '%d' and model_no like '%%%@%%'",i,number];
+        c.products = [self fetchProductsWithSQL:sql];
+        c.type = i;
+        if (c.products.count == 0) {
+            continue;
+        }
+        [list addObject:c];
+    }
+    
+    return [list copy];
+}
 + (NSArray <FTProductHL *>*)fetchHeightLightWithId:(NSString *)identifier{
     NSString *sql = [NSString stringWithFormat:@"select * from t_fotile_product_highlight where product_id = '%@'",identifier];
     
