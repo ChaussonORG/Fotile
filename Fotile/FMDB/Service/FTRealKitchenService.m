@@ -40,7 +40,7 @@
 
     return [list copy];
 }
-+ (NSArray<FTRealKitchen *> *)fetchRealKitchensWithCityName:(NSString *)name
++ (NSArray <FTRealKitchenList*>*)fetchRealKitchensWithCityName:(NSString *)name
                                               productNumber:(NSString *)number
                                                 kitchenArea:(NSString *)area
                                                  fotileCost:(NSString *)cost{
@@ -56,8 +56,29 @@
             }
         }
     }
+    
+    NSMutableArray <FTRealKitchenList *>*list = [NSMutableArray array];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    for (FTRealKitchen *kitchen in kitchens) {
+        FTRealKitchenList *realKitchens = [[FTRealKitchenList alloc]init];
+        realKitchens.city = kitchen.cityName;
+        realKitchens.name = kitchen.estateName;
+        [dic setObject:realKitchens forKey:kitchen.estateName];
+    }
+    for (FTRealKitchen *kitchen in kitchens) {
+        [dic enumerateKeysAndObjectsUsingBlock:^(NSString *key, FTRealKitchenList *obj, BOOL * _Nonnull stop) {
+            if ([kitchen.estateName isEqualToString:key]) {
+                [obj.list addObject:kitchen];
+                *stop = YES;
+            }
+        }];
+    }
+    [dic enumerateKeysAndObjectsUsingBlock:^(NSString *key, FTRealKitchenList *obj, BOOL * _Nonnull stop) {
+        [list addObject:obj];
+    }];
 
-    return [reals copy];
+    return [list copy];
 }
 + (NSArray <FTRealKitchen *> *)fetchRealKitchensWithSQL:(NSString *)sql{
     FMDatabase *db = [[FTDataOperation shareInstance] dataBase];

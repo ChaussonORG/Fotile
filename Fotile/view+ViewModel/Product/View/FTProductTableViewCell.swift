@@ -10,7 +10,7 @@ import UIKit
 
 protocol FTProductTableViewCellDeleage {
     func reload()
-    func moreAction()
+    func moreAction(viewModel:FTProductCellViewModel)
 }
 class FTProductTableViewCell: UITableViewCell {
 
@@ -47,7 +47,7 @@ class FTProductTableViewCell: UITableViewCell {
         // Initialization code
     }
     @IBAction func moreAction(_ sender: Any) {
-        deleage?.moreAction()
+        deleage?.moreAction(viewModel: self.model)
     }
     func loadModel(model:FTProductCellViewModel) {
         self.model = model

@@ -15,25 +15,28 @@
             return @"油烟机";
             break;
         case 2:
-            return @"灶具";
+            return @"嵌入式灶具";
             break;
         case 3:
-            return @"消毒柜";
+            return @"嵌入式消毒柜";
             break;
         case 4:
-            return @"水槽洗碗机";
-            break;
-        case 5:
-            return @"蒸箱";
-            break;
-        case 6:
-            return @"烤箱";
-            break;
-        case 7:
             return @"蒸微一体机";
             break;
+        case 5:
+            return @"嵌入式蒸箱";
+            break;
+        case 6:
+            return @"嵌入式烤箱";
+            break;
+        case 7:
+            return @"嵌入式微波炉";
+            break;
         case 8:
-            return @"微波炉";
+            return @"水槽洗碗机";
+            break;
+        case 9:
+            return @"燃气热水器";
             break;
             
         default:

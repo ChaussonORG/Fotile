@@ -49,6 +49,7 @@ class FTProductViewModel: NSObject {
         cellViewModel.modelNumber = product.modelNumber
         cellViewModel.slogan = product.slogan
         cellViewModel.parameters = product.parameters
+        cellViewModel.productId = product.identifier
         for parm in product.parms {
             cellViewModel.params.append(parm)
         }
@@ -62,6 +63,7 @@ class FTProductCategory: NSObject {
 }
 
 class FTProductCellViewModel: NSObject {
+    var productId:String = ""
     var isOpen:Bool = false
     var imageUrl:UIImage = UIImage()
     var name:String = ""
