@@ -368,14 +368,11 @@ class FTInteractionDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         (UIApplication.shared.delegate as! AppDelegate).isAllow = true
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        (UIApplication.shared.delegate as! AppDelegate).isAllow = false
-    }
+
     func chooseType(index:Int32)  {
        
         if index == 10{
-            model.materials.removeAll()
+            viewModel.materialS.removeAll()
             for model in model.materials {
                 viewModel.materialS.append(model)
             }
@@ -585,14 +582,17 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
         return viewModel.cellViewModels.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let material = viewModel.materialS[indexPath.row]
         if typeIndex == 10{
-            day1.backImageView.image = material.groupImage.day1.picture
-            day2.backImageView.image = material.groupImage.day2.picture
-            day3.backImageView.image = material.groupImage.day3.picture
-            night1.backImageView.image = material.groupImage.night1.picture
-            night1.backImageView.image = material.groupImage.night2.picture
-            night1.backImageView.image = material.groupImage.night3.picture
+            let grounp = viewModel.materialS[indexPath.row].groupImage
+            guard let groupImage = grounp else {
+                return
+            }
+            day1.backImageView.image = groupImage.day1.picture
+            day2.backImageView.image = groupImage.day2.picture
+            day3.backImageView.image = groupImage.day3.picture
+            night1.backImageView.image = groupImage.night1.picture
+            night2.backImageView.image = groupImage.night2.picture
+            night3.backImageView.image = groupImage.night3.picture
             return
         }
         chooseProduct(imageView: day1, image: viewModel.cellViewModels[indexPath.row].groupImage.day1.picture)

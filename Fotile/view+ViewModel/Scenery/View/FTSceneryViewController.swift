@@ -258,7 +258,6 @@ class FTSceneryViewController: UIViewController {
         //真正
         models = FTRealKitchenService.fetchRealKitchens(withCity: FTUserManager.userManager.getModel().userInfo.city)
         collectionView.reloadData()
-
     }
 
     /*
@@ -335,7 +334,8 @@ extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewData
     }
     func didSeletecedAction(title: String) {
         typeAction()
-        print(title)
+//        models = FTRealKitchenService.fetchRealKitchens(withCityName: "", productNumber: title, kitchenArea: "", fotileCost: "")
+//        collectionView.reloadData()
     }
     func didSeletecedActionAreaCost(screenView: FTScreeningCostAndAreaView, title: String) {
         if costScreen == screenView{

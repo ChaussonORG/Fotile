@@ -30,6 +30,8 @@ class FTInteractionViewController: UIViewController {
         models = FTCustomKCService.fetchCustomKitchenList()
         tableView.reloadData()
         (UIApplication.shared.delegate as! AppDelegate).ftView?.isHidden = false
+        (UIApplication.shared.delegate as! AppDelegate).isAllow = false
+        
     }
 }
 extension FTInteractionViewController:UITableViewDelegate,UITableViewDataSource{
