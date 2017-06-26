@@ -41,10 +41,11 @@
     return [list copy];
 }
 + (NSArray <FTRealKitchenList*>*)fetchRealKitchensWithCityName:(NSString *)name
-                                              productNumber:(NSString *)number
-                                                kitchenArea:(NSString *)area
-                                                 fotileCost:(NSString *)cost{
-    NSString *sql = [NSString stringWithFormat:@"select * from t_real_kitchen where city = '%@' and kitchen_fotile_cost like '%%%@%%' and  kitchen_area like '%%%@%%' ",name,cost,area];
+                                                 productNumber:(NSString *)number
+                                                   kitchenArea:(NSString *)area
+                                                    fotileCost:(NSString *)cost
+                                                   betweenCost:(NSString *)price{
+    NSString *sql = [NSString stringWithFormat:@"select * from t_real_kitchen where city = '%@' and  kitchen_area = '%@' and kitchen_fotile_cost between '%@' and '%@' ",name,area,cost,price];
     NSArray <FTRealKitchen *>*kitchens = [self fetchRealKitchensWithSQL:sql];
     NSArray <FTProduct *>*products = [FTProductService fetchProductWithModelNumber:number];
     NSMutableArray <FTRealKitchen *>*reals = [NSMutableArray array];

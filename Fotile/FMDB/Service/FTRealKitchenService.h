@@ -18,8 +18,9 @@
                                                 estateName:(NSString *)name;
 
 + (NSArray <FTRealKitchenList*>*)fetchRealKitchensWithCityName:(NSString *)name
-                                              productNumber:(NSString *)number
-                                                kitchenArea:(NSString *)area
-                                                 fotileCost:(NSString *)cost;
+                                                 productNumber:(NSString *)number
+                                                   kitchenArea:(NSString *)area
+                                                    fotileCost:(NSString *)cost
+                                                   betweenCost:(NSString *)price;
 
 @end

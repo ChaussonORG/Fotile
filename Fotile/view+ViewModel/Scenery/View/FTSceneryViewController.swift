@@ -344,7 +344,9 @@ extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewData
     func didSeletecedAction(title: String) {
         typeAction()
         productNum = title
-        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: area, fotileCost: cost)
+// TO DO 将面积的平方去除，输入价格区间
+//        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: area, fotileCost: cost)
+        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: "8-10", fotileCost: "100000", betweenCost: "200000")
         collectionView.reloadData()
     }
     func didSeletecedActionAreaCost(screenView: FTScreeningCostAndAreaView, title: String) {
@@ -355,7 +357,10 @@ extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewData
             areaAction()
             area = title
         }
-        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: area, fotileCost: cost)
+// TO DO 将面积的平方去除，输入价格区间
+
+//        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: area, fotileCost: cost)
+        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: "8-10", fotileCost: "10000", betweenCost: "50000")
         collectionView.reloadData()
     }
 
