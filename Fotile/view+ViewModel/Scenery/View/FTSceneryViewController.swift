@@ -303,7 +303,12 @@ class HeaderReusableView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,FTScreeningTableViewDeleage,FTScreeningCostAndAreaViewDeleage{
+extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,FTScreeningTableViewDeleage,FTScreeningCostAndAreaViewDeleage,UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        models = FTRealKitchenService.fetchRealKitchens(withCityName: "", productNumber: "", kitchenArea: "", fotileCost: "")
+//        collectionView.reloadData()
+        return true
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:FTSceneryCollectionCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! FTSceneryCollectionCell
         let array:[FTRealKitchen] = models[indexPath.section].list as! [FTRealKitchen]
@@ -338,7 +343,7 @@ extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewData
     func didSeletecedAction(title: String) {
         typeAction()
         productNum = title
-        models = FTRealKitchenService.fetchRealKitchens(withCityName: "", productNumber: productNum, kitchenArea: area, fotileCost: cost)
+        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: area, fotileCost: cost)
         collectionView.reloadData()
     }
     func didSeletecedActionAreaCost(screenView: FTScreeningCostAndAreaView, title: String) {
@@ -349,7 +354,7 @@ extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewData
             areaAction()
             area = title
         }
-        models = FTRealKitchenService.fetchRealKitchens(withCityName: "", productNumber: productNum, kitchenArea: area, fotileCost: cost)
+        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: area, fotileCost: cost)
         collectionView.reloadData()
     }
 

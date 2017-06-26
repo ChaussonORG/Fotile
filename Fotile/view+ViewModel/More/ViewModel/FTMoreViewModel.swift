@@ -17,11 +17,10 @@ class FTMoreViewModel: NSObject {
                     return
                 }
                 if model.code == 200{
-                    
+                    finish(model.data)
                 }else{
                     CHProgressHUD.showPlainText(model.message)
                 }
-                finish(model.data)
 
             }
         }

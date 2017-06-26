@@ -24,7 +24,7 @@ class FTProductViewController: UIViewController {
         //view.addSubview(sliderView)
         view.addSubview(sliderView1)
         view.addSubview(tableView)
-//        tableView.tableHeaderView = tableHead
+      //  tableView.tableHeaderView = tableHead
         layout()
         // Do any additional setup after loading the view.
     }
