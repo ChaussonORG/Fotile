@@ -1535,7 +1535,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8C96E0D2D4861A122BC82107 /* Pods-Fotile.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 4539V58G9H;
 				INFOPLIST_FILE = Fotile/Info.plist;
@@ -1555,7 +1554,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EA805BF5A1EC00784E30D2C8 /* Pods-Fotile.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 4539V58G9H;
 				INFOPLIST_FILE = Fotile/Info.plist;
