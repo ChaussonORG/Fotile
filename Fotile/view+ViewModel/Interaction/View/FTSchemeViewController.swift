@@ -13,6 +13,7 @@ class FTSchemeViewController: UIViewController {
     var array:Array<UIImage> = Array<UIImage>()
     var productModels:Array<FTProduct> = Array<FTProduct>()
     let viewModel:FTProductViewModel = FTProductViewModel()
+    var isVer:Bool = true
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -20,6 +21,7 @@ class FTSchemeViewController: UIViewController {
         layout()
         // Do any additional setup after loading the view.
     }
+
     func loadUI() {
         for product in productModels {
             viewModel.cellViewModels.append(viewModel.getCellVieModel(product: product))
@@ -32,6 +34,14 @@ class FTSchemeViewController: UIViewController {
         tableHead.addSubview(tableLine2)
         tableHead.addSubview(tableHeadLabel)
      
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if !isVer{
+            let value = UIInterfaceOrientation.portrait.rawValue
+            UIDevice.current.setValue(value, forKey: "orientation")
+        }
+
     }
     lazy var tableHead:UIView = {
         let view:UIView = UIView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 676))
@@ -66,7 +76,11 @@ class FTSchemeViewController: UIViewController {
         }
 
         dismisBtn.snp.makeConstraints { (make) in
-            make.left.equalTo(view.frame.size.width / 2 - 25)
+            if !isVer{
+                make.centerX.equalTo(view.center.y)
+            }else{
+                make.centerX.equalTo(view.center.x)
+            }
             make.top.equalTo(0)
             make.height.equalTo(25)
             make.width.equalTo(50)
@@ -77,7 +91,11 @@ class FTSchemeViewController: UIViewController {
             make.bottom.equalTo(0)
         }
         tableLine1.snp.makeConstraints { (make) in
-            make.left.equalTo(view.frame.size.width / 2 - 40)
+            if !isVer{
+                make.left.equalTo(view.frame.size.height / 2 - 40)
+            }else{
+                make.left.equalTo(view.frame.size.width / 2 - 40)
+            }
             make.top.equalTo(scrollView.snp.bottom).offset(50)
             make.height.equalTo(2)
             make.width.equalTo(80)
@@ -88,7 +106,11 @@ class FTSchemeViewController: UIViewController {
             make.height.equalTo(20)
         }
         tableLine2.snp.makeConstraints { (make) in
-            make.left.equalTo(view.frame.size.width / 2 - 40)
+            if !isVer{
+                make.left.equalTo(view.frame.size.height / 2 - 40)
+            }else{
+                make.left.equalTo(view.frame.size.width / 2 - 40)
+            }
             make.bottom.equalTo(-50)
             make.height.equalTo(2)
             make.width.equalTo(80)

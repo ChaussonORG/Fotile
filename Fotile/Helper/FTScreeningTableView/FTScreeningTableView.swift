@@ -108,11 +108,15 @@ extension FTScreeningTableView:UITableViewDelegate, UITableViewDataSource, FTScr
             for j in  0..<model.items.count{
                 let item = model.items[j]
                 if i == section && j == row {
+                    if item.isSelected {
+                        titleString = ""
+                    }else{
+                        titleString = item.title
+                    }
                     item.isSelected = !item.isSelected
-                    self.titleString = item.title
+                    
                 }else{
                     item.isSelected = false
-
                 }
             }
         }

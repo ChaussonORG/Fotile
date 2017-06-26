@@ -135,6 +135,7 @@
 		689EC0B51EC45D3200E9730C /* WXSTransitionManager+ViewMoveAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 689EC0A21EC45D3200E9730C /* WXSTransitionManager+ViewMoveAnimation.m */; };
 		689EC0B61EC45D3200E9730C /* WXSTransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 689EC0A41EC45D3200E9730C /* WXSTransitionManager.m */; };
 		689EC0B71EC45D3200E9730C /* WXSTransitionProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 689EC0A61EC45D3200E9730C /* WXSTransitionProperty.m */; };
+		68C257FB1F00ECFD00C02BA7 /* FTInterOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C257FA1F00ECFD00C02BA7 /* FTInterOptionView.swift */; };
 		68C9DF391EE2875900DACB58 /* FTYearsOptionsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C9DF381EE2875900DACB58 /* FTYearsOptionsTableView.swift */; };
 		68C9DF3E1EE2884B00DACB58 /* FTYearsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C9DF3C1EE2884B00DACB58 /* FTYearsTableViewCell.swift */; };
 		68C9DF3F1EE2884B00DACB58 /* FTYearsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68C9DF3D1EE2884B00DACB58 /* FTYearsTableViewCell.xib */; };
@@ -354,6 +355,7 @@
 		689EC0A51EC45D3200E9730C /* WXSTransitionProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSTransitionProperty.h; sourceTree = "<group>"; };
 		689EC0A61EC45D3200E9730C /* WXSTransitionProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXSTransitionProperty.m; sourceTree = "<group>"; };
 		689EC0A71EC45D3200E9730C /* WXSTypedefConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSTypedefConfig.h; sourceTree = "<group>"; };
+		68C257FA1F00ECFD00C02BA7 /* FTInterOptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTInterOptionView.swift; sourceTree = "<group>"; };
 		68C9DF381EE2875900DACB58 /* FTYearsOptionsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTYearsOptionsTableView.swift; sourceTree = "<group>"; };
 		68C9DF3C1EE2884B00DACB58 /* FTYearsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTYearsTableViewCell.swift; sourceTree = "<group>"; };
 		68C9DF3D1EE2884B00DACB58 /* FTYearsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTYearsTableViewCell.xib; sourceTree = "<group>"; };
@@ -913,8 +915,8 @@
 				68948B9E1EFBB4F50056B840 /* FTCustomKCService.h */,
 				68948B9F1EFBB4F50056B840 /* FTCustomKCService.m */,
 				68948BA01EFBB4F50056B840 /* FTProductService.h */,
-				68948BA11EFBB4F50056B840 /* FTProductService.m */,
 				68948BA21EFBB4F50056B840 /* FTRealKitchenService.h */,
+				68948BA11EFBB4F50056B840 /* FTProductService.m */,
 				68948BA31EFBB4F50056B840 /* FTRealKitchenService.m */,
 			);
 			path = Service;
@@ -1021,6 +1023,7 @@
 			children = (
 				68E7176F1EC2BCDF00F236EE /* FTSliderViewModel.swift */,
 				68E717711EC2E73900F236EE /* FTOptionsView.swift */,
+				68C257FA1F00ECFD00C02BA7 /* FTInterOptionView.swift */,
 				68E717771EC3155700F236EE /* FTHorOptionsView.swift */,
 				6893CB761EFE99440027A384 /* FTOptionEightView.swift */,
 				68C9DF381EE2875900DACB58 /* FTYearsOptionsTableView.swift */,
@@ -1283,6 +1286,7 @@
 				68215D021EAEF10200A32759 /* Permission.swift in Sources */,
 				686A0BF61EDFE6140008F97C /* FTPentalCollectionViewCell.swift in Sources */,
 				68215CF11EAEF10200A32759 /* SwiftyTableView.swift in Sources */,
+				68C257FB1F00ECFD00C02BA7 /* FTInterOptionView.swift in Sources */,
 				686A0BF81EE0072F0008F97C /* FTHonorViewController.swift in Sources */,
 				68215CEC1EAEF10200A32759 /* KeyboardObserver.swift in Sources */,
 				686161F01ED16C68006355BD /* FTDetailCollectionViewCell1.swift in Sources */,

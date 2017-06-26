@@ -8,17 +8,17 @@
 
 
 import UIKit
-protocol FTOptionsViewDeleage {
+protocol FTInterOptionViewDeleage {
     func clickBtnActionOption(index:Int)
 }
-class FTOptionsView: UIView {
-    var deleage:FTOptionsViewDeleage?
+class FTInterOptionView: UIView {
+    var deleage:FTInterOptionViewDeleage?
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadUI()
     }
     let viewModel:FTSliderViewModel = FTSliderViewModel()
-    var spacing = (UIScreen.main.bounds.size.height - 680) / 10
+    var spacing = (UIScreen.main.bounds.size.width - 560) / 10
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -27,7 +27,7 @@ class FTOptionsView: UIView {
         line.backgroundColor = FTStyleConfiguration.line
         addSubview(line)
         line.snp.makeConstraints { (make) in
-            make.left.top.bottom.equalTo(0)
+            make.right.top.bottom.equalTo(0)
             make.width.equalTo(1)
         }
         var height:CGFloat = 0
@@ -59,7 +59,7 @@ class FTOptionsView: UIView {
             line.isHidden = !model.isSele
             line.snp.makeConstraints({ (make) in
                 make.top.bottom.equalTo(label)
-                make.left.equalTo(0)
+                make.right.equalTo(0)
                 make.width.equalTo(2)
             })
             
@@ -89,7 +89,7 @@ class FTOptionsView: UIView {
         }
         loadUI()
         deleage?.clickBtnActionOption(index: sender.tag)
-
+        
     }
     func setDidIndex(index:Int)  {
         for view in subviews {

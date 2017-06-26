@@ -10,6 +10,9 @@ import UIKit
 
 class FTSceneryViewController: UIViewController {
     var models = Array<FTRealKitchenList>()
+    var productNum:String = ""
+    var area:String = ""
+    var cost:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -258,7 +261,6 @@ class FTSceneryViewController: UIViewController {
         //真正
         models = FTRealKitchenService.fetchRealKitchens(withCity: FTUserManager.userManager.getModel().userInfo.city)
         collectionView.reloadData()
-
     }
 
     /*
@@ -301,7 +303,12 @@ class HeaderReusableView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,FTScreeningTableViewDeleage,FTScreeningCostAndAreaViewDeleage{
+extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,FTScreeningTableViewDeleage,FTScreeningCostAndAreaViewDeleage,UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        models = FTRealKitchenService.fetchRealKitchens(withCityName: "", productNumber: "", kitchenArea: "", fotileCost: "")
+//        collectionView.reloadData()
+        return true
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:FTSceneryCollectionCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! FTSceneryCollectionCell
         let array:[FTRealKitchen] = models[indexPath.section].list as! [FTRealKitchen]
@@ -335,15 +342,20 @@ extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewData
     }
     func didSeletecedAction(title: String) {
         typeAction()
-        print(title)
+        productNum = title
+        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: area, fotileCost: cost)
+        collectionView.reloadData()
     }
     func didSeletecedActionAreaCost(screenView: FTScreeningCostAndAreaView, title: String) {
         if costScreen == screenView{
             costAction()
+            cost = title
         }else{
             areaAction()
+            area = title
         }
-        print(title)
+        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: area, fotileCost: cost)
+        collectionView.reloadData()
     }
 
 }

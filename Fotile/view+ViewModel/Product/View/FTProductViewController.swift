@@ -1,3 +1,4 @@
+
 //
 //  FTProductViewController.swift
 //  Fotile
@@ -23,7 +24,7 @@ class FTProductViewController: UIViewController {
         //view.addSubview(sliderView)
         view.addSubview(sliderView1)
         view.addSubview(tableView)
-//        tableView.tableHeaderView = tableHead
+      //  tableView.tableHeaderView = tableHead
         layout()
         // Do any additional setup after loading the view.
     }
@@ -102,13 +103,13 @@ class FTProductViewController: UIViewController {
 
 }
 extension FTProductViewController:FTOptionsViewDeleage, FTProductTableViewDeleage{
-    func clickBtnAction(index: Int) {
-
+    func clickBtnActionOption(index: Int) {
         if viewModel.products.count > index {
             let indexpath = IndexPath(row: 0, section: index)
             self.tableView.scrollToRow(at: indexpath, at: .top, animated: true)
         }
     }
+
     func moreAction(viewModel:FTProductCellViewModel) {
         let vc = FTProductDetailViewController()
         vc.viewModel.headViewModel = viewModel

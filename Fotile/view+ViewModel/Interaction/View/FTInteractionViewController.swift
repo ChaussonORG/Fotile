@@ -30,6 +30,8 @@ class FTInteractionViewController: UIViewController {
         models = FTCustomKCService.fetchCustomKitchenList()
         tableView.reloadData()
         (UIApplication.shared.delegate as! AppDelegate).ftView?.isHidden = false
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
     }
 }
 extension FTInteractionViewController:UITableViewDelegate,UITableViewDataSource{

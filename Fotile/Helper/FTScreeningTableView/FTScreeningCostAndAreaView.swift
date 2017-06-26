@@ -77,8 +77,13 @@ class FTScreeningCostAndAreaView: UIView {
         for i in 0..<cellViewModels.count{
             let model = cellViewModels[i]
             if i == sender.tag {
+                if model.isSelected{
+                    titleString = ""
+                }else{
+                    titleString = model.title
+                }
                 model.isSelected = !model.isSelected
-                titleString = model.title
+                
             }else{
                 model.isSelected = false
             }
