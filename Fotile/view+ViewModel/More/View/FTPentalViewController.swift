@@ -15,12 +15,14 @@ class FTPentalViewController: UIViewController {
     @IBOutlet var line1: UIView!
     @IBOutlet var line2: UIView!
     @IBOutlet var line3: UIView!
+    let viewModel:FTPentalViewModel = FTPentalViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         loadui()
         // Do any additional setup after loading the view.
     }
     func loadui(){
+        viewModel.getData(type: 0)
         let labe:UILabel = UILabel()
         labe.text = "专利墙"
         labe.font = UIFont.boldSystemFont(ofSize: 17)
@@ -28,33 +30,33 @@ class FTPentalViewController: UIViewController {
         labe.textAlignment = .center
         navigationItem.titleView = labe
         view.addSubview(sliderView)
-        view.addSubview(collectionView2)
-        view.addSubview(collectionView3)
+//        view.addSubview(collectionView2)
+//        view.addSubview(collectionView3)
         view.addSubview(collectionView1)
         sliderView.snp.makeConstraints { (make) in
             make.right.equalTo(0)
-            make.top.equalTo(44)
+            make.top.equalTo(0)
             make.width.equalTo(44)
             make.bottom.equalTo(0)
         }
         collectionView1.snp.makeConstraints { (make) in
             make.left.equalTo(0)
-            make.top.equalTo(44)
+            make.top.equalTo(0)
             make.right.equalTo(sliderView.snp.left).offset(0)
             make.bottom.equalTo(0)
         }
-        collectionView2.snp.makeConstraints { (make) in
-            make.left.equalTo(0)
-            make.top.equalTo(44)
-            make.right.equalTo(sliderView.snp.left).offset(0)
-            make.bottom.equalTo(0)
-        }
-        collectionView3.snp.makeConstraints { (make) in
-            make.left.equalTo(0)
-            make.top.equalTo(44)
-            make.right.equalTo(sliderView.snp.left).offset(0)
-            make.bottom.equalTo(0)
-        }
+//        collectionView2.snp.makeConstraints { (make) in
+//            make.left.equalTo(0)
+//            make.top.equalTo(44)
+//            make.right.equalTo(sliderView.snp.left).offset(0)
+//            make.bottom.equalTo(0)
+//        }
+//        collectionView3.snp.makeConstraints { (make) in
+//            make.left.equalTo(0)
+//            make.top.equalTo(44)
+//            make.right.equalTo(sliderView.snp.left).offset(0)
+//            make.bottom.equalTo(0)
+//        }
     }
     @IBAction func action1(_ sender: Any) {
         btn1.isSelected = true
@@ -84,8 +86,8 @@ class FTPentalViewController: UIViewController {
         view.bringSubview(toFront: collectionView3)
     }
     
-    lazy var sliderView:FTOptionsView = {
-        let view:FTOptionsView = FTOptionsView(frame: CGRect.zero)
+    lazy var sliderView:FTOptionEightView = {
+        let view:FTOptionEightView = FTOptionEightView(frame: CGRect.zero)
         view.deleage = self
         return view
     }()
@@ -154,26 +156,28 @@ class FTPentalViewController: UIViewController {
     */
 
 }
-extension FTPentalViewController:FTOptionsViewDeleage, UICollectionViewDelegate,UICollectionViewDataSource{
+extension FTPentalViewController:FTOptionEightViewDeleage, UICollectionViewDelegate,UICollectionViewDataSource{
     func clickBtnAction(index: Int) {
-        
+        viewModel.getData(type: index)
+        collectionView1.reloadData()
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == collectionView1 {
-            let cell:FTPentalCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId1", for: indexPath) as! FTPentalCollectionViewCell
-            return cell
-        }
-        if collectionView == collectionView2 {
-            let cell:FTPentalCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId2", for: indexPath) as! FTPentalCollectionViewCell
-            return cell
-        }
-        let cell:FTPentalCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId3", for: indexPath) as! FTPentalCollectionViewCell
+      //  if collectionView == collectionView1 {
+        let cell:FTPentalCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId1", for: indexPath) as! FTPentalCollectionViewCell
+        cell.loadImage(image: viewModel.models[indexPath.row])
         return cell
+      //  }
+//        if collectionView == collectionView2 {
+//            let cell:FTPentalCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId2", for: indexPath) as! FTPentalCollectionViewCell
+//            return cell
+//        }
+//        let cell:FTPentalCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId3", for: indexPath) as! FTPentalCollectionViewCell
+//        return cell
         
     
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return viewModel.models.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        
