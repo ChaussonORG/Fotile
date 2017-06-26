@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CHProgressHUD
 class FTProductViewController: UIViewController {
 
     @IBOutlet var headView: UIView!
@@ -50,7 +50,7 @@ class FTProductViewController: UIViewController {
         }
         tableView.snp.makeConstraints { (make) in
             make.left.equalTo(0)
-            make.top.equalTo(headView.snp.bottom).offset(0)
+            make.top.equalTo(70)
             make.right.equalTo(-44)
             make.bottom.equalTo(-50)
         }
@@ -76,7 +76,7 @@ class FTProductViewController: UIViewController {
         return table
     }()
     lazy var tableHead:UIView = {
-        let view:UIView = UIView(frame: CGRect.init(x: 0, y: 50, width: 0, height: 70))
+        let view:UIView = UIView(frame: CGRect.init(x: 0, y: 50, width: 0, height: 20))
         return view
     }()
 
@@ -103,13 +103,18 @@ class FTProductViewController: UIViewController {
 }
 extension FTProductViewController:FTOptionsViewDeleage, FTProductTableViewDeleage{
     func clickBtnAction(index: Int) {
-//        let vm = FTSliderViewModel()
-        let path = IndexPath(row: 0, section: index)
-        tableView.scrollToRow(at: path, at: .top, animated: true)
+
+        if viewModel.products.count > index {
+            let indexpath = IndexPath(row: 0, section: index)
+            self.tableView.scrollToRow(at: indexpath, at: .top, animated: true)
+        }
     }
     func moreAction(viewModel:FTProductCellViewModel) {
         let vc = FTProductDetailViewController.news()
         vc.viewModel.headViewModel = viewModel
         navigationController?.pushViewController(vc, animated: true)
+    }
+    func getSection(section: Int) {
+        self.sliderView1.setDidIndex(index: section)
     }
 }

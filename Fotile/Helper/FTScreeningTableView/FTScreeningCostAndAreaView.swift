@@ -8,13 +8,17 @@
 //
 
 import UIKit
-
+protocol FTScreeningCostAndAreaViewDeleage {
+    func didSeletecedActionAreaCost(screenView:FTScreeningCostAndAreaView,title:String)
+}
 class FTScreeningCostAndAreaView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.white
         clipsToBounds = true
     }
+    var dele:FTScreeningCostAndAreaViewDeleage?
+    var titleString:String = ""
     var  cellViewModels:[FTScreeningCellViewModelAreaAndCost] = [FTScreeningCellViewModelAreaAndCost]()
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -74,10 +78,12 @@ class FTScreeningCostAndAreaView: UIView {
             let model = cellViewModels[i]
             if i == sender.tag {
                 model.isSelected = !model.isSelected
+                titleString = model.title
             }else{
                 model.isSelected = false
             }
         }
+        dele?.didSeletecedActionAreaCost(screenView: self, title: titleString)
         loadUI(cellViewModels: cellViewModels)
     }
 

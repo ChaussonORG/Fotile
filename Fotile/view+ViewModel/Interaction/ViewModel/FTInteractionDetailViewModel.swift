@@ -10,6 +10,8 @@ import UIKit
 
 class FTInteractionDetailViewModel: NSObject {
     var cellViewModels = Array<FTProduct>()
+    var materialS = Array<FTMaterial>()
+
     override init() {
         super.init()
     }

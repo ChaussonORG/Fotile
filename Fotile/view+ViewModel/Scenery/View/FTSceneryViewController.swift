@@ -76,16 +76,19 @@ class FTSceneryViewController: UIViewController {
     let screenViewModel:FTScreeningViewModel = FTScreeningViewModel()
     lazy var screenTable:FTScreeningTableView = {
         let view:FTScreeningTableView = FTScreeningTableView(frame: CGRect.init(x: 0, y: 70, width: self.view.frame.size.width, height: 0), style: .plain)
+        view.dele = self
         return view
     }()
     lazy var areaScreen:FTScreeningCostAndAreaView = {
         let view:FTScreeningCostAndAreaView = FTScreeningCostAndAreaView(frame:  CGRect.init(x: 0, y: 70, width: self.view.frame.size.width, height: 0))
         view.loadUI(cellViewModels: self.screenViewModel.areaCellViewModels)
+        view.dele = self
         return view
     }()
     lazy var costScreen:FTScreeningCostAndAreaView = {
         let view:FTScreeningCostAndAreaView = FTScreeningCostAndAreaView(frame:  CGRect.init(x: 0, y: 70, width: self.view.frame.size.width, height: 0))
         view.loadUI(cellViewModels: self.screenViewModel.costCellViewModels)
+        view.dele = self
         return view
     }()
     lazy var screenBackView:UIView = {
@@ -298,7 +301,7 @@ class HeaderReusableView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,FTScreeningTableViewDeleage,FTScreeningCostAndAreaViewDeleage{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:FTSceneryCollectionCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! FTSceneryCollectionCell
         let array:[FTRealKitchen] = models[indexPath.section].list as! [FTRealKitchen]
@@ -330,6 +333,17 @@ extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewData
             return HeaderReusableView()
         }
     }
+    func didSeletecedAction(title: String) {
+        typeAction()
+        print(title)
+    }
+    func didSeletecedActionAreaCost(screenView: FTScreeningCostAndAreaView, title: String) {
+        if costScreen == screenView{
+            costAction()
+        }else{
+            areaAction()
+        }
+        print(title)
+    }
 
-    
 }

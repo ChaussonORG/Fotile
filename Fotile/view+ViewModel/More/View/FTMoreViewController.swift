@@ -138,7 +138,6 @@ class FTMoreViewController: UIViewController {
     func checkAction(){
         if haveUpdata && dbUrl.length != 0{
             downLoad.show()
-
             FTDataOperation.shareInstance().downDataBase(withUrl: dbUrl, completion: { [weak self](bool) in
                 if bool{
                     guard let weakSelf = self else{
@@ -157,6 +156,8 @@ class FTMoreViewController: UIViewController {
                 }
             })
             return
+        }else{
+            CHProgressHUD.showPlainText("请求数据库地址失败")
         }
     }
     func getTime() -> String{

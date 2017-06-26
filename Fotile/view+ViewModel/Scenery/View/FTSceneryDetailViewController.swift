@@ -194,6 +194,10 @@ class FTSceneryDetailViewController: UIViewController {
 
 }
 extension FTSceneryDetailViewController:UICollectionViewDelegate, UICollectionViewDataSource,FTProductTableViewDeleage{
+    func getSection(section: Int) {
+        
+    }
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:FTSceneryDetailCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! FTSceneryDetailCollectionViewCell
         if indexPath.row == inforArray1.count - 1 {
