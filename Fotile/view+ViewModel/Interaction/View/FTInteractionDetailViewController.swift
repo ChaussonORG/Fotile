@@ -26,6 +26,7 @@ class FTInteractionDetailViewController: UIViewController {
     @IBOutlet var popBtn: UIButton!
     var type:kitType = .Day2
     var typeIndex = 1
+    var typeIndex1 = 1
     var isSame:Bool = false
     @IBOutlet var pushBtn: UIButton!
     @IBOutlet var dayNightBtn: UIButton!
@@ -398,7 +399,7 @@ class FTInteractionDetailViewController: UIViewController {
                 }
             }
         }
-
+        typeIndex1 = Int(index)
         typeIndex = Int(index)
         collectionView.reloadData()
     }
@@ -468,7 +469,6 @@ class FTInteractionDetailViewController: UIViewController {
         case .Ninght1:
             for p in productModels {
                 typeIndex = Int(p.catalogType)
-
                 chooseProduct(imageView: night1, image: p.groupImage.night1.picture)
             }
             break
@@ -480,7 +480,6 @@ class FTInteractionDetailViewController: UIViewController {
         case .Ninght2:
             for p in productModels {
                 typeIndex = Int(p.catalogType)
-
                 chooseProduct(imageView: night2, image: p.groupImage.night2.picture)
             }
             day2.clear()
@@ -492,7 +491,6 @@ class FTInteractionDetailViewController: UIViewController {
         case .Ninght3:
             for p in productModels {
                 typeIndex = Int(p.catalogType)
-
                 chooseProduct(imageView: night3, image: p.groupImage.night3.picture)
             }
             day2.clear()
@@ -701,7 +699,7 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:FTInteractionDetailCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! FTInteractionDetailCollectionViewCell
-        if typeIndex == 10{
+        if typeIndex1 == 10{
             cell.loadMaterial(model: viewModel.materialS[indexPath.row], type: type)
         }else{
             cell.loadModel(model: viewModel.cellViewModels[indexPath.row], type: type)
@@ -709,13 +707,13 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if typeIndex == 10{
+        if typeIndex1 == 10{
             return viewModel.materialS.count
         }
         return viewModel.cellViewModels.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if typeIndex == 10{
+        if typeIndex1 == 10{
             let grounp = viewModel.materialS[indexPath.row].groupImage
             guard let groupImage = grounp else {
                 return
@@ -733,13 +731,10 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
         if productModels.count != 0 {
             for model in productModels{
                 if model.catalogType == product.catalogType{
-                    //isSame = true
                     _ = productModels.remove(model)
                 }
             }
-          //  if isSame {
                 productModels.append(product)
-          //  }
         }else{
             productModels.append(product)
         }

@@ -13,6 +13,7 @@ class FTSceneryViewController: UIViewController {
     var productNum:String = ""
     var area:String = ""
     var cost:String = ""
+    var costMax:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -344,24 +345,46 @@ extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewData
     func didSeletecedAction(title: String) {
         typeAction()
         productNum = title
-// TO DO 将面积的平方去除，输入价格区间
-//        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: area, fotileCost: cost)
-        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: "8-10", fotileCost: "100000", betweenCost: "200000")
+        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: productNum, fotileCost: cost, betweenCost: costMax)
         collectionView.reloadData()
     }
     func didSeletecedActionAreaCost(screenView: FTScreeningCostAndAreaView, title: String) {
         if costScreen == screenView{
             costAction()
             cost = title
+            costMax = title
+            if title == "1万以下"{
+                cost = "0"
+                costMax = "10000"
+            }
+            if title == "1万-2万"{
+                cost = "10000"
+                costMax = "20000"
+            }
+            if title == "2万-4万"{
+                cost = "20000"
+                costMax = "40000"
+            }
+            if title == "4万以上"{
+                cost = "40000"
+                costMax = "1000000"
+            }
         }else{
             areaAction()
             area = title
+            if title == "5-7平米"{
+                area = "5-7"
+            }
+            if title == "8-10平米"{
+                area = "8-10"
+            }
+            if title == "10平米以上"{
+                area = "10"
+            }
         }
-// TO DO 将面积的平方去除，输入价格区间
-
-//        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: area, fotileCost: cost)
-        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: "8-10", fotileCost: "10000", betweenCost: "50000")
+        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: productNum, fotileCost: cost, betweenCost: costMax)
         collectionView.reloadData()
+
     }
 
 }
