@@ -31,45 +31,11 @@ class FTInteractionDetailCollectionViewCell: UICollectionViewCell {
         }
     }
     func loadModel(model:FTProduct,type:kitType)  {
-        var day:FTImage = FTImage()
-        switch type {
-        case .Day1:
-            day = model.groupImage.day1
-        case .Day2:
-            day = model.groupImage.day2
-        case .Day3:
-            day = model.groupImage.day3
-        case .Ninght1:
-            day = model.groupImage.night1
-        case .Ninght2:
-            day = model.groupImage.night2
-        case .Ninght3:
-            day = model.groupImage.night3
-        default:
-            break
-        }
-        imageV.image = day.picture
-        label.text = model.name
+        imageV.image = model.thumnailImage.picture
+        label.text = model.modelNumber
     }
     func loadMaterial(model:FTMaterial,type:kitType){
-        var day:FTImage = FTImage()
-        switch type {
-        case .Day1:
-            day = model.groupImage.day1
-        case .Day2:
-            day = model.groupImage.day2
-        case .Day3:
-            day = model.groupImage.day3
-        case .Ninght1:
-            day = model.groupImage.night1
-        case .Ninght2:
-            day = model.groupImage.night2
-        case .Ninght3:
-            day = model.groupImage.night3
-        default:
-            break
-        }
-        imageV.image = day.picture
+        imageV.image = model.thumbnailImage.picture
         label.text = model.name
     }
     required init?(coder aDecoder: NSCoder) {
@@ -77,6 +43,7 @@ class FTInteractionDetailCollectionViewCell: UICollectionViewCell {
     }
     lazy var imageV:UIImageView = {
         let image:UIImageView = UIImageView()
+        image.contentMode = .scaleAspectFit
         return image
     }()
     lazy var label:UILabel = {

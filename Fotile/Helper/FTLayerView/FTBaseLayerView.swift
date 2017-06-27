@@ -56,7 +56,19 @@ class FTBaseLayerView: UIView {
             make.left.top.bottom.right.equalTo(10)
         }
     }
-    
+    func clear() {
+        imageView1.image = nil
+        imageView2.image = nil
+        imageView3.image = nil
+        imageView4.image = nil
+        imageView5.image = nil
+        imageView6.image = nil
+        imageView7.image = nil
+        imageView8.image = nil
+        imageView9.image = nil
+        imageView10.image = nil
+
+    }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

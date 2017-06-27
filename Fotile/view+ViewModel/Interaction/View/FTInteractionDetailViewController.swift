@@ -367,6 +367,7 @@ class FTInteractionDetailViewController: UIViewController {
             collectionView.reloadData()
 
         }
+        selectedProduct()
     }
     
     override func didReceiveMemoryWarning() {
@@ -426,6 +427,85 @@ class FTInteractionDetailViewController: UIViewController {
         default:
             break
         }
+    }
+    func selectedProduct() {
+        switch type {
+        case .Day1:
+            for p in productModels {
+                typeIndex = Int(p.catalogType)
+                chooseProduct(imageView: day1, image: p.groupImage.day1.picture)
+            }
+            day2.clear()
+            day3.clear()
+            night1.clear()
+            night2.clear()
+            night3.clear()
+
+            break
+        case .Day2:
+            for p in productModels {
+                typeIndex = Int(p.catalogType)
+                chooseProduct(imageView: day2, image: p.groupImage.day2.picture)
+            }
+            day1.clear()
+            day3.clear()
+            night1.clear()
+            night2.clear()
+            night3.clear()
+            break
+        case .Day3:
+            for p in productModels {
+                typeIndex = Int(p.catalogType)
+
+                chooseProduct(imageView: day3, image: p.groupImage.day3.picture)
+            }
+            day2.clear()
+            day1.clear()
+            night1.clear()
+            night2.clear()
+            night3.clear()
+            break
+        case .Ninght1:
+            for p in productModels {
+                typeIndex = Int(p.catalogType)
+
+                chooseProduct(imageView: night1, image: p.groupImage.night1.picture)
+            }
+            break
+            day2.clear()
+            day3.clear()
+            day1.clear()
+            night2.clear()
+            night3.clear()
+        case .Ninght2:
+            for p in productModels {
+                typeIndex = Int(p.catalogType)
+
+                chooseProduct(imageView: night2, image: p.groupImage.night2.picture)
+            }
+            day2.clear()
+            day3.clear()
+            night1.clear()
+            day1.clear()
+            night3.clear()
+            break
+        case .Ninght3:
+            for p in productModels {
+                typeIndex = Int(p.catalogType)
+
+                chooseProduct(imageView: night3, image: p.groupImage.night3.picture)
+            }
+            day2.clear()
+            day3.clear()
+            night1.clear()
+            night2.clear()
+            day1.clear()
+            break
+        default:
+            break
+            
+        }
+        
     }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         if size.width > size.height {
@@ -617,6 +697,7 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
                 collectionView.reloadData()
             }
         }
+        selectedProduct()
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:FTInteractionDetailCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! FTInteractionDetailCollectionViewCell
@@ -647,25 +728,22 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
             night3.backImageView.image = groupImage.night3.picture
             return
         }
-        chooseProduct(imageView: day1, image: viewModel.cellViewModels[indexPath.row].groupImage.day1.picture)
-        chooseProduct(imageView: day2, image: viewModel.cellViewModels[indexPath.row].groupImage.day2.picture)
-        chooseProduct(imageView: day3, image: viewModel.cellViewModels[indexPath.row].groupImage.day3.picture)
-        chooseProduct(imageView: night1, image: viewModel.cellViewModels[indexPath.row].groupImage.night1.picture)
-        chooseProduct(imageView: night2, image: viewModel.cellViewModels[indexPath.row].groupImage.night2.picture)
-        chooseProduct(imageView: night3, image: viewModel.cellViewModels[indexPath.row].groupImage.night3.picture)
+        let product = viewModel.cellViewModels[indexPath.row]
+        typeIndex = Int(product.catalogType)
         if productModels.count != 0 {
             for model in productModels{
-                if model.catalogType == viewModel.cellViewModels[indexPath.row].catalogType{
+                if model.catalogType == product.catalogType{
                     //isSame = true
                     _ = productModels.remove(model)
                 }
             }
           //  if isSame {
-                productModels.append(viewModel.cellViewModels[indexPath.row])
+                productModels.append(product)
           //  }
         }else{
-            productModels.append(viewModel.cellViewModels[indexPath.row])
+            productModels.append(product)
         }
+        selectedProduct()
         
     }
 
