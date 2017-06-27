@@ -1030,8 +1030,8 @@
 				68E717771EC3155700F236EE /* FTHorOptionsView.swift */,
 				6893CB761EFE99440027A384 /* FTOptionEightView.swift */,
 				68C9DF381EE2875900DACB58 /* FTYearsOptionsTableView.swift */,
-				68C9DF3C1EE2884B00DACB58 /* FTYearsTableViewCell.swift */,
 				68C9DF3D1EE2884B00DACB58 /* FTYearsTableViewCell.xib */,
+				68C9DF3C1EE2884B00DACB58 /* FTYearsTableViewCell.swift */,
 			);
 			path = FTSliderView;
 			sourceTree = "<group>";

@@ -42,10 +42,12 @@ class FTInteractionDetailViewController: UIViewController {
     }
     func loadUI()  {
         chooseType(index:1)
-        view.addSubview(collectionView)
-        view.addSubview(sliderView)
         view.addSubview(scrollView)
-        view.addSubview(sliderView1)
+        view.addSubview(backgroundView)
+        backgroundView.addSubview(collectionView)
+        backgroundView.addSubview(sliderView)
+        backgroundView.addSubview(sliderView1)
+        backgroundView.addSubview(pushBtn)
         scrollView.addSubview(night1)
         scrollView.addSubview(night3)
         scrollView.addSubview(night2)
@@ -55,9 +57,9 @@ class FTInteractionDetailViewController: UIViewController {
         scrollView.addSubview(day2)
         scrollView.addSubview(ninghtView)
         
-        scrollView.addSubview(popBtn)
-        scrollView.addSubview(dayNightBtn)
-        scrollView.addSubview(switchView)
+        view.addSubview(popBtn)
+        view.addSubview(dayNightBtn)
+        view.addSubview(switchView)
         switchView.addSubview(productBtn)
         switchView.addSubview(materialBtn)
         day2.backImageView.image = model.groupImage.day2.picture
@@ -67,6 +69,8 @@ class FTInteractionDetailViewController: UIViewController {
         night2.backImageView.image = model.groupImage.night2.picture
         night3.backImageView.image = model.groupImage.night3.picture
         sliderView1.isHidden = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(fullScreen))
+        scrollView.addGestureRecognizer(tap)
     }
     func animationUI() {
         if self.rect.origin.y >  UIScreen.main.bounds.size.width - 292{
@@ -81,7 +85,11 @@ class FTInteractionDetailViewController: UIViewController {
             self.animationImageView.isHidden = true
         }
     }
-    
+    lazy var backgroundView:UIView = {
+        let view:UIView = UIView()
+        view.backgroundColor = UIColor.white
+        return view
+    }()
     lazy var animationImageView:UIImageView = {
         let imageV:UIImageView = UIImageView()
         imageV.image = self.model.groupImage.day2.picture
@@ -171,7 +179,10 @@ class FTInteractionDetailViewController: UIViewController {
             make.bottom.equalTo(collectionView.snp.top).offset(0)
             make.height.equalTo(44)
         }
-  
+        backgroundView.snp.makeConstraints { (make) in
+            make.bottom.left.right.equalTo(0)
+            make.height.equalTo(254)
+        }
         collectionView.snp.remakeConstraints { (make) in
             make.left.right.equalTo(0)
             make.bottom.equalTo(-45)
@@ -286,20 +297,28 @@ class FTInteractionDetailViewController: UIViewController {
         return btn
     }()
     func productAction() {
+        if backgroundView.isHidden{
+            fullScreen()
+        }
         productBtn.isSelected = true
         materialBtn.isSelected = false
         productBtn.backgroundColor = UIColor.black
         materialBtn.backgroundColor = UIColor.white
         sliderView.isHidden = false
+        sliderView1.isHidden = false
         self.chooseType(index: 1)
         collectionView.reloadData()
     }
     func materialAction() {
+        if backgroundView.isHidden{
+            fullScreen()
+        }
         materialBtn.isSelected = true
         productBtn.isSelected = false
         materialBtn.backgroundColor = UIColor.black
         productBtn.backgroundColor = UIColor.white
         sliderView.isHidden = true
+        sliderView1.isHidden = true
         self.chooseType(index: 10)
         collectionView.reloadData()
     }
@@ -312,11 +331,23 @@ class FTInteractionDetailViewController: UIViewController {
         let vc = FTSchemeViewController()
         vc.isVer = self.isVer
         vc.productModels = self.productModels
+        type = .Day1
+        selectedProduct()
         vc.array.append(self.graphics(bgView: day1))
+        type = .Day2
+        selectedProduct()
         vc.array.append(self.graphics(bgView: day2))
+        type = .Day3
+        selectedProduct()
         vc.array.append(self.graphics(bgView: day3))
+        type = .Ninght1
+        selectedProduct()
         vc.array.append(self.graphics(bgView: night1))
+        type = .Ninght2
+        selectedProduct()
         vc.array.append(self.graphics(bgView: night2))
+        type = .Ninght3
+        selectedProduct()
         vc.array.append(self.graphics(bgView: night3))
         self.present(vc, animated: true) {
             CHProgressHUD.hide(true)
@@ -331,38 +362,36 @@ class FTInteractionDetailViewController: UIViewController {
         return view
     }()
     @IBAction func dayNightAction(_ sender: Any) {
+        if backgroundView.isHidden{
+            fullScreen()
+        }
         dayNightBtn.isSelected = !dayNightBtn.isSelected
         if dayNightBtn.isSelected {
-            day1.isHidden = true
-            day2.isHidden = true
-            day3.isHidden = true
-            night3.isHidden = false
-            night1.isHidden = false
-            night2.isHidden = false
+
+            scrollView.bringSubview(toFront: night1)
+            scrollView.bringSubview(toFront: night2)
+            scrollView.bringSubview(toFront: night3)
             if self.scrollView.contentOffset.x == 0 {
                 type = .Ninght1
             }
-            if self.scrollView.contentOffset.x == UIScreen.height {
+            if self.scrollView.contentOffset.x == scrollView.contentSize.width / 3{
                 type = .Ninght2
             }
-            if self.scrollView.contentOffset.x == UIScreen.height * 2 {
+            if self.scrollView.contentOffset.x == scrollView.contentSize.width / 3 * 2 {
                 type = .Ninght3
             }
             collectionView.reloadData()
         }else{
-            day1.isHidden = false
-            day2.isHidden = false
-            day3.isHidden = false
-            night3.isHidden = true
-            night1.isHidden = true
-            night2.isHidden = true
+            scrollView.bringSubview(toFront: day1)
+            scrollView.bringSubview(toFront: day2)
+            scrollView.bringSubview(toFront: day3)
             if self.scrollView.contentOffset.x == 0 {
                 type = .Day1
             }
-            if self.scrollView.contentOffset.x == UIScreen.height {
+            if self.scrollView.contentOffset.x == scrollView.contentSize.width / 3 {
                 type = .Day2
             }
-            if self.scrollView.contentOffset.x == UIScreen.height * 2 {
+            if self.scrollView.contentOffset.x == scrollView.contentSize.width / 3 * 2 {
                 type = .Day3
             }
             collectionView.reloadData()
@@ -518,13 +547,13 @@ class FTInteractionDetailViewController: UIViewController {
         productBtn.setTitle("产\n品", for: .normal)
         materialBtn.setTitle("材\n质", for: .normal)
         layout.scrollDirection = .vertical
-        scrollView.contentSize = CGSize(width: (UIScreen.height - 254) * 3, height: UIScreen.main.bounds.size.width)
-        scrollView.contentOffset = CGPoint(x: UIScreen.width, y: 0)
+        scrollView.contentSize = CGSize(width: (UIScreen.height) * 3, height: UIScreen.main.bounds.size.width)
+        scrollView.contentOffset = CGPoint(x: UIScreen.height, y: 0)
         scrollView.snp.remakeConstraints { (make) in
             make.top.equalTo(0)
             make.left.equalTo(0)
             make.height.equalTo(UIScreen.width)
-            make.width.equalTo(UIScreen.height - 254)
+            make.width.equalTo(UIScreen.height)
         }
         day1.snp.remakeConstraints { (make) in
             make.left.equalTo(0)
@@ -537,6 +566,7 @@ class FTInteractionDetailViewController: UIViewController {
             make.right.equalTo(-45)
             make.width.equalTo(165)
         }
+        
         switchView.snp.remakeConstraints { (make) in
             make.right.equalTo(view).offset(-300)
             make.top.equalTo(20)
@@ -576,6 +606,10 @@ class FTInteractionDetailViewController: UIViewController {
             make.top.bottom.equalTo(0)
             make.right.equalTo(-209)
             make.width.equalTo(44)
+        }
+        backgroundView.snp.remakeConstraints { (make) in
+            make.top.bottom.right.equalTo(0)
+            make.width.equalTo(253)
         }
         pushBtn.setImage(#imageLiteral(resourceName: "btn_showPlan_landscape"), for: .normal)
         sliderView1.isHidden = false
@@ -631,12 +665,47 @@ class FTInteractionDetailViewController: UIViewController {
             make.bottom.equalTo(day2).offset(0)
             make.width.height.equalTo(70)
         }
+        backgroundView.snp.remakeConstraints { (make) in
+            make.bottom.left.right.equalTo(0)
+            make.height.equalTo(254)
+        }
         pushBtn.setImage(#imageLiteral(resourceName: "btn_showPlan_portrait"), for: .normal)
         pushBtn.snp.remakeConstraints { (make) in
             make.left.equalTo(width / 2 - 25)
             make.bottom.equalTo(0)
             make.height.equalTo(25)
             make.width.equalTo(50)
+        }
+    }
+    //全屏
+    func fullScreen(){
+        if !isVer{
+            backgroundView.isHidden = !backgroundView.isHidden
+            if backgroundView.isHidden {
+                switchView.snp.remakeConstraints { (make) in
+                    make.right.equalTo(view).offset(-30)
+                    make.top.equalTo(20)
+                    make.height.equalTo(120)
+                    make.width.equalTo(40)
+                }
+                dayNightBtn.snp.remakeConstraints { (make) in
+                    make.right.equalTo(view).offset(-29)
+                    make.top.equalTo(UIScreen.height - 70)
+                    make.width.height.equalTo(70)
+                }
+            }else{
+                switchView.snp.remakeConstraints { (make) in
+                    make.right.equalTo(view).offset(-300)
+                    make.top.equalTo(20)
+                    make.height.equalTo(120)
+                    make.width.equalTo(40)
+                }
+                dayNightBtn.snp.remakeConstraints { (make) in
+                    make.right.equalTo(view).offset(-290)
+                    make.top.equalTo(UIScreen.height - 70)
+                    make.width.height.equalTo(70)
+                }
+            }
         }
     }
     //截图

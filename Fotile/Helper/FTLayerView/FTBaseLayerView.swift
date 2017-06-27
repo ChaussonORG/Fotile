@@ -75,46 +75,59 @@ class FTBaseLayerView: UIView {
     lazy var backImageView:UIImageView = {
         let imageV:UIImageView = UIImageView()
         imageV.backgroundColor = UIColor.white
+        imageV.isUserInteractionEnabled = true
         return imageV
     }()
     lazy var imageView1:UIImageView = {
         let imageV:UIImageView = UIImageView()
+        imageV.isUserInteractionEnabled = true
         return imageV
     }()
     lazy var imageView2:UIImageView = {
         let imageV:UIImageView = UIImageView()
+        imageV.isUserInteractionEnabled = true
+
         return imageV
     }()
     lazy var imageView3:UIImageView = {
         let imageV:UIImageView = UIImageView()
+        imageV.isUserInteractionEnabled = true
+
         return imageV
     }()
     lazy var imageView4:UIImageView = {
         let imageV:UIImageView = UIImageView()
+        imageV.isUserInteractionEnabled = true
         return imageV
     }()
     lazy var imageView5:UIImageView = {
         let imageV:UIImageView = UIImageView()
+        imageV.isUserInteractionEnabled = true
         return imageV
     }()
     lazy var imageView6:UIImageView = {
         let imageV:UIImageView = UIImageView()
+        imageV.isUserInteractionEnabled = true
         return imageV
     }()
     lazy var imageView7:UIImageView = {
         let imageV:UIImageView = UIImageView()
+        imageV.isUserInteractionEnabled = true
         return imageV
     }()
     lazy var imageView8:UIImageView = {
         let imageV:UIImageView = UIImageView()
+        imageV.isUserInteractionEnabled = true
         return imageV
     }()
     lazy var imageView9:UIImageView = {
         let imageV:UIImageView = UIImageView()
+        imageV.isUserInteractionEnabled = true
         return imageV
     }()
     lazy var imageView10:UIImageView = {
         let imageV:UIImageView = UIImageView()
+        imageV.isUserInteractionEnabled = true
         return imageV
     }()
     /*
