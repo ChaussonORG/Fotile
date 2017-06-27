@@ -382,7 +382,7 @@ extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewData
                 area = "10"
             }
         }
-        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: productNum, fotileCost: cost, betweenCost: costMax)
+        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: area, fotileCost: cost, betweenCost: costMax)
         collectionView.reloadData()
 
     }

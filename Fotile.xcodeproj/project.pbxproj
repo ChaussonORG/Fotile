@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		060989401EFF8A590086880D /* FTProductHL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0609893F1EFF8A590086880D /* FTProductHL.m */; };
 		060989431EFF8F930086880D /* FTProductSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 060989421EFF8F930086880D /* FTProductSeries.m */; };
+		06329F291F02A35600972559 /* FTProductFunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06329F281F02A35600972559 /* FTProductFunView.swift */; };
 		06666BBB1F00F9840072929C /* FTProductTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06666BBA1F00F9840072929C /* FTProductTitleView.swift */; };
 		06666BBD1F0102C20072929C /* FTProductHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06666BBC1F0102C20072929C /* FTProductHeadView.swift */; };
 		06666BBF1F010C6C0072929C /* FTProductParmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06666BBE1F010C6C0072929C /* FTProductParmView.swift */; };
@@ -188,6 +189,7 @@
 		0609893F1EFF8A590086880D /* FTProductHL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTProductHL.m; sourceTree = "<group>"; };
 		060989411EFF8F930086880D /* FTProductSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTProductSeries.h; sourceTree = "<group>"; };
 		060989421EFF8F930086880D /* FTProductSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTProductSeries.m; sourceTree = "<group>"; };
+		06329F281F02A35600972559 /* FTProductFunView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductFunView.swift; sourceTree = "<group>"; };
 		06666BBA1F00F9840072929C /* FTProductTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductTitleView.swift; sourceTree = "<group>"; };
 		06666BBC1F0102C20072929C /* FTProductHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductHeadView.swift; sourceTree = "<group>"; };
 		06666BBE1F010C6C0072929C /* FTProductParmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductParmView.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				06666BBC1F0102C20072929C /* FTProductHeadView.swift */,
 				06666BBE1F010C6C0072929C /* FTProductParmView.swift */,
 				06666BC01F012E490072929C /* FTProductBannerView.swift */,
+				06329F281F02A35600972559 /* FTProductFunView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -1285,6 +1288,7 @@
 				689EC0AB1EC45D3200E9730C /* WXSPercentDrivenInteractiveTransition.m in Sources */,
 				686A0BFE1EE149650008F97C /* FTPolicyViewController.swift in Sources */,
 				68C9DF3E1EE2884B00DACB58 /* FTYearsTableViewCell.swift in Sources */,
+				06329F291F02A35600972559 /* FTProductFunView.swift in Sources */,
 				68948BA51EFBB4F50056B840 /* FTCustomKTDetail.m in Sources */,
 				68215CE21EAEF10200A32759 /* DictionaryConvertible.swift in Sources */,
 				68215D021EAEF10200A32759 /* Permission.swift in Sources */,

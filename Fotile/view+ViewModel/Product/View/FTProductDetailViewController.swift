@@ -52,6 +52,7 @@ class FTProductDetailViewController: UIViewController {
 
         let headHeight = 140
         let isHiddenBanner = viewModel.banners
+
         self.edgesForExtendedLayout = .bottom
         view.addSubview(mainScrollView)
         view.addSubview(backBtn)
@@ -64,7 +65,9 @@ class FTProductDetailViewController: UIViewController {
         mainScrollView.addSubview(bannerView)
         mainScrollView.addSubview(installHeadView)
         mainScrollView.addSubview(installView)
-        mainScrollView.addSubview(seriesHeadView)
+        mainScrollView.addSubview(funView)
+
+//        mainScrollView.addSubview(seriesHeadView)
   
 
         mainScrollView.snp.makeConstraints { (make) in
@@ -136,16 +139,21 @@ class FTProductDetailViewController: UIViewController {
             make.width.equalTo(titleView)
             make.height.equalTo(570)
         }
-        seriesHeadView.snp.makeConstraints { (make) in
+//        seriesHeadView.snp.makeConstraints { (make) in
+//            make.top.equalTo(installView.snp.bottom).offset(0)
+//            make.left.equalTo(0)
+//            make.width.equalTo(titleView)
+//            make.height.equalTo(headHeight)
+//        }
+        funView.snp.makeConstraints { (make) in
             make.top.equalTo(installView.snp.bottom).offset(0)
             make.left.equalTo(0)
             make.width.equalTo(titleView)
-            make.height.equalTo(headHeight)
+            make.height.equalTo(185)
         }
-       
         let contentHeight = seriesHeadView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height+seriesHeadView.hyb_bottomY
               
-        mainScrollView.contentSize = CGSize(width: 0, height: 3000)
+        mainScrollView.contentSize = CGSize(width: 0, height: 2600)
 //        view1.addSubview(collectionView1)
 //        collectionView1.snp.makeConstraints { (make) in
 //            make.left.equalTo(0)
@@ -267,6 +275,13 @@ class FTProductDetailViewController: UIViewController {
         productImage.backgroundColor = UIColor("#f4f4f4")
         productImage.contentMode = .scaleAspectFit
         return productImage
+    }()
+    lazy var funView:FTProductFunView = {
+        let funView:FTProductFunView = FTProductFunView()
+        funView.tapView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(pushMoreAction))
+        funView.tapView.addGestureRecognizer(tap)
+        return funView
     }()
     lazy var mainScrollView:UIScrollView = {
         let mainScrollView = UIScrollView()

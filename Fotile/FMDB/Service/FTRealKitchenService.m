@@ -45,7 +45,14 @@
                                                    kitchenArea:(NSString *)area
                                                     fotileCost:(NSString *)cost
                                                    betweenCost:(NSString *)price{
-    NSString *sql = [NSString stringWithFormat:@"select * from t_real_kitchen where city = '%@' and  kitchen_area = '%@' and kitchen_fotile_cost between '%@' and '%@' ",name,area,cost,price];
+    
+    NSString *sql = [NSString stringWithFormat:@"select * from t_real_kitchen where city = '%@' ",name];
+    if (cost.length > 0 && price.length > 0) {
+        sql = [sql stringByAppendingString:[NSString stringWithFormat:@"and kitchen_fotile_cost between '%@' and '%@' ",cost,price]];
+    }
+    if (area.length > 0) {
+        sql = [sql stringByAppendingString:[NSString stringWithFormat:@"and  kitchen_area = '%@' ",area]];
+    }
     NSArray <FTRealKitchen *>*kitchens = [self fetchRealKitchensWithSQL:sql];
     NSArray <FTProduct *>*products = [FTProductService fetchProductWithModelNumber:number];
     NSMutableArray <FTRealKitchen *>*reals = [NSMutableArray array];
