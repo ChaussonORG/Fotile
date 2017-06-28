@@ -49,7 +49,8 @@ class FTProductParmView: UIView {
         for index in 0...p.count-1 {
             let data = p[index]
             let y = CGFloat(index/2*45)
-            let width = (self.frame.size.width-100)/2
+            let small = UIScreen.width > UIScreen.height ? UIScreen.height : UIScreen.width
+            let width = (small-100)/2
             
             if index%2 == 0 {
                 let view = ParmView(frame:CGRect(x: 50, y: y, width: width, height: 45))
