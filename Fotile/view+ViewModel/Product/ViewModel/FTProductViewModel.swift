@@ -7,7 +7,21 @@
 //
 
 import UIKit
-
+func getCellVieModel(product:FTProduct) -> FTProductCellViewModel{
+    let cellViewModel:FTProductCellViewModel = FTProductCellViewModel()
+    if let pic = product.thumnailImage.picture {
+        cellViewModel.imageUrl = pic
+    }
+    cellViewModel.name = product.name
+    cellViewModel.modelNumber = product.modelNumber
+    cellViewModel.slogan = product.slogan
+    cellViewModel.parameters = product.parameters
+    cellViewModel.productId = product.identifier
+    for parm in product.parms {
+        cellViewModel.params.append(parm)
+    }
+    return cellViewModel
+}
 class FTProductViewModel: NSObject {
     var imagelist = ["icon_吸油烟机","icon_嵌入式灶具","icon_嵌入式消毒柜","icon_蒸微一体机","icon_嵌入式蒸箱","icon_嵌入式烤箱","icon_嵌入式微波炉","icon_水槽洗碗机","icon_燃气热水器"]
     

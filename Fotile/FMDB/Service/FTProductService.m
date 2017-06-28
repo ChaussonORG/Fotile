@@ -203,7 +203,7 @@
         NSMutableArray <FTProduct *>*products = [NSMutableArray array];
         while ([pr next]) {
             FTProduct *product = [self fetchProductWithId:[pr stringForColumn:@"product_id"]];
-            if (product.identifier) {
+            if (product.identifier.length > 0) {
                  [products addObject:product];
             }
         }
@@ -228,7 +228,7 @@
     FMResultSet *r = [db executeQuery:sql];
     while ([r next]) {
         FTProduct *product = [self fetchProductWithId:[r stringForColumn:@"other_product_id"]];
-        if (product) {
+        if (product.identifier.length > 0) {
             [products addObject:product];
         }
     }
