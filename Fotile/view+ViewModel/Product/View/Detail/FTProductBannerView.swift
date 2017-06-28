@@ -24,7 +24,7 @@ class FTProductBannerView: UIView {
         scrollView.snp.makeConstraints { (make) in
             make.left.equalTo(50)
             make.top.equalTo(0)
-            make.right.equalTo(-50)
+            make.right.equalTo(0)
             make.bottom.equalTo(0)
         }
         if images.count > 0 {

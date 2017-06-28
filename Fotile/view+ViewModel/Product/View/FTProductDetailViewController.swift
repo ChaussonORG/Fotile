@@ -76,33 +76,38 @@ class FTProductDetailViewController: UIViewController {
         let otherHeadView = FTProductHeadView(title: "搭配建议")
 
         let headHeight = 140
-
         self.edgesForExtendedLayout = .bottom
         view.addSubview(mainScrollView)
         view.addSubview(backBtn)
-//
-        mainScrollView.addSubview(productImageView)
-        mainScrollView.addSubview(titleView)
-        mainScrollView.addSubview(productParmTitle)
-        mainScrollView.addSubview(parmView)
-        mainScrollView.addSubview(bannerHead)
-        mainScrollView.addSubview(bannerView)
-        mainScrollView.addSubview(installHeadView)
-        mainScrollView.addSubview(installView)
-        mainScrollView.addSubview(seriesHeadView)
-        mainScrollView.addSubview(seriesView)
-        mainScrollView.addSubview(seriesCollectionView)
-        mainScrollView.addSubview(moreHeadView)
-        mainScrollView.addSubview(moreCollectView)
+        mainScrollView.addSubview(contentView)
 
-        mainScrollView.addSubview(otherHeadView)
-        mainScrollView.addSubview(otherCollectView)
+        contentView.addSubview(productImageView)
+        contentView.addSubview(titleView)
+        contentView.addSubview(productParmTitle)
+        contentView.addSubview(parmView)
+        contentView.addSubview(bannerHead)
+        contentView.addSubview(bannerView)
+        contentView.addSubview(installHeadView)
+        contentView.addSubview(installView)
+        contentView.addSubview(seriesHeadView)
+        contentView.addSubview(seriesView)
+        contentView.addSubview(seriesCollectionView)
+        contentView.addSubview(moreHeadView)
+        contentView.addSubview(moreCollectView)
 
-        mainScrollView.addSubview(funView)
+        contentView.addSubview(otherHeadView)
+        contentView.addSubview(otherCollectView)
+
+        contentView.addSubview(funView)
 
 
         mainScrollView.snp.makeConstraints { (make) in
             make.left.top.bottom.right.equalTo(0)
+        }
+        contentView.snp.makeConstraints { (make) in
+            make.left.top.equalTo(0)
+            make.width.equalTo(self.view)
+            make.bottom.equalTo(funView.snp.bottom)
         }
         productImageView.snp.makeConstraints { (make) in
             make.top.equalTo(0)
@@ -230,8 +235,8 @@ class FTProductDetailViewController: UIViewController {
             make.width.equalTo(titleView)
             make.height.equalTo(185)
         }
-        let contentH = 3400+2*headHeight - (viewModel.isShowBanner ? 0:460+headHeight) - (viewModel.isShowSeries ? 0 :500+headHeight)-(viewModel.isShowMore ? 0 :200+headHeight)-(viewModel.isShowOhter ? 0 :200+headHeight)
-        mainScrollView.contentSize = CGSize(width: 0, height: contentH)
+//        let contentH = 3400+2*headHeight - (viewModel.isShowBanner ? 0:460+headHeight) - (viewModel.isShowSeries ? 0 :500+headHeight)-(viewModel.isShowMore ? 0 :200+headHeight)-(viewModel.isShowOhter ? 0 :200+headHeight)
+//        mainScrollView.contentSize = CGSize(width: 0, height: contentH)
 
     }
     func refreshData() {
@@ -313,6 +318,12 @@ class FTProductDetailViewController: UIViewController {
             make.bottom.equalTo(0)
         }
         return productImageView
+    }()
+    lazy var contentView:UIView = {
+        let contentView = UIView()
+ 
+        
+        return contentView
     }()
     lazy var seriesHeadView:FTProductHeadView = {
         let name = self.viewModel.series?.name ?? ""
@@ -436,7 +447,12 @@ class FTProductDetailViewController: UIViewController {
         }
     
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let h = contentView.frame.maxY
+        mainScrollView.contentSize = CGSize(width: 0, height: h)
 
+    }
 
 
 }
@@ -447,7 +463,7 @@ extension FTProductDetailViewController:UIScrollViewDelegate{
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
       
-        var index = Int(scrollView.contentOffset.x/(scrollView.frame.size.width))
+        let index = Int(scrollView.contentOffset.x/(scrollView.frame.size.width-50))
     
         bannerHead.changeHead(index: index)
         print("\(scrollView.contentOffset.x)")
