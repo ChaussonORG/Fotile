@@ -39,7 +39,7 @@ class FTdetailCollectionViewCell2: UICollectionViewCell {
     }
     lazy var imageV:UIImageView = {
         let imageV:UIImageView = UIImageView()
-        imageV.image = #imageLiteral(resourceName: "home2")
+        imageV.contentMode = .scaleAspectFit
         return imageV
     }()
     lazy var label1:UILabel = {
