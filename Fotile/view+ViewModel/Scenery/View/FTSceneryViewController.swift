@@ -207,7 +207,7 @@ class FTSceneryViewController: UIViewController {
     }
     func hideType() {
         screenBackView.isHidden = true
-        UIView.animate(withDuration: 0) {
+        UIView.animate(withDuration: 0.5) {
             self.screenTable.frame = CGRect.init(x: 0, y: 70, width: self.view.frame.size.width, height: 0)
         }
     }
@@ -219,7 +219,7 @@ class FTSceneryViewController: UIViewController {
     }
     func hideArea() {
         screenBackView.isHidden = true
-        UIView.animate(withDuration: 0) {
+        UIView.animate(withDuration: 0.5) {
             self.areaScreen.frame = CGRect.init(x: 0, y: 70, width: self.view.frame.size.width, height: 0)
         }
     }
@@ -231,7 +231,7 @@ class FTSceneryViewController: UIViewController {
     }
     func hideCost() {
         screenBackView.isHidden = true
-        UIView.animate(withDuration: 0) {
+        UIView.animate(withDuration: 0.5) {
             self.costScreen.frame = CGRect.init(x: 0, y: 70, width: self.view.frame.size.width, height: 0)
         }
     }
@@ -345,7 +345,7 @@ extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewData
     func didSeletecedAction(title: String) {
         typeAction()
         productNum = title
-        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: productNum, fotileCost: cost, betweenCost: costMax)
+        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: area, fotileCost: cost, betweenCost: costMax)
         collectionView.reloadData()
     }
     func didSeletecedActionAreaCost(screenView: FTScreeningCostAndAreaView, title: String) {

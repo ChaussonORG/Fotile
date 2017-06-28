@@ -120,7 +120,9 @@ extension FTScreeningTableView:UITableViewDelegate, UITableViewDataSource, FTScr
                 }
             }
         }
-        self.dele?.didSeletecedAction(title: titleString)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.dele?.didSeletecedAction(title: self.titleString)
+        }
         reloadData()
     }
 }

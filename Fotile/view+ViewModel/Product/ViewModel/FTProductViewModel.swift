@@ -65,6 +65,7 @@ class FTProductViewModel: NSObject {
         cellViewModel.slogan = product.slogan
         cellViewModel.parameters = product.parameters
         cellViewModel.productId = product.identifier
+        cellViewModel.type = product.catalogType
         for parm in product.parms {
             cellViewModel.params.append(parm)
         }
@@ -86,4 +87,6 @@ class FTProductCellViewModel: NSObject {
     var slogan:String = ""
     var parameters:String = ""
     var params:Array<FTProductParm> = [FTProductParm]()
+    var type:Int32 = 1
+    var isEmpty:Bool = false
 }

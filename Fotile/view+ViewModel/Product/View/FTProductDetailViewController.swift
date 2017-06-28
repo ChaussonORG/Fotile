@@ -43,6 +43,7 @@ class FTProductDetailViewController: UIViewController {
         loadUI()
         // Do any additional setup after loading the view.
     }
+    var isVer:Bool = true
    
     func loadUI(){
         productImage.image = viewModel.headViewModel?.imageUrl
@@ -369,7 +370,14 @@ class FTProductDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         (UIApplication.shared.delegate as! AppDelegate).tabbar?.tabBar.isHidden = true
+        (UIApplication.shared.delegate as! AppDelegate).isAllow = false
+        if !isVer{
+            let value = UIInterfaceOrientation.portrait.rawValue
+            UIDevice.current.setValue(value, forKey: "orientation")
+        }
+    
     }
+
 
 
 }

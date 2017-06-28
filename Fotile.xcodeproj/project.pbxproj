@@ -148,10 +148,14 @@
 		68C9DFA61EE2AB1200DACB58 /* FTLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C9DFA51EE2AB1200DACB58 /* FTLoginModel.swift */; };
 		68D5CD291EAF261F00294EC5 /* FTTabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D5CD281EAF261F00294EC5 /* FTTabbarView.swift */; };
 		68D5CD311EB85E4700294EC5 /* FTInteractionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D5CD301EB85E4700294EC5 /* FTInteractionTableViewCell.swift */; };
+		68DDA4E51F034E8400CBE505 /* FTHorProductCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DDA4E41F034E8400CBE505 /* FTHorProductCollectionView.swift */; };
+		68DDA4E81F034E9900CBE505 /* FTHorProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DDA4E61F034E9900CBE505 /* FTHorProductCollectionViewCell.swift */; };
+		68DDA4E91F034E9900CBE505 /* FTHorProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68DDA4E71F034E9900CBE505 /* FTHorProductCollectionViewCell.xib */; };
+		68DDA4EB1F0386B100CBE505 /* CommonPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DDA4EA1F0386B100CBE505 /* CommonPresentationController.swift */; };
+		68DDA4EE1F039CDF00CBE505 /* FTHorCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DDA4EC1F039CDF00CBE505 /* FTHorCellTableViewCell.swift */; };
+		68DDA4EF1F039CDF00CBE505 /* FTHorCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68DDA4ED1F039CDF00CBE505 /* FTHorCellTableViewCell.xib */; };
 		68E7175C1EC1C1D100F236EE /* FTProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E7175A1EC1C1D100F236EE /* FTProductTableViewCell.swift */; };
 		68E7175D1EC1C1D100F236EE /* FTProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E7175B1EC1C1D100F236EE /* FTProductTableViewCell.xib */; };
-		68E717601EC1C1EE00F236EE /* FTHorProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E7175E1EC1C1EE00F236EE /* FTHorProductTableViewCell.swift */; };
-		68E717611EC1C1EE00F236EE /* FTHorProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E7175F1EC1C1EE00F236EE /* FTHorProductTableViewCell.xib */; };
 		68E717631EC2AD0000F236EE /* FTProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E717621EC2AD0000F236EE /* FTProductViewModel.swift */; };
 		68E717651EC2B36F00F236EE /* FTProductTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E717641EC2B36F00F236EE /* FTProductTableView.swift */; };
 		68E717701EC2BCDF00F236EE /* FTSliderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E7176F1EC2BCDF00F236EE /* FTSliderViewModel.swift */; };
@@ -370,10 +374,14 @@
 		68C9DFA51EE2AB1200DACB58 /* FTLoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTLoginModel.swift; sourceTree = "<group>"; };
 		68D5CD281EAF261F00294EC5 /* FTTabbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTTabbarView.swift; sourceTree = "<group>"; };
 		68D5CD301EB85E4700294EC5 /* FTInteractionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTInteractionTableViewCell.swift; sourceTree = "<group>"; };
+		68DDA4E41F034E8400CBE505 /* FTHorProductCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTHorProductCollectionView.swift; sourceTree = "<group>"; };
+		68DDA4E61F034E9900CBE505 /* FTHorProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTHorProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		68DDA4E71F034E9900CBE505 /* FTHorProductCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTHorProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		68DDA4EA1F0386B100CBE505 /* CommonPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonPresentationController.swift; sourceTree = "<group>"; };
+		68DDA4EC1F039CDF00CBE505 /* FTHorCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTHorCellTableViewCell.swift; sourceTree = "<group>"; };
+		68DDA4ED1F039CDF00CBE505 /* FTHorCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTHorCellTableViewCell.xib; sourceTree = "<group>"; };
 		68E7175A1EC1C1D100F236EE /* FTProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductTableViewCell.swift; sourceTree = "<group>"; };
 		68E7175B1EC1C1D100F236EE /* FTProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTProductTableViewCell.xib; sourceTree = "<group>"; };
-		68E7175E1EC1C1EE00F236EE /* FTHorProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTHorProductTableViewCell.swift; sourceTree = "<group>"; };
-		68E7175F1EC1C1EE00F236EE /* FTHorProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTHorProductTableViewCell.xib; sourceTree = "<group>"; };
 		68E717621EC2AD0000F236EE /* FTProductViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductViewModel.swift; sourceTree = "<group>"; };
 		68E717641EC2B36F00F236EE /* FTProductTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductTableView.swift; sourceTree = "<group>"; };
 		68E7176F1EC2BCDF00F236EE /* FTSliderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTSliderViewModel.swift; sourceTree = "<group>"; };
@@ -648,13 +656,16 @@
 				68E717641EC2B36F00F236EE /* FTProductTableView.swift */,
 				68E7175A1EC1C1D100F236EE /* FTProductTableViewCell.swift */,
 				68E7175B1EC1C1D100F236EE /* FTProductTableViewCell.xib */,
-				68E7175E1EC1C1EE00F236EE /* FTHorProductTableViewCell.swift */,
+				68DDA4E41F034E8400CBE505 /* FTHorProductCollectionView.swift */,
+				68DDA4E61F034E9900CBE505 /* FTHorProductCollectionViewCell.swift */,
+				68DDA4EC1F039CDF00CBE505 /* FTHorCellTableViewCell.swift */,
+				68DDA4ED1F039CDF00CBE505 /* FTHorCellTableViewCell.xib */,
+				68DDA4E71F034E9900CBE505 /* FTHorProductCollectionViewCell.xib */,
 				686161ED1ED1493C006355BD /* FTProductDetailViewController.swift */,
 				686161EF1ED16C68006355BD /* FTDetailCollectionViewCell1.swift */,
 				686161F11ED17965006355BD /* FTdetailCollectionViewCell2.swift */,
 				686161F31ED1814E006355BD /* FTDetailCollectionViewCell3.swift */,
 				686161F51ED18985006355BD /* FTGraduateViewController.swift */,
-				68E7175F1EC1C1EE00F236EE /* FTHorProductTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -706,6 +717,7 @@
 		68215C3B1EAEEDD400A32759 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				68DDA4EA1F0386B100CBE505 /* CommonPresentationController.swift */,
 				689EC0861EC45D3200E9730C /* WXSTransition */,
 				68215C3C1EAEEDD400A32759 /* ASUIFramework */,
 			);
@@ -1178,8 +1190,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6812D95C1EF64E5B000FC765 /* LaunchScreen.storyboard in Resources */,
+				68DDA4EF1F039CDF00CBE505 /* FTHorCellTableViewCell.xib in Resources */,
 				6812D95D1EF64E5B000FC765 /* Main.storyboard in Resources */,
-				68E717611EC1C1EE00F236EE /* FTHorProductTableViewCell.xib in Resources */,
 				68E7175D1EC1C1D100F236EE /* FTProductTableViewCell.xib in Resources */,
 				686CFEC11EC9A9DC003AD4DA /* FTSceneryDetailCollectionViewCell.xib in Resources */,
 				6812D95E1EF64E5B000FC765 /* Product.storyboard in Resources */,
@@ -1187,6 +1199,7 @@
 				6812D95F1EF64E5B000FC765 /* Info.plist in Resources */,
 				6812D9611EF64E5B000FC765 /* More.storyboard in Resources */,
 				68948BB01EFBB4F50056B840 /* ftdb.db in Resources */,
+				68DDA4E91F034E9900CBE505 /* FTHorProductCollectionViewCell.xib in Resources */,
 				6812D95B1EF64E5B000FC765 /* Interaction.storyboard in Resources */,
 				68E717761EC311C900F236EE /* FTInteractionDetailViewController.xib in Resources */,
 				68C9DF3F1EE2884B00DACB58 /* FTYearsTableViewCell.xib in Resources */,
@@ -1300,11 +1313,12 @@
 				686161F01ED16C68006355BD /* FTDetailCollectionViewCell1.swift in Sources */,
 				68C9DF391EE2875900DACB58 /* FTYearsOptionsTableView.swift in Sources */,
 				68215D141EAEF15F00A32759 /* UIImageView+Extension.swift in Sources */,
+				68DDA4E51F034E8400CBE505 /* FTHorProductCollectionView.swift in Sources */,
 				68C9DFA41EE2A90C00DACB58 /* FTLoginViewModel.swift in Sources */,
 				68215CE51EAEF10200A32759 /* ErrorConvertible.swift in Sources */,
 				68FDF29B1EEE34DF00AC0466 /* FTUserManager.swift in Sources */,
+				68DDA4EE1F039CDF00CBE505 /* FTHorCellTableViewCell.swift in Sources */,
 				68948BB41EFBB4F50056B840 /* FTCustomKCService.m in Sources */,
-				68E717601EC1C1EE00F236EE /* FTHorProductTableViewCell.swift in Sources */,
 				689EC0AD1EC45D3200E9730C /* WXSTransitionManager+BrickAnimation.m in Sources */,
 				689EC0B11EC45D3200E9730C /* WXSTransitionManager+PageAnimation.m in Sources */,
 				6812D9591EF64E5B000FC765 /* AppDelegate.swift in Sources */,
@@ -1379,6 +1393,7 @@
 				68C9DF831EE2A83600DACB58 /* APIInfo.swift in Sources */,
 				689EC0B61EC45D3200E9730C /* WXSTransitionManager.m in Sources */,
 				68D5CD311EB85E4700294EC5 /* FTInteractionTableViewCell.swift in Sources */,
+				68DDA4E81F034E9900CBE505 /* FTHorProductCollectionViewCell.swift in Sources */,
 				68E717751EC311C900F236EE /* FTInteractionDetailViewController.swift in Sources */,
 				68215D151EAEF15F00A32759 /* UIScreen+Extension.swift in Sources */,
 				06666BBB1F00F9840072929C /* FTProductTitleView.swift in Sources */,
@@ -1389,6 +1404,7 @@
 				68215CF21EAEF10200A32759 /* SwiftyTextField.swift in Sources */,
 				68215CFA1EAEF10200A32759 /* UIViewControllerExtensions.swift in Sources */,
 				689EC0A91EC45D3200E9730C /* UIViewController+WXSTransition.m in Sources */,
+				68DDA4EB1F0386B100CBE505 /* CommonPresentationController.swift in Sources */,
 				686161F41ED1814E006355BD /* FTDetailCollectionViewCell3.swift in Sources */,
 				686CFEBB1EC97B94003AD4DA /* FTSceneryCollectionCell.swift in Sources */,
 				68822D931ED5295C00E6F958 /* FTScreeningCostAndAreaView.swift in Sources */,

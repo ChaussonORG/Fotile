@@ -305,7 +305,9 @@ class FTInteractionDetailViewController: UIViewController {
         productBtn.backgroundColor = UIColor.black
         materialBtn.backgroundColor = UIColor.white
         sliderView.isHidden = false
-        sliderView1.isHidden = false
+        if !isVer{
+            sliderView1.isHidden = false
+        }
         self.chooseType(index: 1)
         collectionView.reloadData()
     }
@@ -318,19 +320,31 @@ class FTInteractionDetailViewController: UIViewController {
         materialBtn.backgroundColor = UIColor.black
         productBtn.backgroundColor = UIColor.white
         sliderView.isHidden = true
-        sliderView1.isHidden = true
+        if !isVer{
+            sliderView1.isHidden = true
+        }
         self.chooseType(index: 10)
         collectionView.reloadData()
     }
     @IBAction func popAction(_ sender: Any) {
         navigationController?.popViewController(animated: false)
     }
-
+    weak var customPesentationController: CommonPresentationController?
     @IBAction func pushAction(_ sender: Any) {
         CHProgressHUD.show(true)
         let vc = FTSchemeViewController()
+        let navc:UINavigationController = UINavigationController(rootViewController: vc)
+//        let presentationController = CommonPresentationController(presentedViewController: vc, presenting: self)
+//        if self.isVer{
+//            presentationController.presentedStype = .bottomToTop
+//        }else{
+//            presentationController.presentedStype = .rightToLeft
+//        }
+//        self.customPesentationController = presentationController
+//        vc.transitioningDelegate = presentationController
         vc.isVer = self.isVer
         vc.productModels = self.productModels
+        let kitType:kitType = type
         type = .Day1
         selectedProduct()
         vc.array.append(self.graphics(bgView: day1))
@@ -349,9 +363,10 @@ class FTInteractionDetailViewController: UIViewController {
         type = .Ninght3
         selectedProduct()
         vc.array.append(self.graphics(bgView: night3))
-        self.present(vc, animated: true) {
+        type = kitType
+        self.present(navc, animated: true, completion: {
             CHProgressHUD.hide(true)
-        }
+        })
     }
     
     lazy var ninghtView:UIView = {
@@ -407,6 +422,7 @@ class FTInteractionDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        selectedProduct()
         (UIApplication.shared.delegate as! AppDelegate).isAllow = true
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -632,6 +648,8 @@ class FTInteractionDetailViewController: UIViewController {
             make.height.equalTo(height - 254)
             make.top.equalTo(0)
         }
+        
+        
         sliderView.snp.remakeConstraints { (make) in
             make.left.right.equalTo(0)
             make.bottom.equalTo(collectionView.snp.top).offset(0)

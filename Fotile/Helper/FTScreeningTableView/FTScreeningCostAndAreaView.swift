@@ -88,7 +88,9 @@ class FTScreeningCostAndAreaView: UIView {
                 model.isSelected = false
             }
         }
-        dele?.didSeletecedActionAreaCost(screenView: self, title: titleString)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.dele?.didSeletecedActionAreaCost(screenView: self, title: self.titleString)
+        }
         loadUI(cellViewModels: cellViewModels)
     }
 

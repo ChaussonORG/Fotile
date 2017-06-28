@@ -10,7 +10,6 @@ import UIKit
 
 protocol FTProductTableViewDeleage {
     func moreAction(viewModel:FTProductCellViewModel)
-
     func getSection(section:Int)
 }
 class FTProductTableView: UITableView {

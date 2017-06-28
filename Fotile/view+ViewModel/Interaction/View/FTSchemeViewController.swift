@@ -9,40 +9,57 @@
 import UIKit
 import HYBLoopScrollView
 class FTSchemeViewController: UIViewController {
-
+    let height = UIScreen.width > UIScreen.height ? UIScreen.width : UIScreen.height
+    let width = UIScreen.width < UIScreen.height ? UIScreen.width : UIScreen.height
     var array:Array<UIImage> = Array<UIImage>()
     var productModels:Array<FTProduct> = Array<FTProduct>()
     let viewModel:FTProductViewModel = FTProductViewModel()
+    let viewModel1:FTProductViewModel = FTProductViewModel()
+
     var isVer:Bool = true
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         loadUI()
         layout()
+        preferredContentSize = UIScreen.main.bounds.size
         // Do any additional setup after loading the view.
     }
 
     func loadUI() {
         for product in productModels {
             viewModel.cellViewModels.append(viewModel.getCellVieModel(product: product))
+            viewModel1.cellViewModels.append(viewModel.getCellVieModel(product: product))
+            
+        }
+        if viewModel1.cellViewModels.count % 2 != 0{
+            let model:FTProductCellViewModel = FTProductCellViewModel()
+            model.isEmpty = true
+            viewModel1.cellViewModels.append(model)
         }
         view.addSubview(tableView)
         view.addSubview(dismisBtn)
+        view.addSubview(collection)
         tableView.tableHeaderView = tableHead
         tableHead.addSubview(scrollView)
-        tableHead.addSubview(tableLine1)
-        tableHead.addSubview(tableLine2)
-        tableHead.addSubview(tableHeadLabel)
+
+        if !isVer{
+            layoutHor()
+        }else{
+            layoutVer()
+        }
      
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if !isVer{
-            let value = UIInterfaceOrientation.portrait.rawValue
-            UIDevice.current.setValue(value, forKey: "orientation")
-        }
-
+        (UIApplication.shared.delegate as! AppDelegate).isAllow = true
+        self.navigationController?.isNavigationBarHidden = true
+//        if !isVer{
+//            let value = UIInterfaceOrientation.portrait.rawValue
+//            UIDevice.current.setValue(value, forKey: "orientation")
+//        }
     }
+
     lazy var tableHead:UIView = {
         let view:UIView = UIView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 676))
         return view
@@ -75,48 +92,97 @@ class FTSchemeViewController: UIViewController {
             make.height.equalTo(526)
         }
 
-        dismisBtn.snp.makeConstraints { (make) in
-            if !isVer{
-                make.centerX.equalTo(view.center.y)
-            }else{
-                make.centerX.equalTo(view.center.x)
-            }
-            make.top.equalTo(0)
-            make.height.equalTo(25)
-            make.width.equalTo(50)
-        }
+
         tableView.snp.makeConstraints { (make) in
             make.left.right.equalTo(0)
             make.top.equalTo(0)
             make.bottom.equalTo(0)
         }
-        tableLine1.snp.makeConstraints { (make) in
-            if !isVer{
-                make.left.equalTo(view.frame.size.height / 2 - 40)
-            }else{
-                make.left.equalTo(view.frame.size.width / 2 - 40)
-            }
+        collection.snp.makeConstraints { (make) in
+            make.left.equalTo(50)
+            make.right.equalTo(0)
+            make.top.equalTo(150)
+            make.bottom.equalTo(0)
+        }
+
+     
+    }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if size.width > size.height {
+            layoutHor()
+        }else{
+            layoutVer()
+        }
+    }
+    func layoutHor(){
+        isVer = false
+        collection.isHidden = false
+        scrollView.isHidden = true
+        tableView.isHidden = true
+        view.addSubview(tableLine1)
+        view.addSubview(tableHeadLabel)
+        view.addSubview(tableLine2)
+        tableLine1.snp.remakeConstraints { (make) in
+            make.left.equalTo(height / 2 - 40)
+            make.top.equalTo(50)
+            make.height.equalTo(2)
+            make.width.equalTo(80)
+        }
+        tableHeadLabel.snp.remakeConstraints { (make) in
+            make.left.right.equalTo(tableLine1)
+            make.top.equalTo(tableLine1.snp.bottom).offset(15)
+            make.height.equalTo(20)
+        }
+        tableLine2.snp.remakeConstraints { (make) in
+            make.left.equalTo(tableLine1)
+            make.top.equalTo(tableHeadLabel.snp.bottom).offset(15)
+            make.height.equalTo(2)
+            make.width.equalTo(80)
+        }
+        dismisBtn.setImage(#imageLiteral(resourceName: "btn_showPlan_landscape-1"), for: .normal)
+        dismisBtn.snp.remakeConstraints { (make) in
+            make.top.equalTo(width / 2 - 25)
+            make.left.equalTo(0)
+            make.height.equalTo(50)
+            make.width.equalTo(25)
+        }
+
+    }
+    func layoutVer(){
+        isVer = true
+        collection.isHidden = true
+        scrollView.isHidden = false
+        tableView.isHidden = false
+        tableHead.addSubview(tableLine1)
+        tableHead.addSubview(tableHeadLabel)
+        tableHead.addSubview(tableLine2)
+        tableLine1.snp.remakeConstraints { (make) in
+            make.left.equalTo(width / 2 - 40)
             make.top.equalTo(scrollView.snp.bottom).offset(50)
             make.height.equalTo(2)
             make.width.equalTo(80)
         }
-        tableHeadLabel.snp.makeConstraints { (make) in
-            make.left.right.equalTo(tableLine2)
+        tableHeadLabel.snp.remakeConstraints { (make) in
+            make.left.right.equalTo(tableLine1)
             make.top.equalTo(tableLine1.snp.bottom).offset(15)
             make.height.equalTo(20)
         }
-        tableLine2.snp.makeConstraints { (make) in
-            if !isVer{
-                make.left.equalTo(view.frame.size.height / 2 - 40)
-            }else{
-                make.left.equalTo(view.frame.size.width / 2 - 40)
-            }
-            make.bottom.equalTo(-50)
+        tableLine2.snp.remakeConstraints { (make) in
+            make.left.equalTo(tableLine1)
+            make.top.equalTo(tableHeadLabel.snp.bottom).offset(15)
             make.height.equalTo(2)
             make.width.equalTo(80)
         }
-     
+        dismisBtn.setImage(#imageLiteral(resourceName: "btn_showPlan_portrait-1"), for: .normal)
+        dismisBtn.snp.remakeConstraints { (make) in
+            make.top.equalTo(0)
+            make.left.equalTo(width / 2 - 25)
+            make.height.equalTo(25)
+            make.width.equalTo(50)
+        }
     }
+
+    
     lazy var scrollView:HYBLoopScrollView = {
         let scorllView:HYBLoopScrollView = HYBLoopScrollView(frame: CGRect.zero, imageUrls: self.array, timeInterval: 2, didSelect: {[weak self] (didIndex) in
             
@@ -126,7 +192,24 @@ class FTSchemeViewController: UIViewController {
     lazy var tableView:FTProductTableView = {
         let table:FTProductTableView = FTProductTableView(frame: .zero, style: .plain)
         table.setViewModel(viewModel: self.viewModel)
+        table.dele = self
         return table
+    }()
+    
+    lazy var collection:FTHorProductCollectionView = {
+        let  layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        let view:FTHorProductCollectionView = FTHorProductCollectionView(frame: .zero, collectionViewLayout: layout)
+        view.setViewModel(viewModel: self.viewModel1)
+        view.didRow = { cellViewModel in
+            let vm = FTProductDetailVM(cellViewModel:cellViewModel)
+            let vc = FTProductDetailViewController()
+            vc.isVer = self.isVer
+            vc.viewModel = vm
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        return view
     }()
     lazy var dismisBtn:UIButton = {
         let btn:UIButton = UIButton(type:.custom)
@@ -155,4 +238,16 @@ class FTSchemeViewController: UIViewController {
     }
     */
 
+}
+extension FTSchemeViewController:FTProductTableViewDeleage{
+    func getSection(section: Int) {
+        
+    }
+
+    func moreAction(viewModel:FTProductCellViewModel) {
+        let vm = FTProductDetailVM(cellViewModel:viewModel)
+        let vc = FTProductDetailViewController()
+        vc.viewModel = vm
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
