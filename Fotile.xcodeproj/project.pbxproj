@@ -14,11 +14,11 @@
 		06666BBD1F0102C20072929C /* FTProductHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06666BBC1F0102C20072929C /* FTProductHeadView.swift */; };
 		06666BBF1F010C6C0072929C /* FTProductParmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06666BBE1F010C6C0072929C /* FTProductParmView.swift */; };
 		06666BC11F012E490072929C /* FTProductBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06666BC01F012E490072929C /* FTProductBannerView.swift */; };
+		066A59911F04CF97003B82E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 066A59901F04CF97003B82E3 /* Assets.xcassets */; };
 		680A29D51ED4190F001F98F0 /* FTScreeningTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A29D41ED4190F001F98F0 /* FTScreeningTableView.swift */; };
 		680A29D71ED41993001F98F0 /* FTScreeningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A29D61ED41993001F98F0 /* FTScreeningTableViewCell.swift */; };
 		680A29D91ED42173001F98F0 /* FTScreeningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A29D81ED42173001F98F0 /* FTScreeningViewModel.swift */; };
 		6812D9591EF64E5B000FC765 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6812D9491EF64E5B000FC765 /* AppDelegate.swift */; };
-		6812D95A1EF64E5B000FC765 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6812D94A1EF64E5B000FC765 /* Assets.xcassets */; };
 		6812D95B1EF64E5B000FC765 /* Interaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6812D94C1EF64E5B000FC765 /* Interaction.storyboard */; };
 		6812D95C1EF64E5B000FC765 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6812D94E1EF64E5B000FC765 /* LaunchScreen.storyboard */; };
 		6812D95D1EF64E5B000FC765 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6812D9501EF64E5B000FC765 /* Main.storyboard */; };
@@ -198,12 +198,12 @@
 		06666BBC1F0102C20072929C /* FTProductHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductHeadView.swift; sourceTree = "<group>"; };
 		06666BBE1F010C6C0072929C /* FTProductParmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductParmView.swift; sourceTree = "<group>"; };
 		06666BC01F012E490072929C /* FTProductBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductBannerView.swift; sourceTree = "<group>"; };
+		066A59901F04CF97003B82E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Fotile/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		34024F0BA36B5529AFFC6FFA /* Pods_Fotile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fotile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		680A29D41ED4190F001F98F0 /* FTScreeningTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTScreeningTableView.swift; sourceTree = "<group>"; };
 		680A29D61ED41993001F98F0 /* FTScreeningTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTScreeningTableViewCell.swift; sourceTree = "<group>"; };
 		680A29D81ED42173001F98F0 /* FTScreeningViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTScreeningViewModel.swift; sourceTree = "<group>"; };
 		6812D9491EF64E5B000FC765 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
-		6812D94A1EF64E5B000FC765 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		6812D94D1EF64E5B000FC765 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Interaction.storyboard; sourceTree = "<group>"; };
 		6812D94F1EF64E5B000FC765 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6812D9511EF64E5B000FC765 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
@@ -458,8 +458,8 @@
 		6812D9481EF64E43000FC765 /* Fotile */ = {
 			isa = PBXGroup;
 			children = (
+				066A59901F04CF97003B82E3 /* Assets.xcassets */,
 				6812D9491EF64E5B000FC765 /* AppDelegate.swift */,
-				6812D94A1EF64E5B000FC765 /* Assets.xcassets */,
 				6812D94B1EF64E5B000FC765 /* Base.lproj */,
 				6812D9541EF64E5B000FC765 /* Bridging-Header.h */,
 				6812D9551EF64E5B000FC765 /* Info.plist */,
@@ -1195,7 +1195,7 @@
 				68E7175D1EC1C1D100F236EE /* FTProductTableViewCell.xib in Resources */,
 				686CFEC11EC9A9DC003AD4DA /* FTSceneryDetailCollectionViewCell.xib in Resources */,
 				6812D95E1EF64E5B000FC765 /* Product.storyboard in Resources */,
-				6812D95A1EF64E5B000FC765 /* Assets.xcassets in Resources */,
+				066A59911F04CF97003B82E3 /* Assets.xcassets in Resources */,
 				6812D95F1EF64E5B000FC765 /* Info.plist in Resources */,
 				6812D9611EF64E5B000FC765 /* More.storyboard in Resources */,
 				68948BB01EFBB4F50056B840 /* ftdb.db in Resources */,
