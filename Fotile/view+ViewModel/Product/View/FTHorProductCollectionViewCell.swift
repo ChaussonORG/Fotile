@@ -10,7 +10,7 @@ import UIKit
 
 
 class FTHorProductCollectionViewCell: UICollectionViewCell {
-
+    let height = UIScreen.width > UIScreen.height ? UIScreen.width : UIScreen.height
     var didSele:((FTProductCellViewModel)->Void)?
     @IBOutlet var headImage: UIImageView!
     @IBOutlet var headTitle: UILabel!
@@ -60,6 +60,11 @@ class FTHorProductCollectionViewCell: UICollectionViewCell {
     }
     @IBOutlet var moreBtn: UIButton!
     override func awakeFromNib() {
+        imageV.snp.remakeConstraints { (make) in
+            make.top.equalTo(50)
+            make.left.right.equalTo(0)
+            make.height.equalTo((self.height - 325) / 2 / 1.34)
+        }
         super.awakeFromNib()
         tableView.delegate = self
         tableView.dataSource = self

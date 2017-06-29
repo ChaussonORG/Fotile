@@ -55,12 +55,12 @@ extension FTHorProductCollectionView:UICollectionViewDelegate,UICollectionViewDa
         if viewModel.cellViewModels[indexPath.row].isEmpty{
             return
         }
-        var row = indexPath.row - 1
-        if indexPath.row % 2 == 0{
-            row = indexPath.row + 1
-        }
-        let indexp = IndexPath(row: row, section: indexPath.section)
-        let cell:FTHorProductCollectionViewCell = collectionView.cellForItem(at: indexp) as! FTHorProductCollectionViewCell
+//        var row = indexPath.row - 1
+//        if indexPath.row % 2 == 0{
+//            row = indexPath.row + 1
+//        }
+//        let indexp = IndexPath(row: row, section: indexPath.section)
+        let cell:FTHorProductCollectionViewCell = collectionView.cellForItem(at: indexPath) as! FTHorProductCollectionViewCell
         cell.setParams(cellViewModel: viewModel.cellViewModels[indexPath.row])
         cell.contentView.bringSubview(toFront: cell.detailView)
     }
