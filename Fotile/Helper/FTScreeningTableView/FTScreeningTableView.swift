@@ -72,6 +72,7 @@ extension FTScreeningTableView:UITableViewDelegate, UITableViewDataSource, FTScr
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let model = viewModel.cellViewModels[section]
         let view:UIView = UIView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 100))
+        view.backgroundColor = UIColor.white
         let btn:UIButton = UIButton(type: .custom)
         btn.setTitle(model.title, for: .normal)
         btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: CGFloat(25 * model.title.length), bottom: 0, right: 0)

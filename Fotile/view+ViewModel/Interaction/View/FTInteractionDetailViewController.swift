@@ -633,6 +633,7 @@ class FTInteractionDetailViewController: UIViewController {
     }
     func layoutVer(){
         isVer = true
+        backgroundView.isHidden = false
         let height = UIScreen.height > UIScreen.width ? UIScreen.height : UIScreen.width
         let width = UIScreen.height < UIScreen.width ? UIScreen.height : UIScreen.width
         productBtn.setTitle("产品", for: .normal)
