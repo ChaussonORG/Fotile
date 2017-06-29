@@ -56,6 +56,11 @@ class FTLoginViewController: UIViewController {
             if code == 200{
                 
                 (UIApplication.shared.delegate as! AppDelegate).login()
+            }else if code == -100{
+                self?.loginBtn.setTitle("网络连接超时，请稍后重试", for: .normal)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                    self?.loginBtn.setTitle("登录", for: .normal)
+                })
             }else{
                 self?.loginBtn.setTitle("用户名或密码错误", for: .normal)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { 

@@ -303,8 +303,10 @@ class FTProductDetailViewController: UIViewController {
     lazy var productImageView:UIView = {
         let productImageView:UIView = UIView()
         let backgroundImage:UIImageView = UIImageView()
-        productImageView.addSubview(backgroundImage)
+        backgroundImage.image = UIImage(named: "backgroundBlack")
         productImageView.addSubview(self.productImage)
+
+        productImageView.addSubview(backgroundImage)
         backgroundImage.snp.makeConstraints { (make) in
             make.top.equalTo(0)
             make.left.equalTo(0)
@@ -336,6 +338,8 @@ class FTProductDetailViewController: UIViewController {
         
         productImage.backgroundColor = UIColor("#f4f4f4")
         productImage.contentMode = .scaleAspectFit
+ 
+
         return productImage
     }()
     lazy var funView:FTProductFunView = {
