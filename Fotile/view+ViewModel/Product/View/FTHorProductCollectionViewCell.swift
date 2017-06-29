@@ -23,6 +23,7 @@ class FTHorProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var openBtn: UIButton!
     @IBOutlet var content: UILabel!
+    @IBOutlet var imageVHeight: NSLayoutConstraint!
     var model:FTProductCellViewModel!
     let vm = FTSliderViewModel()
     let vc = FTProductViewModel()
@@ -60,12 +61,9 @@ class FTHorProductCollectionViewCell: UICollectionViewCell {
     }
     @IBOutlet var moreBtn: UIButton!
     override func awakeFromNib() {
-        imageV.snp.remakeConstraints { (make) in
-            make.top.equalTo(50)
-            make.left.right.equalTo(0)
-            make.height.equalTo((self.height - 325) / 2 / 1.34)
-        }
         super.awakeFromNib()
+        imageV.contentMode = .scaleAspectFill
+        imageVHeight.constant = (self.height - 325) / 2 / 1.34
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib.init(nibName: "FTHorCellTableViewCell", bundle: nil), forCellReuseIdentifier: "cellid")

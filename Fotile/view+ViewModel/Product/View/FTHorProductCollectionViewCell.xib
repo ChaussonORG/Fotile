@@ -99,6 +99,9 @@
                             </button>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L5Z-xh-ZUM">
                                 <rect key="frame" x="0.0" y="50" width="350" height="260"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="260" id="CQc-yN-ACg"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcO-Xn-6PM">
                                 <rect key="frame" x="0.0" y="325" width="350" height="0.0"/>
@@ -124,7 +127,6 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="daA-83-zdq" secondAttribute="trailing" id="5rL-Lf-tdx"/>
                             <constraint firstItem="XcO-Xn-6PM" firstAttribute="leading" secondItem="5AR-eO-giq" secondAttribute="leading" id="9rf-2j-kKL"/>
-                            <constraint firstAttribute="bottom" secondItem="L5Z-xh-ZUM" secondAttribute="bottom" constant="90" id="Au1-qz-Y7N"/>
                             <constraint firstAttribute="trailing" secondItem="L5Z-xh-ZUM" secondAttribute="trailing" id="KWM-Rw-BCJ"/>
                             <constraint firstItem="aob-sX-nYT" firstAttribute="top" secondItem="5AR-eO-giq" secondAttribute="top" constant="14" id="OOx-cg-Naz"/>
                             <constraint firstItem="L5Z-xh-ZUM" firstAttribute="leading" secondItem="5AR-eO-giq" secondAttribute="leading" id="TMW-DO-to8"/>
@@ -161,6 +163,7 @@
                 <outlet property="headTitle" destination="awQ-n4-wNr" id="HRw-Zr-Xfe"/>
                 <outlet property="imageBackView" destination="5AR-eO-giq" id="q5d-Gl-gAV"/>
                 <outlet property="imageV" destination="L5Z-xh-ZUM" id="Sm5-yc-STs"/>
+                <outlet property="imageVHeight" destination="CQc-yN-ACg" id="hqt-TJ-sfp"/>
                 <outlet property="moreBtn" destination="hib-Qx-qmM" id="86x-4C-k39"/>
                 <outlet property="name" destination="XcO-Xn-6PM" id="vsE-nH-Dto"/>
                 <outlet property="openBtn" destination="dyG-cb-bBX" id="MKV-ao-Sa6"/>
