@@ -54,17 +54,21 @@
         sql = [sql stringByAppendingString:[NSString stringWithFormat:@"and  kitchen_area = '%@' ",area]];
     }
     NSArray <FTRealKitchen *>*kitchens = [self fetchRealKitchensWithSQL:sql];
-    NSArray <FTProduct *>*products = [FTProductService fetchProductWithModelNumber:number];
-    NSMutableArray <FTRealKitchen *>*reals = [NSMutableArray array];
-    for (FTRealKitchen *k in kitchens) {
-        for (FTProduct *p in products) {
-            if ([p.modelNumber containsString:number]) {
-                [reals addObject:k];
-                continue;
+    if(number && number.length > 0){
+
+        NSMutableArray <FTRealKitchen *>*reals = [NSMutableArray array];
+        for (FTRealKitchen *k in kitchens) {
+            NSArray <FTProduct *>*kp = [FTProductService fetchProductsWithRealKitchenId:k.identifier];
+            for (FTProduct *p in kp) {
+                if ([p.modelNumber containsString:number]) {
+                    [reals addObject:k];
+                    continue;
+                }
             }
         }
+        kitchens = [reals copy];
     }
-    
+
     NSMutableArray <FTRealKitchenList *>*list = [NSMutableArray array];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     

@@ -21,7 +21,11 @@ class FTLoginViewModel: NSObject {
                     FTUserManager.userManager.saveUserWithInfo(model: data)
                 }
                 finish((model?.code)!)
+            }else{
+                finish(-100)
+
             }
+            
         }
     }
 }

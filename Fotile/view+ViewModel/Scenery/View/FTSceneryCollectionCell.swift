@@ -50,9 +50,18 @@ class FTSceneryCollectionCell: UICollectionViewCell {
         }
     }
     func loadModel(model:FTRealKitchen) {
-        areaNum.text = model.kitchenArea
-        costNum.text = model.kitchenCost
-        imageV.image = model.thumbnailImage.picture
+        if  let area =  model.kitchenArea{
+            areaNum.text = "\(area)平米"
+
+        }
+        if  let cost =  model.fotileCost{
+            costNum.text = "\(cost)万"
+            
+        }
+        if  let p =  model.thumbnailImage{
+            imageV.image = p.picture
+            
+        }
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

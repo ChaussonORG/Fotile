@@ -336,6 +336,8 @@ class FTProductDetailViewController: UIViewController {
         
         productImage.backgroundColor = UIColor("#f4f4f4")
         productImage.contentMode = .scaleAspectFit
+ 
+
         return productImage
     }()
     lazy var funView:FTProductFunView = {

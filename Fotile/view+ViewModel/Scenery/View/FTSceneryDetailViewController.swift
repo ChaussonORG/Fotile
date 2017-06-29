@@ -53,7 +53,7 @@ class FTSceneryDetailViewController: UIViewController {
         }
  
         if model.fotileCost.length != 0 {
-            inforArray.append(model.fotileCost)
+            inforArray.append(model.fotileCost  )
             inforArray1.append("厨电成本(万)")
         }
     }
