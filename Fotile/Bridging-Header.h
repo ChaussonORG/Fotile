@@ -22,7 +22,7 @@
 @import MJRefresh;
 @import Kingfisher;
 #import "UINavigationController+WXSTransition.h"
-
+#import "UMMobClick/MobClick.h"
 #import "FTCustomKitchen.h"
 #import "FTCustomKCService.h"
 #import "FTCustomKTDetail.h"

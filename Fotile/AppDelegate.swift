@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,18 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         self.window?.backgroundColor = UIColor.white
         self.window?.makeKeyAndVisible()
-        
+        setUM()
         if FTUserManager.userManager.isLogin() {
             login()
         }else{
             logOut()
         }
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-//            FTImageManager.shareInstance().downloadAllImages({ (completeCount, totalCount) in
-//                print("一共\(totalCount)张图片, 已经下载\(completeCount)张图片")
-//            }, updateTime: nil)
-//        }
         return true
+    }
+    func setUM(){
+        UMAnalyticsConfig.sharedInstance().appKey = "5954adb465b6d65d5b000784"
+        UMAnalyticsConfig.sharedInstance().channelId = "App Store"
     }
     func logOut() {
         let story = UIStoryboard(name: "Login", bundle: nil)

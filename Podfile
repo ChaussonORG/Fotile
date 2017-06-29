@@ -22,5 +22,5 @@ pod 'CHImagePicker'
 pod 'SDMenuBarViewKit'
 pod 'FMDB'
 pod 'CHNetworking'
-
+pod 'UMengAnalytics-NO-IDFA'
 end
