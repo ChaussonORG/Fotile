@@ -144,16 +144,25 @@ class FTMoreViewController: UIViewController {
                         return
                     }
                     weakSelf.hide()
+                    weakSelf.downLoad.againBtn.isHidden = true
+                    weakSelf.downLoad.message.textColor = FTStyleConfiguration.black
                     FTImageManager.shareInstance().downloadAllImages({ (number, all) in
                         weakSelf.downLoad.number.text = String(number * 100 / all)
                         if number == all{
                             FTUserManager.userManager.saveTime(time: weakSelf.getTime())
+                            
                             weakSelf.haveUpdata = false
                             weakSelf.dowloadBtn.isEnabled = false
                             weakSelf.downLoad.hide()
                         }
-                    }, failureBlock: {
-                        
+                    }, failureBlock: { [weak self] in
+                        guard let weakSelf = self else{
+                            return
+                        }
+                        weakSelf.downLoad.againBtn.isHidden = false
+                        weakSelf.downLoad.againDownloadBlock = {
+                            weakSelf.checkAction()
+                        }
                     })
                 }
             })
