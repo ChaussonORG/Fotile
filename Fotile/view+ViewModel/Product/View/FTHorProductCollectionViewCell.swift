@@ -34,6 +34,7 @@ class FTHorProductCollectionViewCell: UICollectionViewCell {
         }
         self.model = model
         imageV.image = model.imageUrl
+        imageV.contentMode = .scaleAspectFit
         imageV.backgroundColor = model.color
         headTitle.text = vm.array[Int(model.type) - 1]
         headImage.image = UIImage(named: vc.imagelist[Int(model.type) - 1])
