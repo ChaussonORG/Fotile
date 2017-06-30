@@ -14,6 +14,7 @@ class FTDownloadView: UIView {
         super.init(frame: frame)
         loadui()
     }
+    var againDownloadBlock:(()->Void)?
     class func share() -> FTDownloadView{
         let view:FTDownloadView = FTDownloadView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.width, height: UIScreen.height))
         return view
@@ -24,6 +25,9 @@ class FTDownloadView: UIView {
         whiteView.addSubview(number)
         whiteView.addSubview(message)
         whiteView.addSubview(label)
+        whiteView.addSubview(againBtn)
+//        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(againDownLoad))
+//        message.addGestureRecognizer(tap)
         blackView.snp.makeConstraints { (make) in
             make.edges.equalTo(0)
         }
@@ -48,7 +52,11 @@ class FTDownloadView: UIView {
             make.top.equalTo(number.snp.bottom).offset(25)
             make.height.equalTo(15)
         }
-
+        againBtn.snp.makeConstraints { (make) in
+            make.left.right.equalTo(0)
+            make.top.equalTo(number.snp.bottom).offset(20)
+            make.height.equalTo(25)
+        }
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -77,6 +85,17 @@ class FTDownloadView: UIView {
         return label
     }()
     
+    lazy var againBtn:UIButton = {
+        let btn:UIButton = UIButton()
+        btn.setTitle("继续下载", for: .normal)
+        btn.backgroundColor = UIColor.white
+        btn.setTitleColor(FTStyleConfiguration.red, for: .normal)
+        btn.isHidden = true
+        btn.titleLabel?.font = FTStyleConfiguration.font14
+        btn.addTarget(self, action: #selector(againDownLoad), for: .touchUpInside)
+        return btn
+    }()
+    
     lazy var label:UILabel = {
         let label:UILabel = UILabel()
         label.textColor = FTStyleConfiguration.red
@@ -100,6 +119,9 @@ class FTDownloadView: UIView {
     }
     func hide(){
         self.removeFromSuperview()
+    }
+    func againDownLoad(){
+        self.againDownloadBlock!()
     }
     /*
     // Only override draw() if you perform custom drawing.
