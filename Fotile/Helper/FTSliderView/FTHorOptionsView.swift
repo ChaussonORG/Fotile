@@ -39,7 +39,6 @@ class FTHorOptionsView: UIView {
             let label = UILabel()
             label.text = model.title
             label.numberOfLines = 0
-            //label.font = FTStyleConfiguration.font14
             addSubview(label)
             if model.isSele {
                 label.textColor = FTStyleConfiguration.red
