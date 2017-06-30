@@ -247,12 +247,14 @@ class FTInteractionDetailViewController: UIViewController {
     
     lazy var sliderView:FTHorOptionsView = {
         let view:FTHorOptionsView = FTHorOptionsView(frame: .zero)
-       // view.deleage = weakSelf
+        view.deleage = self
+
         return view
     }()
     lazy var sliderView1:FTInterOptionView = {
         let view:FTInterOptionView = FTInterOptionView(frame: .zero)
-       // view.deleage = self
+        view.deleage = self
+
         return view
     }()
     

@@ -10,11 +10,11 @@
 
 import UIKit
 
-protocol FTHorOptionsViewDeleage {
+protocol FTHorOptionsViewDeleage:NSObjectProtocol {
     func clickBtnAction(index:Int32)
 }
 class FTHorOptionsView: UIView {
-    var deleage:FTHorOptionsViewDeleage?
+    weak var deleage:FTHorOptionsViewDeleage?
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadUI()
