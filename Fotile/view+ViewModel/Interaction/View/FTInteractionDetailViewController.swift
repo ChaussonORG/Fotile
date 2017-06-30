@@ -240,7 +240,6 @@ class FTInteractionDetailViewController: UIViewController {
         layout.minimumLineSpacing = 25
         layout.sectionInset = UIEdgeInsetsMake(0, 25, 0, 25)
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 115, height: 165)
         layout.minimumInteritemSpacing = 25
         return layout
     }()
@@ -432,6 +431,22 @@ class FTInteractionDetailViewController: UIViewController {
             for model in model.materials {
                 viewModel.materialS.append(model)
             }
+            if isVer{
+                collectionView.snp.updateConstraints({ (make) in
+                    make.height.equalTo(200)
+                })
+                sliderView.snp.updateConstraints({ (male) in
+                    male.height.equalTo(0)
+                })
+            }else{
+                collectionView.snp.updateConstraints({ (make) in
+                    make.width.equalTo(200)
+                })
+                sliderView1.snp.updateConstraints({ (male) in
+                    male.width.equalTo(0)
+                })
+            }
+           
         }else{
              viewModel.cellViewModels.removeAll()
             for model in model.products {
@@ -439,6 +454,22 @@ class FTInteractionDetailViewController: UIViewController {
                     viewModel.cellViewModels.append(model)
                 }
             }
+            if isVer{
+                collectionView.snp.updateConstraints({ (make) in
+                    make.height.equalTo(165)
+                })
+                sliderView.snp.updateConstraints({ (male) in
+                    male.height.equalTo(44)
+                })
+            }else{
+                collectionView.snp.updateConstraints({ (make) in
+                    make.width.equalTo(165)
+                })
+                sliderView1.snp.updateConstraints({ (male) in
+                    male.width.equalTo(44)
+                })
+            }
+           
         }
         typeIndex1 = Int(index)
         typeIndex = Int(index)
@@ -631,6 +662,10 @@ class FTInteractionDetailViewController: UIViewController {
         pushBtn.setImage(#imageLiteral(resourceName: "btn_showPlan_landscape"), for: .normal)
         sliderView1.isHidden = false
         sliderView.isHidden = true
+        if typeIndex1 == 10{
+            sliderView1.isHidden = true
+        }
+
     }
     func layoutVer(){
         isVer = true
@@ -641,6 +676,9 @@ class FTInteractionDetailViewController: UIViewController {
         materialBtn.setTitle("材质", for: .normal)
         sliderView1.isHidden = true
         sliderView.isHidden = false
+        if typeIndex1 == 10{
+            sliderView1.isHidden = true
+        }
         layout.scrollDirection = .horizontal
         scrollView.contentSize = CGSize(width: height * 3, height: width)
         scrollView.contentOffset = CGPoint(x: scrollView.contentSize.width / 3, y: 0)
@@ -747,7 +785,7 @@ class FTInteractionDetailViewController: UIViewController {
     */
 
 }
-extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollectionViewDataSource, FTHorOptionsViewDeleage,UIScrollViewDelegate,FTInterOptionViewDeleage{
+extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollectionViewDataSource, FTHorOptionsViewDeleage,UIScrollViewDelegate,FTInterOptionViewDeleage,UICollectionViewDelegateFlowLayout{
     func clickBtnAction(index: Int32) {
         chooseType(index:index)
     }
@@ -833,6 +871,12 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
 
         selectedProduct()
         
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if typeIndex1 == 10{
+            return  CGSize(width: 150, height:200)
+        }
+        return  CGSize(width: 115, height:165)
     }
 
 }
