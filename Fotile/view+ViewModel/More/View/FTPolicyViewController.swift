@@ -12,7 +12,7 @@ class FTPolicyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       MobClick.event("ServicePolicy")
         let labe:UILabel = UILabel()
         labe.text = "服务政策"
         labe.font = UIFont.boldSystemFont(ofSize: 17)

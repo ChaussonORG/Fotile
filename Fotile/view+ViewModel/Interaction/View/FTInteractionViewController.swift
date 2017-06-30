@@ -55,7 +55,8 @@ extension FTInteractionViewController:UITableViewDelegate,UITableViewDataSource{
         let model = models[indexPath.row]
         vc.model = FTCustomKCService.fetchCustomDetail(model)
         navigationController?.pushViewController(vc, animated: false)
-        
+        MobClick.event("CustomKitchen", attributes: ["name":model.name])
+
        // navigationController?.wxs_pushViewController(vc, animationType: .brickOpenVertical)
     }
 //    func scrollViewDidScroll(_ scrollView: UIScrollView) {

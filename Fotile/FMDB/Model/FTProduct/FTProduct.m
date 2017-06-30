@@ -22,6 +22,9 @@
     }
     return nil;
 }
+- (void)setColor:(NSString *)color{
+    _color = [NSString stringWithFormat:@"#%@",color];
+}
 - (NSArray *)dictionaryWithJsonString:(NSString *)jsonString {
     if (jsonString == nil) {
         return nil;

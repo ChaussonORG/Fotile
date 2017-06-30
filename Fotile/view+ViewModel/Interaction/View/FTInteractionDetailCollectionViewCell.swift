@@ -31,8 +31,13 @@ class FTInteractionDetailCollectionViewCell: UICollectionViewCell {
         }
     }
     func loadModel(model:FTProduct,type:kitType)  {
+        
         imageV.image = model.thumnailImage.picture
         label.text = model.modelNumber
+        guard let color = model.color else {
+            return
+        }
+        imageV.backgroundColor = UIColor(color)
     }
     func loadMaterial(model:FTMaterial,type:kitType){
         imageV.image = model.thumbnailImage.picture

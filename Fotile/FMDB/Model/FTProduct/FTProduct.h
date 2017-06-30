@@ -15,6 +15,7 @@
 @property (nonatomic ,copy) NSString *name;
 @property (nonatomic ,copy) NSString *modelNumber;
 @property (nonatomic ,copy) NSString *slogan;
+@property (nonatomic ,copy) NSString *color;
 @property (nonatomic ,copy) NSString *parameters;
 @property (nonatomic ,strong) NSArray <FTProductParm *>*parms;
 

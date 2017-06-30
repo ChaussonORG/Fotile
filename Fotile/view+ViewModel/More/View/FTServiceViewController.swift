@@ -13,6 +13,8 @@ class FTServiceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let labe:UILabel = UILabel()
+        MobClick.event("ServiceCost")
+
         labe.text = "服务项目与收费"
         labe.font = UIFont.boldSystemFont(ofSize: 17)
         labe.frame = CGRect.init(x: 0, y: 0, width: 100, height: 20)

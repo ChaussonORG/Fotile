@@ -516,12 +516,13 @@ class FTInteractionDetailViewController: UIViewController {
                 typeIndex = Int(p.catalogType)
                 chooseProduct(imageView: night1, image: p.groupImage.night1.picture)
             }
-            break
             day2.clear()
             day3.clear()
             day1.clear()
             night2.clear()
             night3.clear()
+            break
+
         case .Ninght2:
             for p in productModels {
                 typeIndex = Int(p.catalogType)
@@ -783,6 +784,7 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
                 collectionView.reloadData()
             }
         }
+        MobClick.event("JiaoDu", attributes: ["type":type])
         selectedProduct()
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -812,6 +814,7 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
             night1.backImageView.image = groupImage.night1.picture
             night2.backImageView.image = groupImage.night2.picture
             night3.backImageView.image = groupImage.night3.picture
+            MobClick.event("SelectedMaterial", attributes: ["material":viewModel.materialS[indexPath.row].name])
             return
         }
         let product = viewModel.cellViewModels[indexPath.row]
@@ -826,6 +829,8 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
         }else{
             productModels.append(product)
         }
+        MobClick.event("SelectedProduct", attributes: ["product":product.modelNumber])
+
         selectedProduct()
         
     }
