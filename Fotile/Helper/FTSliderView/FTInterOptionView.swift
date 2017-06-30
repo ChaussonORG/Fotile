@@ -8,11 +8,11 @@
 
 
 import UIKit
-protocol FTInterOptionViewDeleage {
+protocol FTInterOptionViewDeleage:NSObjectProtocol {
     func clickBtnActionOption(index:Int)
 }
 class FTInterOptionView: UIView {
-    var deleage:FTInterOptionViewDeleage?
+    weak var deleage:FTInterOptionViewDeleage?
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadUI()

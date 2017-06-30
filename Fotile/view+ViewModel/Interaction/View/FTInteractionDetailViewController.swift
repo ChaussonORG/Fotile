@@ -47,6 +47,8 @@ class FTInteractionDetailViewController: UIViewController {
         backgroundView.addSubview(collectionView)
         backgroundView.addSubview(sliderView)
         backgroundView.addSubview(sliderView1)
+//        sliderView.deleage = self
+//        sliderView1.deleage = self
         backgroundView.addSubview(pushBtn)
         scrollView.addSubview(night1)
         scrollView.addSubview(night3)
@@ -245,12 +247,14 @@ class FTInteractionDetailViewController: UIViewController {
     
     lazy var sliderView:FTHorOptionsView = {
         let view:FTHorOptionsView = FTHorOptionsView(frame: .zero)
-//        view.deleage = self
+        view.deleage = self
+
         return view
     }()
     lazy var sliderView1:FTInterOptionView = {
         let view:FTInterOptionView = FTInterOptionView(frame: .zero)
-//        view.deleage = self
+        view.deleage = self
+
         return view
     }()
     
@@ -334,14 +338,6 @@ class FTInteractionDetailViewController: UIViewController {
         CHProgressHUD.show(true)
         let vc = FTSchemeViewController()
         let navc:UINavigationController = UINavigationController(rootViewController: vc)
-//        let presentationController = CommonPresentationController(presentedViewController: vc, presenting: self)
-//        if self.isVer{
-//            presentationController.presentedStype = .bottomToTop
-//        }else{
-//            presentationController.presentedStype = .rightToLeft
-//        }
-//        self.customPesentationController = presentationController
-//        vc.transitioningDelegate = presentationController
         vc.isVer = self.isVer
         vc.productModels = self.productModels
         let kitType:kitType = type
@@ -551,6 +547,10 @@ class FTInteractionDetailViewController: UIViewController {
         }
         
     }
+    deinit {
+        print("定制厨房界面销毁了")
+    }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         if size.width > size.height {
             layoutHor()
