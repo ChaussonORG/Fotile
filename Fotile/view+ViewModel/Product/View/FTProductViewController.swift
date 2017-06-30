@@ -30,16 +30,16 @@ class FTProductViewController: UIViewController {
     func layout() {
         headView.snp.makeConstraints { (make) in
             make.left.top.right.equalTo(0)
-            make.height.equalTo(70)
+            make.height.equalTo(64)
         }
         headViewImage.snp.makeConstraints { (make) in
-            make.left.equalTo(25)
-            make.top.equalTo(40)
-            make.width.height.equalTo(22)
+            make.left.equalTo(20)
+            make.top.equalTo(36)
+            make.width.height.equalTo(16)
         }
         search.snp.makeConstraints { (make) in
             make.left.equalTo(headViewImage.snp.right).offset(10)
-            make.top.equalTo(35)
+            make.top.equalTo(30)
             make.right.equalTo(-25)
             make.height.equalTo(30)
         }
@@ -49,7 +49,7 @@ class FTProductViewController: UIViewController {
         }
         tableView.snp.makeConstraints { (make) in
             make.left.equalTo(0)
-            make.top.equalTo(70)
+            make.top.equalTo(64)
             make.right.equalTo(-44)
             make.bottom.equalTo(-50)
         }

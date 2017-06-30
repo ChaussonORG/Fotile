@@ -81,11 +81,11 @@ extension FTProductTableView:UITableViewDelegate,UITableViewDataSource, FTProduc
         if isProduct{
             let view:UIView = UIView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 80))
             view.backgroundColor = UIColor.white
-            let imageV:UIImageView = UIImageView(frame: CGRect.init(x: 25, y: 29, width: 22, height: 22))
+            let imageV:UIImageView = UIImageView(frame: CGRect.init(x: 25, y: 25, width: 25, height: 25))
             imageV.image = UIImage(named: viewModel.imagelist[section])
             view.addSubview(imageV)
             
-            let label = UILabel(frame: CGRect.init(x: 57, y: 29, width: 300, height: 22))
+            let label = UILabel(frame: CGRect.init(x: 57, y: 27, width: 300, height: 22))
             label.textColor = FTStyleConfiguration.black
             label.text = viewModel.products[section].typeName
             view.addSubview(label)
@@ -96,7 +96,7 @@ extension FTProductTableView:UITableViewDelegate,UITableViewDataSource, FTProduc
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if isProduct{
-            return 80
+            return 75
         }
         return 0
     }

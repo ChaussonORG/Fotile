@@ -32,7 +32,7 @@ class FTSceneryViewController: UIViewController {
         UIApplication.shared.keyWindow?.addSubview(costScreen)
 
         collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(70)
+            make.top.equalTo(64)
             make.left.right.equalTo(0)
             make.bottom.equalTo(-49)
         }
@@ -47,30 +47,30 @@ class FTSceneryViewController: UIViewController {
             make.height.equalTo(1)
         }
         searchImage.snp.makeConstraints { (make) in
-            make.top.equalTo(29)
-            make.width.height.equalTo(22)
+            make.top.equalTo(27)
+            make.width.height.equalTo(16)
             make.left.equalTo(25)
         }
         searchText.snp.makeConstraints { (make) in
-            make.top.equalTo(25)
+            make.top.equalTo(21)
             make.height.equalTo(30)
             make.width.equalTo(200)
             make.left.equalTo(searchImage.snp.right).offset(10)
         }
         costBtn.snp.makeConstraints { (make) in
-            make.top.equalTo(25)
+            make.top.equalTo(20)
             make.height.equalTo(30)
             make.width.equalTo(120)
             make.right.equalTo(-50)
         }
         areaBtn.snp.makeConstraints { (make) in
-            make.top.equalTo(25)
+            make.top.equalTo(20)
             make.height.equalTo(30)
             make.width.equalTo(120)
             make.right.equalTo(costBtn.snp.left).offset(-30)
         }
         typeBtn.snp.makeConstraints { (make) in
-            make.top.equalTo(25)
+            make.top.equalTo(20)
             make.height.equalTo(30)
             make.width.equalTo(120)
             make.right.equalTo(areaBtn.snp.left).offset(-30)
@@ -241,7 +241,7 @@ class FTSceneryViewController: UIViewController {
         layout.minimumLineSpacing = 0
         //layout.sectionInset = UIEdgeInsetsMake(0, 25, 0, 25)
         layout.itemSize = CGSize(width: UIScreen.main.bounds.size.width / 2, height: UIScreen.main.bounds.size.width / 2 / 1.33 + 65)
-        layout.headerReferenceSize = CGSize(width: self.view.frame.size.width, height: 50)
+        layout.headerReferenceSize = CGSize(width: self.view.frame.size.width, height: 65)
         let collectionView:UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.white
         collectionView.collectionViewLayout = layout
@@ -282,22 +282,22 @@ class HeaderReusableView: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         headerLb=UILabel()
-        headerLb.font = FTStyleConfiguration.font22
+        headerLb.font = FTStyleConfiguration.font18bold
         headerLb.textColor=FTStyleConfiguration.d4d4d4
         self .addSubview(headerLb!)
         headerLb.snp.makeConstraints { (make) in
             make.left.equalTo(25)
-            make.top.equalTo(17)
-            make.height.equalTo(25)
+            make.top.equalTo(25)
+            make.height.equalTo(15)
         }
         headerLb1=UILabel()
-        headerLb1.font = FTStyleConfiguration.font18
+        headerLb1.font = FTStyleConfiguration.font18bold
         headerLb1.textColor=FTStyleConfiguration.b3b3b3
         self .addSubview(headerLb1!)
         headerLb1.snp.makeConstraints { (make) in
-            make.top.equalTo(17)
+            make.top.equalTo(25)
             make.left.equalTo(headerLb.snp.right).offset(15)
-            make.height.equalTo(25)
+            make.height.equalTo(15)
         }
         
     }

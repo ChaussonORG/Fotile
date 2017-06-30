@@ -36,7 +36,7 @@ class FTOptionsView: UIView {
             let label = UILabel()
             label.text = model.title
             label.numberOfLines = 0
-            //label.font = FTStyleConfiguration.font14
+            label.font = FTStyleConfiguration.font14
             addSubview(label)
             if model.isSele {
                 label.textColor = FTStyleConfiguration.red
@@ -50,7 +50,7 @@ class FTOptionsView: UIView {
             label.snp.makeConstraints({ (make) in
                 make.top.equalTo(spacing * CGFloat(i + 1) + height)
                 make.width.equalTo(22)
-                make.left.equalTo(10)
+                make.left.equalTo(13)
             })
             
             let line:UIView = UIView()

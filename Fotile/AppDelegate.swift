@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ftView?.snp.makeConstraints { (make) in
             make.left.right.equalTo(0)
             make.bottom.equalTo(0)
-            make.height.equalTo(49)
+            make.height.equalTo(55)
         }
     }
     func applicationWillResignActive(_ application: UIApplication) {

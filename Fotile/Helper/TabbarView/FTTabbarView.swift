@@ -23,7 +23,7 @@ class FTTabbarView: UIView {
     
         stackView.snp.makeConstraints { (make) in
             make.left.bottom.right.equalTo(0)
-            make.height.equalTo(49)
+            make.height.equalTo(55)
         }
         btn1.snp.makeConstraints { (make) in
             make.left.right.bottom.top.equalTo(0)
