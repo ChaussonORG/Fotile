@@ -42,6 +42,7 @@ class FTInteractionDetailCollectionViewCell: UICollectionViewCell {
     func loadMaterial(model:FTMaterial,type:kitType){
         imageV.image = model.thumbnailImage.picture
         label.text = model.name
+        imageV.backgroundColor = UIColor.white
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
