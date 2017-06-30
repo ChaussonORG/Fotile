@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol FTProductTableViewDeleage {
+protocol FTProductTableViewDeleage:NSObjectProtocol {
     func moreAction(viewModel:FTProductCellViewModel)
     func getSection(section:Int)
 }
 class FTProductTableView: UITableView {
     var viewModel = FTProductViewModel()
-    var dele:FTProductTableViewDeleage?
+    weak var dele:FTProductTableViewDeleage?
     var isProduct:Bool = false
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)

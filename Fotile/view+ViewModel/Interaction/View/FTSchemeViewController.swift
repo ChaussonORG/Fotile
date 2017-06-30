@@ -54,10 +54,6 @@ class FTSchemeViewController: UIViewController {
         super.viewWillAppear(animated)
         (UIApplication.shared.delegate as! AppDelegate).isAllow = true
         self.navigationController?.isNavigationBarHidden = true
-//        if !isVer{
-//            let value = UIInterfaceOrientation.portrait.rawValue
-//            UIDevice.current.setValue(value, forKey: "orientation")
-//        }
     }
 
     lazy var tableHead:UIView = {
@@ -202,12 +198,12 @@ class FTSchemeViewController: UIViewController {
         layout.minimumLineSpacing = 0
         let view:FTHorProductCollectionView = FTHorProductCollectionView(frame: .zero, collectionViewLayout: layout)
         view.setViewModel(viewModel: self.viewModel1)
-        view.didRow = { cellViewModel in
+        view.didRow = {[weak self] cellViewModel in
             let vm = FTProductDetailVM(cellViewModel:cellViewModel)
             let vc = FTProductDetailViewController()
-            vc.isVer = self.isVer
+            vc.isVer = self!.isVer
             vc.viewModel = vm
-            self.navigationController?.pushViewController(vc, animated: true)
+            self?.navigationController?.pushViewController(vc, animated: true)
         }
         return view
     }()
@@ -226,7 +222,9 @@ class FTSchemeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    deinit {
+        print("方案界面销毁了")
+    }
 
     /*
     // MARK: - Navigation
@@ -243,7 +241,6 @@ extension FTSchemeViewController:FTProductTableViewDeleage{
     func getSection(section: Int) {
         
     }
-
     func moreAction(viewModel:FTProductCellViewModel) {
         let vm = FTProductDetailVM(cellViewModel:viewModel)
         let vc = FTProductDetailViewController()
