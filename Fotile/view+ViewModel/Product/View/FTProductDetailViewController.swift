@@ -62,6 +62,7 @@ class FTProductDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
+        MobClick.event("ProductDetail", attributes: ["number":viewModel.headViewModel?.modelNumber])
         loadUI()
         // Do any additional setup after loading the view.
     }
@@ -233,7 +234,7 @@ class FTProductDetailViewController: UIViewController {
             make.top.equalTo(otherCollectView.snp.bottom).offset(0)
             make.left.equalTo(0)
             make.width.equalTo(titleView)
-            make.height.equalTo(185)
+            make.height.equalTo(0)
         }
 //        let contentH = 3400+2*headHeight - (viewModel.isShowBanner ? 0:460+headHeight) - (viewModel.isShowSeries ? 0 :500+headHeight)-(viewModel.isShowMore ? 0 :200+headHeight)-(viewModel.isShowOhter ? 0 :200+headHeight)
 //        mainScrollView.contentSize = CGSize(width: 0, height: contentH)
@@ -438,6 +439,7 @@ class FTProductDetailViewController: UIViewController {
     }
 
     func pushMoreAction(_ sender: Any) {
+        MobClick.event("Fun")
         let vc = FTGraduateViewController.news()
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -490,6 +492,10 @@ extension FTProductDetailViewController:UICollectionViewDelegate, UICollectionVi
                 cell.imageV.image = product.thumnailImage.picture
                 
             }
+            if let color = product.color {
+                cell.imageV.backgroundColor = UIColor(color)
+                
+            }
         }else if collectionView.tag == otherCollectView.tag {
     
             guard let o = self.viewModel.othersProcuts else {
@@ -502,6 +508,10 @@ extension FTProductDetailViewController:UICollectionViewDelegate, UICollectionVi
                 cell.imageV.image = product.thumnailImage.picture
 
             }
+            if let color = product.color {
+                cell.imageV.backgroundColor = UIColor(color)
+                
+            }
         }else{
             guard let p = self.viewModel.series?.products else {
                 return cell
@@ -513,6 +523,11 @@ extension FTProductDetailViewController:UICollectionViewDelegate, UICollectionVi
                 cell.imageV.image = product.thumnailImage.picture
                 
             }
+            if let color = product.color {
+                cell.imageV.backgroundColor = UIColor(color)
+
+            }
+
         }
         return cell
 

@@ -248,6 +248,8 @@ extension FTSchemeViewController:FTProductTableViewDeleage{
         let vm = FTProductDetailVM(cellViewModel:viewModel)
         let vc = FTProductDetailViewController()
         vc.viewModel = vm
+        MobClick.event("KichenToProduct", attributes: ["number":viewModel.modelNumber])
+
         navigationController?.pushViewController(vc, animated: true)
     }
 }

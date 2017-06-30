@@ -61,6 +61,8 @@ class FTProductTableViewCell: UITableViewCell {
             moreBtn.isHidden = false
             moreView.isHidden = false            
         }
+        imageUrl.backgroundColor = model.color
+
         name.text = model.name
         typeNumber.text = model.modelNumber
         conten.text = model.slogan

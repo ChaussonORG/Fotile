@@ -17,6 +17,10 @@ func getCellVieModel(product:FTProduct) -> FTProductCellViewModel{
     cellViewModel.slogan = product.slogan
     cellViewModel.parameters = product.parameters
     cellViewModel.productId = product.identifier
+    if let color = product.color {
+        cellViewModel.color = UIColor(color)
+        
+    }
     for parm in product.parms {
         cellViewModel.params.append(parm)
     }
@@ -80,6 +84,10 @@ class FTProductViewModel: NSObject {
         cellViewModel.parameters = product.parameters
         cellViewModel.productId = product.identifier
         cellViewModel.type = product.catalogType
+        if let color = product.color {
+            cellViewModel.color = UIColor(color)
+
+        }
         for parm in product.parms {
             cellViewModel.params.append(parm)
         }
@@ -102,5 +110,6 @@ class FTProductCellViewModel: NSObject {
     var parameters:String = ""
     var params:Array<FTProductParm> = [FTProductParm]()
     var type:Int32 = 1
+    var color:UIColor = UIColor.clear
     var isEmpty:Bool = false
 }

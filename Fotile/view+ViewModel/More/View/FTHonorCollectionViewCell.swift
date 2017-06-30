@@ -12,7 +12,7 @@ class FTHonorCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadui()
-        
+
     }
     func loadModel(image:UIImage){
         imageV.image = image

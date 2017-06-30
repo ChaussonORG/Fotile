@@ -17,6 +17,8 @@ class FTHonorViewController: UIViewController {
     @IBOutlet var line2: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        MobClick.event("Honor")
+
         loadui()
         // Do any additional setup after loading the view.
     }

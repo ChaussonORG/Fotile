@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setUM(){
         UMAnalyticsConfig.sharedInstance().appKey = "5954adb465b6d65d5b000784"
         UMAnalyticsConfig.sharedInstance().channelId = "App Store"
+        MobClick.start(withConfigure: UMAnalyticsConfig.sharedInstance())
     }
     func logOut() {
         let story = UIStoryboard(name: "Login", bundle: nil)

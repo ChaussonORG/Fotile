@@ -19,6 +19,8 @@ class FTPentalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadui()
+        MobClick.event("PentailWall")
+
         // Do any additional setup after loading the view.
     }
     func loadui(){

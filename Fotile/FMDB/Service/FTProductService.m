@@ -64,7 +64,9 @@
         product.slogan =  [r stringForColumn:@"slogan"];
         product.catalogType =  [r intForColumn:@"catalog_id"];
         product.parameters =  [r stringForColumn:@"parameters"];
+        product.color = [r stringForColumn:@"color"];
         product.thumnailImage = [[FTImageManager shareInstance]fetchImageWithId:[r stringForColumn:@"logo_file_id"]];
+
         [products addObject:product];
     }
     if (!isGoodConnection) {
@@ -90,6 +92,7 @@
         product.name =  [r stringForColumn:@"name"];
         product.modelNumber =  [r stringForColumn:@"model_no"];
         product.slogan =  [r stringForColumn:@"slogan"];
+        product.color = [r stringForColumn:@"color"];
         product.catalogType =  [r intForColumn:@"catalog_id"];
         product.parameters =  [r stringForColumn:@"parameters"];
         product.thumnailImage = [[FTImageManager shareInstance]fetchImageWithId:[r stringForColumn:@"logo_file_id"]];

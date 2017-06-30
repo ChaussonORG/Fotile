@@ -34,6 +34,8 @@ class FTHorProductCollectionViewCell: UICollectionViewCell {
         }
         self.model = model
         imageV.image = model.imageUrl
+        imageV.contentMode = .scaleAspectFit
+        imageV.backgroundColor = model.color
         headTitle.text = vm.array[Int(model.type) - 1]
         headImage.image = UIImage(named: vc.imagelist[Int(model.type) - 1])
         if !model.isOpen {
@@ -62,7 +64,7 @@ class FTHorProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet var moreBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-        imageV.contentMode = .scaleAspectFill
+        imageV.contentMode = .scaleAspectFit
         imageVHeight.constant = (self.height - 325) / 2 / 1.34
         tableView.delegate = self
         tableView.dataSource = self
