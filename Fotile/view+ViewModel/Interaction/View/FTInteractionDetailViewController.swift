@@ -502,12 +502,31 @@ class FTInteractionDetailViewController: UIViewController {
         }
     }
     func selectedProduct() {
+        for mp in model.products {
+            mp.groupImage.day1.picture = nil
+            mp.groupImage.day2.picture = nil
+            
+            mp.groupImage.day3.picture = nil
+            
+            mp.groupImage.night1.picture = nil
+            mp.groupImage.night2.picture = nil
+            
+            mp.groupImage.night3.picture = nil
+            
+        }
         switch type {
         case .Day1:
+            
             for p in productModels {
                 typeIndex = Int(p.catalogType)
                 chooseProduct(imageView: day1, image: p.groupImage.day1.picture)
             }
+            model.groupImage.day2.picture = nil
+            model.groupImage.day3.picture = nil
+            model.groupImage.night2.picture = nil
+            model.groupImage.night3.picture = nil
+            model.groupImage.night1.picture = nil
+
             day2.clear()
             day3.clear()
             night1.clear()
@@ -520,6 +539,12 @@ class FTInteractionDetailViewController: UIViewController {
                 typeIndex = Int(p.catalogType)
                 chooseProduct(imageView: day2, image: p.groupImage.day2.picture)
             }
+            model.groupImage.day1.picture = nil
+            model.groupImage.day3.picture = nil
+            model.groupImage.night2.picture = nil
+            model.groupImage.night3.picture = nil
+            model.groupImage.night1.picture = nil
+
             day1.clear()
             day3.clear()
             night1.clear()
@@ -532,6 +557,11 @@ class FTInteractionDetailViewController: UIViewController {
 
                 chooseProduct(imageView: day3, image: p.groupImage.day3.picture)
             }
+            model.groupImage.day2.picture = nil
+            model.groupImage.day1.picture = nil
+            model.groupImage.night2.picture = nil
+            model.groupImage.night3.picture = nil
+            model.groupImage.night1.picture = nil
             day2.clear()
             day1.clear()
             night1.clear()
@@ -543,6 +573,11 @@ class FTInteractionDetailViewController: UIViewController {
                 typeIndex = Int(p.catalogType)
                 chooseProduct(imageView: night1, image: p.groupImage.night1.picture)
             }
+            model.groupImage.day2.picture = nil
+            model.groupImage.day3.picture = nil
+            model.groupImage.night2.picture = nil
+            model.groupImage.night3.picture = nil
+            model.groupImage.day1.picture = nil
             day2.clear()
             day3.clear()
             day1.clear()
@@ -555,6 +590,11 @@ class FTInteractionDetailViewController: UIViewController {
                 typeIndex = Int(p.catalogType)
                 chooseProduct(imageView: night2, image: p.groupImage.night2.picture)
             }
+            model.groupImage.day2.picture = nil
+            model.groupImage.day3.picture = nil
+            model.groupImage.day1.picture = nil
+            model.groupImage.night3.picture = nil
+            model.groupImage.night1.picture = nil
             day2.clear()
             day3.clear()
             night1.clear()
@@ -566,6 +606,11 @@ class FTInteractionDetailViewController: UIViewController {
                 typeIndex = Int(p.catalogType)
                 chooseProduct(imageView: night3, image: p.groupImage.night3.picture)
             }
+            model.groupImage.day2.picture = nil
+            model.groupImage.day3.picture = nil
+            model.groupImage.night2.picture = nil
+            model.groupImage.day1.picture = nil
+            model.groupImage.night1.picture = nil
             day2.clear()
             day3.clear()
             night1.clear()
