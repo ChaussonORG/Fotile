@@ -913,7 +913,6 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
             productModels.append(product)
         }
         MobClick.event("SelectedProduct", attributes: ["product":product.modelNumber])
-
         selectedProduct()
         
     }

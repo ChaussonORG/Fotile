@@ -32,7 +32,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="291.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="timg-1" translatesAutoresizingMaskIntoConstraints="NO" id="pJn-2e-nch">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pJn-2e-nch">
                                                     <rect key="frame" x="0.0" y="-100" width="768" height="490"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -207,7 +207,4 @@
             <point key="canvasLocation" x="1214" y="-77"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="timg-1" width="1024" height="625"/>
-    </resources>
 </document>
