@@ -35,7 +35,6 @@ class FTPentalCollectionViewCell: UICollectionViewCell {
         let imageV:UIImageView = UIImageView()
         imageV.layer.borderColor = FTStyleConfiguration.e6e6e6.cgColor
         imageV.layer.borderWidth = 1
-        imageV.image = #imageLiteral(resourceName: "zhengshu")
         return imageV
     }()
     lazy var label:UILabel = {
