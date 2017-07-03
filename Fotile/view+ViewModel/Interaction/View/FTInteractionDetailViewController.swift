@@ -516,7 +516,7 @@ class FTInteractionDetailViewController: UIViewController {
         }
         switch type {
         case .Day1:
-            
+            day1.clear()
             for p in productModels {
                 typeIndex = Int(p.catalogType)
                 chooseProduct(imageView: day1, image: p.groupImage.day1.picture)
@@ -535,6 +535,8 @@ class FTInteractionDetailViewController: UIViewController {
 
             break
         case .Day2:
+            day2.clear()
+
             for p in productModels {
                 typeIndex = Int(p.catalogType)
                 chooseProduct(imageView: day2, image: p.groupImage.day2.picture)
@@ -552,6 +554,7 @@ class FTInteractionDetailViewController: UIViewController {
             night3.clear()
             break
         case .Day3:
+            day3.clear()
             for p in productModels {
                 typeIndex = Int(p.catalogType)
 
@@ -569,6 +572,7 @@ class FTInteractionDetailViewController: UIViewController {
             night3.clear()
             break
         case .Ninght1:
+            night1.clear()
             for p in productModels {
                 typeIndex = Int(p.catalogType)
                 chooseProduct(imageView: night1, image: p.groupImage.night1.picture)
@@ -586,6 +590,7 @@ class FTInteractionDetailViewController: UIViewController {
             break
 
         case .Ninght2:
+            night2.clear()
             for p in productModels {
                 typeIndex = Int(p.catalogType)
                 chooseProduct(imageView: night2, image: p.groupImage.night2.picture)
@@ -602,6 +607,7 @@ class FTInteractionDetailViewController: UIViewController {
             night3.clear()
             break
         case .Ninght3:
+            night3.clear()
             for p in productModels {
                 typeIndex = Int(p.catalogType)
                 chooseProduct(imageView: night3, image: p.groupImage.night3.picture)
@@ -901,14 +907,22 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
             return
         }
         let product = viewModel.cellViewModels[indexPath.row]
+        var isSame:Bool = false
         typeIndex = Int(product.catalogType)
         if productModels.count != 0 {
             for model in productModels{
                 if model.catalogType == product.catalogType{
                     _ = productModels.remove(model)
                 }
+                if model == product{
+                    isSame = true
+                }
+    
             }
+            if !isSame{
+                
                 productModels.append(product)
+            }
         }else{
             productModels.append(product)
         }
