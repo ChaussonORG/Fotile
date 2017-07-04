@@ -852,7 +852,6 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
 
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print("Finish --------- ************************")
    
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

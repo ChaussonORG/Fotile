@@ -178,7 +178,9 @@ class FTProductDetailViewController: UIViewController {
         }
         seriesHeadView.snp.makeConstraints { (make) in
             let h = viewModel.isShowSeries ? headHeight:0
-
+            if h == 0{
+                seriesHeadView.isHidden = true
+            }
             make.top.equalTo(installView.snp.bottom).offset(0)
             make.left.equalTo(0)
             make.width.equalTo(titleView)
@@ -204,6 +206,9 @@ class FTProductDetailViewController: UIViewController {
         }
         moreHeadView.snp.makeConstraints { (make) in
             let h = viewModel.isShowMore ? headHeight:0
+            if h == 0{
+                moreHeadView.isHidden = true
+            }
             make.top.equalTo(seriesCollectionView.snp.bottom).offset(0)
             make.left.equalTo(0)
             make.width.equalTo(titleView)
@@ -348,6 +353,7 @@ class FTProductDetailViewController: UIViewController {
         funView.tapView.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(pushMoreAction))
         funView.tapView.addGestureRecognizer(tap)
+        funView.isHidden = true
         return funView
     }()
     lazy var mainScrollView:UIScrollView = {
