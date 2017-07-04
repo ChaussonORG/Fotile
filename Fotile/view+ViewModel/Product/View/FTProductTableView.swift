@@ -45,18 +45,20 @@ class FTProductTableView: UITableView {
 
 }
 extension FTProductTableView:UITableViewDelegate,UITableViewDataSource, FTProductTableViewCellDeleage,UIScrollViewDelegate{
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let cell = self.visibleCells.first
-//        let indexpath = self.indexPath(for: cell!)
-//        self.dele?.getSection(section: (indexpath?.section)!)
-//    }
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let cell = self.visibleCells.first else{
             return
         }
         let indexpath = self.indexPath(for: cell)
         self.dele?.getSection(section: (indexpath?.section)!)
     }
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        guard let cell = self.visibleCells.first else{
+//            return
+//        }
+//        let indexpath = self.indexPath(for: cell)
+//        self.dele?.getSection(section: (indexpath?.section)!)
+//    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:FTProductTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! FTProductTableViewCell
         if isProduct {
