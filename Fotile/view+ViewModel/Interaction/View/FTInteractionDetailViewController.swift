@@ -262,8 +262,8 @@ class FTInteractionDetailViewController: UIViewController {
         scroll.contentSize = CGSize(width: UIScreen.main.bounds.size.height * 3, height: UIScreen.main.bounds.size.width)
         scroll.isPagingEnabled = true
         scroll.bounces = false
-        scroll.delegate = self
         scroll.contentOffset = CGPoint(x: scroll.contentSize.width / 3, y: 0)
+        scroll.delegate = self
         scroll.showsHorizontalScrollIndicator = false
         return scroll
     }()
@@ -852,34 +852,54 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
 
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        print("Finish --------- ************************")
+   
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == self.scrollView {
             if self.scrollView.contentOffset.x == 0 {
+                var conner = "Defult"
                 if !dayNightBtn.isSelected {
                     type = .Day1
+                    conner = "Day1"
                 }else{
                     type = .Ninght1
+                    conner = "Ninght1"
                 }
                 collectionView.reloadData()
+                selectedProduct()
+                MobClick.event("JiaoDu", attributes: ["type":conner])
+
             }
             if self.scrollView.contentOffset.x == scrollView.contentSize.width / 3 {
+                var conner = "Defult"
                 if !dayNightBtn.isSelected {
                     type = .Day2
+                    conner = "Day2"
                 }else{
                     type = .Ninght2
+                    conner = "Ninght2"
                 }
                 collectionView.reloadData()
+                selectedProduct()
+                MobClick.event("JiaoDu", attributes: ["type":conner])
+
             }
             if self.scrollView.contentOffset.x ==  scrollView.contentSize.width / 3 * 2 {
+                var conner = "Defult"
                 if !dayNightBtn.isSelected {
                     type = .Day3
+                    conner = "Day3"
                 }else{
                     type = .Ninght3
+                    conner = "Ninght3"
                 }
                 collectionView.reloadData()
+                selectedProduct()
+                MobClick.event("JiaoDu", attributes: ["type":conner])
             }
         }
-        MobClick.event("JiaoDu", attributes: ["type":type])
-        selectedProduct()
+
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:FTInteractionDetailCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! FTInteractionDetailCollectionViewCell

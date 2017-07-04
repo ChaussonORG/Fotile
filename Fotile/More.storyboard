@@ -1452,6 +1452,6 @@
         <image name="more2" width="164" height="210"/>
         <image name="more3" width="164" height="210"/>
         <image name="more4" width="164" height="210"/>
-        <image name="set" width="24" height="24"/>
+        <image name="set" width="18" height="18"/>
     </resources>
 </document>
