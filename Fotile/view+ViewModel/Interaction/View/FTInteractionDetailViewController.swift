@@ -339,6 +339,14 @@ class FTInteractionDetailViewController: UIViewController {
         let navc:UINavigationController = UINavigationController(rootViewController: vc)
         vc.isVer = self.isVer
         vc.productModels = self.productModels
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.jietu(vc: vc)
+        }
+        self.present(navc, animated: true, completion: {
+            CHProgressHUD.hide(true)
+        })
+    }
+    func jietu(vc:FTSchemeViewController){
         let kitType:kitType = type
         type = .Day1
         selectedProduct()
@@ -359,11 +367,8 @@ class FTInteractionDetailViewController: UIViewController {
         selectedProduct()
         vc.array.append(self.graphics(bgView: night3))
         type = kitType
-        self.present(navc, animated: true, completion: {
-            CHProgressHUD.hide(true)
-        })
+
     }
-    
     lazy var ninghtView:UIView = {
         let view:UIView = UIView()
         view.backgroundColor = UIColor.black

@@ -23,6 +23,9 @@ class FTSchemeViewController: UIViewController {
         loadUI()
         layout()
         preferredContentSize = UIScreen.main.bounds.size
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.scrollView.imageUrls = self.array
+        }
         // Do any additional setup after loading the view.
     }
 
