@@ -54,6 +54,9 @@ extension FTInteractionViewController:UITableViewDelegate,UITableViewDataSource{
         vc.rect = rect
         let model = models[indexPath.row]
         vc.model = FTCustomKCService.fetchCustomDetail(model)
+        if indexPath.row == 0 {
+            vc.viewModel.isDefultProduct = true
+        }
         navigationController?.pushViewController(vc, animated: false)
         MobClick.event("CustomKitchen", attributes: ["name":model.name])
 

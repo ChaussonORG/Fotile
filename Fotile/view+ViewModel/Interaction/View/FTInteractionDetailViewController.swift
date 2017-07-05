@@ -38,6 +38,7 @@ class FTInteractionDetailViewController: UIViewController {
         animationUI()
         self.loadUI()
         self.layoutView()
+        self.loadDefultProduct()
         // Do any additional setup after loading the view.
     }
     func loadUI()  {
@@ -73,6 +74,20 @@ class FTInteractionDetailViewController: UIViewController {
         sliderView1.isHidden = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(fullScreen))
         scrollView.addGestureRecognizer(tap)
+
+    }
+    func loadDefultProduct()  {
+        if viewModel.isDefultProduct {
+            let defult = ["CXW-200-JQ01TS","JZY/T/R-JACB","ZTD100F-WH2","JBSD2T-Q3/JBSD2T-Q3L"]
+            for p in model.products {
+                for modelNumber in defult {
+                    if p.modelNumber == modelNumber {
+                        productModels.append(p)
+                    }
+                }
+            }
+        }
+        selectedProduct()
     }
     func animationUI() {
         if self.rect.origin.y >  UIScreen.main.bounds.size.width - 292{
