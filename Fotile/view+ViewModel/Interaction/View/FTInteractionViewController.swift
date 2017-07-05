@@ -45,7 +45,7 @@ extension FTInteractionViewController:UITableViewDelegate,UITableViewDataSource{
         return models.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 292
+        return 290
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = FTInteractionDetailViewController()

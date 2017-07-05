@@ -19,8 +19,8 @@ class FTInteractionTableViewCell: UITableViewCell {
         selectionStyle = .none
         imageV.snp.makeConstraints { (make) in
             make.left.right.equalTo(0)
-            make.top.equalTo(-100)
-            make.height.equalTo(490)
+            make.top.equalTo(0)
+            make.height.equalTo(290)
             //make.top.lessThanOrEqualTo(-200)
         }
         // Initialization code

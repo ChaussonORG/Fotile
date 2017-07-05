@@ -634,10 +634,10 @@ class FTInteractionDetailViewController: UIViewController {
         }
         
     }
-    deinit {
-        print("定制厨房界面销毁了")
-    }
-    
+//    deinit {
+//        print("定制厨房界面销毁了")
+//    }
+//    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         if size.width > size.height {
             layoutHor()
