@@ -27,6 +27,7 @@ class FTInteractionDetailViewController: UIViewController {
     var type:kitType = .Day2
     var typeIndex = 1
     var typeIndex1 = 1
+    var chooseTypeIndex = 1
     var isSame:Bool = false
     @IBOutlet var pushBtn: UIButton!
     @IBOutlet var dayNightBtn: UIButton!
@@ -311,7 +312,7 @@ class FTInteractionDetailViewController: UIViewController {
         if !isVer{
             sliderView1.isHidden = false
         }
-        self.chooseType(index: 1)
+        self.chooseType(index: Int32(chooseTypeIndex))
         collectionView.reloadData()
     }
     func materialAction() {
@@ -430,7 +431,6 @@ class FTInteractionDetailViewController: UIViewController {
         (UIApplication.shared.delegate as! AppDelegate).isAllow = false
     }
     func chooseType(index:Int32)  {
-       
         if index == 10{
             viewModel.materialS.removeAll()
             for model in model.materials {
@@ -453,7 +453,8 @@ class FTInteractionDetailViewController: UIViewController {
             }
            
         }else{
-             viewModel.cellViewModels.removeAll()
+            chooseTypeIndex = Int(index)
+            viewModel.cellViewModels.removeAll()
             for model in model.products {
                 if  model.catalogType == index{
                     viewModel.cellViewModels.append(model)
@@ -652,7 +653,7 @@ class FTInteractionDetailViewController: UIViewController {
         materialBtn.setTitle("材\n质", for: .normal)
         layout.scrollDirection = .vertical
         scrollView.contentSize = CGSize(width: (UIScreen.height) * 3, height: UIScreen.main.bounds.size.width)
-        scrollView.contentOffset = CGPoint(x: UIScreen.height, y: 0)
+        //scrollView.contentOffset = CGPoint(x: UIScreen.height, y: 0)
         scrollView.snp.remakeConstraints { (make) in
             make.top.equalTo(0)
             make.left.equalTo(0)
@@ -737,7 +738,7 @@ class FTInteractionDetailViewController: UIViewController {
         }
         layout.scrollDirection = .horizontal
         scrollView.contentSize = CGSize(width: height * 3, height: width)
-        scrollView.contentOffset = CGPoint(x: scrollView.contentSize.width / 3, y: 0)
+       // scrollView.contentOffset = CGPoint(x: scrollView.contentSize.width / 3, y: 0)
         scrollView.snp.remakeConstraints { (make) in
             make.left.equalTo(-spac)
             make.width.equalTo(height)

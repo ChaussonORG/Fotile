@@ -54,6 +54,7 @@ class FTMoreViewController: UIViewController {
         viewModel.fetchData(time: FTUserManager.userManager.getTime()) { (data) in
             self.haveUpdata = data.haveUpdate
             self.dbUrl = data.dbUrl
+            self.lastUpdateTime = data.lastUpdateTime
             if data.haveUpdate {
                 self.dowloadBtn.setTitle("开始更新", for: .normal)
                 self.dowloadBtn.isEnabled = true
@@ -135,6 +136,7 @@ class FTMoreViewController: UIViewController {
     }()
     var haveUpdata:Bool = false
     var dbUrl:String = ""
+    var lastUpdateTime:String = ""
     func checkAction(){
         if haveUpdata && dbUrl.length != 0{
             downLoad.show()
@@ -149,8 +151,7 @@ class FTMoreViewController: UIViewController {
                     FTImageManager.shareInstance().downloadAllImages({ (number, all) in
                         weakSelf.downLoad.number.text = String(number * 100 / all)
                         if number == all{
-                            FTUserManager.userManager.saveTime(time: weakSelf.getTime())
-                            
+                            FTUserManager.userManager.saveTime(time: weakSelf.lastUpdateTime)
                             weakSelf.haveUpdata = false
                             weakSelf.dowloadBtn.isEnabled = false
                             weakSelf.downLoad.hide()

@@ -16,5 +16,6 @@ struct FTCheckUploadModel: HandyJSON {
 }
 struct FTCheckUploadModelData: HandyJSON {
     var dbUrl:String = ""
+    var lastUpdateTime:String = ""
     var haveUpdate:Bool = true
 }
