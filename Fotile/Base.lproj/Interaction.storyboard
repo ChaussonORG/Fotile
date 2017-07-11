@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qyy-8d-OQ5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qyy-8d-OQ5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,19 +25,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellId" rowHeight="292" id="8tR-tD-jvS" customClass="FTInteractionTableViewCell" customModule="Fotile" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="768" height="292"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellId" rowHeight="290" id="8tR-tD-jvS" customClass="FTInteractionTableViewCell" customModule="Fotile" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="768" height="290"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8tR-tD-jvS" id="gLv-eb-jEo">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="291.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="290"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pJn-2e-nch">
-                                                    <rect key="frame" x="0.0" y="-100" width="768" height="490"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pJn-2e-nch">
+                                                    <rect key="frame" x="0.0" y="0.0" width="768" height="290"/>
                                                 </imageView>
-                                                <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4h-tl-qcK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="768" height="288.5"/>
+                                                <view alpha="0.10000000000000001" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="g4h-tl-qcK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="768" height="290"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日式传统" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nui-Sz-52k">
@@ -112,7 +111,7 @@
                                                     </constraints>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvV-JO-Xjh">
-                                                    <rect key="frame" x="0.0" y="288.5" width="768" height="3"/>
+                                                    <rect key="frame" x="0.0" y="287" width="768" height="3"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="3" id="ZuN-Jp-17Z"/>
@@ -121,19 +120,23 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="gvV-JO-Xjh" firstAttribute="top" secondItem="g4h-tl-qcK" secondAttribute="bottom" id="2H9-wh-2fa"/>
+                                                <constraint firstItem="g4h-tl-qcK" firstAttribute="leading" secondItem="gvV-JO-Xjh" secondAttribute="leading" id="2WU-pH-QM2"/>
                                                 <constraint firstItem="nui-Sz-52k" firstAttribute="leading" secondItem="ycO-A3-tkq" secondAttribute="leading" id="5jA-ev-mlm"/>
+                                                <constraint firstItem="g4h-tl-qcK" firstAttribute="top" secondItem="pJn-2e-nch" secondAttribute="top" id="735-M6-zsL"/>
                                                 <constraint firstAttribute="trailing" secondItem="gvV-JO-Xjh" secondAttribute="trailing" id="7gZ-Vz-i7g"/>
                                                 <constraint firstItem="nui-Sz-52k" firstAttribute="trailing" secondItem="ycO-A3-tkq" secondAttribute="trailing" id="BWP-Em-qvt"/>
-                                                <constraint firstItem="g4h-tl-qcK" firstAttribute="leading" secondItem="gLv-eb-jEo" secondAttribute="leading" id="CnH-iC-19y"/>
+                                                <constraint firstItem="g4h-tl-qcK" firstAttribute="trailing" secondItem="gvV-JO-Xjh" secondAttribute="trailing" id="CHd-iv-uDI"/>
                                                 <constraint firstAttribute="trailing" secondItem="ycO-A3-tkq" secondAttribute="trailing" id="JpB-sZ-zl7"/>
+                                                <constraint firstItem="pJn-2e-nch" firstAttribute="trailing" secondItem="nui-Sz-52k" secondAttribute="trailing" id="LVx-Ps-1zj"/>
+                                                <constraint firstItem="pJn-2e-nch" firstAttribute="leading" secondItem="nui-Sz-52k" secondAttribute="leading" id="M30-Gm-bLe"/>
+                                                <constraint firstItem="g4h-tl-qcK" firstAttribute="top" secondItem="gLv-eb-jEo" secondAttribute="top" id="QSd-ga-tNh"/>
                                                 <constraint firstAttribute="bottom" secondItem="gvV-JO-Xjh" secondAttribute="bottom" id="TFd-Pu-zy8"/>
-                                                <constraint firstItem="g4h-tl-qcK" firstAttribute="top" secondItem="gLv-eb-jEo" secondAttribute="top" id="bCN-aM-Gra"/>
                                                 <constraint firstItem="ycO-A3-tkq" firstAttribute="top" secondItem="nui-Sz-52k" secondAttribute="bottom" constant="20" id="fT1-UC-dQl"/>
+                                                <constraint firstItem="pJn-2e-nch" firstAttribute="bottom" secondItem="gvV-JO-Xjh" secondAttribute="bottom" id="jiV-MA-7xg"/>
                                                 <constraint firstItem="nui-Sz-52k" firstAttribute="top" secondItem="gLv-eb-jEo" secondAttribute="topMargin" constant="82" id="n6M-8b-pTK"/>
                                                 <constraint firstItem="gvV-JO-Xjh" firstAttribute="leading" secondItem="gLv-eb-jEo" secondAttribute="leading" id="qYe-Ts-ZgC"/>
                                                 <constraint firstItem="ycO-A3-tkq" firstAttribute="leading" secondItem="gLv-eb-jEo" secondAttribute="leading" id="vTv-fH-fRq"/>
-                                                <constraint firstAttribute="trailing" secondItem="g4h-tl-qcK" secondAttribute="trailing" id="vUa-WZ-eqQ"/>
+                                                <constraint firstItem="g4h-tl-qcK" firstAttribute="bottom" secondItem="pJn-2e-nch" secondAttribute="bottom" id="zEa-nq-MiB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

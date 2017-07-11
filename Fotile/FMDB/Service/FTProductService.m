@@ -254,14 +254,15 @@
     FMResultSet *r = [db executeQuery:sql];
     while ([r next]) {
         FTProduct *product = [self fetchProductWithId:[r stringForColumn:@"similar_product_id"]];
-        if (product) {
+        if (product.identifier.length > 0) {
             [products addObject:product];
         }
     }
     if (!isGoodConnection) {
         [db close];
     }
-    return [products copy];
+    
+    return products.count >0 ?[products copy]:nil;
 
 }
 @end
