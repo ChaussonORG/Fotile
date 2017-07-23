@@ -73,6 +73,7 @@ class FTInteractionDetailViewController: UIViewController {
         night2.backImageView.image = model.groupImage.night2.picture
         night3.backImageView.image = model.groupImage.night3.picture
         sliderView1.isHidden = true
+        dayNightBtn.isHidden = !model.hasNight
         let tap = UITapGestureRecognizer(target: self, action: #selector(fullScreen))
         scrollView.addGestureRecognizer(tap)
 
