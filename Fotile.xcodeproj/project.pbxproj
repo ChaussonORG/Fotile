@@ -1149,8 +1149,8 @@
 				TargetAttributes = {
 					68215BF01EAEE5CE00A32759 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = U96GG276W7;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 4539V58G9H;
+						ProvisioningStyle = Manual;
 					};
 					68215C041EAEE5CE00A32759 = {
 						CreatedOnToolsVersion = 8.3.1;
@@ -1591,15 +1591,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8C96E0D2D4861A122BC82107 /* Pods-Fotile.debug.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = U96GG276W7;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 4539V58G9H;
 				INFOPLIST_FILE = Fotile/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tianshenghuo.yunling.com;
+				PRODUCT_BUNDLE_IDENTIFIER = KuaiCTO.chausson.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "b7a4b131-0742-4df4-9a5d-9d24f1097856";
+				PROVISIONING_PROFILE_SPECIFIER = kuaicto;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Fotile/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -1610,15 +1610,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EA805BF5A1EC00784E30D2C8 /* Pods-Fotile.release.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = U96GG276W7;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 4539V58G9H;
 				INFOPLIST_FILE = Fotile/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tianshenghuo.yunling.com;
+				PRODUCT_BUNDLE_IDENTIFIER = KuaiCTO.chausson.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "b7a4b131-0742-4df4-9a5d-9d24f1097856";
+				PROVISIONING_PROFILE_SPECIFIER = kuaicto;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Fotile/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 2;

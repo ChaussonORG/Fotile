@@ -540,7 +540,9 @@ class FTInteractionDetailViewController: UIViewController {
             day1.clear()
             for p in productModels {
                 typeIndex = Int(p.catalogType)
-                chooseProduct(imageView: day1, image: p.groupImage.day1.picture)
+                if let picture = p.groupImage.day1.picture {
+                    chooseProduct(imageView: day1, image: picture)
+                }
             }
             model.groupImage.day2.picture = nil
             model.groupImage.day3.picture = nil
@@ -560,7 +562,9 @@ class FTInteractionDetailViewController: UIViewController {
 
             for p in productModels {
                 typeIndex = Int(p.catalogType)
-                chooseProduct(imageView: day2, image: p.groupImage.day2.picture)
+                if let picture = p.groupImage.day2.picture {
+                    chooseProduct(imageView: day2, image: picture)
+                }
             }
             model.groupImage.day1.picture = nil
             model.groupImage.day3.picture = nil
@@ -578,8 +582,10 @@ class FTInteractionDetailViewController: UIViewController {
             day3.clear()
             for p in productModels {
                 typeIndex = Int(p.catalogType)
+                if let picture = p.groupImage.day3.picture {
+                    chooseProduct(imageView: day3, image: picture)
+                }
 
-                chooseProduct(imageView: day3, image: p.groupImage.day3.picture)
             }
             model.groupImage.day2.picture = nil
             model.groupImage.day1.picture = nil
@@ -596,7 +602,9 @@ class FTInteractionDetailViewController: UIViewController {
             night1.clear()
             for p in productModels {
                 typeIndex = Int(p.catalogType)
-                chooseProduct(imageView: night1, image: p.groupImage.night1.picture)
+                if let picture = p.groupImage.night1.picture {
+                    chooseProduct(imageView: night1, image: picture)
+                }
             }
             model.groupImage.day2.picture = nil
             model.groupImage.day3.picture = nil
@@ -614,7 +622,9 @@ class FTInteractionDetailViewController: UIViewController {
             night2.clear()
             for p in productModels {
                 typeIndex = Int(p.catalogType)
-                chooseProduct(imageView: night2, image: p.groupImage.night2.picture)
+                if let picture = p.groupImage.night2.picture {
+                    chooseProduct(imageView: night2, image: picture)
+                }
             }
             model.groupImage.day2.picture = nil
             model.groupImage.day3.picture = nil
@@ -631,7 +641,9 @@ class FTInteractionDetailViewController: UIViewController {
             night3.clear()
             for p in productModels {
                 typeIndex = Int(p.catalogType)
-                chooseProduct(imageView: night3, image: p.groupImage.night3.picture)
+                if let picture = p.groupImage.night3.picture {
+                    chooseProduct(imageView: night3, image: picture)
+                }
             }
             model.groupImage.day2.picture = nil
             model.groupImage.day3.picture = nil
