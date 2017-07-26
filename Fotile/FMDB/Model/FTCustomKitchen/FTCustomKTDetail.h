@@ -16,5 +16,6 @@
 @property (nonatomic ,strong) FTGroupImage *groupImage;
 @property (nonatomic ,strong) NSArray <FTMaterial *>*materials;
 @property (nonatomic ,strong) NSArray <FTProduct *>*products;
+@property (nonatomic ,assign) BOOL hasNight;
 
 @end

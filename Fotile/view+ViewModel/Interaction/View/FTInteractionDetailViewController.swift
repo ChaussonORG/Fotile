@@ -49,8 +49,7 @@ class FTInteractionDetailViewController: UIViewController {
         backgroundView.addSubview(collectionView)
         backgroundView.addSubview(sliderView)
         backgroundView.addSubview(sliderView1)
-//        sliderView.deleage = self
-//        sliderView1.deleage = self
+
         backgroundView.addSubview(pushBtn)
         scrollView.addSubview(night1)
         scrollView.addSubview(night3)
@@ -73,6 +72,7 @@ class FTInteractionDetailViewController: UIViewController {
         night2.backImageView.image = model.groupImage.night2.picture
         night3.backImageView.image = model.groupImage.night3.picture
         sliderView1.isHidden = true
+        dayNightBtn.isHidden = !model.hasNight
         let tap = UITapGestureRecognizer(target: self, action: #selector(fullScreen))
         scrollView.addGestureRecognizer(tap)
 
@@ -373,15 +373,17 @@ class FTInteractionDetailViewController: UIViewController {
         type = .Day3
         selectedProduct()
         vc.array.append(self.graphics(bgView: day3))
-        type = .Ninght1
-        selectedProduct()
-        vc.array.append(self.graphics(bgView: night1))
-        type = .Ninght2
-        selectedProduct()
-        vc.array.append(self.graphics(bgView: night2))
-        type = .Ninght3
-        selectedProduct()
-        vc.array.append(self.graphics(bgView: night3))
+        if model.hasNight{
+            type = .Ninght1
+            selectedProduct()
+            vc.array.append(self.graphics(bgView: night1))
+            type = .Ninght2
+            selectedProduct()
+            vc.array.append(self.graphics(bgView: night2))
+            type = .Ninght3
+            selectedProduct()
+            vc.array.append(self.graphics(bgView: night3))
+        }
         type = kitType
 
     }

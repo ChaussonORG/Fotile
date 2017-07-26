@@ -9,5 +9,7 @@
 #import "FTCustomKTDetail.h"
 
 @implementation FTCustomKTDetail
-
+- (BOOL)hasNight{
+    return self.groupImage.night1.identifier.length > 0 && self.groupImage.night2.identifier.length > 0 && self.groupImage.night3.identifier.length > 0;
+}
 @end

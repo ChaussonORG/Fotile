@@ -139,12 +139,12 @@ class FTMoreViewController: UIViewController {
     var lastUpdateTime:String = ""
     func checkAction(){
         if haveUpdata && dbUrl.length != 0{
-            downLoad.show()
             FTDataOperation.shareInstance().downDataBase(withUrl: dbUrl, completion: { [weak self](bool) in
                 if bool{
                     guard let weakSelf = self else{
                         return
                     }
+                    weakSelf.downLoad.show()
                     weakSelf.hide()
                     weakSelf.downLoad.againBtn.isHidden = true
                     weakSelf.downLoad.message.textColor = FTStyleConfiguration.black
@@ -165,6 +165,8 @@ class FTMoreViewController: UIViewController {
                             weakSelf.checkAction()
                         }
                     })
+                }else{
+                    CHProgressHUD.showPlainText("数据库文件下载失败")
                 }
             })
             return
