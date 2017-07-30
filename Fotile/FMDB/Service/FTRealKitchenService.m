@@ -14,8 +14,28 @@
 + (NSArray<FTRealKitchen *> *)fetchRealKitchens{
     return [self fetchRealKitchensWithSQL:@"select * from t_real_kitchen"];
 }
-+ (NSArray <FTRealKitchenList*>*)fetchRealKitchensWithCity:(NSString *)name{
-    NSString *sql = [NSString stringWithFormat:@"select * from t_real_kitchen where city = '%@' and approval_status = 'Approved'",name];
++ (FTRealKitchenList *)fetchTopRealKitchensWithCityId:(NSString *)identifier{
+    NSString *sql = @"select * from t_real_kitchen where approval_status = 'Approved' and set_top = 1";
+    if (identifier.length > 0) {
+        sql = [sql stringByAppendingString:[NSString stringWithFormat:@" and city_id = '%@'",identifier]];
+    }
+    NSArray<FTRealKitchen *> *realKitchens = [self fetchRealKitchensWithSQL:sql];
+    NSMutableArray <FTRealKitchen *>*list = [NSMutableArray array];
+    FTRealKitchenList *topList = [[FTRealKitchenList alloc]init];
+    topList.city = @"本地";
+    topList.name = @"推荐";
+    for (FTRealKitchen *kitchen in realKitchens) {
+        [list addObject:kitchen];
+        
+    }
+    topList.list = list;
+    return topList;
+}
++ (NSArray <FTRealKitchenList*>*)fetchRealKitchensWithCityId:(NSString *)identifier{
+    NSString *sql = @"select * from t_real_kitchen where approval_status = 'Approved'";
+    if (identifier.length > 0) {
+        sql = [sql stringByAppendingString:[NSString stringWithFormat:@" and city_id = '%@'",identifier]];
+    }
     NSArray<FTRealKitchen *> *realKitchens = [self fetchRealKitchensWithSQL:sql];
     NSMutableArray <FTRealKitchenList *>*list = [NSMutableArray array];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
@@ -40,18 +60,23 @@
 
     return [list copy];
 }
-+ (NSArray <FTRealKitchenList*>*)fetchRealKitchensWithCityName:(NSString *)name
-                                                 productNumber:(NSString *)number
-                                                   kitchenArea:(NSString *)area
-                                                    fotileCost:(NSString *)cost
-                                                   betweenCost:(NSString *)price{
-    
-    NSString *sql = [NSString stringWithFormat:@"select * from t_real_kitchen where city = '%@' ",name];
++ (NSArray <FTRealKitchenList*>*)fetchRealKitchensWithCityId:(NSString *)identifier
+                                               productNumber:(NSString *)number
+                                                 kitchenArea:(NSString *)area
+                                                  fotileCost:(NSString *)cost
+                                                 betweenCost:(NSString *)price{
+
+    NSString *sql = @"select * from t_real_kitchen where approval_status = 'Approved'";
+    if (identifier.length > 0) {
+        sql = [sql stringByAppendingString:[NSString stringWithFormat:@" and city_id = '%@' ",identifier]];
+    }
     if (cost.length > 0 && price.length > 0) {
-        sql = [sql stringByAppendingString:[NSString stringWithFormat:@"and kitchen_fotile_cost between '%@' and '%@' ",cost,price]];
+  
+        sql = [sql stringByAppendingString:[NSString stringWithFormat:@" and kitchen_fotile_cost between '%@' and '%@' ",cost,price]];
     }
     if (area.length > 0) {
-        sql = [sql stringByAppendingString:[NSString stringWithFormat:@"and  kitchen_area = '%@' ",area]];
+       
+        sql = [sql stringByAppendingString:[NSString stringWithFormat:@" and  kitchen_area = '%@' ",area]];
     }
     NSArray <FTRealKitchen *>*kitchens = [self fetchRealKitchensWithSQL:sql];
     if(number && number.length > 0){
@@ -92,9 +117,10 @@
 
     return [list copy];
 }
-+ (NSArray <FTRealKitchenList*>*)fetchRealKitchensWithCity:(NSString *)city
-                                                estateName:(NSString *)name{
-    NSString *sql = [NSString stringWithFormat:@"select * from t_real_kitchen where city = '%@' and estate_name like '%%%@%%'",city,name];
++ (NSArray <FTRealKitchenList*>*)fetchRealKitchensWithCityId:(NSString *)identifier
+                                                  estateName:(NSString *)name{
+    NSString *sql = [NSString stringWithFormat:@"select * from t_real_kitchen where  estate_name like '%%%@%%' and approval_status = 'Approved'",name];
+    
     return [self fetchRealKitchenListWithSQL:sql];
 }
 + (NSArray <FTRealKitchenList*>*)fetchRealKitchenListWithSQL:(NSString *)sql{
@@ -147,6 +173,8 @@
         real.houseArea =  [r stringForColumn:@"house_area"];
         real.kitchenArea =  [r stringForColumn:@"kitchen_area"];
         real.cityName =  [r stringForColumn:@"city"];
+        real.districtName =  [r stringForColumn:@"district_name"];
+
         int kitchenCost = [r intForColumn:@"kitchen_cost"];
         int kitchenFotileCost = [r intForColumn:@"kitchen_fotile_cost"];
         if (kitchenCost > 1000) {

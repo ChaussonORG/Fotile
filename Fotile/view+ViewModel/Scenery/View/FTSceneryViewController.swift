@@ -261,7 +261,10 @@ class FTSceneryViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         (UIApplication.shared.delegate as! AppDelegate).ftView?.isHidden = false
         //真正
-        models = FTRealKitchenService.fetchRealKitchens(withCity: FTUserManager.userManager.getModel().userInfo.city)
+        models = FTRealKitchenService.fetchTopRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId)
+
+        models = FTRealKitchenService.fetchRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId)
+        models = FTRealKitchenService.fetchRealKitchens(withCityId: "")
         collectionView.reloadData()
     }
 
@@ -307,7 +310,7 @@ class HeaderReusableView: UICollectionReusableView {
 }
 extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,FTScreeningTableViewDeleage,FTScreeningCostAndAreaViewDeleage,UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        models = FTRealKitchenService.fetchRealKitchens(withCity: FTUserManager.userManager.getModel().userInfo.city, estateName: searchText.text!)
+        models = FTRealKitchenService.fetchRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId, estateName: searchText.text!)
         collectionView.reloadData()
         return true
     }
@@ -345,7 +348,7 @@ extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewData
     func didSeletecedAction(title: String) {
         typeAction()
         productNum = title
-        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: area, fotileCost: cost, betweenCost: costMax)
+        models = FTRealKitchenService.fetchRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId, productNumber: productNum, kitchenArea: area, fotileCost: cost, betweenCost: costMax)
         collectionView.reloadData()
     }
     func didSeletecedActionAreaCost(screenView: FTScreeningCostAndAreaView, title: String) {
@@ -382,7 +385,7 @@ extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewData
                 area = "10"
             }
         }
-        models = FTRealKitchenService.fetchRealKitchens(withCityName: FTUserManager.userManager.getModel().userInfo.city, productNumber: productNum, kitchenArea: area, fotileCost: cost, betweenCost: costMax)
+        models = FTRealKitchenService.fetchRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId, productNumber: productNum, kitchenArea: area, fotileCost: cost, betweenCost: costMax)
         collectionView.reloadData()
 
     }

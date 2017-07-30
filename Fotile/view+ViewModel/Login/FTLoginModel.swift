@@ -19,6 +19,7 @@ struct FTLoginModelData: HandyJSON {
 }
 struct FTUserInfor: HandyJSON {
     var city:String = ""
+    var cityId:String = ""
     var id:String = ""
     var lastLogin:String = ""
     var name:String = ""

@@ -55,6 +55,7 @@ extension UserDefaults {
         case city
         case token
         case id
+        case cityId
         case lastLogin
         case name
         case outlet

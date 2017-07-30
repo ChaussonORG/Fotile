@@ -21,6 +21,7 @@ class FTUserManager: NSObject {
         UserDefaults.UserData.token.store(value: model.token)
         //***只能存入字符串类型,其他无效***
         UserDefaults.UserData.id.store(value: model.userInfo.id)
+        UserDefaults.UserData.cityId.store(value: model.userInfo.cityId)
         UserDefaults.UserData.city.store(value: model.userInfo.city)
         UserDefaults.UserData.lastLogin.store(value: model.userInfo.lastLogin)
         UserDefaults.UserData.name.store(value: model.userInfo.name)
@@ -45,6 +46,9 @@ class FTUserManager: NSObject {
         }
         if let city = UserDefaults.UserData.city.storedValue {
             currentUser.userInfo.city = city
+        }
+        if let cityId = UserDefaults.UserData.cityId.storedValue {
+            currentUser.userInfo.cityId = cityId
         }
         if let lastLogin = UserDefaults.UserData.lastLogin.storedValue {
             currentUser.userInfo.lastLogin = lastLogin
