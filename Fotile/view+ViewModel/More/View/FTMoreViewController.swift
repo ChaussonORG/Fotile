@@ -155,6 +155,11 @@ class FTMoreViewController: UIViewController {
                             weakSelf.haveUpdata = false
                             weakSelf.dowloadBtn.isEnabled = false
                             weakSelf.downLoad.hide()
+                            let api:FTUploadFinishApi = FTUploadFinishApi<FTCommenModel>()
+                            api.requestJSON({ (model) in
+                                
+                            })
+                            
                         }
                     }, failureBlock: { [weak self] in
                         guard let weakSelf = self else{

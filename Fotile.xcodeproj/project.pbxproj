@@ -154,6 +154,8 @@
 		68DDA4EB1F0386B100CBE505 /* CommonPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DDA4EA1F0386B100CBE505 /* CommonPresentationController.swift */; };
 		68DDA4EE1F039CDF00CBE505 /* FTHorCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DDA4EC1F039CDF00CBE505 /* FTHorCellTableViewCell.swift */; };
 		68DDA4EF1F039CDF00CBE505 /* FTHorCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68DDA4ED1F039CDF00CBE505 /* FTHorCellTableViewCell.xib */; };
+		68E6FDD31F2F00F700918744 /* FTUploadFinishApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E6FDD21F2F00F700918744 /* FTUploadFinishApi.swift */; };
+		68E6FDD51F2F0C4600918744 /* FTCommenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E6FDD41F2F0C4600918744 /* FTCommenModel.swift */; };
 		68E7175C1EC1C1D100F236EE /* FTProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E7175A1EC1C1D100F236EE /* FTProductTableViewCell.swift */; };
 		68E7175D1EC1C1D100F236EE /* FTProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E7175B1EC1C1D100F236EE /* FTProductTableViewCell.xib */; };
 		68E717631EC2AD0000F236EE /* FTProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E717621EC2AD0000F236EE /* FTProductViewModel.swift */; };
@@ -380,6 +382,8 @@
 		68DDA4EA1F0386B100CBE505 /* CommonPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonPresentationController.swift; sourceTree = "<group>"; };
 		68DDA4EC1F039CDF00CBE505 /* FTHorCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTHorCellTableViewCell.swift; sourceTree = "<group>"; };
 		68DDA4ED1F039CDF00CBE505 /* FTHorCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTHorCellTableViewCell.xib; sourceTree = "<group>"; };
+		68E6FDD21F2F00F700918744 /* FTUploadFinishApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTUploadFinishApi.swift; sourceTree = "<group>"; };
+		68E6FDD41F2F0C4600918744 /* FTCommenModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTCommenModel.swift; sourceTree = "<group>"; };
 		68E7175A1EC1C1D100F236EE /* FTProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductTableViewCell.swift; sourceTree = "<group>"; };
 		68E7175B1EC1C1D100F236EE /* FTProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTProductTableViewCell.xib; sourceTree = "<group>"; };
 		68E717621EC2AD0000F236EE /* FTProductViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTProductViewModel.swift; sourceTree = "<group>"; };
@@ -487,6 +491,7 @@
 			isa = PBXGroup;
 			children = (
 				6812D9631EF672D1000FC765 /* FTCheckUploadApi.swift */,
+				68E6FDD21F2F00F700918744 /* FTUploadFinishApi.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -1055,6 +1060,7 @@
 			isa = PBXGroup;
 			children = (
 				68FDF29A1EEE34DF00AC0466 /* FTUserManager.swift */,
+				68E6FDD41F2F0C4600918744 /* FTCommenModel.swift */,
 			);
 			name = CommenModel;
 			path = Fotile/CommenModel;
@@ -1305,6 +1311,7 @@
 				68948BA51EFBB4F50056B840 /* FTCustomKTDetail.m in Sources */,
 				68215CE21EAEF10200A32759 /* DictionaryConvertible.swift in Sources */,
 				68215D021EAEF10200A32759 /* Permission.swift in Sources */,
+				68E6FDD31F2F00F700918744 /* FTUploadFinishApi.swift in Sources */,
 				686A0BF61EDFE6140008F97C /* FTPentalCollectionViewCell.swift in Sources */,
 				68215CF11EAEF10200A32759 /* SwiftyTableView.swift in Sources */,
 				68C257FB1F00ECFD00C02BA7 /* FTInterOptionView.swift in Sources */,
@@ -1349,6 +1356,7 @@
 				68948BA81EFBB4F50056B840 /* FTMaterial.m in Sources */,
 				68822D961ED5305300E6F958 /* FTBaseLayerView.swift in Sources */,
 				689EC0AF1EC45D3200E9730C /* WXSTransitionManager+FragmentAnimation.m in Sources */,
+				68E6FDD51F2F0C4600918744 /* FTCommenModel.swift in Sources */,
 				68215D131EAEF15F00A32759 /* UIImage+Extension.swift in Sources */,
 				68215CE31EAEF10200A32759 /* DictionaryDecodable.swift in Sources */,
 				68C9DFA61EE2AB1200DACB58 /* FTLoginModel.swift in Sources */,
