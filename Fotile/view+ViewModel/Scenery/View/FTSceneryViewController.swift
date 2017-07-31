@@ -11,7 +11,7 @@ import UIKit
 class FTSceneryViewController: UIViewController {
     var locationModels = Array<FTRealKitchenList>()
     var allModels = Array<FTRealKitchenList>()
-    var topModels = Array<FTRealKitchenList>()
+    var topModels = FTRealKitchenList()
 
     var productNum:String = ""
     var area:String = ""
@@ -372,12 +372,9 @@ class FTSceneryViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         (UIApplication.shared.delegate as! AppDelegate).ftView?.isHidden = false
         //真正
-        //topModels = FTRealKitchenService.fetchTopRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId)
-
-        //locationModels = FTRealKitchenService.fetchRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId)
-        if topModels.count != 0 {
-            locationModels.insert(topModels[0], at: 0)
-        }
+        topModels = FTRealKitchenService.fetchTopRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId)
+        locationModels = FTRealKitchenService.fetchRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId)
+        locationModels.insert(topModels, at: 0)
         allModels = FTRealKitchenService.fetchRealKitchens(withCityId: "")
         collectionView.reloadData()
         collectionView1.reloadData()

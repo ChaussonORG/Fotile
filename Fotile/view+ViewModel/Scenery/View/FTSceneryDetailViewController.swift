@@ -29,7 +29,9 @@ class FTSceneryDetailViewController: UIViewController {
     func banner() {
         var arr = Array<UIImage>()
         for fimage in model.images{
-            arr.append(fimage.picture)
+            if let pic = fimage.picture{
+                arr.append(pic)
+            }
         }
         scrollView.imageUrls = arr
     }

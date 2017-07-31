@@ -14,7 +14,7 @@
 + (NSArray<FTRealKitchen *> *)fetchRealKitchens;
 // 根据城市获取实景厨房推荐列表 ，城市必传
 
-+ (NSArray <FTRealKitchenList*>*)fetchTopRealKitchensWithCityId:(NSString *)identifier;
++ (FTRealKitchenList *)fetchTopRealKitchensWithCityId:(NSString *)identifier;
 // 根据城市获取实景厨房列表
 
 + (NSArray <FTRealKitchenList*>*)fetchRealKitchensWithCityId:(NSString *)identifier;

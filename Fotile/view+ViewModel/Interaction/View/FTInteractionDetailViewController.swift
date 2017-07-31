@@ -82,8 +82,10 @@ class FTInteractionDetailViewController: UIViewController {
             let defult = ["CXW-200-JQ01TS","JZY/T/R-JACB","ZTD100F-WH2","JBSD2T-Q3/JBSD2T-Q3L"]
             for p in model.products {
                 for modelNumber in defult {
-                    if p.modelNumber == modelNumber {
-                        productModels.append(p)
+                    if let num = p.modelNumber{
+                        if num == modelNumber {
+                            productModels.append(p)
+                        }
                     }
                 }
             }
