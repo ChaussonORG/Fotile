@@ -13,6 +13,7 @@ struct Config:CHRequestAdapter {
 }
 extension CHRequestAdapter {
     var baseURL:String{
+        //        return "http://kitchenapp.fotile.com"
         return "http://tomcat.ngrok.curvesoft.net"
     }
     var httpHeaderFields:[String :String]{

@@ -9,7 +9,10 @@
 import UIKit
 
 class FTSceneryViewController: UIViewController {
-    var models = Array<FTRealKitchenList>()
+    var locationModels = Array<FTRealKitchenList>()
+    var allModels = Array<FTRealKitchenList>()
+    var topModels = Array<FTRealKitchenList>()
+
     var productNum:String = ""
     var area:String = ""
     var cost:String = ""
@@ -18,31 +21,47 @@ class FTSceneryViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.white
+        view.addSubview(collectionView1)
         view.addSubview(collectionView)
         view.addSubview(headView)
         headView.addSubview(lineView)
         headView.addSubview(searchImage)
         headView.addSubview(searchText)
-        headView.addSubview(typeBtn)
-        headView.addSubview(areaBtn)
-        headView.addSubview(costBtn)
+        headView.addSubview(localBtn)
+        headView.addSubview(countrywideBtn)
+        headView.addSubview(topLine)
+        view.addSubview(typeBtn)
+        view.addSubview(areaBtn)
+        view.addSubview(costBtn)
+        view.addSubview(lineView1)
         UIApplication.shared.keyWindow?.addSubview(screenBackView)
         UIApplication.shared.keyWindow?.addSubview(screenTable)
         UIApplication.shared.keyWindow?.addSubview(areaScreen)
         UIApplication.shared.keyWindow?.addSubview(costScreen)
 
         collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(64)
+            make.top.equalTo(108)
+            make.left.right.equalTo(0)
+            make.bottom.equalTo(-49)
+        }
+        collectionView1.snp.makeConstraints { (make) in
+            make.top.equalTo(108)
             make.left.right.equalTo(0)
             make.bottom.equalTo(-49)
         }
         headView.snp.makeConstraints { (make) in
             make.top.equalTo(10)
             make.left.right.equalTo(0)
-            make.bottom.equalTo(collectionView.snp.top)
+            make.height.equalTo(54)
         }
+      
         lineView.snp.makeConstraints { (make) in
             make.bottom.equalTo(0)
+            make.left.right.equalTo(0)
+            make.height.equalTo(1)
+        }
+        lineView1.snp.makeConstraints { (make) in
+            make.bottom.equalTo(collectionView1.snp.top)
             make.left.right.equalTo(0)
             make.height.equalTo(1)
         }
@@ -57,46 +76,66 @@ class FTSceneryViewController: UIViewController {
             make.width.equalTo(200)
             make.left.equalTo(searchImage.snp.right).offset(10)
         }
+        
+        localBtn.snp.makeConstraints { (make) in
+            make.top.equalTo(21)
+            make.height.equalTo(30)
+            make.width.equalTo(50)
+            make.left.equalTo((UIScreen.width - 200) / 2)
+        }
+        countrywideBtn.snp.makeConstraints { (make) in
+            make.top.equalTo(21)
+            make.height.equalTo(30)
+            make.width.equalTo(50)
+            make.right.equalTo(-(UIScreen.width - 200) / 2)
+        }
+        topLine.snp.makeConstraints { (make) in
+            make.bottom.equalTo(0)
+            make.left.equalTo(localBtn.snp.left)
+            make.width.equalTo(50)
+            make.height.equalTo(4)
+        }
+        
         costBtn.snp.makeConstraints { (make) in
-            make.top.equalTo(20)
+            make.top.equalTo(71)
             make.height.equalTo(30)
             make.width.equalTo(120)
-            make.right.equalTo(-50)
+            make.right.equalTo(-(UIScreen.width - 560) / 2)
         }
         areaBtn.snp.makeConstraints { (make) in
-            make.top.equalTo(20)
+            make.top.equalTo(71)
             make.height.equalTo(30)
             make.width.equalTo(120)
-            make.right.equalTo(costBtn.snp.left).offset(-30)
+            make.left.equalTo(typeBtn.snp.right).offset(100)
         }
         typeBtn.snp.makeConstraints { (make) in
-            make.top.equalTo(20)
+            make.top.equalTo(71)
             make.height.equalTo(30)
             make.width.equalTo(120)
-            make.right.equalTo(areaBtn.snp.left).offset(-30)
+            make.left.equalTo((UIScreen.width - 560) / 2)
         }
 
     }
     let screenViewModel:FTScreeningViewModel = FTScreeningViewModel()
     lazy var screenTable:FTScreeningTableView = {
-        let view:FTScreeningTableView = FTScreeningTableView(frame: CGRect.init(x: 0, y: 70, width: self.view.frame.size.width, height: 0), style: .plain)
+        let view:FTScreeningTableView = FTScreeningTableView(frame: CGRect.init(x: 0, y: 108, width: self.view.frame.size.width, height: 0), style: .plain)
         view.dele = self
         return view
     }()
     lazy var areaScreen:FTScreeningCostAndAreaView = {
-        let view:FTScreeningCostAndAreaView = FTScreeningCostAndAreaView(frame:  CGRect.init(x: 0, y: 70, width: self.view.frame.size.width, height: 0))
+        let view:FTScreeningCostAndAreaView = FTScreeningCostAndAreaView(frame:  CGRect.init(x: 0, y: 108, width: self.view.frame.size.width, height: 0))
         view.loadUI(cellViewModels: self.screenViewModel.areaCellViewModels)
         view.dele = self
         return view
     }()
     lazy var costScreen:FTScreeningCostAndAreaView = {
-        let view:FTScreeningCostAndAreaView = FTScreeningCostAndAreaView(frame:  CGRect.init(x: 0, y: 70, width: self.view.frame.size.width, height: 0))
+        let view:FTScreeningCostAndAreaView = FTScreeningCostAndAreaView(frame:  CGRect.init(x: 0, y: 108, width: self.view.frame.size.width, height: 0))
         view.loadUI(cellViewModels: self.screenViewModel.costCellViewModels)
         view.dele = self
         return view
     }()
     lazy var screenBackView:UIView = {
-        let view:UIView = UIView(frame: CGRect.init(x: 0, y: 70, width: self.view.frame.size.width, height:self.view.frame.size.height - 70))
+        let view:UIView = UIView(frame: CGRect.init(x: 0, y: 108, width: self.view.frame.size.width, height:self.view.frame.size.height - 70))
         view.isHidden = true
         view.backgroundColor = UIColor.black
         view.alpha = 0.6
@@ -107,6 +146,11 @@ class FTSceneryViewController: UIViewController {
         return view
     }()
     lazy var lineView:UIView = {
+        let view = UIView()
+        view.backgroundColor = FTStyleConfiguration.line
+        return view
+    }()
+    lazy var lineView1:UIView = {
         let view = UIView()
         view.backgroundColor = FTStyleConfiguration.line
         return view
@@ -160,6 +204,55 @@ class FTSceneryViewController: UIViewController {
         btn.addTarget(self, action: #selector(costAction), for: .touchUpInside)
         return btn
     }()
+    lazy var localBtn:UIButton = {
+        let btn:UIButton = UIButton(type: .custom)
+        btn.setTitle("本地", for: .normal)
+        btn.setTitleColor(FTStyleConfiguration.b3b3b3, for: .normal)
+        btn.setTitleColor(FTStyleConfiguration.red, for: .selected)
+        btn.isSelected = true
+        btn.titleLabel?.font = FTStyleConfiguration.font17bold
+        btn.addTarget(self, action: #selector(localAction), for: .touchUpInside)
+        return btn
+    }()
+    lazy var countrywideBtn:UIButton = {
+        let btn:UIButton = UIButton(type: .custom)
+        btn.setTitle("全国", for: .normal)
+        btn.setTitleColor(FTStyleConfiguration.b3b3b3, for: .normal)
+        btn.setTitleColor(FTStyleConfiguration.red, for: .selected)
+        btn.titleLabel?.font = FTStyleConfiguration.font17bold
+        btn.addTarget(self, action: #selector(countrywideAction), for: .touchUpInside)
+        return btn
+    }()
+    lazy var topLine:UIView = {
+        let view:UIView = UIView()
+        view.backgroundColor = FTStyleConfiguration.red
+        return view
+    }()
+    func localAction() {
+        localBtn.isSelected = true
+        countrywideBtn.isSelected = false
+        view.bringSubview(toFront: collectionView)
+        topLine.snp.remakeConstraints { (make) in
+            make.bottom.equalTo(0)
+            make.left.equalTo(localBtn.snp.left)
+            make.width.equalTo(50)
+            make.height.equalTo(4)
+        }
+        
+    }
+    
+    func countrywideAction() {
+        localBtn.isSelected = false
+        countrywideBtn.isSelected = true
+        view.bringSubview(toFront: collectionView1)
+        topLine.snp.remakeConstraints { (make) in
+            make.bottom.equalTo(0)
+            make.left.equalTo(countrywideBtn.snp.left)
+            make.width.equalTo(50)
+            make.height.equalTo(4)
+        }
+        
+    }
     func typeAction() {
         typeBtn.isSelected = !typeBtn.isSelected
         areaBtn.isSelected = false
@@ -202,37 +295,37 @@ class FTSceneryViewController: UIViewController {
     func showType() {
         screenBackView.isHidden = false
         UIView.animate(withDuration: 0.5) {
-            self.screenTable.frame = CGRect.init(x: 0, y: 70, width: self.view.frame.size.width, height: self.view.frame.size.height - 270)
+            self.screenTable.frame = CGRect.init(x: 0, y: 108, width: self.view.frame.size.width, height: self.view.frame.size.height - 270)
         }
     }
     func hideType() {
         screenBackView.isHidden = true
         UIView.animate(withDuration: 0.5) {
-            self.screenTable.frame = CGRect.init(x: 0, y: 70, width: self.view.frame.size.width, height: 0)
+            self.screenTable.frame = CGRect.init(x: 0, y: 108, width: self.view.frame.size.width, height: 0)
         }
     }
     func showArea() {
         screenBackView.isHidden = false
         UIView.animate(withDuration: 0.5) {
-            self.areaScreen.frame = CGRect.init(x: 0, y: 70, width: self.view.frame.size.width, height: 120)
+            self.areaScreen.frame = CGRect.init(x: 0, y: 108, width: self.view.frame.size.width, height: 120)
         }
     }
     func hideArea() {
         screenBackView.isHidden = true
         UIView.animate(withDuration: 0.5) {
-            self.areaScreen.frame = CGRect.init(x: 0, y: 70, width: self.view.frame.size.width, height: 0)
+            self.areaScreen.frame = CGRect.init(x: 0, y: 108, width: self.view.frame.size.width, height: 0)
         }
     }
     func showCost() {
         screenBackView.isHidden = false
         UIView.animate(withDuration: 0.5) {
-            self.costScreen.frame = CGRect.init(x: 0, y: 70, width: self.view.frame.size.width, height: 120)
+            self.costScreen.frame = CGRect.init(x: 0, y: 108, width: self.view.frame.size.width, height: 120)
         }
     }
     func hideCost() {
         screenBackView.isHidden = true
         UIView.animate(withDuration: 0.5) {
-            self.costScreen.frame = CGRect.init(x: 0, y: 70, width: self.view.frame.size.width, height: 0)
+            self.costScreen.frame = CGRect.init(x: 0, y: 108, width: self.view.frame.size.width, height: 0)
         }
     }
     lazy var collectionView:UICollectionView = {
@@ -252,6 +345,24 @@ class FTSceneryViewController: UIViewController {
         collectionView.register(HeaderReusableView.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
         return collectionView
     }()
+    lazy var collectionView1:UICollectionView = {
+        let  layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        //layout.sectionInset = UIEdgeInsetsMake(0, 25, 0, 25)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.size.width / 2, height: UIScreen.main.bounds.size.width / 2 / 1.33 + 65)
+        layout.headerReferenceSize = CGSize(width: self.view.frame.size.width, height: 65)
+        let collectionView:UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = UIColor.white
+        collectionView.collectionViewLayout = layout
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(FTSceneryCollectionCell.self, forCellWithReuseIdentifier: "cellId")
+        collectionView.register(HeaderReusableView.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
+        return collectionView
+    }()
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -261,11 +372,16 @@ class FTSceneryViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         (UIApplication.shared.delegate as! AppDelegate).ftView?.isHidden = false
         //真正
-        models = FTRealKitchenService.fetchTopRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId)
+        //topModels = FTRealKitchenService.fetchTopRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId)
 
-        models = FTRealKitchenService.fetchRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId)
-        models = FTRealKitchenService.fetchRealKitchens(withCityId: "")
+        //locationModels = FTRealKitchenService.fetchRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId)
+        if topModels.count != 0 {
+            locationModels.insert(topModels[0], at: 0)
+        }
+        allModels = FTRealKitchenService.fetchRealKitchens(withCityId: "")
         collectionView.reloadData()
+        collectionView1.reloadData()
+
     }
 
     /*
@@ -310,31 +426,63 @@ class HeaderReusableView: UICollectionReusableView {
 }
 extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,FTScreeningTableViewDeleage,FTScreeningCostAndAreaViewDeleage,UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        models = FTRealKitchenService.fetchRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId, estateName: searchText.text!)
-        collectionView.reloadData()
+        if countrywideBtn.isSelected{
+            allModels = FTRealKitchenService.fetchRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId, estateName: searchText.text!)
+            collectionView1.reloadData()
+        }else{
+            locationModels = FTRealKitchenService.fetchRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId, estateName: searchText.text!)
+            collectionView.reloadData()
+        }
+
         return true
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == self.collectionView{
+            let cell:FTSceneryCollectionCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! FTSceneryCollectionCell
+            let array:[FTRealKitchen] = locationModels[indexPath.section].list as! [FTRealKitchen]
+            cell.loadModel(model: array[indexPath.row])
+            return cell
+        }
         let cell:FTSceneryCollectionCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! FTSceneryCollectionCell
-        let array:[FTRealKitchen] = models[indexPath.section].list as! [FTRealKitchen]
+        let array:[FTRealKitchen] = allModels[indexPath.section].list as! [FTRealKitchen]
         cell.loadModel(model: array[indexPath.row])
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let array:[FTRealKitchen] = models[section].list as! [FTRealKitchen]
+        if collectionView == self.collectionView{
+            let array:[FTRealKitchen] = locationModels[section].list as! [FTRealKitchen]
+            return array.count
+        }
+        let array:[FTRealKitchen] = allModels[section].list as! [FTRealKitchen]
         return array.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let array:[FTRealKitchen] = models[indexPath.section].list as! [FTRealKitchen]
-       let vc = FTSceneryDetailViewController()
-        vc.model = array[indexPath.row]
-        navigationController?.pushViewController(vc, animated: true)
+        if collectionView == self.collectionView{
+            let array:[FTRealKitchen] = locationModels[indexPath.section].list as! [FTRealKitchen]
+            let vc = FTSceneryDetailViewController()
+            vc.model = array[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }else{
+            let array:[FTRealKitchen] = allModels[indexPath.section].list as! [FTRealKitchen]
+            let vc = FTSceneryDetailViewController()
+            vc.model = array[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
+
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return models.count
+        if collectionView == self.collectionView{
+            return locationModels.count
+        }
+        return allModels.count
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let model:FTRealKitchenList = models[indexPath.section]
+        var model:FTRealKitchenList = FTRealKitchenList()
+        if collectionView == self.collectionView{
+            model = locationModels[indexPath.section]
+        }else{
+            model = allModels[indexPath.section]
+        }
         switch kind{
         case UICollectionElementKindSectionHeader:
             let header:HeaderReusableView=collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as! HeaderReusableView
@@ -348,8 +496,17 @@ extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewData
     func didSeletecedAction(title: String) {
         typeAction()
         productNum = title
-        models = FTRealKitchenService.fetchRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId, productNumber: productNum, kitchenArea: area, fotileCost: cost, betweenCost: costMax)
-        collectionView.reloadData()
+        if countrywideBtn.isSelected{
+            allModels = FTRealKitchenService.fetchRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId, productNumber: productNum, kitchenArea: area, fotileCost: cost, betweenCost: costMax)
+            collectionView1.reloadData()
+        }else{
+            locationModels = FTRealKitchenService.fetchRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId, productNumber: productNum, kitchenArea: area, fotileCost: cost, betweenCost: costMax)
+//            if topModels.count != 0 {
+//                locationModels.insert(topModels[0], at: 0)
+//            }
+            collectionView.reloadData()
+        }
+    
     }
     func didSeletecedActionAreaCost(screenView: FTScreeningCostAndAreaView, title: String) {
         if costScreen == screenView{
@@ -385,8 +542,17 @@ extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewData
                 area = "10"
             }
         }
-        models = FTRealKitchenService.fetchRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId, productNumber: productNum, kitchenArea: area, fotileCost: cost, betweenCost: costMax)
-        collectionView.reloadData()
+        if countrywideBtn.isSelected{
+            allModels = FTRealKitchenService.fetchRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId, productNumber: productNum, kitchenArea: area, fotileCost: cost, betweenCost: costMax)
+            collectionView1.reloadData()
+        }else{
+            locationModels = FTRealKitchenService.fetchRealKitchens(withCityId: FTUserManager.userManager.getModel().userInfo.cityId, productNumber: productNum, kitchenArea: area, fotileCost: cost, betweenCost: costMax)
+//            if topModels.count != 0 {
+//                locationModels.insert(topModels[0], at: 0)
+//            }
+            collectionView.reloadData()
+        }
+ 
 
     }
 
