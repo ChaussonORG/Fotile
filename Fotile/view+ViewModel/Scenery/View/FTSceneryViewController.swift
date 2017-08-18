@@ -483,8 +483,8 @@ extension FTSceneryViewController:UICollectionViewDelegate, UICollectionViewData
         switch kind{
         case UICollectionElementKindSectionHeader:
             let header:HeaderReusableView=collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as! HeaderReusableView
-            header.headerLb!.text = model.name + "   ·"
-            header.headerLb1.text = model.city
+            header.headerLb!.text = model.name
+//            header.headerLb1.text = model.city
             return header
         default:
             return HeaderReusableView()

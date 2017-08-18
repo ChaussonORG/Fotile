@@ -180,7 +180,11 @@
         if (kitchenCost > 1000) {
             real.kitchenCost = [self convertCostWithInt:kitchenCost];
         }else{
-            real.kitchenCost =  [r stringForColumn:@"kitchen_cost"];
+            if (kitchenCost != 0) {
+                real.kitchenCost =  [r stringForColumn:@"kitchen_cost"];
+            }else{
+                real.kitchenCost = @"";
+            }
         }
         if (kitchenFotileCost > 1000) {
             real.fotileCost = [self convertCostWithInt:kitchenFotileCost];
