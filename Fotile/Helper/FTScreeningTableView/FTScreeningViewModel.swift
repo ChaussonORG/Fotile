@@ -14,14 +14,14 @@ class FTScreeningViewModel: NSObject {
         fetchData()
     }
     var array = ["油烟机","灶具","消毒柜","蒸微一体机","蒸箱","烤箱","微波炉","水槽洗碗机", "热水器"]
-    var array1 = ["358-Z3T-M","358-Z1T-M","200-EM03T","200-EM10T","200-EM11T","200-EM12T","200-JQ01TS","200-JQ03TS", "200-JQ08TS-Y","200-JQ08TS-F","200-JQ08TS-L","200-JQ08TS-H"]
-    var array2 = ["T-JA6B","T- HA6B","T-TA1B","T/R-JA1G","T/R-JA6G","T/R-JACB","T-JA1GB.Z","T/R-HA6G","CS34BW"]
-    var array3 = ["100J-12","100J-13","100J-J25","100F-WH2","100F-WH5","100F-Z1","100F-H08-Y","100F-H08-F","100F-H08-L","100S-KM6","100S-KM7"]
+    var array1 = ["Z3T-M","Z1T-M","EM03T","EM10T","EM11T","EM12T","JQ01TS","JQ03TS", "JQ08TS-Y","JQ08TS-F","JQ08TS-L","JQ08TS-H"]
+    var array2 = ["JA6B","HA6B","TA1B","JA1G","JA6G","JACB","JA1GB.Z","HA6G","CS34BW"]
+    var array3 = ["J-12","J-13","J-J25","WH2","WH5","Z1","H08-Y","H08-F","H08-L","KM6","KM7"]
     var array4 = ["ZW-Z1","ZW-C2S","ZW-D1"]
     var array5 = ["SCD39-Z1","SCD26-C2S","SCD26-D1"]
     var array6 = ["KQD60F-Z1","KQD50F-C2SG","KQD50F-D1G"]
     var array7 = ["W25800SH-Z1","W25800P-C2S","W20800P-D1"]
-    var array8 = ["3T-Q6","2F-Q5","2T-Q3", "2T-Q2","2T-Q1"]
+    var array8 = ["Q7","Q6","Q5","Q3", "Q2","Q1"]
     var array9 = ["1509S","1510SW","1402","H16M7"]
 
     
