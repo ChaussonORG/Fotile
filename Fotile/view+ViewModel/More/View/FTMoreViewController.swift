@@ -138,8 +138,10 @@ class FTMoreViewController: UIViewController {
     var dbUrl:String = ""
     var lastUpdateTime:String = ""
     func checkAction(){
+        CHProgressHUD.show(true)
         if haveUpdata && dbUrl.length != 0{
             FTDataOperation.shareInstance().downDataBase(withUrl: dbUrl, completion: { [weak self](bool) in
+                CHProgressHUD.hide(true)
                 if bool{
                     guard let weakSelf = self else{
                         return
