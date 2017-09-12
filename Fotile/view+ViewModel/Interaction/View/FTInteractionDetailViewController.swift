@@ -501,6 +501,14 @@ class FTInteractionDetailViewController: UIViewController {
         collectionView.reloadData()
     }
     func chooseProduct(imageView:FTBaseLayerView,image:UIImage) {
+//        //  蒸箱和蒸汽一体机 互相冲突选择需要替换
+//        if typeIndex == 4 {
+//            imageView.imageView4.image = nil
+//
+//        }
+//        if typeIndex == 5 {
+//            imageView.imageView4.image = nil
+//        }
         switch typeIndex {
         case 1:
             imageView.imageView1.image = image
@@ -526,6 +534,7 @@ class FTInteractionDetailViewController: UIViewController {
             break
         }
     }
+
     func selectedProduct() {
         for mp in model.products {
             mp.groupImage.day1.picture = nil
@@ -666,6 +675,7 @@ class FTInteractionDetailViewController: UIViewController {
         }
         
     }
+  
 //    deinit {
 //        print("定制厨房界面销毁了")
 //    }
@@ -967,6 +977,14 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
         typeIndex = Int(product.catalogType)
         if productModels.count != 0 {
             for model in productModels{
+                // 去除冲突产品蒸微一体机和蒸箱
+                if typeIndex == 4 && model.catalogType == 5{
+                    _ = productModels.remove(model)
+                }
+                if typeIndex == 5 && model.catalogType == 4{
+                    _ = productModels.remove(model)
+                }
+                
                 if model.catalogType == product.catalogType{
                     _ = productModels.remove(model)
                 }
@@ -976,7 +994,6 @@ extension FTInteractionDetailViewController:UICollectionViewDelegate, UICollecti
     
             }
             if !isSame{
-                
                 productModels.append(product)
             }
         }else{
