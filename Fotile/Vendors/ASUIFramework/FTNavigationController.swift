@@ -14,7 +14,7 @@ class FTNavigationController: UINavigationController,UIGestureRecognizerDelegate
         super.viewDidLoad()
         self.navigationBar.isTranslucent = false
         let view:UIView = UIView(frame: CGRect.init(x: 0, y: 44, width: self.view.frame.size.width, height: 3))
-        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]
         self.navigationBar.addSubview(view)
 //        self.interactivePopGestureRecognizer?.isEnabled = true
 //        self.interactivePopGestureRecognizer?.delegate = self;

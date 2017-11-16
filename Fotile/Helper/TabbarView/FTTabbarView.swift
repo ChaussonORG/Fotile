@@ -19,6 +19,8 @@ class FTTabbarView: UIView {
         view2.addSubview(btn2)
         view3.addSubview(btn3)
         view4.addSubview(btn4)
+        view5.addSubview(btn5)
+
        // stackView.arrangedSubviews = [btn1,btn2,btn3, btn4]
     
         stackView.snp.makeConstraints { (make) in
@@ -37,6 +39,9 @@ class FTTabbarView: UIView {
         btn4.snp.makeConstraints { (make) in
             make.left.right.bottom.top.equalTo(0)
         }
+        btn5.snp.makeConstraints { (make) in
+            make.left.right.bottom.top.equalTo(0)
+        }
 
         stackView.backgroundColor = UIColor.red
         addSubview(line)
@@ -46,7 +51,7 @@ class FTTabbarView: UIView {
         }
     }
     lazy var stackView:UIStackView = {
-        let stackView:UIStackView = UIStackView(arrangedSubviews: [self.view1,self.view2,self.view3,self.view4])
+        let stackView:UIStackView = UIStackView(arrangedSubviews: [self.view1,self.view2,self.view3,self.view4,self.view5])
         stackView.distribution = .fillEqually
         stackView.axis = .horizontal
         return stackView
@@ -67,7 +72,10 @@ class FTTabbarView: UIView {
         let view:UIView = UIView()
         return view
     }()
-    
+    lazy var view5:UIView = {
+        let view:UIView = UIView()
+        return view
+    }()
     lazy var line:UIView = {
         let view:UIView = UIView()
         view.backgroundColor = UIColor.lightGray
@@ -114,12 +122,24 @@ class FTTabbarView: UIView {
         let btn:UIButton = UIButton(type: .custom)
         btn.setImage(#imageLiteral(resourceName: "me"), for: .normal)
         btn.setImage(#imageLiteral(resourceName: "me_1"), for: .selected)
-        btn.setTitle("你还需要", for: .normal)
+        btn.setTitle("热水器", for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.titleEdgeInsets = UIEdgeInsetsMake(0, 12, 0, 0)
         btn.setTitleColor(FTStyleConfiguration.red, for: .selected)
         btn.setTitleColor(FTStyleConfiguration.lightGray, for: .normal)
         btn.addTarget(self, action: #selector(action4), for: .touchUpInside)
+        return btn
+    }()
+    lazy var btn5:UIButton = {
+        let btn:UIButton = UIButton(type: .custom)
+        btn.setImage(#imageLiteral(resourceName: "me"), for: .normal)
+        btn.setImage(#imageLiteral(resourceName: "me_1"), for: .selected)
+        btn.setTitle("你还需要", for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        btn.titleEdgeInsets = UIEdgeInsetsMake(0, 12, 0, 0)
+        btn.setTitleColor(FTStyleConfiguration.red, for: .selected)
+        btn.setTitleColor(FTStyleConfiguration.lightGray, for: .normal)
+        btn.addTarget(self, action: #selector(action5), for: .touchUpInside)
         return btn
     }()
     required init?(coder aDecoder: NSCoder) {
@@ -131,6 +151,8 @@ class FTTabbarView: UIView {
         btn2.isSelected = false
         btn3.isSelected = false
         btn4.isSelected = false
+        btn5.isSelected = false
+
     }
     func action2()  {
         (UIApplication.shared.delegate as! AppDelegate).tabbar?.selectedIndex = 1
@@ -138,6 +160,8 @@ class FTTabbarView: UIView {
         btn2.isSelected = true
         btn3.isSelected = false
         btn4.isSelected = false
+        btn5.isSelected = false
+
     }
     func action3()  {
         (UIApplication.shared.delegate as! AppDelegate).tabbar?.selectedIndex = 2
@@ -145,6 +169,8 @@ class FTTabbarView: UIView {
         btn2.isSelected = false
         btn3.isSelected = true
         btn4.isSelected = false
+        btn5.isSelected = false
+
     }
     func action4()  {
         (UIApplication.shared.delegate as! AppDelegate).tabbar?.selectedIndex = 3
@@ -152,6 +178,17 @@ class FTTabbarView: UIView {
         btn2.isSelected = false
         btn3.isSelected = false
         btn4.isSelected = true
+        btn5.isSelected = false
+
+    }
+    func action5()  {
+        (UIApplication.shared.delegate as! AppDelegate).tabbar?.selectedIndex = 4
+        btn1.isSelected = false
+        btn2.isSelected = false
+        btn3.isSelected = false
+        btn4.isSelected = false
+        btn5.isSelected = true
+
     }
     /*
     // Only override draw() if you perform custom drawing.

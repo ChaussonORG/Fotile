@@ -50,7 +50,10 @@ extension FTProductTableView:UITableViewDelegate,UITableViewDataSource, FTProduc
             return
         }
         let indexpath = self.indexPath(for: cell)
-        self.dele?.getSection(section: (indexpath?.section)!)
+        if indexpath?.section != nil {
+            self.dele?.getSection(section: (indexpath?.section)!)
+
+        }
     }
 //    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 //        guard let cell = self.visibleCells.first else{
