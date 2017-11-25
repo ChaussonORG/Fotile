@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0614C3841FC56FC300012949 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 0614C3831FC56FC200012949 /* art.scnassets */; };
 		067369C31FB987D800408F12 /* FT3DModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067369C21FB987D800408F12 /* FT3DModuleViewModel.swift */; };
 		067369C51FB989C600408F12 /* FTSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067369C41FB989C600408F12 /* FTSelectButton.swift */; };
 		067369C71FB995F800408F12 /* FTWaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067369C61FB995F800408F12 /* FTWaterViewController.swift */; };
 		067369C91FB9967A00408F12 /* FTCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067369C81FB9967A00408F12 /* FTCityViewController.swift */; };
 		067369CB1FB996AD00408F12 /* FTFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067369CA1FB996AD00408F12 /* FTFeatureViewController.swift */; };
 		067369CD1FB99C3200408F12 /* FTResultWaterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067369CC1FB99C3200408F12 /* FTResultWaterController.swift */; };
+		067BBC9C1FBEE05D003F4049 /* 3DModule.plist in Resources */ = {isa = PBXBuildFile; fileRef = 067BBC9B1FBEE05D003F4049 /* 3DModule.plist */; };
 		06EC99991FB592F1004ED9A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EC98A21FB592F0004ED9A2 /* AppDelegate.swift */; };
 		06EC999A1FB592F1004ED9A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06EC98A31FB592F0004ED9A2 /* Assets.xcassets */; };
 		06EC999B1FB592F1004ED9A2 /* Interaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06EC98A41FB592F0004ED9A2 /* Interaction.storyboard */; };
@@ -179,6 +181,7 @@
 		06EC9A3F1FB59543004ED9A2 /* FT3DModuleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EC9A3E1FB59543004ED9A2 /* FT3DModuleController.swift */; };
 		06EC9A411FB5994D004ED9A2 /* FTGuideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EC9A401FB5994D004ED9A2 /* FTGuideController.swift */; };
 		06EC9A431FB5AC4C004ED9A2 /* FTGuideProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EC9A421FB5AC4C004ED9A2 /* FTGuideProgressView.swift */; };
+		06EFFACD1FC5E05D00F64EC4 /* FTSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EFFACC1FC5E05D00F64EC4 /* FTSceneView.swift */; };
 		68215C0A1EAEE5CE00A32759 /* FotileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68215C091EAEE5CE00A32759 /* FotileTests.swift */; };
 		68215C151EAEE5CE00A32759 /* FotileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68215C141EAEE5CE00A32759 /* FotileUITests.swift */; };
 		98A003FC1E8B58CD07524F63 /* Pods_Fotile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34024F0BA36B5529AFFC6FFA /* Pods_Fotile.framework */; };
@@ -202,12 +205,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0614C3831FC56FC200012949 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		067369C21FB987D800408F12 /* FT3DModuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FT3DModuleViewModel.swift; sourceTree = "<group>"; };
 		067369C41FB989C600408F12 /* FTSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTSelectButton.swift; sourceTree = "<group>"; };
 		067369C61FB995F800408F12 /* FTWaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTWaterViewController.swift; sourceTree = "<group>"; };
 		067369C81FB9967A00408F12 /* FTCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTCityViewController.swift; sourceTree = "<group>"; };
 		067369CA1FB996AD00408F12 /* FTFeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTFeatureViewController.swift; sourceTree = "<group>"; };
 		067369CC1FB99C3200408F12 /* FTResultWaterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTResultWaterController.swift; sourceTree = "<group>"; };
+		067BBC9B1FBEE05D003F4049 /* 3DModule.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = 3DModule.plist; sourceTree = "<group>"; };
 		06EC98A21FB592F0004ED9A2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06EC98A31FB592F0004ED9A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06EC98A51FB592F0004ED9A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interaction.storyboard; sourceTree = "<group>"; };
@@ -412,6 +417,7 @@
 		06EC9A3E1FB59543004ED9A2 /* FT3DModuleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FT3DModuleController.swift; sourceTree = "<group>"; };
 		06EC9A401FB5994D004ED9A2 /* FTGuideController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTGuideController.swift; sourceTree = "<group>"; };
 		06EC9A421FB5AC4C004ED9A2 /* FTGuideProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTGuideProgressView.swift; sourceTree = "<group>"; };
+		06EFFACC1FC5E05D00F64EC4 /* FTSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTSceneView.swift; sourceTree = "<group>"; };
 		34024F0BA36B5529AFFC6FFA /* Pods_Fotile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fotile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68215BF11EAEE5CE00A32759 /* Fotile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fotile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68215C051EAEE5CE00A32759 /* FotileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FotileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -453,6 +459,7 @@
 		06EC98A11FB592F0004ED9A2 /* Fotile */ = {
 			isa = PBXGroup;
 			children = (
+				0614C3831FC56FC200012949 /* art.scnassets */,
 				06EC98A21FB592F0004ED9A2 /* AppDelegate.swift */,
 				06EC98A31FB592F0004ED9A2 /* Assets.xcassets */,
 				06EC98A41FB592F0004ED9A2 /* Interaction.storyboard */,
@@ -472,6 +479,7 @@
 				06EC99341FB592F0004ED9A2 /* Vendors */,
 				06EC995A1FB592F0004ED9A2 /* view+ViewModel */,
 				06EC99981FB592F0004ED9A2 /* ViewController.swift */,
+				067BBC9B1FBEE05D003F4049 /* 3DModule.plist */,
 			);
 			path = Fotile;
 			sourceTree = "<group>";
@@ -592,6 +600,7 @@
 		06EC98E11FB592F0004ED9A2 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				06EFFACB1FC5E05200F64EC4 /* FTScene */,
 				06EC98E21FB592F0004ED9A2 /* Extension */,
 				06EC98EB1FB592F0004ED9A2 /* FTLayerView */,
 				06EC98ED1FB592F0004ED9A2 /* FTScreeningTableView */,
@@ -1019,6 +1028,14 @@
 			path = 3DModule;
 			sourceTree = "<group>";
 		};
+		06EFFACB1FC5E05200F64EC4 /* FTScene */ = {
+			isa = PBXGroup;
+			children = (
+				06EFFACC1FC5E05D00F64EC4 /* FTSceneView.swift */,
+			);
+			path = FTScene;
+			sourceTree = "<group>";
+		};
 		4E6DA9137C0EC422783D749A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1197,8 +1214,10 @@
 				06EC99F31FB592F1004ED9A2 /* More.storyboard in Resources */,
 				06EC99F81FB592F1004ED9A2 /* Scenery.storyboard in Resources */,
 				06EC99AF1FB592F1004ED9A2 /* ftdb.db in Resources */,
+				067BBC9C1FBEE05D003F4049 /* 3DModule.plist in Resources */,
 				06EC999D1FB592F1004ED9A2 /* Main.storyboard in Resources */,
 				06EC9A3C1FB593F3004ED9A2 /* 3dModule.storyboard in Resources */,
+				0614C3841FC56FC300012949 /* art.scnassets in Resources */,
 				06EC99F11FB592F1004ED9A2 /* Info.plist in Resources */,
 				06EC9A2E1FB592F1004ED9A2 /* FTHorProductCollectionViewCell.xib in Resources */,
 				06EC999B1FB592F1004ED9A2 /* Interaction.storyboard in Resources */,
@@ -1333,6 +1352,7 @@
 				06EC99F41FB592F1004ED9A2 /* APIInfo.swift in Sources */,
 				06EC99A41FB592F1004ED9A2 /* FTImage.m in Sources */,
 				06EC99B91FB592F1004ED9A2 /* UIBarButtonItem+Extension.swift in Sources */,
+				06EFFACD1FC5E05D00F64EC4 /* FTSceneView.swift in Sources */,
 				06EC99C41FB592F1004ED9A2 /* FTInterOptionView.swift in Sources */,
 				06EC99CC1FB592F1004ED9A2 /* ArrayExtensions.swift in Sources */,
 				06EC9A151FB592F1004ED9A2 /* FTCheckUploadModel.swift in Sources */,

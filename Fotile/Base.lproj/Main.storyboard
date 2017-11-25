@@ -66,10 +66,10 @@
         <!--3dModule-->
         <scene sceneID="hS0-MG-Fjx">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aOw-W6-ciM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="3dModule" id="kbj-kA-jzr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="LYA-zz-aGv"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aOw-W6-ciM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1633" y="236"/>
         </scene>

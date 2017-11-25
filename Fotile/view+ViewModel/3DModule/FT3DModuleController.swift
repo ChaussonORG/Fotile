@@ -18,6 +18,11 @@ class FT3DModuleController: UIViewController {
         super.viewWillDisappear(animated)
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        (UIApplication.shared.delegate as! AppDelegate).ftView?.isHidden = false
+
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

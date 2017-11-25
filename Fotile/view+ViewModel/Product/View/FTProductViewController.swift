@@ -78,11 +78,6 @@ class FTProductViewController: UIViewController {
         let view:UIView = UIView(frame: CGRect.init(x: 0, y: 50, width: 0, height: 20))
         return view
     }()
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()

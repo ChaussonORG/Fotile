@@ -10,6 +10,8 @@ import UIKit
 import CHProgressHUD
 class FTMoreViewController: UIViewController {
     var isShow:Bool = false
+    var restart:Bool = false
+
     let viewModel:FTMoreViewModel = FTMoreViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,6 +159,7 @@ class FTMoreViewController: UIViewController {
                             weakSelf.haveUpdata = false
                             weakSelf.dowloadBtn.isEnabled = false
                             weakSelf.downLoad.hide()
+                            weakSelf.restart = false
                             let api:FTUploadFinishApi = FTUploadFinishApi<FTCommenModel>()
                             api.requestJSON({ (model) in
                                 
@@ -169,6 +172,7 @@ class FTMoreViewController: UIViewController {
                         }
                         weakSelf.downLoad.againBtn.isHidden = false
                         weakSelf.downLoad.againDownloadBlock = {
+                            weakSelf.restart = true
                             weakSelf.checkAction()
                         }
                     })

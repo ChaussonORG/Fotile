@@ -100,7 +100,12 @@
     if (!isGoodConnection) {
         [db close];
     }
-    return product;
+    if (product.identifier) {
+        return product;
+    }else{
+        return nil;
+    }
+    
 }
 + (NSArray <FTProductCategory *>*)fetchAllProductCategory{
     NSMutableArray <FTProductCategory *>*list = [NSMutableArray array];
@@ -116,6 +121,14 @@
     }
     return [list copy];
  
+}
++ (NSArray <FTProduct *>*)fetchProductWithType:(int )type{
+    NSString *sql = [NSString stringWithFormat:@"select * from t_product where catalog_id = '%d'",type];
+    return [self fetchProductsWithSQL:sql];
+}
++ (FTProduct *)fetchProductWithNumber:(NSString *)number{
+    NSString *sql = [NSString stringWithFormat:@"select * from t_product where model_no like '%%%@%%'",number];
+    return [self fetchProductWithSQL:sql];
 }
 + (NSArray <FTProductCategory *>*)fetchCategoryWithModelNumber:(NSString *)number{
     NSMutableArray <FTProductCategory *>*list = [NSMutableArray array];

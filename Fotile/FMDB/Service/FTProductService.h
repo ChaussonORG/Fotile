@@ -13,7 +13,10 @@
 @interface FTProductService : NSObject
 + (FTProduct *)fetchProductWithId:(NSString *)identifier;
 + (NSArray <FTProduct *>*)fetchProductsWithRealKitchenId:(NSString *)identifier;
++ (NSArray <FTProduct *>*)fetchProductWithType:(int )type;
 + (NSArray <FTProduct *>*)fetchProductWithModelNumber:(NSString *)number;
++ (FTProduct *)fetchProductWithNumber:(NSString *)number;
+
 + (NSArray <FTProductCategory *>*)fetchCategoryWithModelNumber:(NSString *)number;
 
 + (NSArray <FTProductCategory *>*)fetchAllProductCategory;

@@ -12,6 +12,8 @@ struct FTProductDetailVM {
     var headViewModel:FTProductCellViewModel?
     var installImage:FTImage?
     var series:FTProductSeries?
+    var isFilter:Bool = false
+
     var moreModelNumber:Array<FTProduct>?
     var othersProcuts:Array<FTProduct>?
     var isShowBanner:Bool {
@@ -441,7 +443,12 @@ class FTProductDetailViewController: UIViewController {
     }()
 
     func backAction(_ sender: Any) {
-        _ = navigationController?.popToRootViewController(animated: true)
+        if viewModel.isFilter {
+            self.navigationController?.navigationBar.isHidden = false
+        }
+        (UIApplication.shared.delegate as! AppDelegate).tabbar?.tabBar.isHidden = false
+            _ = navigationController?.popToRootViewController(animated: true)
+
     }
 
     func pushMoreAction(_ sender: Any) {
@@ -457,6 +464,10 @@ class FTProductDetailViewController: UIViewController {
             let value = UIInterfaceOrientation.portrait.rawValue
             UIDevice.current.setValue(value, forKey: "orientation")
         }
+        if viewModel.isFilter {
+            self.navigationController?.navigationBar.isHidden = true
+            
+        }
     
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -464,6 +475,10 @@ class FTProductDetailViewController: UIViewController {
         let h = contentView.frame.maxY
         mainScrollView.contentSize = CGSize(width: 0, height: h)
 
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+     (UIApplication.shared.delegate as! AppDelegate).tabbar?.tabBar.isHidden = true
     }
 
 

@@ -28,7 +28,7 @@ class FTGuideProgressView: UIView {
  
     }
     func layout() {
-        let gap = 130
+        let gap = 140
         for index in 0...3 {
             let dot:RedDot = RedDot()
             dot.title.text = titles[index]
@@ -36,7 +36,7 @@ class FTGuideProgressView: UIView {
             dots.append(dot)
             dot.snp.makeConstraints { (make) in
                 make.centerY.equalTo(self.snp.centerY)
-                make.left.equalTo(20+index*gap)
+                make.left.equalTo(30+index*gap)
                 make.width.equalTo(75)
                 make.height.equalTo(75)
             }
@@ -130,7 +130,7 @@ class RedDot:UIView {
         t.textColor = UIColor.lightGray
         t.text = "户型选择"
         t.textAlignment = .center
-        t.font = UIFont.systemFont(ofSize: 14)
+        t.font = UIFont.systemFont(ofSize: 15)
         return t
     }()
     lazy var dot:UIView = {

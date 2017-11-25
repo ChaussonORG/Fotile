@@ -32,6 +32,7 @@ class FTCityViewController: UIViewController {
         }
     }
     func nextSetp(sender:UIButton){
+        waterHeater.finish()
         self.performSegue(withIdentifier: "Result", sender: self)
     }
     func didSelected(sender:UIButton) {
